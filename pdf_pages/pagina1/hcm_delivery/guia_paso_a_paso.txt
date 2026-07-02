@@ -1,0 +1,201 @@
+================================================================================
+GUIA DE IMPLEMENTACION - PORTAL DE EMPLEO CLARO / CENAM
+Oracle HCM Cloud Career Sites
+Fecha: 2 de julio 2026
+================================================================================
+
+RESUMEN DE ARCHIVOS LISTOS PARA ORACLE
+---------------------------------------
+Todos los archivos estan en:
+  d:\sigho diseño\pdf_pages\pagina1\hcm_delivery\
+
+  1. hcm_styles.css       -> CSS GLOBAL (pegar en Theme > Custom CSS)
+  2. hcm_template.html     -> HTML de la HOMEPAGE / Splash Page
+  3. hcm_cultura.html      -> HTML de la pagina "Nuestra Esencia"
+  4. hcm_beneficios.html   -> HTML de la pagina "Beneficios"
+  5. hcm_proceso.html      -> HTML de la pagina "Proceso de Seleccion"
+  6. hcm_contacto.html     -> HTML de la pagina "Contacto"
+
+TODOS los archivos HTML fueron validados: 0 etiquetas restringidas.
+El CSS fue limpiado: 0 selectores body/html, 0 @import.
+
+
+================================================================================
+PASO 1: CONFIGURAR EL CSS GLOBAL (Solo una vez)
+================================================================================
+
+1.1) Abre tu Career Site en Oracle HCM
+     Navegacion: Herramientas > Configuracion del Career Site
+
+1.2) Ve a la pestana "Theme" (Tema)
+
+1.3) Busca la seccion "Custom CSS" (CSS Personalizado)
+
+1.4) BORRA todo el CSS que tengas ahi actualmente
+
+1.5) Abre el archivo: hcm_styles.css
+     Selecciona TODO el contenido (Ctrl+A), copia (Ctrl+C)
+
+1.6) Pega (Ctrl+V) en el campo "Custom CSS" de Oracle
+
+1.7) Haz clic en "Save" (Guardar)
+
+     NOTA: Este archivo CSS contiene los estilos de TODAS las paginas
+     (Homepage, Cultura, Beneficios, Proceso y Contacto).
+     Solo necesitas pegarlo UNA VEZ.
+
+
+================================================================================
+PASO 2: CONFIGURAR LA HOMEPAGE (Splash Page)
+================================================================================
+
+2.1) En el editor, selecciona "Splash Page" en el panel izquierdo
+
+2.2) Agrega una seccion nueva:
+     - Tipo: "Custom HTML"
+
+2.3) Abre el archivo: hcm_template.html
+     Selecciona TODO el contenido (Ctrl+A), copia (Ctrl+C)
+
+2.4) Pega (Ctrl+V) en el editor de "Custom HTML"
+
+2.5) Haz clic en "Save" (Guardar)
+
+2.6) BUSCADOR NATIVO: El buscador de Oracle aparece automaticamente.
+     Para que flote sobre el Hero Banner como en el diseño:
+     - Coloca el componente de busqueda nativo JUSTO DEBAJO del bloque Custom HTML
+     - El CSS ya incluye: margin-top: -65px, z-index: 40, position: relative
+
+
+================================================================================
+PASO 3: CREAR LA PAGINA "NUESTRA ESENCIA" (Cultura)
+================================================================================
+
+3.1) En el editor, ve al menu de paginas
+
+3.2) Haz clic en "Add Custom Page" (Agregar pagina personalizada)
+
+3.3) Configuracion:
+     - Nombre: "Nuestra Esencia"
+     - Page Name Display for URL: "cultura"
+
+3.4) Agrega una seccion:
+     - Tipo: "Custom HTML"
+
+3.5) Abre el archivo: hcm_cultura.html
+     Selecciona TODO (Ctrl+A), copia (Ctrl+C)
+
+3.6) Pega en el editor de "Custom HTML"
+
+3.7) Haz clic en "Save"
+
+
+================================================================================
+PASO 4: CREAR LA PAGINA "BENEFICIOS"
+================================================================================
+
+4.1) "Add Custom Page"
+
+4.2) Configuracion:
+     - Nombre: "Beneficios"
+     - Page Name Display for URL: "beneficios"
+
+4.3) Agrega seccion "Custom HTML"
+
+4.4) Abre el archivo: hcm_beneficios.html
+     Selecciona TODO (Ctrl+A), copia (Ctrl+C)
+
+4.5) Pega en el editor
+
+4.6) "Save"
+
+
+================================================================================
+PASO 5: CREAR LA PAGINA "PROCESO DE SELECCION"
+================================================================================
+
+5.1) "Add Custom Page"
+
+5.2) Configuracion:
+     - Nombre: "Proceso de Seleccion"
+     - Page Name Display for URL: "proceso"
+
+5.3) Agrega seccion "Custom HTML"
+
+5.4) Abre el archivo: hcm_proceso.html
+     Selecciona TODO (Ctrl+A), copia (Ctrl+C)
+
+5.5) Pega en el editor
+
+5.6) "Save"
+
+
+================================================================================
+PASO 6: CREAR LA PAGINA "CONTACTO"
+================================================================================
+
+6.1) "Add Custom Page"
+
+6.2) Configuracion:
+     - Nombre: "Contacto"
+     - Page Name Display for URL: "contacto"
+
+6.3) Agrega seccion "Custom HTML"
+
+6.4) Abre el archivo: hcm_contacto.html
+     Selecciona TODO (Ctrl+A), copia (Ctrl+C)
+
+6.5) Pega en el editor
+
+6.6) "Save"
+
+
+================================================================================
+PASO 7: VINCULAR LAS PAGINAS EN EL MENU DE NAVEGACION
+================================================================================
+
+7.1) Ve a la configuracion del Header del Career Site
+
+7.2) En "Navigation Links" (Enlaces de navegacion), agrega:
+     - Inicio        -> Splash Page (pagina principal)
+     - Vacantes      -> Search Results Page (#/jobs)
+     - Nuestra Esencia -> Custom Page "cultura"
+     - Beneficios    -> Custom Page "beneficios"
+     - Proceso       -> Custom Page "proceso"
+     - Contacto      -> Custom Page "contacto"
+
+7.3) "Save" y "Preview" para verificar
+
+
+================================================================================
+PASO 8: PUBLICAR EL SITIO
+================================================================================
+
+8.1) Revisa cada pagina en el Preview
+
+8.2) Si todo se ve correcto, haz clic en "Publish" (Publicar)
+
+8.3) El sitio estara disponible en la URL publica de tu Career Site
+
+
+================================================================================
+NOTAS IMPORTANTES
+================================================================================
+
+* Si Oracle te da el error "codigo personalizado incluye elementos
+  restringidos", verifica que NO hayas modificado los archivos HTML
+  despues de copiarlos. Los archivos fueron validados automaticamente
+  y no contienen ninguna etiqueta bloqueada.
+
+* Si necesitas editar el HTML despues, NUNCA uses estas etiquetas:
+  <html>, <head>, <body>, <style>, <script>, <form>
+  Tampoco uses el atributo style="..." ni enlaces que terminen en .html
+
+* Las fuentes de Google y Tailwind CSS se cargan automaticamente
+  mediante etiquetas <link> al inicio de cada bloque HTML.
+
+* El CSS es GLOBAL: un solo archivo para todas las paginas.
+  Si cambias colores o fuentes, solo editas hcm_styles.css
+  y lo vuelves a pegar en Theme > Custom CSS.
+
+* Repositorio de respaldo: https://github.com/galz35/hcm_sigho.git
