@@ -1,0 +1,60 @@
+================================================================================
+   DOCUMENTACIÓN DEL PROYECTO: PORTAL DE EMPLEO CLARO
+   ARCHIVADOR DE APRENDIZAJE - PARTE 5: GUÍA DE APRENDIZAJE Y PASOS SIGUIENTES
+================================================================================
+   Ubicación: d:\sigho diseño\documentacion_proyecto\05_guia_de_aprendizaje_y_pasos_siguientes.txt
+   Autor: Antigravity pair programming assistant
+================================================================================
+
+Este archivo final te brinda una guía de estudio práctica y define los pasos que
+debes seguir para completar la integración de este portal de empleo.
+
+1. RUTA DE ESTUDIO RECOMENDADA (Para aprender a la perfección)
+
+*   Paso 1: Abre [code.html](file:///d:/sigho%20dise%C3%B1o/pdf_pages/pagina1/code.html) directamente en tu navegador web.
+    Usa el inspector de elementos (F12) para analizar cómo se estructuran las 
+    secciones y cómo responden a cambios de tamaño de pantalla.
+*   Paso 2: Compara la página renderizada con la imagen [page_1.png](file:///d:/sigho%20dise%C3%B1o/pdf_pages/pagina1/page_1.png).
+    Observa cómo el Popover de Login está posicionado milimétricamente debajo del 
+    avatar de usuario y cómo tiene el triángulo de flecha hacia arriba.
+*   Paso 3: Abre [registro.html](file:///d:/sigho%20dise%C3%B1o/registro.html) en tu navegador local.
+    Interactúa con las pestañas del formulario y observa cómo avanza la barra de 
+    progreso sin necesidad de recargar la página o usar código JavaScript.
+*   Paso 4: Analiza el código de los logotipos SVG en el Header y Footer.
+    Intenta modificar los parámetros `fill` o los degradados en tu editor para ver
+    cómo se redibujan de forma inmediata.
+
+---
+
+2. PASOS SIGUIENTES PARA LA IMPLEMENTACIÓN REAL EN ORACLE CLOUD (STAGING)
+
+Cuando decidas subir este diseño a tu portal de empleo de Oracle Cloud Recruiting,
+sigue este flujo de trabajo:
+
+*   [ ] Paso 2.1: Sube todos los assets multimedia
+    Revisa las imágenes de Unsplash y otros iconos locales que se utilizan en tu
+    código HTML. Súbelos a la **Biblioteca de Activos** (Asset Library) de Oracle
+    y reemplaza las URLs de tu código por las URLs HTTPS públicas que te provea Oracle.
+    
+*   [ ] Paso 2.2: Configura el Tema y las fuentes globales
+    En el Career Site Builder de Oracle, ve a la pestaña de **Tema** (Theme).
+    Configura el color principal a `#da291c`, la tipografía de títulos a Montserrat
+    y pega las reglas de tu hoja de estilos personalizada (como `.hero-bg`) dentro 
+    de la sección **Custom CSS**.
+
+*   [ ] Paso 2.3: Crea la estructura de la página
+    En el editor de la Splash Page, crea las secciones correspondientes y arrastra
+    un elemento de **Search Box** nativo. Configura su aspecto mediante el Custom CSS
+    para que tome la forma de píldora redondeada.
+
+*   [ ] Paso 2.4: Inserta los Widgets de Custom HTML
+    Crea bloques de tipo **Custom HTML** en las columnas correspondientes y pega 
+    los bloques de código limpio extraídos de tus archivos locales (ej. las tarjetas
+    de beneficios o la línea del proceso).
+
+*   [ ] Paso 2.5: Publica y Realiza pruebas
+    Publica la versión en tu ambiente de pruebas (Staging) y realiza pruebas visuales
+    en diferentes dispositivos (móviles y desktop) para validar la responsividad y
+    fidelidad visual antes de promover los cambios a Producción.
+
+================================================================================

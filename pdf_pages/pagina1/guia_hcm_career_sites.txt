@@ -1,0 +1,72 @@
+================================================================================
+GUÍA DE INTEGRACIÓN DE DISEÑO EN ORACLE RECRUITING CLOUD (ORC) - FIDELIDAD 100%
+Claro Careers Landing Page - Guía de Implementación Directa (Sin Restricciones)
+================================================================================
+
+Este manual técnico explica paso a paso cómo lograr una visualización 100% IDÉNTICA
+del diseño aprobado en 'code.html' dentro del Career Site Editor de Oracle Recruiting
+Cloud (ORC) sorteando las restricciones de seguridad de Oracle.
+
+Contenido del Paquete de Entrega ('hcm_delivery'):
+  1. test_hcm.html     -> Réplica 100% idéntica de 'code.html' en la carpeta local.
+  2. hcm_template.html -> Código HTML limpio y completo listo para copiar a Oracle (Sin scripts/style/body).
+  3. hcm_styles.css    -> Clases personalizadas adicionales y Tailwind CSS v2 via @import.
+  4. guia_integracion_hcm.txt -> Esta guía de ayuda.
+
+--------------------------------------------------------------------------------
+1. ACCESO AL CONFIGURADOR DE SITIOS EN ORACLE HCM
+--------------------------------------------------------------------------------
+  1. Inicia sesión en Oracle Cloud HCM en tu entorno de desarrollo o pruebas (Stage).
+  2. Navega a: Setup and Maintenance (Configuración y Mantenimiento).
+  3. Abre la funcionalidad de: Recruiting (Selección).
+  4. Selecciona la tarea: Career Sites (Sitios de Carrera).
+  5. En la lista, edita tu sitio de Claro (Career Site Design Editor).
+
+--------------------------------------------------------------------------------
+2. PASO 1: CARGA DEL CSS Y TAILWIND EN EL TEMA GLOBAL (THEME TAB)
+--------------------------------------------------------------------------------
+  1. En el panel izquierdo del editor, haz clic en la pestaña "Theme" (Tema).
+  2. Desplázate hacia abajo hasta la caja de texto "Custom CSS" (CSS Personalizado).
+  3. Abre el archivo 'hcm_styles.css' de este paquete, copia TODO su contenido y
+     pégalo en esta caja.
+  4. Guarda los cambios haciendo clic en "Save" (Guardar) arriba.
+  
+  *¿Qué hace este CSS?*
+  - Importa el motor de Tailwind CSS de manera global utilizando '@import'.
+  - Define las clases de color corporativas de Claro y efectos dinámicos.
+  - Oculta el botón nativo "Soy empleado" utilizando selectores del sistema.
+  - Reestiliza el menú de navegación nativo y el botón de inicio de sesión de Claro
+    para que se parezcan a nuestro diseño, asegurando que no haya doble cabecera.
+
+--------------------------------------------------------------------------------
+3. PASO 2: INSERCIÓN DEL CÓDIGO HTML (CUSTOM HTML ELEMENT)
+--------------------------------------------------------------------------------
+  1. En el menú de páginas del editor, selecciona tu Landing Page principal (Home).
+  2. Añade una sección de fila de una única columna a ancho completo.
+  3. En la barra de componentes (Elements), arrastra y suelta el elemento de tipo
+     "HTML" (Custom HTML block) en la fila.
+  4. Haz clic en editar (icono de lápiz) sobre el bloque HTML.
+  5. Abre el archivo 'hcm_template.html', copia TODO su contenido y pégalo en el editor HTML.
+  6. Haz clic en "Done" (Listo) y luego en "Save" (Guardar) en la barra superior.
+  
+  *Nota de Seguridad:* Este HTML no contiene etiquetas <script> ni <style>. Todo el estilo
+  se hereda del CSS global cargado en el Paso 1, por lo que Oracle no arrojará errores de
+  bloqueo de código.
+
+--------------------------------------------------------------------------------
+4. GESTIÓN Y ALOJAMIENTO DE IMÁGENES (CRÍTICO)
+--------------------------------------------------------------------------------
+  - Sube las imágenes y logotipos de Claro a un servidor seguro HTTPS (como un CDN corporativo).
+  - Reemplaza en el HTML (Custom HTML block) las URLs temporales de Unsplash
+    por las rutas reales de tus servidores.
+    Ejemplo:
+    De:  src="https://images.unsplash.com/photo-1522071820081-..."
+    A:   src="https://tuservidor.claro.com/hcm/assets/growth_team.jpg"
+
+--------------------------------------------------------------------------------
+5. CONFIGURACIÓN DE NAVEGACIÓN Y PERFIL NATIVOS
+--------------------------------------------------------------------------------
+  - El logotipo y los enlaces del menú superior se configuran de forma nativa desde
+    la interfaz del sitio de carrera en Oracle. El CSS provisto en el Paso 1 se encargará
+    de darles el color, fuente y espaciados correctos automáticamente.
+================================================================================

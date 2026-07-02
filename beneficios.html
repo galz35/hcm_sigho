@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claro Empleo - Beneficios</title>
+    <style>
+        
+/* ==========================================================================
+   PORTAL DE EMPLEO CLARO - ESTILOS GLOBALES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+    --claro-rojo: #DA291C;
+    --claro-rojo-hover: #b81e13;
+    --claro-negro: #1C1C1C;
+    --claro-gris-fondo: #F4F6F9;
+    --claro-gris-borde: #E0E4E8;
+    --claro-gris-texto: #6B7280;
+    --claro-gris-oscuro: #374151;
+    --claro-blanco: #FFFFFF;
+    
+    --fuente-titulo: 'Montserrat', sans-serif;
+    --fuente-texto: 'Open Sans', sans-serif;
+    
+    --borde-radio-pill: 50px;
+    --borde-radio-card: 16px;
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--claro-negro);
+    background-color: var(--claro-blanco);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--claro-rojo);
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+a:hover {
+    color: var(--claro-rojo-hover);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--claro-rojo) !important;
+    color: var(--claro-blanco) !important;
+    border: none !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 12px 30px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: var(--transicion) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--claro-rojo-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(218, 41, 28, 0.3) !important;
+}
+
+.btn-secondary {
+    background-color: transparent !important;
+    color: var(--claro-negro) !important;
+    border: 2px solid var(--claro-negro) !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 10px 28px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: var(--transicion) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--claro-negro) !important;
+    color: var(--claro-blanco) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Header */
+.claro-header {
+    background-color: var(--claro-blanco);
+    border-bottom: 1px solid var(--claro-gris-borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.claro-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.claro-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.claro-nav a {
+    color: var(--claro-gris-oscuro) !important;
+    font-family: var(--fuente-titulo);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 0;
+    position: relative;
+}
+
+.claro-nav a:hover {
+    color: var(--claro-negro) !important;
+}
+
+.claro-nav a.active {
+    color: var(--claro-rojo) !important;
+}
+
+.claro-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--claro-rojo);
+    border-radius: 2px;
+}
+
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--claro-rojo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--claro-blanco);
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transicion);
+}
+
+.profile-button:hover {
+    background-color: var(--claro-rojo-hover);
+    transform: scale(1.05);
+}
+
+.profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer */
+.claro-footer {
+    background-color: var(--claro-negro);
+    color: var(--claro-blanco);
+    padding: 40px 24px 20px;
+}
+
+.claro-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.claro-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.claro-footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+.claro-footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--claro-blanco) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transicion);
+}
+
+.claro-footer-social a:hover {
+    background-color: var(--claro-rojo);
+    transform: translateY(-2px);
+}
+
+.claro-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.claro-footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.claro-footer-links a {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.claro-footer-links a:hover {
+    color: var(--claro-blanco) !important;
+}
+
+/* Accesibilidad y Chat */
+.accessibility-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #0077C8;
+    color: var(--claro-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 99;
+    font-size: 1.3rem;
+}
+
+.chat-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #FBBF24;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 99;
+    font-size: 1.3rem;
+    transition: var(--transicion);
+}
+
+.chat-btn:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+/* Responsive general */
+@media (max-width: 768px) {
+    .claro-header-inner { padding: 12px 16px; }
+    .claro-nav { display: none; } /* En una app real se añadiría menú hamburguesa */
+    .claro-footer-top, .claro-footer-bottom { flex-direction: column; text-align: center; }
+    .claro-footer-links { justify-content: center; }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="claro-header">
+        <div class="claro-header-inner">
+            <div class="claro-logo">
+                <a href="index.html">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" width="130" height="40">
+    <circle cx="20" cy="20" r="16" fill="#DA291C" />
+    <!-- Brillo característico del sol de Claro -->
+    <path d="M12 12 C 16 8, 24 8, 28 12 C 24 10, 16 10, 12 12 Z" fill="#FFFFFF" opacity="0.4" />
+    <circle cx="20" cy="20" r="13" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3" />
+    <text x="44" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="25" fill="#DA291C" letter-spacing="-0.5">claro</text>
+</svg>
+</a>
+            </div>
+            <nav class="claro-nav">
+                <a href="index.html" >Inicio</a>
+                <a href="busqueda.html" >Vacantes</a>
+                <a href="cultura.html" class="active">Nuestra Esencia</a>
+                <a href="pais.html" >Claro en tu País</a>
+                <a href="apoyo.html" >Apoyo al Candidato</a>
+            </nav>
+            <a href="registro.html" class="profile-button" title="Ingresar"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></a>
+        </div>
+    </header>
+
+    <!-- Contenido -->
+    <main>
+        
+<style>
+.benefits-hero {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    padding: 80px 24px;
+    color: var(--claro-blanco);
+    text-align: center;
+}
+.benefits-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+.benefits-hero p {
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Tarjetas de Beneficios */
+.benefits-section {
+    padding: 80px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+.benefit-card {
+    background-color: var(--claro-blanco);
+    border: 1px solid var(--claro-gris-borde);
+    border-radius: var(--borde-radio-card);
+    padding: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: var(--transicion);
+}
+.benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border-color: var(--claro-rojo);
+}
+.benefit-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: rgba(218, 41, 28, 0.08);
+    color: var(--claro-rojo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+.benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+.benefit-card p {
+    font-size: 0.9rem;
+    color: var(--claro-gris-oscuro);
+    line-height: 1.6;
+}
+
+/* Tabla comparativa */
+.comparison-section {
+    background-color: var(--claro-gris-fondo);
+    padding: 80px 24px;
+}
+.comparison-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--claro-blanco);
+    border-radius: var(--borde-radio-card);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.comparison-table th {
+    background-color: var(--claro-negro);
+    color: var(--claro-blanco);
+    padding: 18px 24px;
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+.comparison-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--claro-gris-borde);
+    font-size: 0.95rem;
+}
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+.comparison-table td:nth-child(2) {
+    color: var(--claro-gris-texto);
+}
+.comparison-table td:nth-child(3) {
+    font-weight: 600;
+    color: var(--claro-rojo);
+}
+
+@media (max-width: 768px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+    .comparison-table th, .comparison-table td { padding: 12px 16px; font-size: 0.85rem; }
+}
+</style>
+
+<section class="benefits-hero">
+    <h1>Nuestros Beneficios</h1>
+    <p>Conoce las prestaciones y ventajas de formar parte del equipo de Claro en la región.</p>
+</section>
+
+<section class="benefits-section">
+    <div class="section-header" style="text-align:center;">
+        <h2>Prestaciones que marcan la diferencia</h2>
+        <p style="color:var(--claro-gris-texto); font-size:1.1rem; max-width:600px; margin:12px auto 0;">En Claro nos importa el bienestar físico, profesional, social y financiero de toda nuestra comunidad.</p>
+    </div>
+
+    <div class="benefits-grid">
+        <!-- Beneficio 1 -->
+        <div class="benefit-card">
+            <div class="benefit-icon-box">🩺</div>
+            <div>
+                <h3>Seguro de Gastos Médicos</h3>
+                <p>Cobertura médica extendida para ti y tus dependientes directos, garantizando atención médica privada de primer nivel.</p>
+            </div>
+        </div>
+        <!-- Beneficio 2 -->
+        <div class="benefit-card">
+            <div class="benefit-icon-box">💰</div>
+            <div>
+                <h3>Fondo de Ahorro Colectivo</h3>
+                <p>Plan de ahorro respaldado con aportación patronal directa para asegurar la estabilidad financiera de tus proyectos futuros.</p>
+            </div>
+        </div>
+        <!-- Beneficio 3 -->
+        <div class="benefit-card">
+            <div class="benefit-icon-box">🎓</div>
+            <div>
+                <h3>Capacitación Continua</h3>
+                <p>Acceso ilimitado a nuestra plataforma de e-learning corporativa y apoyos financieros para certificaciones técnicas de IT.</p>
+            </div>
+        </div>
+        <!-- Beneficio 4 -->
+        <div class="benefit-card">
+            <div class="benefit-icon-box">⚖️</div>
+            <div>
+                <h3>Balance de Vida</h3>
+                <p>Esquemas de trabajo híbridos en las posiciones aplicables, días libres por hitos personales y horario flexible de salida.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tabla comparativa -->
+<section class="comparison-section">
+    <div class="comparison-inner">
+        <h2 style="text-align:center; font-size:2rem; margin-bottom:40px;">¿Qué nos hace diferentes?</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Prestación</th>
+                    <th>Mínimo por Ley</th>
+                    <th>Beneficio Claro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Vacaciones Anuales</td>
+                    <td>Estándar local de ley</td>
+                    <td>Días adicionales de descanso desde el primer año</td>
+                </tr>
+                <tr>
+                    <td>Seguros de Vida y Gastos Médicos</td>
+                    <td>No requerido</td>
+                    <td>Cubiertos al 100% por la empresa</td>
+                </tr>
+                <tr>
+                    <td>Capacitación Técnica</td>
+                    <td>Básica de inducción</td>
+                    <td>Programas de formación externa y certificaciones IT</td>
+                </tr>
+                <tr>
+                    <td>Compensación Flexible</td>
+                    <td>Sueldo base</td>
+                    <td>Bonos de desempeño y vales adicionales de despensa</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="claro-footer">
+        <div class="claro-footer-inner">
+            <div class="claro-footer-top">
+                <div class="claro-footer-logo">
+                    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 40" width="250" height="40">
+    <!-- Sol de Claro -->
+    <circle cx="20" cy="20" r="16" fill="#DA291C" />
+    <path d="M12 12 C 16 8, 24 8, 28 12 C 24 10, 16 10, 12 12 Z" fill="#FFFFFF" opacity="0.4" />
+    <text x="44" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="25" fill="#FFFFFF" letter-spacing="-0.5">claro</text>
+    <!-- Separador -->
+    <line x1="118" y1="8" x2="118" y2="32" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" />
+    <!-- América Móvil -->
+    <text x="132" y="20" font-family="'Montserrat', sans-serif" font-weight="300" font-size="10" fill="#FFFFFF" letter-spacing="1">AMÉRICA</text>
+    <text x="132" y="32" font-family="'Montserrat', sans-serif" font-weight="700" font-size="12" fill="#FFFFFF" letter-spacing="0.5">MÓVIL</text>
+</svg>
+
+                </div>
+                <div class="claro-footer-social">
+                    <a href="#">F</a>
+                    <a href="#">X</a>
+                    <a href="#">I</a>
+                    <a href="#">W</a>
+                </div>
+            </div>
+            <div class="claro-footer-bottom">
+                <p>Todos los derechos reservados, Claro 2026</p>
+                <div class="claro-footer-links">
+                    <a href="#">Mapa de sitio</a>
+                    <a href="#">Portal de denuncias</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Legal y Regulatorio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Accesibilidad y Chat -->
+    <div class="accessibility-btn" title="Accesibilidad">♿</div>
+    <div class="chat-btn" title="Chatear con nosotros">💬</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+================================================================================
+   DOCUMENTACIÓN DEL PROYECTO: PORTAL DE EMPLEO CLARO
+   ARCHIVADOR DE APRENDIZAJE - PARTE 4: TECNOLOGÍAS Y CONCEPTOS CLAVE
+================================================================================
+   Ubicación: d:\sigho diseño\documentacion_proyecto\04_tecnologias_y_conceptos_clave.txt
+   Autor: Antigravity pair programming assistant
+================================================================================
+
+Este archivo documenta los conceptos técnicos y decisiones de arquitectura
+utilizados en el código para que puedas comprender el "cómo" y el "por qué" de las
+soluciones aplicadas.
+
+1. TAILWIND CSS VÍA CDN (Framework de Estilos Utility-First)
+El proyecto utiliza Tailwind CSS para dar estilo de manera ágil y responsiva.
+*   Inicialización: Se integra mediante el script oficial de CDN en el `<head>`:
+    `<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>`
+*   Configuración (Tailwind Config): Se extiende el objeto de configuración en
+    tiempo de ejecución para añadir los colores de la paleta oficial de Claro
+    (`claro-red`, `claro-dark`, etc.) y las fuentes tipográficas `sans` y `title`.
+*   Diseño Responsivo: Se utiliza el prefijo `md:` (ejemplo: `md:flex`, `hidden md:block`)
+    para condicionar clases a pantallas de computadoras y mantener la compatibilidad
+    móvil de forma nativa.
+
+2. LOGOS E ICONOS VECTORIALES (SVG)
+Para evitar la pixelación y depender de servidores de imágenes externos lentos, los
+logos y todos los iconos son elementos SVG nativos.
+*   Ventajas: Menor tiempo de carga, nitidez de pantalla retina al 100%, cambio de
+    color dinámico con CSS (usando clases de Tailwind como `fill-current` o `text-white`),
+    y control de dimensiones exactas.
+*   Implementación del Logo: Dibujado en código con un degradado radial 
+    (sol de Claro) y texto en tipografía sans-serif de trazo grueso.
+
+3. INTERACTIVIDAD AVANZADA CON CSS PURO (Sin JavaScript)
+El editor visual Oracle Career Site Builder limita el uso de JavaScript para no
+interferir con su lógica interna. Para resolver esto y tener un portal interactivo,
+utilizamos técnicas avanzadas de CSS puro:
+
+*   El Checkbox Hack (Popover del Header en `index.html` y Menú de Registro en `registro.html`):
+    - Concepto: Usar un input invisible de tipo checkbox (`<input type="checkbox" id="profile-toggle" class="peer hidden" />`)
+      junto con una etiqueta (`<label for="profile-toggle">`) que actúa como el botón.
+    - Comportamiento: Cuando el usuario hace clic en el label, el navegador marca
+      o desmarca el checkbox.
+    - Selector CSS (Siguiente hermano `peer-checked`): Mediante clases de Tailwind
+      como `peer-checked:scale-100 peer-checked:opacity-100`, logramos ocultar
+      o mostrar el Popover de inicio de sesión con transiciones fluidas de opacidad
+      y escala de forma puramente declarativa en CSS.
+
+*   El truco del ancla CSS `:target` (Detalles de Vacante en `busqueda.html`):
+    - Concepto: Permite aplicar estilos a un elemento cuyo ID coincide con el hash
+      de la URL actual (ejemplo: `http://localhost/#modal-detalle`).
+    - Comportamiento: Al hacer clic en un enlace que apunte al ID de un modal,
+      este pasa a tener el estado `:target`. En el CSS, configuramos que cuando el
+      modal está en estado `:target`, su propiedad display pase de `none` a `flex`,
+      mostrando el modal sobrepuesto. Al hacer clic en un botón de "Cerrar" que apunta
+      a `#` (vacío), el hash cambia, el elemento pierde el estado `:target` y el
+      modal se oculta automáticamente de forma nativa y sin JS.
+
+*   Progress Timeline (Línea de Proceso en `index.html`):
+    - Se logra mediante posicionamiento absoluto (`position: absolute;`) y un borde
+      superior discontinuo (`border-top: 2px dashed #999;`). Se asienta detrás de los
+      iconos en desktop y se oculta en móviles (`hidden md:block`) para evitar desbordamientos.
+
+================================================================================

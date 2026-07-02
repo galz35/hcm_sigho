@@ -1,0 +1,15 @@
+# Backup files
+*.bak
+*.tmp
+*_backup/
+
+# Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

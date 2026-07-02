@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENAM Empleo - Detalle de Vacante</title>
+    <style>
+        /* ==========================================================================
+   PORTAL DE EMPLEO CENAM - ESTILOS GLOBALES
+   Oracle HCM Cloud Career Site
+   ========================================================================== */
+
+/* --- IMPORTAR FUENTES DE GOOGLE --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+/* --- VARIABLES DE DISEÑO (cambiar segun colores del PDF) --- */
+:root {
+    /* Colores principales */
+    --cenam-azul-oscuro: #0A1F3F;
+    --cenam-azul-medio: #1B4F8A;
+    --cenam-azul-claro: #2E7DD6;
+    --cenam-azul-brillante: #3B9AE8;
+    
+    /* Colores de acento */
+    --cenam-naranja: #E87722;
+    --cenam-naranja-hover: #D06A1F;
+    --cenam-dorado: #D4A847;
+    --cenam-verde: #27AE60;
+    
+    /* Colores neutros */
+    --cenam-blanco: #FFFFFF;
+    --cenam-gris-claro: #F4F6F9;
+    --cenam-gris-medio: #E0E4E8;
+    --cenam-gris-texto: #6B7280;
+    --cenam-gris-oscuro: #374151;
+    --cenam-negro: #1F2937;
+    
+    /* Tipografia */
+    --fuente-titulo: 'Montserrat', sans-serif;
+    --fuente-texto: 'Open Sans', sans-serif;
+    
+    /* Sombras */
+    --sombra-suave: 0 2px 8px rgba(0,0,0,0.08);
+    --sombra-media: 0 4px 16px rgba(0,0,0,0.12);
+    --sombra-fuerte: 0 8px 32px rgba(0,0,0,0.18);
+    --sombra-hover: 0 12px 40px rgba(0,0,0,0.22);
+    
+    /* Bordes */
+    --borde-radio-sm: 6px;
+    --borde-radio-md: 12px;
+    --borde-radio-lg: 20px;
+    --borde-radio-pill: 50px;
+    
+    /* Transiciones */
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transicion-rapida: all 0.15s ease;
+}
+
+/* --- RESET Y BASE --- */
+body {
+    font-family: var(--fuente-texto) !important;
+    color: var(--cenam-negro) !important;
+    line-height: 1.6 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- TIPOGRAFIA GLOBAL --- */
+h1, h2, h3, h4, h5, h6,
+.headline, .section-title {
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: var(--cenam-azul-oscuro) !important;
+}
+
+h1 { font-size: 2.8rem !important; }
+h2 { font-size: 2.2rem !important; }
+h3 { font-size: 1.8rem !important; }
+h4 { font-size: 1.4rem !important; }
+
+p, .paragraph, .body-text {
+    font-family: var(--fuente-texto) !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    color: var(--cenam-gris-oscuro) !important;
+}
+
+/* --- ENLACES --- */
+a {
+    color: var(--cenam-azul-claro) !important;
+    text-decoration: none !important;
+    transition: var(--transicion) !important;
+}
+
+a:hover {
+    color: var(--cenam-azul-medio) !important;
+    text-decoration: underline !important;
+}
+
+/* --- BOTONES PRIMARIOS (Aplicar, Buscar, CTAs) --- */
+.btn-primary,
+button[type="submit"],
+.apply-button,
+.cta-button {
+    background: linear-gradient(135deg, var(--cenam-naranja), var(--cenam-naranja-hover)) !important;
+    color: var(--cenam-blanco) !important;
+    border: none !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 14px 36px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    transition: var(--transicion) !important;
+    box-shadow: 0 4px 15px rgba(232, 119, 34, 0.35) !important;
+}
+
+.btn-primary:hover,
+button[type="submit"]:hover,
+.apply-button:hover,
+.cta-button:hover {
+    background: linear-gradient(135deg, var(--cenam-naranja-hover), #B85A18) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(232, 119, 34, 0.5) !important;
+}
+
+.btn-primary:active,
+button[type="submit"]:active {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(232, 119, 34, 0.4) !important;
+}
+
+/* --- BOTONES SECUNDARIOS --- */
+.btn-secondary {
+    background: transparent !important;
+    color: var(--cenam-azul-claro) !important;
+    border: 2px solid var(--cenam-azul-claro) !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 12px 32px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: var(--transicion) !important;
+}
+
+.btn-secondary:hover {
+    background: var(--cenam-azul-claro) !important;
+    color: var(--cenam-blanco) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(46, 125, 214, 0.3) !important;
+}
+
+/* --- BARRA DE BUSQUEDA (Search Box nativo) --- */
+.search-container input[type="text"],
+.search-container input[type="search"],
+.job-search-input,
+input.search-input {
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 16px 28px !important;
+    font-size: 1rem !important;
+    font-family: var(--fuente-texto) !important;
+    border: 2px solid var(--cenam-gris-medio) !important;
+    background: var(--cenam-blanco) !important;
+    box-shadow: var(--sombra-suave) !important;
+    transition: var(--transicion) !important;
+    width: 100% !important;
+    max-width: 600px !important;
+}
+
+.search-container input:focus,
+.job-search-input:focus,
+input.search-input:focus {
+    border-color: var(--cenam-azul-claro) !important;
+    box-shadow: 0 0 0 4px rgba(46, 125, 214, 0.15) !important;
+    outline: none !important;
+}
+
+/* --- TARJETAS DE VACANTES (Job Cards) --- */
+.job-card,
+.job-list-item,
+.requisition-card {
+    background: var(--cenam-blanco) !important;
+    border-radius: var(--borde-radio-md) !important;
+    border: 1px solid var(--cenam-gris-medio) !important;
+    padding: 24px !important;
+    margin-bottom: 16px !important;
+    transition: var(--transicion) !important;
+    box-shadow: var(--sombra-suave) !important;
+}
+
+.job-card:hover,
+.job-list-item:hover,
+.requisition-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--sombra-hover) !important;
+    border-color: var(--cenam-azul-claro) !important;
+}
+
+.job-card .job-title,
+.job-list-item .job-title {
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 600 !important;
+    font-size: 1.15rem !important;
+    color: var(--cenam-azul-oscuro) !important;
+    margin-bottom: 8px !important;
+}
+
+.job-card .job-title:hover {
+    color: var(--cenam-azul-claro) !important;
+}
+
+.job-card .job-location,
+.job-card .job-category {
+    font-size: 0.9rem !important;
+    color: var(--cenam-gris-texto) !important;
+}
+
+/* --- CATEGORY TILES (Mosaicos de categorias) --- */
+.category-tile {
+    border-radius: var(--borde-radio-md) !important;
+    overflow: hidden !important;
+    transition: var(--transicion) !important;
+    box-shadow: var(--sombra-media) !important;
+}
+
+.category-tile:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: var(--sombra-hover) !important;
+}
+
+.category-tile .category-title {
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 600 !important;
+}
+
+/* --- FILTROS LATERALES (Search Results) --- */
+.filter-section,
+.search-filters {
+    background: var(--cenam-blanco) !important;
+    border-radius: var(--borde-radio-md) !important;
+    padding: 20px !important;
+    box-shadow: var(--sombra-suave) !important;
+}
+
+.filter-section label,
+.filter-label {
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: var(--cenam-azul-oscuro) !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.6rem !important; }
+    h3 { font-size: 1.3rem !important; }
+    
+    .btn-primary,
+    button[type="submit"] {
+        padding: 12px 24px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.6rem !important; }
+    h2 { font-size: 1.3rem !important; }
+}
+
+/* --- ANIMACIONES SUTILES --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* --- OCULTAR HEADER NATIVO DE ORACLE (si usas Custom Header) --- */
+/* NOTA: Descomenta la siguiente linea SOLO si quieres ocultar
+   el header por defecto de Oracle. Busca la clase real con F12. */
+/* .default-header, .template-header { display: none !important; } */
+
+/* --- SCROLLBAR PERSONALIZADA --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cenam-gris-claro);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cenam-azul-medio);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cenam-azul-oscuro);
+}
+
+/* --- SELECCION DE TEXTO --- */
+::selection {
+    background: var(--cenam-azul-claro);
+    color: var(--cenam-blanco);
+}
+        
+        
+        /* Ajustes adicionales para demo local */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <style>
+/* === ESTILOS DEL HEADER PERSONALIZADO === */
+.cenam-header {
+    background: linear-gradient(135deg, #0A1F3F 0%, #1B4F8A 100%);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1000;
+}
+
+.cenam-header-top {
+    background: rgba(0,0,0,0.2);
+    padding: 6px 0;
+    font-size: 0.8rem;
+}
+
+.cenam-header-top-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cenam-header-top a {
+    color: rgba(255,255,255,0.7) !important;
+    text-decoration: none !important;
+    margin-left: 20px;
+    font-size: 0.78rem;
+    transition: color 0.3s;
+}
+
+.cenam-header-top a:hover {
+    color: #FFFFFF !important;
+}
+
+.cenam-header-top-contact {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.78rem;
+}
+
+.cenam-header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cenam-logo img {
+    height: 45px;
+    width: auto;
+    transition: opacity 0.3s;
+}
+
+.cenam-logo img:hover {
+    opacity: 0.85;
+}
+
+.cenam-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cenam-nav a {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    padding: 8px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cenam-nav a:hover {
+    background: rgba(255,255,255,0.12);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+.cenam-nav a.active {
+    background: rgba(255,255,255,0.15);
+}
+
+.cenam-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #E87722;
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+
+.cenam-nav a:hover::after {
+    width: 60%;
+}
+
+.cenam-nav-cta {
+    background: linear-gradient(135deg, #E87722, #D06A1F) !important;
+    border-radius: 50px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 3px 12px rgba(232,119,34,0.35);
+}
+
+.cenam-nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232,119,34,0.5) !important;
+}
+
+.cenam-nav-cta::after {
+    display: none !important;
+}
+
+/* RESPONSIVE HEADER */
+.cenam-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.cenam-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #FFFFFF;
+    margin: 5px 0;
+    transition: all 0.3s;
+    border-radius: 1px;
+}
+
+@media (max-width: 768px) {
+    .cenam-header-top {
+        display: none;
+    }
+    
+    .cenam-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0A1F3F;
+        flex-direction: column;
+        padding: 16px;
+        gap: 4px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    
+    .cenam-nav.active {
+        display: flex;
+    }
+    
+    .cenam-nav a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 18px;
+    }
+    
+    .cenam-mobile-toggle {
+        display: block;
+    }
+}
+</style>
+
+<div class="cenam-header">
+    <!-- Barra superior con contacto -->
+    <div class="cenam-header-top">
+        <div class="cenam-header-top-inner">
+            <div class="cenam-header-top-contact">
+                <span>&#128222; (442) 211-05-00 ext. 3143</span>
+                <span>&#9993; recluta@cenam.mx</span>
+            </div>
+            <div>
+                <a href="https://www.cenam.mx" target="_blank">Sitio Institucional</a>
+                <a href="https://www.gob.mx" target="_blank">gob.mx</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Barra principal con logo y navegacion -->
+    <div class="cenam-header-main">
+        <div class="cenam-logo"><a href="index.html" style="text-decoration:none !important;">
+        <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.4rem; color:#FFFFFF; display:flex; align-items:center; gap:8px;">
+            <span style="background:#E87722; color:#FFFFFF; padding:2px 8px; border-radius:4px; font-size:1.1rem; font-weight:900; letter-spacing: 0.5px;">CENAM</span>
+            <span style="font-size:0.95rem; font-weight:500; letter-spacing:1.5px; color:rgba(255,255,255,0.85);">EMPLEO</span>
+        </div>
+    </a></div>
+        
+        <!-- Boton hamburguesa para movil -->
+        <button class="cenam-mobile-toggle" onclick="this.nextElementSibling.classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- Menu de navegacion -->
+        <nav class="cenam-nav">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="cultura.html">Cultura</a>
+            <a href="beneficios.html">Beneficios</a>
+            <a href="proceso.html">Proceso</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="busqueda.html" class="cenam-nav-cta">Ver Vacantes</a>
+        </nav>
+    </div>
+</div>
+    <main>
+        
+            <style>
+.cenam-job-banner {
+    background: linear-gradient(135deg, #0A1F3F, #1B4F8A);
+    padding: 32px 24px;
+    text-align: center;
+}
+
+.cenam-job-banner-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.cenam-job-banner img {
+    height: 36px;
+    width: auto;
+}
+
+.cenam-job-banner p {
+    color: rgba(255,255,255,0.8) !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+.cenam-job-banner a {
+    color: #E87722 !important;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
+.cenam-job-banner a:hover {
+    text-decoration: underline !important;
+}
+</style>
+
+<div class="cenam-job-banner">
+    <div class="cenam-job-banner-inner">
+        <p>&#127970; <a href="index.html">Volver a todas las vacantes</a> &nbsp;|&nbsp; 
+           <a href="beneficios.html">Ver nuestros beneficios</a> &nbsp;|&nbsp;
+           <a href="proceso.html">Conocer el proceso de seleccion</a></p>
+    </div>
+</div>
+            
+            <!-- Contenido simulado de vacante nativa -->
+            <div style="max-width: 1000px; margin: 40px auto; padding: 0 24px;">
+                <div style="background: #FFFFFF; border: 1px solid var(--cenam-gris-medio); border-radius: var(--borde-radio-md); padding: 40px; box-shadow: var(--sombra-suave);">
+                    
+                    <!-- Encabezado de vacante -->
+                    <div style="border-bottom: 2px solid var(--cenam-gris-claro); padding-bottom: 24px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <h1 style="font-size: 2.2rem !important; color: var(--cenam-azul-oscuro); margin: 0 0 12px 0 !important;">Investigador en Metrología Física (Vibraciones y Acústica)</h1>
+                            <div style="display: flex; gap: 24px; flex-wrap: wrap; font-size: 0.95rem; color: var(--cenam-gris-texto);">
+                                <span>📍 <strong>Ubicación:</strong> El Marqués, Querétaro</span>
+                                <span>🔬 <strong>Área:</strong> Dirección Científica</span>
+                                <span>🕒 <strong>Jornada:</strong> Tiempo Completo</span>
+                                <span>📅 <strong>Publicado:</strong> 25/06/2026</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn-primary" style="padding: 16px 40px !important;" onclick="alert('Simulación de aplicar a vacante')">Aplicar Ahora</button>
+                        </div>
+                    </div>
+
+                    <!-- Detalles -->
+                    <div style="font-family: var(--fuente-texto); line-height: 1.8;">
+                        <h3 style="color: var(--cenam-azul-medio) !important; font-size: 1.25rem; margin-top: 0; margin-bottom: 12px;">Descripción del Puesto</h3>
+                        <p style="margin-bottom: 30px;">
+                            Buscamos un Investigador en Metrología para unirse a nuestra Dirección Científica en el área de Vibraciones y Acústica. En esta posición, serás responsable de liderar las investigaciones destinadas al perfeccionamiento de los patrones nacionales, coordinar comparaciones internacionales clave de medición y brindar asesoría científica avanzada a laboratorios acreditados del país.
+                        </p>
+
+                        <h3 style="color: var(--cenam-azul-medio) !important; font-size: 1.25rem; margin-bottom: 12px;">Responsabilidades</h3>
+                        <ul style="margin-bottom: 30px; padding-left: 20px; color: var(--cenam-gris-oscuro);">
+                            <li style="margin-bottom: 8px;">Custodia y mantenimiento de los Patrones Nacionales en el campo de la metrología acústica y aceleración.</li>
+                            <li style="margin-bottom: 8px;">Diseño y ejecución de proyectos de investigación científica para el desarrollo de nuevos métodos de medición.</li>
+                            <li style="margin-bottom: 8px;">Participación técnica activa en comparaciones internacionales del Comité Internacional de Pesas y Medidas (CIPM).</li>
+                            <li style="margin-bottom: 8px;">Elaboración de publicaciones científicas y ponencias para congresos nacionales e internacionales.</li>
+                            <li style="margin-bottom: 8px;">Impartición de cursos de capacitación técnica de alto nivel para el sector industrial.</li>
+                        </ul>
+
+                        <h3 style="color: var(--cenam-azul-medio) !important; font-size: 1.25rem; margin-bottom: 12px;">Requisitos</h3>
+                        <ul style="margin-bottom: 40px; padding-left: 20px; color: var(--cenam-gris-oscuro);">
+                            <li style="margin-bottom: 8px;"><strong>Educación:</strong> Doctorado o Maestría en Física, Ingeniería Acústica, Ingeniería Mecatrónica o áreas afines (Titulado).</li>
+                            <li style="margin-bottom: 8px;"><strong>Experiencia:</strong> Mínimo 3 años en laboratorios de investigación y desarrollo técnico, preferiblemente en metrología experimental.</li>
+                            <li style="margin-bottom: 8px;"><strong>Idiomas:</strong> Dominio del inglés técnico (lectura, escritura y conversación fluida).</li>
+                            <li style="margin-bottom: 8px;"><strong>Conocimientos específicos:</strong> Procesamiento digital de señales, instrumentación científica avanzada, análisis de incertidumbre de medición y programación (Python o MATLAB).</li>
+                            <li style="margin-bottom: 8px;"><strong>Habilidades:</strong> Rigor científico, capacidad de redacción técnica, trabajo en equipo multidisciplinario y ética profesional.</li>
+                        </ul>
+                    </div>
+
+                    <div style="border-top: 1px solid var(--cenam-gris-medio); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                        <span style="font-size: 0.9rem; color: var(--cenam-gris-texto);">ID de Vacante: <strong>REQ-2026-042</strong></span>
+                        <div style="display: flex; gap: 12px;">
+                            <button class="btn-secondary" style="padding: 10px 24px !important;" onclick="alert('Enlace copiado al portapapeles')">🔗 Compartir</button>
+                            <button class="btn-primary" style="padding: 12px 30px !important;" onclick="alert('Simulación de aplicar a vacante')">Aplicar Ahora</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <style>
+.cenam-job-footer-section {
+    background: #F4F6F9;
+    padding: 60px 24px;
+}
+
+.cenam-job-footer-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.cenam-job-footer-text h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 16px !important;
+}
+
+.cenam-job-footer-text p {
+    font-size: 0.95rem !important;
+    color: #6B7280 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 20px !important;
+}
+
+.cenam-job-footer-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cenam-job-footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFFFFF;
+    color: #1B4F8A !important;
+    text-decoration: none !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: 1px solid #E0E4E8;
+    transition: all 0.3s ease;
+}
+
+.cenam-job-footer-link:hover {
+    background: #1B4F8A;
+    color: #FFFFFF !important;
+    border-color: #1B4F8A;
+    transform: translateY(-2px);
+    text-decoration: none !important;
+}
+
+.cenam-job-footer-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.cenam-job-footer-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .cenam-job-footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .cenam-job-footer-image {
+        order: -1;
+    }
+}
+</style>
+
+<div class="cenam-job-footer-section">
+    <div class="cenam-job-footer-inner">
+        <div class="cenam-job-footer-text">
+            <h3>&#127775; ¿Por que elegir CENAM?</h3>
+            <p>En el Centro Nacional de Metrologia ofrecemos un ambiente 
+               laboral de excelencia, prestaciones superiores a la ley, 
+               y la oportunidad de contribuir a la ciencia y tecnologia 
+               de Mexico.</p>
+            <div class="cenam-job-footer-links">
+                <a href="cultura.html" class="cenam-job-footer-link">
+                    &#127970; Cultura
+                </a>
+                <a href="beneficios.html" class="cenam-job-footer-link">
+                    &#127873; Beneficios
+                </a>
+                <a href="proceso.html" class="cenam-job-footer-link">
+                    &#128203; Proceso
+                </a>
+                <a href="contacto.html" class="cenam-job-footer-link">
+                    &#128231; Contacto
+                </a>
+            </div>
+        </div>
+        
+        <div class="cenam-job-footer-image">
+            <!-- CAMBIAR URL por imagen real de CENAM -->
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" 
+                 alt="Instalaciones CENAM">
+        </div>
+    </div>
+</div>
+        
+    </main>
+    <style>
+/* === ESTILOS DEL FOOTER PERSONALIZADO === */
+.cenam-footer {
+    background: linear-gradient(180deg, #0A1F3F 0%, #071428 100%);
+    color: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.cenam-footer-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.cenam-footer-brand p {
+    color: rgba(255,255,255,0.65) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+    margin-top: 16px;
+}
+
+.cenam-footer-logo {
+    height: 40px;
+    width: auto;
+    margin-bottom: 12px;
+}
+
+.cenam-footer h4 {
+    color: #D4A847 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 20px !important;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.cenam-footer h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #E87722;
+    border-radius: 2px;
+}
+
+.cenam-footer-links a {
+    display: block;
+    color: rgba(255,255,255,0.7) !important;
+    text-decoration: none !important;
+    padding: 6px 0;
+    font-size: 0.88rem;
+    transition: all 0.3s ease;
+}
+
+.cenam-footer-links a:hover {
+    color: #FFFFFF !important;
+    padding-left: 8px;
+    text-decoration: none !important;
+}
+
+.cenam-footer-contact p {
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.88rem !important;
+    margin: 8px 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cenam-footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.cenam-footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.cenam-footer-social a:hover {
+    background: #E87722;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(232,119,34,0.4);
+    text-decoration: none !important;
+}
+
+.cenam-footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cenam-footer-bottom p {
+    color: rgba(255,255,255,0.5) !important;
+    font-size: 0.82rem !important;
+    margin: 0 !important;
+}
+
+.cenam-footer-bottom a {
+    color: rgba(255,255,255,0.5) !important;
+    text-decoration: none !important;
+    font-size: 0.82rem;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.cenam-footer-bottom a:hover {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 768px) {
+    .cenam-footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        padding: 40px 24px 30px;
+    }
+    
+    .cenam-footer-brand {
+        grid-column: 1 / -1;
+    }
+    
+    .cenam-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cenam-footer-bottom a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cenam-footer-main {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+</style>
+
+<div class="cenam-footer">
+    <!-- Contenido principal del footer -->
+    <div class="cenam-footer-main">
+        <!-- Columna 1: Marca/Descripcion -->
+        <div class="cenam-footer-brand">
+            <!-- CAMBIAR URL del logo -->
+            
+        <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.4rem; color:#FFFFFF; display:flex; align-items:center; gap:8px;">
+            <span style="background:#E87722; color:#FFFFFF; padding:2px 8px; border-radius:4px; font-size:1.1rem; font-weight:900; letter-spacing: 0.5px;">CENAM</span>
+            <span style="font-size:0.95rem; font-weight:500; letter-spacing:1.5px; color:rgba(255,255,255,0.85);">EMPLEO</span>
+        </div>
+    
+            <p>El Centro Nacional de Metrologia es el laboratorio nacional de 
+               referencia en materia de mediciones en Mexico. Unete a nuestro 
+               equipo y contribuye a la excelencia cientifica del pais.</p>
+            
+            <!-- Redes Sociales -->
+            <div class="cenam-footer-social">
+                <a href="https://facebook.com/cenam" target="_blank" title="Facebook">f</a>
+                <a href="https://linkedin.com/company/cenam" target="_blank" title="LinkedIn">in</a>
+                <a href="https://twitter.com/cenam" target="_blank" title="X/Twitter">X</a>
+                <a href="https://youtube.com/cenam" target="_blank" title="YouTube">&#9654;</a>
+            </div>
+        </div>
+        
+        <!-- Columna 2: Enlaces rapidos -->
+        <div class="cenam-footer-links">
+            <h4>Empleo</h4>
+            <a href="busqueda.html">Buscar Vacantes</a>
+            <a href="cultura.html">Nuestra Cultura</a>
+            <a href="beneficios.html">Beneficios</a>
+            <a href="proceso.html">Proceso de Seleccion</a>
+        </div>
+        
+        <!-- Columna 3: Links institucionales -->
+        <div class="cenam-footer-links">
+            <h4>Institucional</h4>
+            <a href="https://www.cenam.mx" target="_blank">Sitio CENAM</a>
+            <a href="https://www.gob.mx" target="_blank">Gobierno de Mexico</a>
+            <a href="#" target="_blank">Transparencia</a>
+            <a href="#" target="_blank">SIDEPRO</a>
+        </div>
+        
+        <!-- Columna 4: Contacto -->
+        <div class="cenam-footer-contact">
+            <h4>Contacto</h4>
+            <p>&#128205; Km 4.5 Carretera a Los Cues, El Marques, Queretaro</p>
+            <p>&#128222; (442) 211-05-00 ext. 3143 / 3156</p>
+            <p>&#9993; recluta@cenam.mx</p>
+            <p>&#128338; Lunes a Viernes 8:00 - 17:00</p>
+        </div>
+    </div>
+    
+    <!-- Barra inferior -->
+    <div class="cenam-footer-bottom">
+        <p>&copy; 2025 CENAM - Centro Nacional de Metrologia. Todos los derechos reservados.</p>
+        <div>
+            <a href="#">Aviso de Privacidad</a>
+            <a href="#">Terminos y Condiciones</a>
+            <a href="#">Mapa del Sitio</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

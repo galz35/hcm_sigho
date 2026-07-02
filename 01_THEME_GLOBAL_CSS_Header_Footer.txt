@@ -1,0 +1,856 @@
+================================================================================
+   PAGINA 01: THEME GLOBAL (CSS + HEADER + FOOTER)
+   Oracle HCM Cloud - Career Site Builder
+================================================================================
+   DONDE SE CONFIGURA: Career Sites Configuration > Edit > Pestana "Theme"
+   APLICA A: Todas las paginas del portal
+================================================================================
+
+
+================================================================================
+PASO 1: CONFIGURAR LOGOS
+================================================================================
+Ubicacion: Theme Tab > seccion "Logo"
+
+a) Logo Desktop:
+   - Pegar URL de tu logo: https://TU-SERVIDOR.com/images/logo-cenam.png
+   - Tamaño recomendado: 150 x 40 px
+   - Formato: PNG con fondo transparente
+
+b) Logo Mobile:
+   - Pegar URL: https://TU-SERVIDOR.com/images/logo-cenam-mobile.png
+   - Tamaño: 150 x 40 px
+
+>>> RECUERDA: Las imagenes DEBEN estar en un servidor publico sin autenticacion
+
+
+================================================================================
+PASO 2: CUSTOM CSS (Pegar en Theme Tab > "Custom CSS")
+================================================================================
+COPIAR TODO EL SIGUIENTE CODIGO Y PEGARLO:
+
+--- INICIO DEL CODIGO CSS ---
+
+/* ==========================================================================
+   PORTAL DE EMPLEO CENAM - ESTILOS GLOBALES
+   Oracle HCM Cloud Career Site
+   ========================================================================== */
+
+/* --- IMPORTAR FUENTES DE GOOGLE --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+/* --- VARIABLES DE DISEÑO (cambiar segun colores del PDF) --- */
+:root {
+    /* Colores principales */
+    --cenam-azul-oscuro: #0A1F3F;
+    --cenam-azul-medio: #1B4F8A;
+    --cenam-azul-claro: #2E7DD6;
+    --cenam-azul-brillante: #3B9AE8;
+    
+    /* Colores de acento */
+    --cenam-naranja: #E87722;
+    --cenam-naranja-hover: #D06A1F;
+    --cenam-dorado: #D4A847;
+    --cenam-verde: #27AE60;
+    
+    /* Colores neutros */
+    --cenam-blanco: #FFFFFF;
+    --cenam-gris-claro: #F4F6F9;
+    --cenam-gris-medio: #E0E4E8;
+    --cenam-gris-texto: #6B7280;
+    --cenam-gris-oscuro: #374151;
+    --cenam-negro: #1F2937;
+    
+    /* Tipografia */
+    --fuente-titulo: 'Montserrat', sans-serif;
+    --fuente-texto: 'Open Sans', sans-serif;
+    
+    /* Sombras */
+    --sombra-suave: 0 2px 8px rgba(0,0,0,0.08);
+    --sombra-media: 0 4px 16px rgba(0,0,0,0.12);
+    --sombra-fuerte: 0 8px 32px rgba(0,0,0,0.18);
+    --sombra-hover: 0 12px 40px rgba(0,0,0,0.22);
+    
+    /* Bordes */
+    --borde-radio-sm: 6px;
+    --borde-radio-md: 12px;
+    --borde-radio-lg: 20px;
+    --borde-radio-pill: 50px;
+    
+    /* Transiciones */
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transicion-rapida: all 0.15s ease;
+}
+
+/* --- RESET Y BASE --- */
+body {
+    font-family: var(--fuente-texto) !important;
+    color: var(--cenam-negro) !important;
+    line-height: 1.6 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- TIPOGRAFIA GLOBAL --- */
+h1, h2, h3, h4, h5, h6,
+.headline, .section-title {
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: var(--cenam-azul-oscuro) !important;
+}
+
+h1 { font-size: 2.8rem !important; }
+h2 { font-size: 2.2rem !important; }
+h3 { font-size: 1.8rem !important; }
+h4 { font-size: 1.4rem !important; }
+
+p, .paragraph, .body-text {
+    font-family: var(--fuente-texto) !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    color: var(--cenam-gris-oscuro) !important;
+}
+
+/* --- ENLACES --- */
+a {
+    color: var(--cenam-azul-claro) !important;
+    text-decoration: none !important;
+    transition: var(--transicion) !important;
+}
+
+a:hover {
+    color: var(--cenam-azul-medio) !important;
+    text-decoration: underline !important;
+}
+
+/* --- BOTONES PRIMARIOS (Aplicar, Buscar, CTAs) --- */
+.btn-primary,
+button[type="submit"],
+.apply-button,
+.cta-button {
+    background: linear-gradient(135deg, var(--cenam-naranja), var(--cenam-naranja-hover)) !important;
+    color: var(--cenam-blanco) !important;
+    border: none !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 14px 36px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    transition: var(--transicion) !important;
+    box-shadow: 0 4px 15px rgba(232, 119, 34, 0.35) !important;
+}
+
+.btn-primary:hover,
+button[type="submit"]:hover,
+.apply-button:hover,
+.cta-button:hover {
+    background: linear-gradient(135deg, var(--cenam-naranja-hover), #B85A18) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(232, 119, 34, 0.5) !important;
+}
+
+.btn-primary:active,
+button[type="submit"]:active {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(232, 119, 34, 0.4) !important;
+}
+
+/* --- BOTONES SECUNDARIOS --- */
+.btn-secondary {
+    background: transparent !important;
+    color: var(--cenam-azul-claro) !important;
+    border: 2px solid var(--cenam-azul-claro) !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 12px 32px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: var(--transicion) !important;
+}
+
+.btn-secondary:hover {
+    background: var(--cenam-azul-claro) !important;
+    color: var(--cenam-blanco) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(46, 125, 214, 0.3) !important;
+}
+
+/* --- BARRA DE BUSQUEDA (Search Box nativo) --- */
+.search-container input[type="text"],
+.search-container input[type="search"],
+.job-search-input,
+input.search-input {
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 16px 28px !important;
+    font-size: 1rem !important;
+    font-family: var(--fuente-texto) !important;
+    border: 2px solid var(--cenam-gris-medio) !important;
+    background: var(--cenam-blanco) !important;
+    box-shadow: var(--sombra-suave) !important;
+    transition: var(--transicion) !important;
+    width: 100% !important;
+    max-width: 600px !important;
+}
+
+.search-container input:focus,
+.job-search-input:focus,
+input.search-input:focus {
+    border-color: var(--cenam-azul-claro) !important;
+    box-shadow: 0 0 0 4px rgba(46, 125, 214, 0.15) !important;
+    outline: none !important;
+}
+
+/* --- TARJETAS DE VACANTES (Job Cards) --- */
+.job-card,
+.job-list-item,
+.requisition-card {
+    background: var(--cenam-blanco) !important;
+    border-radius: var(--borde-radio-md) !important;
+    border: 1px solid var(--cenam-gris-medio) !important;
+    padding: 24px !important;
+    margin-bottom: 16px !important;
+    transition: var(--transicion) !important;
+    box-shadow: var(--sombra-suave) !important;
+}
+
+.job-card:hover,
+.job-list-item:hover,
+.requisition-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--sombra-hover) !important;
+    border-color: var(--cenam-azul-claro) !important;
+}
+
+.job-card .job-title,
+.job-list-item .job-title {
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 600 !important;
+    font-size: 1.15rem !important;
+    color: var(--cenam-azul-oscuro) !important;
+    margin-bottom: 8px !important;
+}
+
+.job-card .job-title:hover {
+    color: var(--cenam-azul-claro) !important;
+}
+
+.job-card .job-location,
+.job-card .job-category {
+    font-size: 0.9rem !important;
+    color: var(--cenam-gris-texto) !important;
+}
+
+/* --- CATEGORY TILES (Mosaicos de categorias) --- */
+.category-tile {
+    border-radius: var(--borde-radio-md) !important;
+    overflow: hidden !important;
+    transition: var(--transicion) !important;
+    box-shadow: var(--sombra-media) !important;
+}
+
+.category-tile:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: var(--sombra-hover) !important;
+}
+
+.category-tile .category-title {
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 600 !important;
+}
+
+/* --- FILTROS LATERALES (Search Results) --- */
+.filter-section,
+.search-filters {
+    background: var(--cenam-blanco) !important;
+    border-radius: var(--borde-radio-md) !important;
+    padding: 20px !important;
+    box-shadow: var(--sombra-suave) !important;
+}
+
+.filter-section label,
+.filter-label {
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: var(--cenam-azul-oscuro) !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.6rem !important; }
+    h3 { font-size: 1.3rem !important; }
+    
+    .btn-primary,
+    button[type="submit"] {
+        padding: 12px 24px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.6rem !important; }
+    h2 { font-size: 1.3rem !important; }
+}
+
+/* --- ANIMACIONES SUTILES --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* --- OCULTAR HEADER NATIVO DE ORACLE (si usas Custom Header) --- */
+/* NOTA: Descomenta la siguiente linea SOLO si quieres ocultar
+   el header por defecto de Oracle. Busca la clase real con F12. */
+/* .default-header, .template-header { display: none !important; } */
+
+/* --- SCROLLBAR PERSONALIZADA --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cenam-gris-claro);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cenam-azul-medio);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cenam-azul-oscuro);
+}
+
+/* --- SELECCION DE TEXTO --- */
+::selection {
+    background: var(--cenam-azul-claro);
+    color: var(--cenam-blanco);
+}
+
+--- FIN DEL CODIGO CSS ---
+
+
+================================================================================
+PASO 3: CUSTOM HEADER HTML (Pegar en Theme Tab > "Custom Header")
+================================================================================
+COPIAR TODO EL SIGUIENTE CODIGO HTML Y PEGARLO:
+
+--- INICIO DEL CODIGO HTML HEADER ---
+
+<style>
+/* === ESTILOS DEL HEADER PERSONALIZADO === */
+.cenam-header {
+    background: linear-gradient(135deg, #0A1F3F 0%, #1B4F8A 100%);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1000;
+}
+
+.cenam-header-top {
+    background: rgba(0,0,0,0.2);
+    padding: 6px 0;
+    font-size: 0.8rem;
+}
+
+.cenam-header-top-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cenam-header-top a {
+    color: rgba(255,255,255,0.7) !important;
+    text-decoration: none !important;
+    margin-left: 20px;
+    font-size: 0.78rem;
+    transition: color 0.3s;
+}
+
+.cenam-header-top a:hover {
+    color: #FFFFFF !important;
+}
+
+.cenam-header-top-contact {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.78rem;
+}
+
+.cenam-header-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cenam-logo img {
+    height: 45px;
+    width: auto;
+    transition: opacity 0.3s;
+}
+
+.cenam-logo img:hover {
+    opacity: 0.85;
+}
+
+.cenam-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cenam-nav a {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    padding: 8px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cenam-nav a:hover {
+    background: rgba(255,255,255,0.12);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+.cenam-nav a.active {
+    background: rgba(255,255,255,0.15);
+}
+
+.cenam-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #E87722;
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+
+.cenam-nav a:hover::after {
+    width: 60%;
+}
+
+.cenam-nav-cta {
+    background: linear-gradient(135deg, #E87722, #D06A1F) !important;
+    border-radius: 50px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 3px 12px rgba(232,119,34,0.35);
+}
+
+.cenam-nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232,119,34,0.5) !important;
+}
+
+.cenam-nav-cta::after {
+    display: none !important;
+}
+
+/* RESPONSIVE HEADER */
+.cenam-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.cenam-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #FFFFFF;
+    margin: 5px 0;
+    transition: all 0.3s;
+    border-radius: 1px;
+}
+
+@media (max-width: 768px) {
+    .cenam-header-top {
+        display: none;
+    }
+    
+    .cenam-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0A1F3F;
+        flex-direction: column;
+        padding: 16px;
+        gap: 4px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    
+    .cenam-nav.active {
+        display: flex;
+    }
+    
+    .cenam-nav a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 18px;
+    }
+    
+    .cenam-mobile-toggle {
+        display: block;
+    }
+}
+</style>
+
+<div class="cenam-header">
+    <!-- Barra superior con contacto -->
+    <div class="cenam-header-top">
+        <div class="cenam-header-top-inner">
+            <div class="cenam-header-top-contact">
+                <span>&#128222; (442) 211-05-00 ext. 3143</span>
+                <span>&#9993; recluta@cenam.mx</span>
+            </div>
+            <div>
+                <a href="https://www.cenam.mx" target="_blank">Sitio Institucional</a>
+                <a href="https://www.gob.mx" target="_blank">gob.mx</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Barra principal con logo y navegacion -->
+    <div class="cenam-header-main">
+        <div class="cenam-logo">
+            <a href="/">
+                <!-- CAMBIAR esta URL por la URL real de tu logo -->
+                <img src="https://TU-SERVIDOR.com/images/logo-cenam-blanco.png" 
+                     alt="CENAM - Centro Nacional de Metrologia">
+            </a>
+        </div>
+        
+        <!-- Boton hamburguesa para movil -->
+        <button class="cenam-mobile-toggle" onclick="this.nextElementSibling.classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- Menu de navegacion -->
+        <nav class="cenam-nav">
+            <a href="/" class="active">Inicio</a>
+            <a href="/cultura">Cultura</a>
+            <a href="/beneficios">Beneficios</a>
+            <a href="/proceso">Proceso</a>
+            <a href="/contacto">Contacto</a>
+            <a href="/" class="cenam-nav-cta">Ver Vacantes</a>
+        </nav>
+    </div>
+</div>
+
+--- FIN DEL CODIGO HTML HEADER ---
+
+NOTAS:
+- Cambiar "https://TU-SERVIDOR.com/images/logo-cenam-blanco.png" por la URL real
+- Cambiar los links /cultura, /beneficios, etc. por las URLs reales de tus custom pages
+- El boton hamburguesa usa un onclick basico (puede que Oracle lo permita o no)
+- Si Oracle bloquea el onclick, el menu movil no funcionara
+  (alternativa: usar CSS puro con checkbox hack)
+
+
+================================================================================
+PASO 4: CUSTOM FOOTER HTML (Pegar en Theme Tab > "Custom Footer")
+================================================================================
+COPIAR TODO EL SIGUIENTE CODIGO HTML Y PEGARLO:
+
+--- INICIO DEL CODIGO HTML FOOTER ---
+
+<style>
+/* === ESTILOS DEL FOOTER PERSONALIZADO === */
+.cenam-footer {
+    background: linear-gradient(180deg, #0A1F3F 0%, #071428 100%);
+    color: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.cenam-footer-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.cenam-footer-brand p {
+    color: rgba(255,255,255,0.65) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+    margin-top: 16px;
+}
+
+.cenam-footer-logo {
+    height: 40px;
+    width: auto;
+    margin-bottom: 12px;
+}
+
+.cenam-footer h4 {
+    color: #D4A847 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 20px !important;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.cenam-footer h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #E87722;
+    border-radius: 2px;
+}
+
+.cenam-footer-links a {
+    display: block;
+    color: rgba(255,255,255,0.7) !important;
+    text-decoration: none !important;
+    padding: 6px 0;
+    font-size: 0.88rem;
+    transition: all 0.3s ease;
+}
+
+.cenam-footer-links a:hover {
+    color: #FFFFFF !important;
+    padding-left: 8px;
+    text-decoration: none !important;
+}
+
+.cenam-footer-contact p {
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.88rem !important;
+    margin: 8px 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cenam-footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.cenam-footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.cenam-footer-social a:hover {
+    background: #E87722;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(232,119,34,0.4);
+    text-decoration: none !important;
+}
+
+.cenam-footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cenam-footer-bottom p {
+    color: rgba(255,255,255,0.5) !important;
+    font-size: 0.82rem !important;
+    margin: 0 !important;
+}
+
+.cenam-footer-bottom a {
+    color: rgba(255,255,255,0.5) !important;
+    text-decoration: none !important;
+    font-size: 0.82rem;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.cenam-footer-bottom a:hover {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 768px) {
+    .cenam-footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        padding: 40px 24px 30px;
+    }
+    
+    .cenam-footer-brand {
+        grid-column: 1 / -1;
+    }
+    
+    .cenam-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cenam-footer-bottom a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cenam-footer-main {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+</style>
+
+<div class="cenam-footer">
+    <!-- Contenido principal del footer -->
+    <div class="cenam-footer-main">
+        <!-- Columna 1: Marca/Descripcion -->
+        <div class="cenam-footer-brand">
+            <!-- CAMBIAR URL del logo -->
+            <img src="https://TU-SERVIDOR.com/images/logo-cenam-blanco.png" 
+                 alt="CENAM" class="cenam-footer-logo">
+            <p>El Centro Nacional de Metrologia es el laboratorio nacional de 
+               referencia en materia de mediciones en Mexico. Unete a nuestro 
+               equipo y contribuye a la excelencia cientifica del pais.</p>
+            
+            <!-- Redes Sociales -->
+            <div class="cenam-footer-social">
+                <a href="https://facebook.com/cenam" target="_blank" title="Facebook">f</a>
+                <a href="https://linkedin.com/company/cenam" target="_blank" title="LinkedIn">in</a>
+                <a href="https://twitter.com/cenam" target="_blank" title="X/Twitter">X</a>
+                <a href="https://youtube.com/cenam" target="_blank" title="YouTube">&#9654;</a>
+            </div>
+        </div>
+        
+        <!-- Columna 2: Enlaces rapidos -->
+        <div class="cenam-footer-links">
+            <h4>Empleo</h4>
+            <a href="/">Buscar Vacantes</a>
+            <a href="/cultura">Nuestra Cultura</a>
+            <a href="/beneficios">Beneficios</a>
+            <a href="/proceso">Proceso de Seleccion</a>
+        </div>
+        
+        <!-- Columna 3: Links institucionales -->
+        <div class="cenam-footer-links">
+            <h4>Institucional</h4>
+            <a href="https://www.cenam.mx" target="_blank">Sitio CENAM</a>
+            <a href="https://www.gob.mx" target="_blank">Gobierno de Mexico</a>
+            <a href="#" target="_blank">Transparencia</a>
+            <a href="#" target="_blank">SIDEPRO</a>
+        </div>
+        
+        <!-- Columna 4: Contacto -->
+        <div class="cenam-footer-contact">
+            <h4>Contacto</h4>
+            <p>&#128205; Km 4.5 Carretera a Los Cues, El Marques, Queretaro</p>
+            <p>&#128222; (442) 211-05-00 ext. 3143 / 3156</p>
+            <p>&#9993; recluta@cenam.mx</p>
+            <p>&#128338; Lunes a Viernes 8:00 - 17:00</p>
+        </div>
+    </div>
+    
+    <!-- Barra inferior -->
+    <div class="cenam-footer-bottom">
+        <p>&copy; 2025 CENAM - Centro Nacional de Metrologia. Todos los derechos reservados.</p>
+        <div>
+            <a href="#">Aviso de Privacidad</a>
+            <a href="#">Terminos y Condiciones</a>
+            <a href="#">Mapa del Sitio</a>
+        </div>
+    </div>
+</div>
+
+--- FIN DEL CODIGO HTML FOOTER ---
+
+NOTAS:
+- Cambiar URLs de logos e imagenes
+- Cambiar URLs de redes sociales por las reales de CENAM
+- Cambiar la direccion fisica si es diferente
+- Los iconos son emojis/unicode (funcionan en todos los navegadores)
+- Si quieres iconos mas elegantes, puedes importar Font Awesome via CSS:
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+
+================================================================================
+PASO 5: VERIFICAR EN PREVIEW
+================================================================================
+a) Revisar en modo Desktop - todo el header y footer deben verse correctos
+b) Revisar en modo Tablet - debe colapsar a 2 columnas en el footer
+c) Revisar en modo Mobile - debe colapsar a 1 columna, menu hamburguesa
+d) Si el header nativo de Oracle se ve duplicado:
+   - Ir a Custom CSS
+   - Descomentar la linea: 
+     .default-header, .template-header { display: none !important; }
+   - Buscar la clase correcta con Inspector (F12) en el preview

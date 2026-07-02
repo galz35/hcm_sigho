@@ -1,0 +1,147 @@
+================================================================================
+  GUÍA PASO A PASO - IMPLEMENTACIÓN FINAL EN ORACLE HCM
+  Claro Careers Landing Page - Con Carrusel + Buscador Nativo Estilizado
+================================================================================
+
+  ARCHIVOS LISTOS (carpeta hcm_delivery):
+    1. hcm_styles.css     -> CSS completo (va en Theme > Custom CSS)
+    2. hcm_template.html  -> HTML limpio (va en Custom HTML block)
+
+================================================================================
+  PASO 1: ABRIR EL EDITOR DEL SITIO DE CARRERAS
+================================================================================
+
+  1. Inicia sesión en Oracle Cloud HCM
+  2. Navega a: Setup and Maintenance → Recruiting → Career Sites
+  3. Busca tu sitio "prueba 1" (CX_1001)
+  4. Haz clic en "Edit" (Editar)
+
+================================================================================
+  PASO 2: PEGAR EL CSS EN EL TEMA
+================================================================================
+
+  1. En el panel izquierdo → pestaña "Theme" (Tema)
+  2. Busca la sección "Custom CSS"
+  3. BORRA todo lo que haya ahí
+  4. Abre el archivo hcm_styles.css en tu editor de texto
+  5. Selecciona TODO (Ctrl+A) → Copiar (Ctrl+C)
+  6. Pega (Ctrl+V) en la caja "Custom CSS" de Oracle
+  7. Haz clic en "Save"
+
+  ¿QUÉ INCLUYE ESTE CSS?
+    ✓ Tailwind CSS v2 importado (@import)
+    ✓ Carrusel automático del Hero (4 fotos, rotación cada 5s)
+    ✓ Degradado blanco sobre imagen del Hero
+    ✓ Estilos del buscador nativo de Oracle (forma pill, botón rojo)
+    ✓ Estilos del menú nativo de Oracle (Montserrat, colores Claro)
+    ✓ Botón de perfil estilizado (rojo, redondeado)
+    ✓ Ocultamiento del botón "Soy empleado"
+    ✓ Todas las clases utilitarias del diseño
+
+================================================================================
+  PASO 3: PEGAR EL HTML EN LA PÁGINA DE INICIO
+================================================================================
+
+  1. En el panel izquierdo → pestaña "Pages" (Páginas)
+  2. Selecciona la página Home (Splash Page)
+  3. Si ya tienes un bloque "Custom HTML":
+     → Haz clic en el icono de editar (lápiz)
+     Si no lo tienes:
+     → Agrega una fila de 1 columna a ancho completo
+     → Arrastra el componente "HTML" a esa fila
+     → Haz clic en el lápiz para editar
+  4. BORRA todo lo que haya en el editor de código
+  5. Abre el archivo hcm_template.html
+  6. Selecciona TODO (Ctrl+A) → Copiar (Ctrl+C)
+  7. Pega (Ctrl+V) en el editor de código de Oracle
+  8. Haz clic en "Done" (Listo)
+  9. Haz clic en "Save"
+
+  NOTAS:
+    - Este HTML NO tiene <script>, <style>, <html>, <head> ni <body>
+    - NO tiene header/menú (Oracle pone el suyo propio)
+    - NO tiene buscador decorativo (Oracle pone el suyo funcional)
+    - NO tiene botones flotantes (Oracle maneja chat/perfil)
+    - NO debería darte ningún error de "elementos restringidos"
+
+================================================================================
+  PASO 4: VERIFICAR EN EL PREVIEW
+================================================================================
+
+  Haz clic en "Preview" y verifica:
+
+  ✓ HEADER (nativo Oracle):
+    - UN solo header blanco con logo Claro
+    - Links en Montserrat negrita: Inicio, Vacantes, etc.
+    - "Inicio" en rojo con línea inferior
+    - Botón de perfil rojo redondeado a la derecha
+    - NO debe aparecer "Soy empleado"
+
+  ✓ HERO:
+    - Imagen de fondo rotando automáticamente (4 fotos cada 5s)
+    - Degradado blanco de izquierda a derecha
+    - Título "Construye tu futuro en Claro"
+    - Botones "Ver Vacantes" y "Conoce la experiencia"
+    - Dots indicadores en la parte inferior
+
+  ✓ CONTENIDO:
+    - Barra roja de highlights (3 categorías)
+    - 3 tarjetas "¿Por qué trabajar en Claro?"
+    - Sección de video "¡Claro que te estamos buscando!"
+    - Timeline "Experiencia del Candidato" (4 pasos)
+    - CTA rojo "Dá el siguiente paso en tu carrera"
+
+  ✓ FOOTER:
+    - Logo Claro + América Móvil + Redes sociales
+    - Copyright 2026
+
+  ✓ BUSCADOR NATIVO (al fondo, estilizado):
+    - Forma redondeada (pill)
+    - Botón de búsqueda rojo Claro
+    - "TODOS LOS PUESTOS" en rojo
+
+================================================================================
+  PASO 5: PUBLICAR
+================================================================================
+
+  Si todo se ve correcto → "Publish"
+
+================================================================================
+  RESUMEN DE LO QUE CAMBIÓ VS LA VERSIÓN ANTERIOR
+================================================================================
+
+  ELIMINADO:
+    ❌ Header/menú custom (ahora Oracle pone el suyo, estilizado con CSS)
+    ❌ Buscador decorativo Cargo/País/Buscar (ahora se usa el nativo)
+    ❌ Botones flotantes chat/perfil (Oracle los maneja)
+
+  AGREGADO:
+    ✅ Carrusel CSS puro (4 imágenes rotando en el Hero)
+    ✅ Estilos para el buscador nativo de Oracle
+    ✅ Estilos para el menú nativo de Oracle (Montserrat + colores Claro)
+
+  SE MANTIENE IGUAL:
+    ✅ Hero banner completo (título, subtítulo, botones)
+    ✅ Barra roja de highlights
+    ✅ 3 Tarjetas de beneficios
+    ✅ Sección de video
+    ✅ Timeline de 4 pasos
+    ✅ CTA Banner rojo
+    ✅ Footer completo (Claro + América Móvil + Redes)
+    ✅ Copyright bar
+
+================================================================================
+  NOTAS PARA PRODUCCIÓN
+================================================================================
+
+  * IMÁGENES: Las fotos de Unsplash son temporales. Antes de producción,
+    reemplaza las URLs en hcm_styles.css (carrusel) y hcm_template.html
+    (tarjetas, video) por imágenes corporativas en servidor HTTPS.
+
+  * CARRUSEL: Los dots indicadores son decorativos (no cambian de color).
+    La imagen de fondo SÍ rota automáticamente cada 5 segundos.
+
+  * ACTUALIZACIONES: Si Oracle actualiza sus clases CSS internas,
+    revisa los estilos del buscador nativo y del header después de
+    cada update trimestral del sistema.
+================================================================================

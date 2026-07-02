@@ -1,0 +1,211 @@
+================================================================================
+   DOCUMENTACIÓN TÉCNICA - ORACLE HCM CAREER SITE BUILDER (CSB)
+   Guía de Referencia Completa para la Implementación de Diseños a Medida (Claro)
+================================================================================
+   Fecha: 1 de julio de 2026
+   Especialidad: Implementación de HTML, CSS y Personalización Avanzada de Temas
+================================================================================
+
+Este documento sirve como manual técnico de referencia para el equipo de desarrollo
+y diseño sobre cómo implementar maquetas web (HTML y CSS) dentro del editor visual
+de portales de empleo de Oracle Cloud Recruiting: "Career Site Builder" (CSB).
+
+--------------------------------------------------------------------------------
+ÍNDICE:
+--------------------------------------------------------------------------------
+1. Arquitectura y Jerarquía de Contenedores en CSB
+2. Gestión de Recursos en la Biblioteca de Activos (Asset Library)
+3. Configuración del Tema Global y Estilos (Theme Options)
+4. El Uso del Widget "Custom HTML" y Buenas Prácticas de CSS
+5. Mapeo Paso a Paso del Diseño de Claro (Página 1) a Oracle CSB
+6. Restricciones Técnicas y Mantenimiento ante Actualizaciones de Oracle
+
+================================================================================
+1. ARQUITECTURA Y JERARQUÍA DE CONTENEDORES EN CSB
+================================================================================
+Oracle Recruiting Career Site Builder no funciona como un CMS de código libre 
+(como WordPress o Drupal), sino como una aplicación web modular y controlada basada
+en una estructura de grilla rígida.
+
+La estructura interna de cualquier página en CSB sigue estrictamente esta jerarquía:
+
+PÁGINA (Page)
+  └── SECCIÓN (Section)
+        └── FILA (Row)
+              └── COLUMNA (Column)
+                    └── ELEMENTO / WIDGET
+
+Definiciones de los Contenedores:
+*   Sección: Es un bloque horizontal que abarca todo el ancho de la pantalla.
+    Permite configurar un fondo de color sólido, una imagen de fondo o un video.
+*   Fila: Se define dentro de una sección y permite estructurar el layout en columnas
+    (de 1 a 5 columnas por fila).
+*   Columna: Es el contenedor vertical que aloja los elementos interactivos.
+*   Elemento/Widget: Bloque funcional específico de contenido. Puede ser nativo 
+    (Headline, Paragraph, Search Box, Job List) o personalizado (Custom HTML).
+
+================================================================================
+2. GESTIÓN DE RECURSOS EN LA BIBLIOTECA DE ACTIVOS (ASSET LIBRARY)
+================================================================================
+Oracle HCM Cloud no almacena los recursos multimedia incrustados en código de forma
+directa. Todos los archivos (imágenes de fondo, logotipos, iconos SVG, videos) 
+deben ser alojados en la "Biblioteca de Activos" para obtener una URL pública 
+servida por el CDN de Oracle.
+
+Procedimiento de Carga y Uso:
+1. Acceder al Career Site Builder > Asset Library.
+2. Cargar los recursos (Formatos recomendados: PNG de alta resolución, SVG vectorial
+   para logos e iconos, JPG optimizado para fotos de fondo).
+3. Copiar la URL pública asignada (ejemplo: https://.../asset/claro_logo.svg).
+4. En los bloques de código HTML personalizado, utilizar esa URL pública para los
+   atributos 'src' de imágenes o 'background-image' en estilos.
+
+REGLA DE ORO: Nunca dejes imágenes apuntando a servidores locales o temporales, 
+todas deben estar previamente registradas en la Biblioteca de Activos.
+
+================================================================================
+3. CONFIGURACIÓN DEL TEMA GLOBAL Y ESTILOS (THEME OPTIONS)
+================================================================================
+En la pestaña "Theme" del editor visual se gestiona el diseño corporativo que 
+se aplicará de forma automática en todo el sitio de empleo.
+
+Configuraciones Clave en el Tema:
+*   Colores de la Marca (Colors):
+    - Color Primario: Rojo Claro (#da291c), usado para botones de llamada a la 
+      acción y elementos destacados.
+    - Color Secundario/Hover: Rojo Oscuro (#b81e13).
+    - Color de Texto Principal: Gris Oscuro/Negro (#1c1c1c o #333333).
+    - Color de Fondo: Blanco y Gris Claro (#f4f6f9).
+*   Tipografía (Fonts):
+    - Se configuran las fuentes para los títulos (Headlines) y el texto de lectura
+      (Paragraphs). Se recomienda vincular la fuente corporativa oficial (ej: 
+      Montserrat para títulos y Open Sans para el cuerpo).
+*   Botones (Buttons):
+    - Se definen las clases CSS para botones Primary (Rojo Claro con bordes
+      redondeados / estilo píldora) y Secondary (Fondo transparente con bordes).
+
+Inyección de CSS Personalizado (Custom CSS):
+En las opciones avanzadas del Tema existe la caja de "Custom CSS". Aquí se deben 
+pegar todos los estilos personalizados que no se pueden controlar visualmente 
+desde el editor, como por ejemplo:
+*   Filtros de opacidad para fondos.
+    (ej: .hero-bg::before { background: linear-gradient(...) })
+*   Líneas punteadas de procesos.
+*   Estilos hover personalizados y animaciones de tarjetas.
+
+================================================================================
+4. EL USO DEL WIDGET "CUSTOM HTML" Y BUENAS PRÁCTICAS DE CSS
+================================================================================
+El widget "Custom HTML" es la herramienta fundamental para replicar maquetas de
+alta fidelidad. Te permite inyectar código HTML estructurado de forma libre 
+y utilizar selectores de CSS propios.
+
+Requisitos de Código en el Widget HTML:
+*   Debe ser autónomo: Al implementarse dentro del portal de Oracle, se recomienda 
+    que el código HTML use estilos inline, clases de Tailwind CSS integradas 
+    en el CDN o clases personalizadas que luego serán referenciadas en el Custom CSS
+    general del tema.
+*   Uso de Tailwind CSS: Si decides utilizar Tailwind CSS a través de CDN, debes
+    asegurarte de inyectar el script de inicialización en la cabecera (Header HTML)
+    del sitio, o mapear las clases correspondientes a reglas nativas del Custom CSS
+    para evitar dependencias lentas de carga.
+
+Buenas Prácticas de CSS en Oracle CSB (Evitar roturas):
+1.  NO intentes sobrescribir clases internas de Oracle (ej: .orcl-job-grid, .btn-apply)
+    mediante selectores genéricos de CSS. Las clases dinámicas de Oracle cambian 
+    con las actualizaciones trimestrales del sistema.
+2.  Usa espacios de nombres (namespaces): En tus elementos del Custom HTML, define
+    clases específicas que empiecen por tu propio prefijo (ej: .claro-hero, 
+    .claro-card, .claro-process-line). Así aíslas tus estilos de los del sistema de Oracle.
+3.  Evita JavaScript agresivo: Oracle CSB funciona como una SPA (Single Page Application).
+    Scripts que manipulen directamente el DOM del header o footer pueden provocar
+    errores en la navegación entre páginas. Usa CSS puro (como el Checkbox Hack 
+    para modales/popovers) siempre que sea posible.
+
+================================================================================
+5. MAPEO PASO A PASO DEL DISEÑO DE CLARO (PÁGINA 1) A ORACLE CSB
+================================================================================
+
+Para implementar la Splash Page (Inicio) basándose en tu diseño 'code.html',
+sigue estos pasos estructurados dentro del editor:
+
+PASO 5.1: Encabezado (Header Global)
+*   En la configuración de cabecera del Tema, define la estructura del menú.
+*   Asocia el logo de Claro (SVG subido a la biblioteca) a la izquierda.
+*   Configura el perfil de candidato nativo a la derecha. Para que el modal de login
+    flote de forma idéntica, implementa el Popover absoluto en el Custom CSS del 
+    Tema usando selectores de posición relativos a la clase del perfil.
+
+PASO 5.2: Sección Hero y Buscador
+*   Crea una sección en el editor con la imagen de oficina de fondo.
+*   Inserta una Fila con layout de 2 columnas (50% / 50%).
+*   Columna Izquierda: Añade el widget "Custom HTML" y pega el fragmento de
+    código correspondiente a los títulos estilizados ("Construye tu futuro en Claro"),
+    la descripción, el botón de vacantes y el botón de video.
+*   Columna Derecha: En el diseño del PDF, la tarjeta de login aparece desplegada
+    en la parte derecha. Dado que ahora la implementamos como un popover absoluto
+    que cuelga del Header para un comportamiento responsivo y dinámico impecable,
+    deja este espacio vacío en el lienzo del Hero.
+*   Buscador: Inserta el componente nativo "Search Box" de Oracle justo debajo de 
+    los botones. Configura a través del Custom CSS el color rojo del botón "Buscar" 
+    y el formato de bordes redondeados.
+
+PASO 5.3: Sección Highlights (Crecimiento, Cultura, Beneficios)
+*   Añade una sección debajo del Hero y configúrale el color de fondo rojo (#da291c).
+*   Inserta un widget "Custom HTML" que contenga la grilla de los tres elementos,
+    los iconos vectoriales en SVG y sus descripciones con la fuente Open Sans.
+
+PASO 5.4: Sección "¿Por qué trabajar en Claro?" (Tarjetas de Beneficios)
+*   Añade una sección de fondo blanco.
+*   Inserta una fila de 1 columna y añade un widget "Custom HTML" de ancho completo.
+*   Pega el código de las 3 tarjetas de beneficios. El uso de Custom HTML es 
+    crítico aquí para lograr que los títulos rojos de las tarjetas solapen 
+    verticalmente las imágenes de fondo (`-mt-6 relative z-20 mx-4`) con precisión pixel-perfect.
+
+PASO 5.5: Sección de Video
+*   Añade una sección con color de fondo gris claro (#f4f4f4).
+*   Crea una fila de 2 columnas.
+*   Columna Izquierda: Inserta un bloque nativo de Headline y Paragraph para
+    el título "¡Claro que te estamos buscando!".
+*   Columna Derecha: Inserta el componente nativo de "Video" de Oracle Recruiting
+    y asóciale la URL del video corporativo, o usa un widget Custom HTML para
+    insertar la miniatura personalizada con el botón de play rojo Claro sobrepuesto.
+
+PASO 5.6: Sección Proceso ("Experiencia del Candidato")
+*   Crea una sección de fondo blanco.
+*   Añade un widget "Custom HTML".
+*   Inserta el layout de 4 pasos de reclutamiento con los iconos SVG y la línea 
+    discontinua de fondo (`process-line`) en CSS absoluto para simular la línea de progreso.
+
+PASO 5.7: Banner CTA (Llamado a la Acción)
+*   Inserta una sección de fondo rojo oscuro (#990000).
+*   Añade una fila con layout de 2 columnas para el texto descriptivo y los
+    botones de Iniciar Sesión / Crear Perfil vinculados a las páginas de registro.
+
+PASO 5.8: Footer (Pie de Página Global)
+*   En la pestaña "Theme > Footer" del editor de temas, configura la estructura.
+*   Utiliza los SVGs vectoriales del logo de Claro y de América Móvil.
+*   Pega los códigos de los iconos SVG en los bloques correspondientes para
+    vincular las redes sociales oficiales.
+
+================================================================================
+6. RESTRICCIONES TÉCNICAS Y MANTENIMIENTO ANTE ACTUALIZACIONES DE ORACLE
+================================================================================
+
+Es fundamental comprender que Oracle realiza actualizaciones periódicas de su 
+plataforma en la nube. Sigue estas directrices de mantenimiento:
+
+1.  Actualizaciones trimestrales (Quarterly Releases): Oracle actualiza el 
+    sistema cuatro veces al año (Releases A, B, C, D). Revisa el portal en tu
+    ambiente de desarrollo (Staging) inmediatamente después de cada release
+    para asegurar que ninguna regla de Custom CSS haya entrado en conflicto.
+2.  Uso de CDN Seguro (HTTPS): Todos los scripts externos, imágenes o recursos
+    multimedia que vincules deben utilizar obligatoriamente el protocolo seguro
+    HTTPS. Los navegadores web modernos y la infraestructura de seguridad de Oracle
+    bloquearán cualquier recurso HTTP (Mixed Content).
+3.  Mantén el HTML Limpio: Valida siempre el código HTML antes de pegarlo en el 
+    editor visual. Etiquetas mal cerradas dentro de un widget "Custom HTML" 
+    pueden distorsionar la estructura completa de la página de Oracle, afectando
+    incluso al footer y a los componentes nativos.
+
+================================================================================

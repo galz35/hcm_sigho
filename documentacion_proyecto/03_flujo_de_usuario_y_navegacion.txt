@@ -1,0 +1,91 @@
+================================================================================
+   DOCUMENTACIÓN DEL PROYECTO: PORTAL DE EMPLEO CLARO
+   ARCHIVADOR DE APRENDIZAJE - PARTE 3: FLUJO DE USUARIO Y NAVEGACIÓN
+================================================================================
+   Ubicación: d:\sigho diseño\documentacion_proyecto\03_flujo_de_usuario_y_navegacion.txt
+   Autor: Antigravity pair programming assistant
+================================================================================
+
+Este archivo detalla el "recorrido del candidato" (Candidate Journey) dentro del
+portal de empleo de Claro, mostrando el flujo de pantallas y cómo interactúan los
+distintos archivos HTML.
+
+1. EL MAPA DE FLUJO DEL CANDIDATO (Paso a Paso)
+
+[Paso 1: Descubrimiento e Ingreso]
+*   Archivo de inicio: `index.html` (Splash Page).
+*   Acción del usuario: El candidato entra al portal. Puede ver información general,
+    cultura, testimonios y el video institucional.
+*   Interactividad: En el Header, el popover de login aparece abierto para captar
+    atención. El usuario puede iniciar sesión directamente o cerrar el popover haciendo
+    clic en el avatar de usuario.
+
+[Paso 2: Búsqueda de Vacantes]
+*   Desde: `index.html` (Buscador del Hero o botón "Ver Vacantes").
+*   Destino: `busqueda.html` (Resultados de Búsqueda).
+*   Acción del usuario: Escribe un cargo, selecciona un país y hace clic en "Buscar",
+    o simplemente hace clic en "Ver Vacantes" para explorar todas las ofertas.
+    Esto lo redirige a la pantalla con los filtros avanzados y el listado.
+
+[Paso 3: Detalle de Oferta]
+*   Desde: `busqueda.html` (Tarjetas de vacantes, ej. Salud y Seguridad Ocupacional).
+*   Destino: `detalle-vacante.html` (Detalle del Puesto).
+*   Acción del usuario: Revisa los requisitos de la posición en Tegucigalpa, las
+    responsabilidades y el salario. Al estar convencido, hace clic en el botón rojo
+    "Postularse".
+
+[Paso 4: Proceso de Registro y Postulación (Flujo en 3 Pasos)]
+*   Desde: `detalle-vacante.html` (Botón "Postularse") o `index.html` (Enlace "Crear Perfil").
+*   Destino: `registro.html` (Formulario de Registro por Pasos).
+*   Acción del usuario:
+    - Paso 1 (Datos de contacto): Rellena nombre, correo, contraseña y hace clic en Siguiente.
+    - Paso 2 (Perfil profesional): Sube su CV, selecciona su área de experiencia y estudios.
+    - Paso 3 (Preguntas de filtro): Responde preguntas obligatorias para la vacante
+      y acepta el consentimiento de privacidad. Al hacer clic en "Finalizar",
+      su perfil es creado en el sistema.
+
+[Paso 5: Acceso al Panel del Candidato (Dashboard)]
+*   Desde: Login exitoso en el popover del Header de cualquier página.
+*   Destino: `perfil.html` (Dashboard del Candidato).
+*   Acción del usuario: Una vez autenticado, el usuario (ej. Vinicio) accede a su panel.
+    Aquí puede ver el estado en tiempo real de su postulación ("En Selección", "Pruebas
+    Técnicas", "Entrevista") y actualizar sus datos de contacto o subir un nuevo CV.
+
+---
+
+2. DIAGRAMA DE NAVEGACIÓN SIMPLIFICADO
+
+       +---------------------------------------------+
+       |                  index.html                 | <-----+
+       |                 (Splash Page)               |       |
+       +-----------------------+---------------------+       |
+                               |                             |
+                               | (Buscar / Ver Vacantes)     |
+                               v                             |
+       +---------------------------------------------+       |
+       |                busqueda.html                |       | (Menú de
+       |              (Lista de Empleos)             |       |  Navegación
+       +-----------------------+---------------------+       |  Header
+                               |                             |  o Logo)
+                               | (Clic en Vacante)           |
+                               v                             |
+       +---------------------------------------------+       |
+       |             detalle-vacante.html            |       |
+       |                (Detalle Job)                |       |
+       +-----------------------+---------------------+       |
+                               |                             |
+                               | (Postularse / Registro)     |
+                               v                             |
+       +---------------------------------------------+       |
+       |                 registro.html               | ------+
+       |             (Formulario de 3 pasos)         |
+       +-----------------------+---------------------+
+                               |
+                               | (Finalizar Registro)
+                               v
+       +---------------------------------------------+
+       |                  perfil.html                |
+       |               (Dashboard Vinicio)           |
+       +---------------------------------------------+
+
+================================================================================

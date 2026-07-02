@@ -1,0 +1,86 @@
+================================================================================
+   DOCUMENTACIÓN DEL PROYECTO: PORTAL DE EMPLEO CLARO
+   ARCHIVADOR DE APRENDIZAJE - PARTE 2: ARQUITECTURA Y ESTRUCTURA DE ARCHIVOS
+================================================================================
+   Ubicación: d:\sigho diseño\documentacion_proyecto\02_arquitectura_y_estructura_archivos.txt
+   Autor: Antigravity pair programming assistant
+================================================================================
+
+El espacio de trabajo ('d:\sigho diseño') contiene la réplica de las diferentes
+vistas que un candidato recorrerá en el portal de empleo. A continuación, se detalla
+la función específica de cada archivo del proyecto:
+
+1. ARCHIVOS PRINCIPALES DEL PORTAL DE EMPLEO (Mapeo del PDF)
+
+*   index.html (Página de Inicio / Splash Page)
+    - Representa la página 1 del PDF de diseño.
+    - Contiene el header global con el logotipo vectorial SVG de Claro y el popover
+      de login interactivo.
+    - Se compone del banner Hero (foto de oficina), el buscador de empleo simulado
+      (Cargo y País), la barra de pilares (Crecimiento, Cultura y Beneficios), las
+      tarjetas de "¿Por qué trabajar en Claro?", la sección de video, el timeline
+      de selección y el footer oficial.
+
+*   busqueda.html (Resultados de Búsqueda y Filtros)
+    - Representa la página 2 del PDF de diseño.
+    - Muestra cómo interactúa el candidato cuando realiza una búsqueda.
+    - Contiene una barra de búsqueda superior y una estructura de dos columnas: a 
+      la izquierda, filtros avanzados (Área, Modalidad, Nivel, Ubicación); a la 
+      derecha, el listado de vacantes activas.
+    - Destaca la tarjeta roja de "Red de Talento" y la tarjeta oscura para "Telemarketing".
+
+*   detalle-vacante.html (Visualización de una Oferta de Empleo)
+    - Representa la página 3 del PDF de diseño.
+    - Muestra los detalles de una oferta específica, en este caso, la vacante de
+      "Salud y Seguridad Ocupacional" en Tegucigalpa, Honduras.
+    - Contiene la descripción de tareas, requisitos del puesto, beneficios 
+      específicos y el botón destacado para iniciar la postulación.
+
+*   registro.html (Formulario de Postulación y Creación de Perfil en 3 Pasos)
+    - Representa las páginas 4, 5 y 6 del PDF de diseño.
+    - Modela el flujo de registro que realiza el candidato en tres etapas secuenciales:
+      1. Información Personal (Datos básicos, correo y contraseña).
+      2. Experiencia y Educación (Subir CV, historial laboral y académico).
+      3. Preguntas de Filtro y Términos Legales (Preguntas específicas del puesto).
+    - Implementa una barra de progreso que indica en qué paso se encuentra el usuario.
+
+*   cultura.html (Cultura Corporativa / Nuestra Esencia)
+    - Representa la página 7 del PDF de diseño.
+    - Muestra información institucional, los pilares de la cultura Claro, testimonios
+      de colaboradores y galerías fotográficas que transmiten el clima laboral.
+
+*   pais.html (Claro en tu País - Honduras / CENAM)
+    - Representa la página 8 del PDF de diseño.
+    - Enfocado en la presencia local de Claro en Honduras.
+    - Contiene una línea de tiempo (timeline) histórica sobre la evolución de la
+      compañía en el país y testimonios locales.
+
+*   apoyo.html (Apoyo al Candidato / Preguntas Frecuentes)
+    - Representa la página 9 del PDF de diseño.
+    - Contiene un acordeón interactivo en CSS puro para resolver preguntas frecuentes
+      (FAQs) y consejos para la postulación y entrevistas de trabajo.
+
+*   perfil.html (Panel de Control del Candidato / Candidato Vinicio)
+    - Representa la página 10 del PDF de diseño.
+    - El dashboard privado que visualiza el candidato (ej. Vinicio) después de 
+      iniciar sesión.
+    - Muestra sus postulaciones activas, el estado del proceso de selección de cada 
+      vacante, su información cargada y la opción de actualizar su CV.
+
+2. ARCHIVOS AUXILIARES Y DE RESPALDO
+
+*   pdf_pages/
+    - Directorio que contiene las capturas de pantalla de alta resolución de las 
+      10 páginas del PDF original (`page_1.png` a `page_10.png`). Estos archivos son
+      la referencia visual definitiva.
+*   pdf_pages/pagina1/code.html
+    - Es el archivo de desarrollo principal para la página 1 que el usuario logró
+      estructurar al 97% y que refinamos al 100% en el paso anterior.
+*   index.html.bak
+    - Copia de seguridad del `index.html` original para garantizar el respaldo de 
+      código ante cualquier cambio.
+*   pdf_text_all.txt
+    - El texto completo original extraído directamente del PDF del diseño, lo que 
+      asegura que todos los archivos HTML tengan el copy exacto sin errores ortográficos.
+
+================================================================================

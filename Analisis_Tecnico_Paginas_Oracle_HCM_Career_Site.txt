@@ -1,0 +1,575 @@
+================================================================================
+   ANALISIS TECNICO - COMO FUNCIONA REALMENTE EL CAREER SITE DE ORACLE HCM
+   Que es fijo, que se puede personalizar, y donde SI/NO aplica HTML
+================================================================================
+   Fecha: 3 de junio de 2026
+   Basado en investigacion de documentacion oficial Oracle
+================================================================================
+
+
+================================================================================
+SECCION 1: COMO TRABAJA LA PAGINA - ARQUITECTURA REAL
+================================================================================
+
+Oracle HCM Career Site funciona con un EDITOR VISUAL basado en GRILLA (grid).
+NO es un CMS como WordPress. Es mas limitado pero mas controlado.
+
+ESTRUCTURA DE CADA PAGINA:
+--------------------------
+  PAGINA
+    |
+    +-- SECCION 1
+    |     |
+    |     +-- FILA (Row)
+    |           |
+    |           +-- COLUMNA 1  -- [Elemento]
+    |           +-- COLUMNA 2  -- [Elemento]
+    |           +-- COLUMNA 3  -- [Elemento]
+    |
+    +-- SECCION 2
+    |     |
+    |     +-- FILA (Row)
+    |           |
+    |           +-- COLUMNA 1  -- [Elemento]
+    |
+    +-- SECCION 3 ...
+
+CADA SECCION tiene:
+  - Menu de acciones IZQUIERDO: elegir layout de columnas (1, 2, 3, 4, 5 cols)
+  - Menu de acciones DERECHO: background color, background image, background video
+
+ELEMENTOS que puedes poner dentro de las columnas:
+  1. Headline        = Titulo (H1-H6)
+  2. Paragraph       = Texto con formato
+  3. Image           = Imagen (URL publica obligatoria)
+  4. Video           = YouTube URL o .mp4 publico
+  5. Button          = Boton con link (estilos primary/secondary)
+  6. Search Box      = Buscador de vacantes (OBLIGATORIO en Splash Page)
+  7. Job List        = Lista automatica de vacantes
+  8. Category Tiles  = Mosaicos de categorias de empleo (OBLIGATORIO en Splash)
+  9. Talent Community= Boton para comunidad de talento
+  10. Recommended Jobs= Vacantes sugeridas por IA (basadas en CV)
+  11. Space           = Espaciador vertical (hasta 400px)
+  12. Rule            = Linea horizontal divisora
+  13. HTML            = <<< ESTE ES EL CLAVE: HTML PERSONALIZADO LIBRE >>>
+  14. Featured Jobs   = Vacantes destacadas
+  15. Trending Jobs   = Vacantes en tendencia
+  16. Scroll Indicator= Indicador de scroll
+
+
+================================================================================
+SECCION 2: LOS 4 TIPOS DE PAGINA - ANALISIS DETALLADO
+================================================================================
+
+
+----------------------------------------------------------------------
+PAGINA TIPO 1: SPLASH PAGE (Homepage / Pagina de Inicio)
+----------------------------------------------------------------------
+
+QUE ES: La pagina principal que ve el candidato al entrar al portal.
+
+ELEMENTOS OBLIGATORIOS (no los puedes quitar):
+  [X] Search Box (barra de busqueda de vacantes)
+  [X] Category Tiles (mosaicos de categorias de empleo)
+  Estos DOS son requisito para poder publicar la Splash Page.
+  Pero SI puedes moverlos de posicion.
+
+ELEMENTOS OPCIONALES (los agregas tu):
+  [+] Headline, Paragraph, Image, Video, Button
+  [+] Job List (lista de vacantes)
+  [+] Featured Jobs (vacantes destacadas)
+  [+] Trending Jobs (vacantes en tendencia)
+  [+] Talent Community Button
+  [+] Recommended Jobs
+  [+] Space, Rule
+  [+] HTML <<< AQUI PUEDES METER CODIGO HTML LIBRE
+
+LO QUE SI PUEDES PERSONALIZAR:
+  - Agregar TODAS las secciones que quieras
+  - Background de cada seccion (color, imagen, video)
+  - Layout de columnas (1 a 5 por fila)
+  - Todos los elementos listados arriba
+  - Bloques HTML libres en cualquier seccion
+
+LO QUE NO PUEDES CAMBIAR:
+  - La logica del Search Box (busca en la BD de requisiciones)
+  - El comportamiento de Category Tiles (enlaza a landing pages)
+  - El render del Job List (formato viene del sistema)
+  - La funcionalidad de aplicar/login del candidato
+
+DONDE NECESITAS HTML:
+  >>> Secciones visuales del diseño del PDF que NO se logran con 
+      los elementos nativos (ej: layouts complejos, animaciones,
+      iconos personalizados, secciones con diseño muy especifico)
+  >>> TODO lo visual/decorativo se puede hacer con HTML element
+  >>> Lo funcional (buscar, listar vacantes) DEBE ser nativo
+
+ESTRATEGIA PARA ESTA PAGINA:
+  Seccion Hero:        HTML element (para replicar diseño exacto del PDF)
+  Barra de busqueda:   Search Box NATIVO (obligatorio)
+  Categorias:          Category Tiles NATIVO (obligatorio) + CSS para estilo
+  Vacantes destacadas: Featured Jobs NATIVO o Job List NATIVO
+  Seccion "¿Por que?": HTML element (diseño libre)
+  Seccion beneficios:  HTML element (diseño libre)
+  Testimonios:         HTML element (diseño libre)
+
+
+----------------------------------------------------------------------
+PAGINA TIPO 2: SEARCH RESULTS PAGE (Resultados de Busqueda)
+----------------------------------------------------------------------
+
+QUE ES: Muestra las vacantes despues de que el candidato busca.
+
+ELEMENTOS FIJOS (controlados por Oracle):
+  [X] Barra de busqueda superior
+  [X] Filtros laterales (Location, Category, Job Function, etc.)
+  [X] Lista de resultados (Job Cards)
+  [X] Paginacion / Infinite Scroll
+  ESTOS SON EL NUCLEO DE LA PAGINA Y NO SE PUEDEN REEMPLAZAR
+
+LO QUE SI PUEDES CONFIGURAR (sin HTML):
+  - Estilo de lista: LIST vs TILE (tarjetas)
+  - Que campos mostrar en cada tarjeta de vacante:
+    * Organizacion, Job Family, Job Function
+    * Worker Type, Full-time/Part-time
+    * Management Level, Job Shift, Education Level
+    * Ubicaciones, Responsabilidades, Calificaciones
+    * Flexfields personalizados de requisicion
+  - Logos de organizacion en la lista
+  - Mapa de ubicaciones (mostrar/ocultar)
+  - Infinite scroll (activar/desactivar)
+  - Filtros visibles para el candidato
+
+LO QUE SI PUEDES PERSONALIZAR CON HTML/CSS:
+  - Agregar secciones ARRIBA o ABAJO del bloque de resultados
+  - Un banner/hero arriba de los resultados (via HTML element)
+  - Texto informativo debajo de los resultados
+  - CSS para cambiar colores, fuentes, bordes de las tarjetas
+
+LO QUE NO PUEDES CAMBIAR:
+  - La estructura interna de los filtros
+  - El layout del listado de vacantes (solo List o Tile)
+  - La logica de busqueda
+  - Los botones de aplicar dentro de cada tarjeta
+
+DONDE NECESITAS HTML:
+  >>> Solo para agregar un banner/hero ARRIBA de los resultados
+  >>> El resto se configura en las opciones del Career Site
+  >>> El estilo visual se ajusta con Custom CSS en el Theme Tab
+
+ESTRATEGIA PARA ESTA PAGINA:
+  Banner superior:     HTML element (opcional, para branding)
+  Filtros:             CONFIGURACION nativa (pestana General)
+  Lista de vacantes:   NATIVO (solo elegir List o Tile)
+  Estilos visuales:    Custom CSS en Theme Tab
+  
+
+----------------------------------------------------------------------
+PAGINA TIPO 3: JOB DETAILS PAGE (Detalle de Vacante)
+----------------------------------------------------------------------
+
+QUE ES: Muestra la informacion completa de UNA vacante cuando 
+el candidato hace clic. Incluye el boton "Aplicar".
+
+ELEMENTOS FIJOS (NO SE PUEDEN TOCAR):
+  [X] Titulo de la vacante (viene de la requisicion)
+  [X] Descripcion del puesto (viene de la requisicion)
+  [X] Requisitos y responsabilidades (viene de la requisicion)
+  [X] Ubicacion, tipo de empleo, fecha (viene de la requisicion)
+  [X] Boton "Aplicar Ahora" / "Apply Now"
+  [X] Campos de la requisicion (controlados por Transaction Design Studio)
+  
+  >>> TODA LA PARTE CENTRAL DE ESTA PAGINA ES GENERADA POR ORACLE
+  >>> NO PUEDES REEMPLAZARLA CON HTML
+
+LO QUE SI PUEDES PERSONALIZAR:
+  - Agregar secciones ARRIBA del contenido automatico
+  - Agregar secciones ABAJO del contenido automatico
+  - En esas secciones puedes usar HTML element para contenido libre
+  - Controlar que campos de la requisicion se muestran
+    (via Transaction Design Studio / HCM Experience Design Studio)
+
+LO QUE NO PUEDES CAMBIAR:
+  - El layout del titulo + descripcion + boton aplicar
+  - La estructura del formulario de aplicacion
+  - Los IDs/clases del boton "Aplicar" (cambian con actualizaciones)
+  - La logica del flujo de aplicacion
+
+>>> ADVERTENCIA: Oracle PROHIBE usar CSS para modificar elementos
+    internos de esta pagina. Los IDs y clases cambian con cada
+    actualizacion trimestral y romperan tu diseño.
+
+DONDE NECESITAS HTML:
+  >>> Solo para secciones ARRIBA o ABAJO del contenido de la vacante
+  >>> Ejemplo: banner de la empresa, seccion "¿Por que nosotros?"
+  >>> La parte central de la vacante NO SE TOCA
+
+ESTRATEGIA PARA ESTA PAGINA:
+  Banner superior:     HTML element (imagen/branding de la empresa)
+  Contenido vacante:   TODO NATIVO (titulo, descripcion, aplicar)
+  Campos visibles:     Transaction Design Studio (mostrar/ocultar campos)
+  Seccion inferior:    HTML element ("Conoce mas de CENAM")
+  Estilos visuales:    Custom CSS LIMITADO (solo colores generales)
+
+
+----------------------------------------------------------------------
+PAGINA TIPO 4: CUSTOM PAGE (Pagina Personalizada)
+----------------------------------------------------------------------
+
+QUE ES: Paginas libres para contenido adicional.
+Equivalente a "paginas estaticas" de WordPress.
+Ejemplos: Cultura, Beneficios, Proceso, Contacto, FAQ
+
+ELEMENTOS FIJOS:
+  >>> NINGUNO. Las Custom Pages son las MAS LIBRES.
+  >>> No tienen componentes obligatorios.
+
+LO QUE SI PUEDES HACER:
+  - Agregar TODAS las secciones que quieras
+  - Usar CUALQUIER elemento del editor
+  - Usar HTML element con codigo libre en cualquier seccion
+  - Background de cada seccion (color, imagen, video)
+  - Layout de columnas libre (1 a 5)
+  - Hasta cierto numero de custom pages (depende del plan)
+
+LO QUE NO PUEDES HACER:
+  - Subir imagenes al servidor de Oracle (deben ser URLs publicas)
+  - Usar JavaScript complejo (no soportado oficialmente)
+  - Crear paginas infinitas (hay limite practico)
+
+DONDE NECESITAS HTML:
+  >>> AQUI ES DONDE MAS HTML LIBRE PUEDES USAR
+  >>> Cada seccion visual del diseño del PDF puede ser un HTML element
+  >>> Puedes replicar el diseño del PDF casi al 100% con HTML puro
+
+ESTRATEGIA PARA ESTAS PAGINAS:
+  Hero/Banner:         HTML element (control total del diseño)
+  Contenido:           HTML element (secciones completas del PDF)
+  Imagenes/Iconos:     HTML element (con URLs de servidor publico)
+  Formularios:         NO disponible (solo el de aplicar es nativo)
+  Mapas:               HTML element (iframe de Google Maps)
+  Videos:              Video nativo o HTML element (YouTube iframe)
+
+  >>> LAS CUSTOM PAGES SON TU MEJOR ALIADO PARA REPLICAR EL PDF
+
+
+================================================================================
+SECCION 3: AREAS DE PERSONALIZACION GLOBAL (Theme Tab)
+================================================================================
+
+El Theme Tab aplica a TODAS las paginas. Tiene estas secciones:
+
+1. LOGOS
+   - Logo Desktop: URL publica, 150x40 px recomendado
+   - Logo Mobile: URL publica, 150x40 px
+   >>> Sin HTML, solo pegar URL
+
+2. COLORES
+   - Color primario, secundario, fondo, texto
+   >>> Configuracion visual, sin HTML
+
+3. FUENTES
+   - Seleccion de fuente del sistema
+   - O importar via Custom CSS (@import Google Fonts)
+   >>> Parcialmente HTML/CSS
+
+4. CUSTOM HEADER (HTML)
+   >>> AQUI SI: HTML completo para tu header personalizado
+   >>> Se muestra ENCIMA del header nativo del template
+   >>> Para ocultar el header nativo: usar CSS display:none
+   >>> Puedes meter: logo, navegacion, enlaces, iconos sociales
+
+5. CUSTOM FOOTER (HTML)
+   >>> AQUI SI: HTML completo para tu footer
+   >>> REEMPLAZA el footer nativo del template
+   >>> Puedes meter: contacto, enlaces, redes, copyright
+
+6. CUSTOM CSS
+   >>> AQUI SI: Todo el CSS personalizado del sitio
+   >>> Aplica a TODAS las paginas
+   >>> Aqui defines: fuentes, colores, animaciones, responsive
+   >>> CUIDADO: no modificar clases internas de Oracle (cambian)
+
+7. CUSTOM JAVASCRIPT
+   >>> Existe pero SOLO para tracking (Google Analytics, GTM)
+   >>> NO usar para modificar UI, animaciones o comportamiento
+   >>> Oracle NO soporta JavaScript personalizado para UI
+
+
+================================================================================
+SECCION 4: MAPA COMPLETO - QUE NECESITAS POR PAGINA DEL PDF
+================================================================================
+
+Leyenda:
+  [NATIVO]  = Usar elemento nativo de Oracle (no necesitas HTML)
+  [HTML]    = Usar elemento HTML personalizado
+  [CSS]     = Personalizar via Custom CSS en Theme Tab
+  [CONFIG]  = Configurar en las opciones del Career Site (sin codigo)
+  [N/A]     = No aplica / No se puede modificar
+
+
+PDF PAG 1 → SPLASH PAGE (Homepage)
+===================================
+Componente del diseño          | Como implementar    | Notas
+-------------------------------|--------------------|--------------------------
+Header con logo y nav          | [HTML] Theme Tab    | Custom Header HTML
+Hero banner con imagen         | [HTML] en seccion   | Background img + HTML element
+Texto hero "Unete a..."        | [HTML] en seccion   | Parte del bloque HTML hero
+Barra de busqueda              | [NATIVO] Search Box | OBLIGATORIO, no se puede HTML
+Categorias de empleo           | [NATIVO] Cat. Tiles | OBLIGATORIO, estilo via [CSS]
+Vacantes destacadas            | [NATIVO] Job List   | O Featured Jobs nativo
+Seccion "¿Por que CENAM?"      | [HTML] en seccion   | Diseño libre con HTML element
+Testimonios/galeria            | [HTML] en seccion   | Diseño libre con HTML element
+Footer con contacto y legal    | [HTML] Theme Tab    | Custom Footer HTML
+
+
+PDF PAG 2 → SEARCH RESULTS PAGE
+===================================
+Componente del diseño          | Como implementar    | Notas
+-------------------------------|--------------------|--------------------------
+Header                         | [HTML] Theme Tab    | Mismo header global
+Banner superior                | [HTML] en seccion   | Opcional, arriba de resultados
+Filtros laterales              | [CONFIG] General    | Elegir cuales mostrar
+Lista de vacantes              | [NATIVO] fijo       | Solo elegir List vs Tile
+Estilo de tarjetas vacante     | [CSS] Theme Tab     | Colores, bordes, sombras
+Campos en cada tarjeta         | [CONFIG] Job List   | Elegir que campos mostrar
+Paginacion                     | [N/A]               | Automatico / Infinite Scroll
+Footer                         | [HTML] Theme Tab    | Mismo footer global
+
+
+PDF PAG 3 → JOB DETAILS PAGE
+===================================
+Componente del diseño          | Como implementar    | Notas
+-------------------------------|--------------------|--------------------------
+Header                         | [HTML] Theme Tab    | Mismo header global
+Banner/hero de la vacante      | [HTML] en seccion   | ARRIBA del contenido nativo
+Titulo de la vacante           | [N/A]               | Automatico desde requisicion
+Descripcion del puesto         | [N/A]               | Automatico desde requisicion
+Requisitos y responsabilidades | [N/A]               | Automatico desde requisicion
+Ubicacion, tipo, fecha         | [N/A]               | Automatico desde requisicion
+Boton "Aplicar Ahora"          | [N/A]               | Automatico, NO modificar
+Campos adicionales             | [CONFIG] TDS        | Transaction Design Studio
+Seccion "Sobre CENAM"          | [HTML] en seccion   | ABAJO del contenido nativo
+Footer                         | [HTML] Theme Tab    | Mismo footer global
+
+
+PDF PAG 4 → CUSTOM PAGE: CULTURA/SOBRE NOSOTROS
+===================================
+Componente del diseño          | Como implementar    | Notas
+-------------------------------|--------------------|--------------------------
+Header                         | [HTML] Theme Tab    | Mismo header global
+Hero con imagen y titulo       | [HTML] en seccion   | LIBERTAD TOTAL
+Mision/Vision/Valores          | [HTML] en seccion   | LIBERTAD TOTAL
+Galeria de fotos               | [HTML] en seccion   | LIBERTAD TOTAL
+Video institucional            | [NATIVO] Video      | O [HTML] con YouTube iframe
+Call to Action                 | [HTML] en seccion   | O [NATIVO] Button
+Footer                         | [HTML] Theme Tab    | Mismo footer global
+
+
+PDF PAG 5 → CUSTOM PAGE: BENEFICIOS
+===================================
+Componente del diseño          | Como implementar    | Notas
+-------------------------------|--------------------|--------------------------
+Header                         | [HTML] Theme Tab    | Mismo header global
+Hero con titulo                | [HTML] en seccion   | LIBERTAD TOTAL
+Lista de beneficios con iconos | [HTML] en seccion   | LIBERTAD TOTAL
+Imagenes de instalaciones      | [HTML] en seccion   | LIBERTAD TOTAL
+CTA "Ver vacantes"             | [HTML] en seccion   | LIBERTAD TOTAL
+Footer                         | [HTML] Theme Tab    | Mismo footer global
+
+
+PDF PAG 6 → CUSTOM PAGE: PROCESO DE SELECCION
+===================================
+Componente del diseño          | Como implementar    | Notas
+-------------------------------|--------------------|--------------------------
+Header                         | [HTML] Theme Tab    | Mismo header global
+Hero con titulo                | [HTML] en seccion   | LIBERTAD TOTAL
+Timeline/pasos del proceso     | [HTML] en seccion   | LIBERTAD TOTAL (timeline CSS)
+FAQ / Preguntas frecuentes     | [HTML] en seccion   | Accordion con CSS puro
+CTA final                      | [HTML] en seccion   | LIBERTAD TOTAL
+Footer                         | [HTML] Theme Tab    | Mismo footer global
+
+
+PDF PAG 7 → CUSTOM PAGE: CONTACTO
+===================================
+Componente del diseño          | Como implementar    | Notas
+-------------------------------|--------------------|--------------------------
+Header                         | [HTML] Theme Tab    | Mismo header global
+Datos de contacto              | [HTML] en seccion   | LIBERTAD TOTAL
+Mapa Google Maps               | [HTML] en seccion   | Iframe de Google Maps
+Redes sociales                 | [HTML] en seccion   | LIBERTAD TOTAL
+Footer                         | [HTML] Theme Tab    | Mismo footer global
+
+
+PDF PAG 8 → LANDING PAGES
+===================================
+Componente del diseño          | Como implementar    | Notas
+-------------------------------|--------------------|--------------------------
+Header                         | [HTML] Theme Tab    | Mismo header global
+Hero de la categoria           | [CONFIG] Landing    | Imagen hero por categoria
+Titulo y tagline               | [CONFIG] Landing    | Se configura al crear la landing
+Lista de vacantes filtrada     | [NATIVO] fijo       | Automatico segun filtro
+IA texto introductorio         | [CONFIG] IA         | Generative AI (si habilitado)
+Footer                         | [HTML] Theme Tab    | Mismo footer global
+
+
+================================================================================
+SECCION 5: RESUMEN EJECUTIVO - DONDE APLICA Y NO APLICA HTML
+================================================================================
+
+DONDE SI APLICA HTML (tu codigo personalizado):
+------------------------------------------------
+[✓] Custom Header (Theme Tab)        → Header completo
+[✓] Custom Footer (Theme Tab)        → Footer completo
+[✓] Custom CSS (Theme Tab)           → Estilos globales
+[✓] Splash Page: secciones extras    → Hero, testimonios, "por que"
+[✓] Search Results: banner superior  → Solo arriba del listado
+[✓] Job Details: secciones extras    → Solo ARRIBA y ABAJO del contenido
+[✓] Custom Pages: TODO el contenido  → LIBERTAD TOTAL en cada seccion
+[✓] Acordeones, timelines, grids    → Via HTML element + CSS puro
+
+DONDE NO APLICA HTML (es nativo de Oracle):
+--------------------------------------------
+[✗] Search Box (barra de busqueda)   → Elemento nativo obligatorio
+[✗] Category Tiles (categorias)     → Elemento nativo obligatorio
+[✗] Job List (lista de vacantes)     → Elemento nativo (configurable)
+[✗] Featured Jobs / Trending Jobs    → Elemento nativo
+[✗] Filtros de busqueda              → Configuracion del sistema
+[✗] Titulo/descripcion de vacante   → Viene de la requisicion
+[✗] Boton "Aplicar Ahora"           → Sistema, NO TOCAR
+[✗] Formulario de aplicacion         → Application Flow nativo
+[✗] Login/registro candidato         → Sistema nativo
+
+DONDE ES PELIGROSO USAR HTML/CSS:
+--------------------------------------------
+[!] CSS en elementos internos de Oracle → Cambian con updates trimestrales
+[!] JavaScript para modificar UI        → No soportado, puede romper cosas
+[!] Manipulacion de DOM via JS          → Prohibido por Oracle
+[!] CSS en boton "Aplicar"             → Puede romper el flujo de aplicacion
+
+
+================================================================================
+SECCION 6: CALCULO DE ESFUERZO POR PAGINA
+================================================================================
+
+Pagina             | % HTML libre | % Nativo | Dificultad | Tiempo est.
+-------------------|-------------|----------|------------|------------
+Splash Page        |     60%     |   40%    | MEDIA-ALTA | 2-3 dias
+Search Results     |     10%     |   90%    | BAJA       | 0.5-1 dia
+Job Details        |     20%     |   80%    | BAJA       | 0.5-1 dia
+Custom: Cultura    |     95%     |    5%    | MEDIA      | 1-2 dias
+Custom: Beneficios |     95%     |    5%    | MEDIA      | 1-2 dias
+Custom: Proceso    |     95%     |    5%    | MEDIA      | 1-2 dias
+Custom: Contacto   |     95%     |    5%    | BAJA       | 0.5-1 dia
+Landing Pages      |     10%     |   90%    | BAJA       | 0.5 dia
+Theme (global)     |     80%     |   20%    | MEDIA      | 1-2 dias
+-----------------------------------------------------------------
+TOTAL ESTIMADO:                                           8-14 dias
+
+
+================================================================================
+SECCION 7: LIMITACIONES CRITICAS A TENER EN CUENTA
+================================================================================
+
+1. IMAGENES: Oracle NO almacena imagenes. TODAS deben estar en
+   servidor publico (CDN, servidor web) sin autenticacion.
+   Si tu servidor cae, las imagenes del portal desaparecen.
+
+2. JAVASCRIPT: Existe un campo de "Custom JavaScript" pero Oracle
+   SOLO lo soporta para scripts de tracking (Google Analytics).
+   NO para modificar la UI. Si lo usas para UI, Oracle no te
+   ayudara si algo se rompe.
+
+3. CSS EN ELEMENTOS INTERNOS: Oracle actualiza su plataforma cada
+   3 meses. Los nombres de clase CSS internos CAMBIAN sin aviso.
+   Si haces CSS apuntando a clases internas de Oracle, se rompera.
+   SOLO usa CSS en tus propios elementos HTML con tus propias clases.
+
+4. CUSTOM PAGES LIMITE: Hay un limite practico de custom pages
+   (algunas fuentes dicen maximo 3 en ciertas configuraciones).
+   Verificar con tu instancia.
+
+5. RESPONSIVE: Si usas HTML element, TU eres responsable de hacer
+   tu HTML responsive. Oracle no lo hace por ti en bloques HTML.
+   Siempre usar media queries en tu CSS.
+
+6. TEMPLATE: Usar siempre el template "Minimal" (el mas reciente).
+   Los templates antiguos ("Modern") ya no tienen soporte.
+
+7. PREVIEW: Siempre revisar en Desktop, Tablet y Mobile ANTES
+   de publicar. El preview esta en el editor del Career Site.
+
+8. CUSTOM HEADER: Se muestra ENCIMA del header nativo.
+   Para ocultar el nativo, usar CSS: 
+   .header-nativo { display: none !important; }
+   (buscar la clase real con Inspector F12)
+
+9. CUSTOM FOOTER: REEMPLAZA completamente el footer nativo.
+   No necesitas ocultar nada.
+
+10. PUBLICACION: Los cambios NO se ven hasta que presiones "Publish".
+    Puedes trabajar en preview sin afectar el sitio activo.
+
+
+================================================================================
+SECCION 8: PLAN DE ACCION RECOMENDADO
+================================================================================
+
+FASE 1: PREPARACION (1-2 dias)
+  [ ] Extraer TODOS los recursos del PDF:
+      - Colores HEX de cada elemento
+      - Fuentes utilizadas
+      - Imagenes, iconos, logos
+      - Textos de cada seccion
+  [ ] Subir TODAS las imagenes a servidor publico
+  [ ] Documentar URLs de cada imagen
+  [ ] Identificar fuente de Google Fonts mas cercana
+
+FASE 2: THEME GLOBAL (1-2 dias)
+  [ ] Configurar logos (desktop y mobile)
+  [ ] Configurar colores corporativos
+  [ ] Escribir Custom CSS global (fuentes, botones, colores)
+  [ ] Escribir Custom Header HTML
+  [ ] Escribir Custom Footer HTML
+  [ ] Ocultar header nativo via CSS (si necesario)
+  [ ] Verificar en preview desktop/tablet/mobile
+
+FASE 3: SPLASH PAGE (2-3 dias)
+  [ ] Crear seccion Hero con HTML element (replicar diseño PDF pag 1)
+  [ ] Colocar Search Box nativo (obligatorio)
+  [ ] Configurar Category Tiles nativos + CSS para estilo
+  [ ] Crear seccion de vacantes con Job List o Featured Jobs nativo
+  [ ] Crear secciones extras con HTML elements (segun diseño)
+  [ ] Verificar responsive en 3 resoluciones
+
+FASE 4: SEARCH RESULTS + JOB DETAILS (1-2 dias)
+  [ ] Configurar filtros de busqueda (General Tab)
+  [ ] Elegir estilo List vs Tile
+  [ ] Seleccionar campos visibles en tarjetas
+  [ ] Agregar banner superior en Search Results (HTML, opcional)
+  [ ] Configurar campos de Job Details (Transaction Design Studio)
+  [ ] Agregar secciones arriba/abajo en Job Details (HTML)
+
+FASE 5: CUSTOM PAGES (3-4 dias)
+  [ ] Crear Custom Page: Cultura → TODO con HTML elements
+  [ ] Crear Custom Page: Beneficios → TODO con HTML elements
+  [ ] Crear Custom Page: Proceso → TODO con HTML elements (timeline)
+  [ ] Crear Custom Page: Contacto → TODO con HTML elements + mapa
+  [ ] Vincular todas las paginas desde navegacion del header
+
+FASE 6: LANDING PAGES + SEO (0.5-1 dia)
+  [ ] Crear landing pages por categoria principal
+  [ ] Configurar SEO (meta descriptions, URLs amigables)
+  [ ] Configurar Google Search Console (si aplica)
+
+FASE 7: PRUEBAS Y PUBLICACION (1-2 dias)
+  [ ] Probar TODOS los flujos en ambiente TEST
+  [ ] Verificar responsive en dispositivo real
+  [ ] Crear vacante de prueba y probar aplicacion completa
+  [ ] Publicar
+  [ ] Verificar sitio publico
+
+
+================================================================================
+FIN DEL ANALISIS TECNICO
+================================================================================

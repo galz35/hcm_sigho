@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1"></meta>
+        
+                
+                        
+                   
+            <meta property="og:title" content="prueba 1 Careers"/>
+            <meta property="og:description" content=""/>
+                            <meta property="og:image" content="https://up.yimg.com/ib/th/id/OIP.TQbvkoOKLCp-nNKqa4ReWAHaCx?pid=Api&rs=1&c=1&qlt=95&w=262&h=98"/>
+                        
+            
+                        <meta property="og:type" content="website"/>
+                        
+            <meta property="og:site_name" content="prueba 1"/>
+            <meta name="twitter:card" content="summary_large_image">
+            <title>prueba 1</title>
+        
+	
+                    <base href="/hcmUI/CandidateExperience/es/sites/CX_1001"/>
+                
+        <link rel="icon" sizes="16x16" type="image/png" title="favicon" href="/hcmRestApi/CandidateExperience/siteFavicon/favicon-16x16.png?siteNumber=CX_1001&size=16x16"></link>
+        <link rel="icon" sizes="144x144" type="image/png" title="favicon" href="/hcmRestApi/CandidateExperience/siteFavicon/favicon-144x144.png?siteNumber=CX_1001&size=144x144"></link>
+        <link rel="icon" sizes="152x152" type="image/png" title="favicon" href="/hcmRestApi/CandidateExperience/siteFavicon/favicon-152x152.png?siteNumber=CX_1001&size=152x152"></link>
+
+        <link rel="apple-touch-icon" sizes="152x152" type="image/png" title="favicon" href="/hcmRestApi/CandidateExperience/siteFavicon/favicon-152x152.png?siteNumber=CX_1001&size=152x152"></link>
+
+        
+        <link rel="stylesheet" href="https://static.oracle.com/cdn/jet/18.0.0/default/css/redwood/oj-redwood-min.css">
+        <link rel="stylesheet" href="https://static.oracle.com/cdn/fa/oj-hcm-ce/2601.20.261041051/css/main-minimal.css">
+         
+        <link rel="stylesheet" title="cx-custom" data-custom-css href="/hcmUI/CandExpStatic/css/ce-custom.css?themeNumber=default_minimal_theme_CX_1001&lang=es&themeVersion=1&brandVersion=10&brandTlVersion=10&siteNumber=CX_1001"></link>
+
+        <script data-cx-config>
+           var CX_CONFIG = {
+                app: {
+                    apiBaseUrl: 'https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com:443',
+                    uiBaseUrl: 'https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com:443/hcmUI',
+                                                                                faHostUrl: '',
+                    siteName: 'prueba 1',
+                    siteCode: 'p-1',
+                    siteNumber: 'CX_1001',
+                    siteLang: 'es',
+                    languages: [
+    {
+        "code": "es",
+        "fusionCode": "E",
+        "direction": "ltr",
+        "label": "Espa\u00f1ol"
+    }
+],
+                    cdnUrl:'https://static.oracle.com/cdn/fa/oj-hcm-ce/2601.20.261041051',
+                    cxVersion:'2601.0.78',
+                    headerMode: 1,
+                    footerMode: 1,
+                    template: {
+    "templateNumber": "minimal",
+    "welcomeText": null,
+    "mainCallForAction": null
+},
+                    templates: {
+    "SEARCH_PAGE": {
+        "pageCode": "7003",
+        "pageNumber": "8249",
+        "pageUrlName": null
+    },
+    "SPLASH_PAGE": {
+        "pageCode": "7002",
+        "pageNumber": "11049",
+        "pageUrlName": null
+    }
+},
+                    talentCommunitySignUp: {
+    "title": null,
+    "buttonLabel": "Crear perfil  --->",
+    "showAtSearchResults": false,
+    "showWhenNoSearchResultsFound": false,
+    "description": null
+},
+                    cookieConsent : {
+    "analyticalCategoryMessage": null,
+    "cookiePreferencesEnabled": false,
+    "strictCategoryMessage": null,
+    "customCategoryDescription": null,
+    "popUpMessage": null,
+    "preferencesSaveButtonLabel": null,
+    "declineButtonLabel": null,
+    "preferencesButtonLabel": null,
+    "declineButtonEnabled": false,
+    "acceptButtonLabel": null,
+    "customCategoryButtonLabel": null,
+    "cookieMessageEnabled": false,
+    "functionalCategoryMessage": null,
+    "cookieLinkLabel": null,
+    "policyMessage": null,
+    "customCookieEnabled": false
+},
+                    settings : [
+    {
+        "settingValue": null,
+        "settingKey": "colorTag"
+    },
+    {
+        "settingValue": "N",
+        "settingKey": "CHATBOT_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "LOCATIONS_FACET_ENABLED"
+    },
+    {
+        "settingValue": "false",
+        "settingKey": "WORKPLACE_TYPE_ONSITE_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "WORKPLACE_TYPE_HYBRID_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "WORKPLACE_TYPE_REMOTE_ENABLED"
+    },
+    {
+        "settingValue": "false",
+        "settingKey": "WORK_LOCATIONS_FACET_ENABLED"
+    },
+    {
+        "settingValue": "false",
+        "settingKey": "WORKPLACE_TYPES_FACET_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "CATEGORIES_FACET_ENABLED"
+    },
+    {
+        "settingValue": "false",
+        "settingKey": "ORGANIZATIONS_FACET_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "TITLES_FACET_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "POSTING_DATES_FACET_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "RECOMMENDED_JOBS_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "ADDRESS_SEARCH_ENABLED"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "MAPS_ENABLED"
+    },
+    {
+        "settingValue": "full",
+        "settingKey": "WORK_LOCATIONS_DISPLAY"
+    },
+    {
+        "settingValue": "locationsFacet,workLocationsFacet,workplaceTypesFacet,titlesFacet,categoriesFacet,organizationsFacet,postingDatesFacet",
+        "settingKey": "FACET_ORDER"
+    },
+    {
+        "settingValue": "email",
+        "settingKey": "DEFAULT_METHOD"
+    },
+    {
+        "settingValue": "sms",
+        "settingKey": "MOBILE_MESSAGE_TYPE"
+    },
+    {
+        "settingValue": "false",
+        "settingKey": "ENABLE_ORGANIZATION_LOGOS"
+    },
+    {
+        "settingValue": "false",
+        "settingKey": "AI_ASSISTANT_ENABLED"
+    },
+    {
+        "settingValue": "ORA_CAREER_COACH",
+        "settingKey": "CAREER_COACH_AGENT_CODE"
+    },
+    {
+        "settingValue": "true",
+        "settingKey": "PARALLAX_ENABLED"
+    }
+],
+                    links : {
+    "footer": [
+        
+    ],
+    "header": [
+        {
+            "visibleOnMobile": false,
+            "sublinks": [
+                
+            ],
+            "text": "Inicio",
+            "url": "https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/es/sites/CX_1001",
+            "name": null
+        },
+        {
+            "visibleOnMobile": false,
+            "sublinks": [
+                
+            ],
+            "text": "Vacantes",
+            "url": "https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/es/sites/CX_1001/jobs",
+            "name": null
+        },
+        {
+            "visibleOnMobile": false,
+            "sublinks": [
+                
+            ],
+            "text": "Nuestra Esencia",
+            "url": "7005",
+            "name": null
+        },
+        {
+            "visibleOnMobile": false,
+            "sublinks": [
+                {
+                    "visibleOnMobile": false,
+                    "sublinks": [
+                        
+                    ],
+                    "text": "Guatemala",
+                    "url": "7009",
+                    "name": null
+                },
+                {
+                    "visibleOnMobile": false,
+                    "sublinks": [
+                        
+                    ],
+                    "text": "El Salvador",
+                    "url": "7007",
+                    "name": null
+                },
+                {
+                    "visibleOnMobile": false,
+                    "sublinks": [
+                        
+                    ],
+                    "text": "Honduras",
+                    "url": "7010",
+                    "name": null
+                },
+                {
+                    "visibleOnMobile": false,
+                    "sublinks": [
+                        
+                    ],
+                    "text": "Nicaragua",
+                    "url": "7006",
+                    "name": null
+                },
+                {
+                    "visibleOnMobile": false,
+                    "sublinks": [
+                        
+                    ],
+                    "text": "Costa Rica",
+                    "url": "7008",
+                    "name": "Costa Rica"
+                }
+            ],
+            "text": "Claro en tu Pa\u00eds",
+            "url": "7016",
+            "name": "Claro en tu Pa\u00eds"
+        },
+        {
+            "visibleOnMobile": false,
+            "sublinks": [
+                
+            ],
+            "text": "Apoyo al Candidato",
+            "url": "7011",
+            "name": null
+        }
+    ],
+    "jobCategory": [
+        
+    ],
+    "ice": {
+        "sharedJobDetails": "https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com:443/fscmUI/faces/deeplink?objType=IRC_RECRUITING&action=ICE_JOB_DETAILS_RESP&objKey=pRequisitionNo=%3AjobId%3A;pShareId=:shareId:;pCalledFrom=FUSESHELL",
+        "search": "https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com:443/fscmUI/faces/deeplink?objType=IRC_RECRUITING&action=ICE_JOB_SEARCH_RESP",
+        "jobAlerts": "https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com:443/fscmUI/faces/deeplink?objType=IRC_RECRUITING&action=ICE_JOB_ALERTS_RESP&objKey=;pCalledFrom=FUSESHELL",
+        "referredJobDetails": "https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com:443/fscmUI/faces/deeplink?objType=IRC_RECRUITING&action=ICE_JOB_DETAILS_RESP&objKey=pRequisitionNo=%3AjobId%3A;pReferralId=:referralId:;pCalledFrom=FUSESHELL",
+        "jobDetails": "https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com:443/fscmUI/faces/deeplink?objType=IRC_RECRUITING&action=ICE_JOB_DETAILS_RESP&objKey=pRequisitionNo=%3AjobId%3A;pCalledFrom=FUSESHELL"
+    }
+},
+                    optinDescriptionStr: "",
+                    optinDescriptionVersionId: null,
+                    images : {"mobileFrontImageUrl":null,"frontImageUrl":null,"corporateIconUrl":null,"mobileLogoImageUrl":null,"logoImageUrl":"https://up.yimg.com/ib/th/id/OIP.TQbvkoOKLCp-nNKqa4ReWAHaCx?pid=Api&rs=1&c=1&qlt=95&w=262&h=98"},
+                    shortUrl : {
+    "challengeFlag": null,
+    "url": null
+} ,
+                    overridenLang: '' ,
+                    vanityBaseUrl : '',
+                    siteEventsEnabledFlag: false,
+                    siteURLName: null ,
+                    "seoConfiguration" :{ "name" : "prueba 1", "sameAs" : "https://fa-exjp-test-saasfaprod1.fa.ocs.oraclecloud.com:443/hcmUI/CandidateExperience/",
+                    "logo": "https:\/\/up.yimg.com\/ib\/th\/id\/OIP.TQbvkoOKLCp-nNKqa4ReWAHaCx?pid=Api&rs=1&c=1&qlt=95&w=262&h=98" ,
+                    "seoKeywords": null ,
+                    "seoDescription": null },
+                    "customHeaders" : [
+    {
+        "settings": [
+            {
+                "settingValue": "horizontal",
+                "settingKey": "headerType"
+            },
+            {
+                "settingValue": "true",
+                "settingKey": "isEmployeeButtonHidden"
+            },
+            {
+                "settingValue": "false",
+                "settingKey": "isLogoHidden"
+            },
+            {
+                "settingValue": "false",
+                "settingKey": "isProfileButtonHidden"
+            }
+        ],
+        "employeeText": "U295IGVtcGxlYWRv",
+        "logoURL": null,
+        "type": "ORA_GLOBAL",
+        "headerId": 300000760038907,
+        "profileText": null,
+        "name": null
+    }
+],
+                    "customWidgets" : [
+    
+],
+                    "customIcons" : [
+    
+]
+                }
+            };
+                            const HASHBANG_REGEX = /\/?#\/(job|requisitions|jobs)\//;
+                if (window.location.href.match(HASHBANG_REGEX)) {	
+                        window.location.replace(window.location.href.replace(HASHBANG_REGEX, '/$1/'));
+                }
+                    </script>
+        <script src="https://static.oracle.com/cdn/fa/oj-hcm-ce/2601.20.261041051/js/main-minimal.js" defer></script>
+                    <style id="custom-css">
+            /* ==========================================================================
+   ORACLE HCM GLOBAL CUSTOM CSS - CLARO CAREERS
+   Paste these styles inside the "Custom CSS" section in the Theme Tab.
+   This file imports Tailwind CSS v2 and defines all the JIT classes
+   used in our Claro vacancy landing page design.
+   ========================================================================== */
+
+/* 1. Importación Global de Tailwind CSS (Aceptado por Oracle en la pestaña Theme) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+
+/* 2. Custom Fonts & Core Overrides */
+.hero-bg {
+    background: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=2069&ixlib=rb-4.0.3') center/cover no-repeat;
+    position: relative;
+}
+
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 35%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+.process-line {
+    position: absolute;
+    top: 3.5rem;
+    left: 12.5%;
+    width: 75%;
+    height: 2px;
+    border-top: 2px dashed #999999;
+    z-index: 0;
+}
+
+.nav-link {
+    font-size: 14px;
+    color: #4a4a4a;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #da291c;
+}
+
+.nav-link.active {
+    color: #da291c;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #da291c;
+    border-radius: 2px;
+}
+
+.dot-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #da291c;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot-indicator.active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* 3. Mapeo de Clases Utilitarias Arbitrarias (Tailwind JIT Overrides) */
+.bg-\[\#da291c\] { background-color: #da291c !important; }
+.bg-\[\#b81e13\] { background-color: #b81e13 !important; }
+.bg-\[\#990000\] { background-color: #990000 !important; }
+.bg-\[\#dce3e8\] { background-color: #dce3e8 !important; }
+.bg-\[\#f4f4f4\] { background-color: #f4f4f4 !important; }
+.bg-\[\#2B2B2B\] { background-color: #2B2B2B !important; }
+.bg-\[\#3D3D3D\] { background-color: #3D3D3D !important; }
+.bg-gray-850 { background-color: #1f2937 !important; }
+.bg-gray-800\/40 { background-color: rgba(31, 41, 55, 0.4) !important; }
+.bg-white\/10 { background-color: rgba(255, 255, 255, 0.1) !important; }
+.bg-white\/5 { background-color: rgba(255, 255, 255, 0.05) !important; }
+.bg-black\/20 { background-color: rgba(0, 0, 0, 0.2) !important; }
+.bg-black\/30 { background-color: rgba(0, 0, 0, 0.3) !important; }
+
+.text-\[\#da291c\] { color: #da291c !important; }
+.text-white\/95 { color: rgba(255, 255, 255, 0.95) !important; }
+.text-white\/90 { color: rgba(255, 255, 255, 0.90) !important; }
+.text-gray-400 { color: #9ca3af !important; }
+
+.border-gray-750\/80 { border-color: rgba(55, 65, 81, 0.8) !important; }
+.border-gray-700\/50 { border-color: rgba(55, 65, 81, 0.5) !important; }
+.border-white\/20 { border-color: rgba(255, 255, 255, 0.2) !important; }
+.border-gray-750 { border-color: #374151 !important; }
+.border-\[\#da291c\] { border-color: #da291c !important; }
+
+.rounded-\[2rem\] { border-radius: 2rem !important; }
+.-mt-12 { margin-top: -3rem !important; }
+.-top-2 { top: -0.5rem !important; }
+.-mt-8 { margin-top: -2rem !important; }
+
+.top-6 { top: 1.5rem !important; }
+.top-8 { top: 2rem !important; }
+.left-\[12\.5\%\] { left: 12.5% !important; }
+.right-\[12\.5\%\] { right: 12.5% !important; }
+
+.text-\[2rem\] { font-size: 2rem !important; }
+.text-\[17px\] { font-size: 17px !important; }
+.text-\[11px\] { font-size: 11px !important; }
+.text-\[12px\] { font-size: 12px !important; }
+.text-\[10px\] { font-size: 10px !important; }
+.text-\[13px\] { font-size: 13px !important; }
+
+.max-w-\[150px\] { max-w: 150px !important; }
+.max-w-\[460px\] { max-w: 460px !important; }
+.max-w-\[340px\] { max-w: 340px !important; }
+.aspect-\[4\/3\] { aspect-ratio: 4/3 !important; }
+
+/* Interactive Hover Actions */
+.hover\:bg-claro-red-hover:hover { background-color: #b81e13 !important; }
+.hover\:bg-gray-100:hover { background-color: #f3f4f6 !important; }
+.hover\:bg-white\/10:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
+.hover\:bg-gray-50:hover { background-color: #f9fafb !important; }
+.hover\:bg-gray-700:hover { background-color: #374151 !important; }
+.hover\:text-white:hover { color: #ffffff !important; }
+.hover\:-translate-y-0.5:hover { transform: translateY(-0.125rem) !important; }
+.hover\:-translate-y-2:hover { transform: translateY(-0.5rem) !important; }
+
+/* Timeline Hover Icon Inversion */
+.group:hover .group-hover\:bg-white { background-color: #ffffff !important; }
+.group:hover .group-hover\:text-\[\#da291c\] { color: #da291c !important; }
+.group:hover .group-hover\:border-white { border-color: #ffffff !important; }
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .md\:text-\[4rem\] { font-size: 4rem !important; }
+    .md\:translate-x-4 { transform: translateX(1rem) !important; }
+    .md\:scale-102:hover { transform: scale(1.02) !important; }
+}
+
+        </style>
+        </head>
+    <body class="app-loading font-family-primary" data-bind="loadingIndicator, a11y.toggleFocusIndicator, bodyScrolledDown, currentRoute">
+        <div class="preload" aria-hidden="true">
+            <div class="preload__icons"></div>
+            <div class="preload__primary-font"></div>
+            <div class="preload__secondary-font"></div>
+        </div>
+        <div class="app-loading-spinner"></div>
+        <div class="app" data-bind="view: 'layout'"></div>
+           
+    </body>
+</html>

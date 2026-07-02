@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claro Empleo - Vacantes</title>
+    <style>
+        
+/* ==========================================================================
+   PORTAL DE EMPLEO CLARO - ESTILOS GLOBALES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+    --claro-rojo: #DA291C;
+    --claro-rojo-hover: #b81e13;
+    --claro-negro: #1C1C1C;
+    --claro-gris-fondo: #F4F6F9;
+    --claro-gris-borde: #E0E4E8;
+    --claro-gris-texto: #6B7280;
+    --claro-gris-oscuro: #374151;
+    --claro-blanco: #FFFFFF;
+    
+    --fuente-titulo: 'Montserrat', sans-serif;
+    --fuente-texto: 'Open Sans', sans-serif;
+    
+    --borde-radio-pill: 50px;
+    --borde-radio-card: 16px;
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--claro-negro);
+    background-color: var(--claro-blanco);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--claro-rojo);
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+a:hover {
+    color: var(--claro-rojo-hover);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--claro-rojo) !important;
+    color: var(--claro-blanco) !important;
+    border: none !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 12px 30px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: var(--transicion) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--claro-rojo-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(218, 41, 28, 0.3) !important;
+}
+
+.btn-secondary {
+    background-color: transparent !important;
+    color: var(--claro-negro) !important;
+    border: 2px solid var(--claro-negro) !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 10px 28px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: var(--transicion) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--claro-negro) !important;
+    color: var(--claro-blanco) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Header */
+.claro-header {
+    background-color: var(--claro-blanco);
+    border-bottom: 1px solid var(--claro-gris-borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.claro-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.claro-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.claro-nav a {
+    color: var(--claro-gris-oscuro) !important;
+    font-family: var(--fuente-titulo);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 0;
+    position: relative;
+}
+
+.claro-nav a:hover {
+    color: var(--claro-negro) !important;
+}
+
+.claro-nav a.active {
+    color: var(--claro-rojo) !important;
+}
+
+.claro-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--claro-rojo);
+    border-radius: 2px;
+}
+
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--claro-rojo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--claro-blanco);
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transicion);
+}
+
+.profile-button:hover {
+    background-color: var(--claro-rojo-hover);
+    transform: scale(1.05);
+}
+
+.profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer */
+.claro-footer {
+    background-color: var(--claro-negro);
+    color: var(--claro-blanco);
+    padding: 40px 24px 20px;
+}
+
+.claro-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.claro-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.claro-footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+.claro-footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--claro-blanco) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transicion);
+}
+
+.claro-footer-social a:hover {
+    background-color: var(--claro-rojo);
+    transform: translateY(-2px);
+}
+
+.claro-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.claro-footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.claro-footer-links a {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.claro-footer-links a:hover {
+    color: var(--claro-blanco) !important;
+}
+
+/* Accesibilidad y Chat */
+.accessibility-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #0077C8;
+    color: var(--claro-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 99;
+    font-size: 1.3rem;
+}
+
+.chat-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #FBBF24;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 99;
+    font-size: 1.3rem;
+    transition: var(--transicion);
+}
+
+.chat-btn:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+/* Responsive general */
+@media (max-width: 768px) {
+    .claro-header-inner { padding: 12px 16px; }
+    .claro-nav { display: none; } /* En una app real se añadiría menú hamburguesa */
+    .claro-footer-top, .claro-footer-bottom { flex-direction: column; text-align: center; }
+    .claro-footer-links { justify-content: center; }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="claro-header">
+        <div class="claro-header-inner">
+            <div class="claro-logo">
+                <a href="index.html">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" width="130" height="40">
+    <circle cx="20" cy="20" r="16" fill="#DA291C" />
+    <!-- Brillo característico del sol de Claro -->
+    <path d="M12 12 C 16 8, 24 8, 28 12 C 24 10, 16 10, 12 12 Z" fill="#FFFFFF" opacity="0.4" />
+    <circle cx="20" cy="20" r="13" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3" />
+    <text x="44" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="25" fill="#DA291C" letter-spacing="-0.5">claro</text>
+</svg>
+</a>
+            </div>
+            <nav class="claro-nav">
+                <a href="index.html" >Inicio</a>
+                <a href="busqueda.html" class="active">Vacantes</a>
+                <a href="cultura.html" >Nuestra Esencia</a>
+                <a href="pais.html" >Claro en tu País</a>
+                <a href="apoyo.html" >Apoyo al Candidato</a>
+            </nav>
+            <a href="registro.html" class="profile-button" title="Ingresar"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></a>
+        </div>
+    </header>
+
+    <!-- Contenido -->
+    <main>
+        
+<style>
+.search-hero {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    padding: 80px 24px;
+    color: var(--claro-blanco);
+    text-align: center;
+}
+.search-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.search-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+.search-hero h1 span {
+    color: var(--claro-rojo);
+}
+.search-hero p {
+    font-size: 1.15rem;
+    margin-bottom: 30px;
+}
+
+/* Resultados */
+.results-section {
+    padding: 60px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.results-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+.results-header h2 {
+    font-size: 2.4rem;
+    color: var(--claro-negro);
+    display: inline-block;
+    padding-bottom: 12px;
+}
+.results-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background-color: var(--claro-rojo);
+    border-radius: 2px;
+}
+
+/* Filtros en botones rojos */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+.filter-dropdown {
+    background-color: var(--claro-blanco);
+    color: var(--claro-negro);
+    border: 1px solid var(--claro-rojo);
+    border-radius: var(--borde-radio-pill);
+    padding: 10px 24px;
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transicion);
+}
+.filter-dropdown:hover {
+    background-color: rgba(218, 41, 28, 0.05);
+}
+.filter-dropdown span {
+    color: var(--claro-rojo);
+}
+
+/* Cuadrícula de Vacantes */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+.job-card {
+    background-color: var(--claro-blanco);
+    border: 1px solid var(--claro-gris-borde);
+    border-radius: var(--borde-radio-card);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    transition: var(--transicion);
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+.job-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    border-color: var(--claro-rojo);
+}
+.job-card.dark-theme {
+    background: linear-gradient(135deg, #1C1C1C 0%, #000000 100%);
+    color: var(--claro-blanco);
+    border: none;
+}
+.job-card.red-theme {
+    background: linear-gradient(135deg, #DA291C 0%, #a81c12 100%);
+    color: var(--claro-blanco);
+    border: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.job-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+.job-fav-icon {
+    font-size: 1.4rem;
+    color: var(--claro-gris-texto);
+    cursor: pointer;
+    transition: var(--transicion);
+}
+.job-card:hover .job-fav-icon {
+    color: var(--claro-rojo);
+}
+.job-card.dark-theme .job-fav-icon {
+    color: rgba(255,255,255,0.4);
+}
+.job-card.dark-theme:hover .job-fav-icon {
+    color: var(--claro-blanco);
+}
+.job-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+.job-meta {
+    font-size: 0.82rem;
+    color: var(--claro-gris-texto);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+.job-card.dark-theme .job-meta {
+    color: rgba(255,255,255,0.6);
+}
+.job-meta-apply-status {
+    color: var(--claro-rojo);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+    display: block;
+}
+.job-card.dark-theme .job-meta-apply-status {
+    color: var(--claro-blanco);
+}
+.job-card-desc {
+    font-size: 0.9rem;
+    color: var(--claro-gris-oscuro);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+.job-card.dark-theme .job-card-desc {
+    color: rgba(255,255,255,0.8);
+}
+.job-card-arrow {
+    align-self: flex-end;
+    font-size: 1.3rem;
+    color: var(--claro-rojo);
+}
+.job-card.dark-theme .job-card-arrow {
+    color: var(--claro-blanco);
+}
+
+/* Modal de Vacante */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+.modal-overlay:target {
+    display: flex;
+}
+.modal-content {
+    background-color: var(--claro-blanco);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 760px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    position: relative;
+    animation: zoomIn 0.3s ease-out;
+}
+.modal-header-actions {
+    position: sticky;
+    top: 0;
+    background-color: var(--claro-blanco);
+    padding: 20px 24px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--claro-gris-borde);
+    z-index: 2;
+}
+.modal-close-btn {
+    font-size: 1.8rem;
+    color: var(--claro-negro);
+    cursor: pointer;
+    text-decoration: none !important;
+}
+.modal-body {
+    padding: 24px 32px 40px;
+}
+.modal-title {
+    font-size: 2rem;
+    color: var(--claro-negro);
+    margin-bottom: 8px;
+    line-height: 1.25;
+}
+.modal-location {
+    font-size: 0.95rem;
+    color: var(--claro-gris-texto);
+    margin-bottom: 24px;
+}
+.modal-info-grid {
+    background-color: var(--claro-gris-fondo);
+    border-radius: var(--borde-radio-card);
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+.info-item {
+    font-size: 0.9rem;
+}
+.info-item strong {
+    color: var(--claro-negro);
+    display: inline-block;
+    width: 220px;
+}
+.modal-desc-title {
+    font-size: 1.3rem;
+    color: var(--claro-negro);
+    margin-bottom: 12px;
+}
+.modal-desc-text {
+    font-size: 0.95rem;
+    color: var(--claro-gris-oscuro);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+.modal-action-box {
+    text-align: center;
+}
+
+/* Banner ¿No encuentras vacante? */
+.no-vacancies-banner {
+    background-color: var(--claro-gris-fondo);
+    border-radius: 24px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 60px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    overflow: hidden;
+}
+.no-vac-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+.no-vac-icon {
+    font-size: 3rem;
+    color: var(--claro-rojo);
+    background-color: var(--claro-blanco);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.no-vac-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.no-vac-text p {
+    color: var(--claro-gris-oscuro);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.no-vac-right {
+    position: relative;
+    height: 200px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.no-vac-right img {
+    height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    z-index: 1;
+}
+.no-vac-right-sun {
+    position: absolute;
+    top: 50%;
+    right: -60px;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 250px;
+    background-color: var(--claro-rojo);
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 992px) {
+    .jobs-grid { grid-template-columns: 1fr; }
+    .no-vacancies-banner { grid-template-columns: 1fr; }
+    .no-vac-right { display: none; }
+    .modal-info-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- Hero -->
+<section class="search-hero">
+    <div class="search-hero-content">
+        <h1>Encuentra tu próximo <span>gran desafío</span></h1>
+        <p>Explora nuestras áreas de trabajo y encuentra oportunidades que impulsen tu crecimiento profesional.</p>
+        <div style="max-width: 700px; margin: 0 auto; background: var(--claro-blanco); padding: 10px 20px; border-radius: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); display: flex; gap: 12px; align-items: center;">
+            <span style="font-size:1.2rem; color:var(--claro-gris-texto);">🔍</span>
+            <input type="text" placeholder="Cargo (ej: Telemarketing, HR, IT)..." style="flex-grow:1; border:none; outline:none; font-family:var(--fuente-texto); font-size:1rem;" value="Salud">
+            <a href="busqueda.html" class="btn-primary" style="padding: 10px 24px !important;">Buscar</a>
+        </div>
+    </div>
+</section>
+
+<!-- Resultados -->
+<section class="results-section">
+    <div class="results-header">
+        <h2>Resultados de tu búsqueda</h2>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-bar">
+        <button class="filter-dropdown">Ubicaciones <span>▼</span></button>
+        <button class="filter-dropdown">Puesto <span>▼</span></button>
+        <button class="filter-dropdown">Fechas de publicación <span>▼</span></button>
+        <button class="filter-dropdown">Nivel de Experiencia <span>▼</span></button>
+    </div>
+    
+    <div style="text-align: center; margin-bottom: 24px;">
+        <a href="#" style="font-weight: 700; color: var(--claro-negro); border-bottom: 1px solid var(--claro-negro); padding-bottom: 2px; font-size: 0.9rem;">Limpiar filtros</a>
+    </div>
+
+    <div style="display:flex; justify-content:flex-end; font-size:0.9rem; margin-bottom:20px; color:var(--claro-gris-oscuro);">
+        <span>Ordenar por: <strong>Fecha de publicación</strong> ⇅</span>
+    </div>
+
+    <!-- Grid de vacantes -->
+    <div class="jobs-grid">
+        
+        <!-- Vacante 1 (Fondo negro) -->
+        <div class="job-card dark-theme" onclick="alert('Esta vacante se cargará en el simulador. Por favor haz clic en la de Salud y Seguridad para abrir el modal interactivo.')">
+            <div class="job-card-top">
+                <div>
+                    <h3 class="job-card-title">Telemarketing y Canales Digitales</h3>
+                    <div class="job-meta">
+                        <span>GUATEMALA - CIUDAD DE GUATEMALA, Guatemala</span>
+                        <span class="job-meta-apply-status">⏱️ Sé el primero en aplicar</span>
+                    </div>
+                </div>
+                <span class="job-fav-icon">☆</span>
+            </div>
+            <p class="job-card-desc">Atención, ventas y experiencia en canales digitales.</p>
+            <span class="job-card-arrow">❯</span>
+        </div>
+
+        <!-- Vacante 2 (Salud y Seguridad - ABRE MODAL INTERACTIVO) -->
+        <a href="#modal-vacante" style="text-decoration:none !important; color:inherit !important; display:block;">
+            <div class="job-card">
+                <div class="job-card-top">
+                    <div>
+                        <h3 class="job-card-title">Salud y Seguridad Ocupacional</h3>
+                        <div class="job-meta">
+                            <span>Honduras - San Pedro Sula, Honduras</span>
+                            <span class="job-meta-apply-status">⏱️ Sé el primero en aplicar</span>
+                        </div>
+                    </div>
+                    <span class="job-fav-icon">☆</span>
+                </div>
+                <p class="job-card-desc">Promovemos entornos laborales seguros y saludables.</p>
+                <span class="job-card-arrow">❯</span>
+            </div>
+        </a>
+
+        <!-- Vacante 3 -->
+        <div class="job-card" onclick="alert('Esta vacante se cargará en el simulador. Por favor haz clic en la de Salud y Seguridad para abrir el modal interactivo.')">
+            <div class="job-card-top">
+                <div>
+                    <h3 class="job-card-title">Inteligencia y Desarrollo Comercial</h3>
+                    <div class="job-meta">
+                        <span>NICARAGUA - MANAGUA, Nicaragua</span>
+                        <span class="job-meta-apply-status">⏱️ Sé el primero en aplicar</span>
+                    </div>
+                </div>
+                <span class="job-fav-icon">☆</span>
+            </div>
+            <p class="job-card-desc">Estrategia, análisis y desarrollo de oportunidades comerciales.</p>
+            <span class="job-card-arrow">❯</span>
+        </div>
+
+        <!-- Vacante 4 -->
+        <div class="job-card" onclick="alert('Esta vacante se cargará en el simulador. Por favor haz clic en la de Salud y Seguridad para abrir el modal interactivo.')">
+            <div class="job-card-top">
+                <div>
+                    <h3 class="job-card-title">Call Center</h3>
+                    <div class="job-meta">
+                        <span>HONDURAS - TELAMAR, Honduras</span>
+                        <span class="job-meta-apply-status">⏱️ Sé el primero en aplicar</span>
+                    </div>
+                </div>
+                <span class="job-fav-icon" style="color:var(--claro-negro);">★</span>
+            </div>
+            <p class="job-card-desc">Servicio al cliente y soporte especializado.</p>
+            <span class="job-card-arrow">❯</span>
+        </div>
+
+        <!-- Vacante 5 (Especial Roja) -->
+        <div class="job-card red-theme" onclick="window.location.href='registro.html'">
+            <h3 class="job-card-title" style="color:#FFF !important; font-size: 1.4rem;">Red de Talento Claro Centroamérica</h3>
+            <p style="font-size:0.9rem; margin-bottom: 24px; color:rgba(255,255,255,0.85);">Obtén información profesional y oportunidades de empleo futuras.</p>
+            <a href="registro.html" class="btn-primary" style="background-color:var(--claro-blanco) !important; color:var(--claro-rojo) !important; font-size:0.85rem !important;">Únete a nuestra red</a>
+        </div>
+
+        <!-- Vacante 6 -->
+        <div class="job-card" onclick="alert('Esta vacante se cargará en el simulador. Por favor haz clic en la de Salud y Seguridad para abrir el modal interactivo.')">
+            <div class="job-card-top">
+                <div>
+                    <h3 class="job-card-title">Recursos Humanos</h3>
+                    <div class="job-meta">
+                        <span>GUATEMALA - CIUDAD DE GUATEMALA, Guatemala</span>
+                        <span class="job-meta-apply-status">⏱️ Sé el primero en aplicar</span>
+                    </div>
+                </div>
+                <span class="job-fav-icon">☆</span>
+            </div>
+            <p class="job-card-desc">Gestión del talento, cultura y desarrollo organizacional.</p>
+            <span class="job-card-arrow">❯</span>
+        </div>
+
+    </div>
+
+    <!-- Ver Más -->
+    <div style="text-align: center;">
+        <button class="btn-secondary" style="padding:14px 40px !important;">Ver Más ∨</button>
+    </div>
+
+    <!-- Banner No Vacantes -->
+    <div class="no-vacancies-banner">
+        <div class="no-vac-left">
+            <div class="no-vac-icon">📄</div>
+            <div class="no-vac-text">
+                <h3>¿No encuentras la vacante ideal?</h3>
+                <p>Registra tus datos en nuestro formulario de postulación abierta y te notificaremos cuando hayan vacantes que se ajusten a tu perfil profesional.</p>
+                <a href="registro.html" class="btn-primary" style="margin-top:20px;">Registrar mis datos</a>
+            </div>
+        </div>
+        <div class="no-vac-right">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Candidato">
+            <div class="no-vac-right-sun"></div>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL DE VACANTE INTERACTIVO -->
+<div class="modal-overlay" id="modal-vacante">
+    <div class="modal-content">
+        <div class="modal-header-actions">
+            <button style="background:none; border:none; font-size:1.2rem; cursor:pointer;" onclick="alert('Simulación: Enlace de compartir copiado.')">🔗</button>
+            <button style="background:none; border:none; font-size:1.2rem; cursor:pointer;">☆</button>
+            <a href="#" class="modal-close-btn">&times;</a>
+        </div>
+        <div class="modal-body">
+            <h1 class="modal-title">Salud y Seguridad Ocupacional</h1>
+            <div class="modal-location">Honduras - San Pedro Sula</div>
+            
+            <div class="modal-info-grid">
+                <div class="info-item"><strong>Identificación del puesto:</strong> 329967</div>
+                <div class="info-item"><strong>Categoría del puesto:</strong> Salud y Seguridad / Operaciones</div>
+                <div class="info-item"><strong>Fecha de publicación:</strong> 18/05/2026</div>
+                <div class="info-item"><strong>Rol:</strong> Contribuidor Individual / Especialista</div>
+                <div class="info-item"><strong>Tipo de empleo:</strong> Empleado regular (Tiempo completo)</div>
+                <div class="info-item"><strong>¿Requiere autorización?:</strong> No</div>
+                <div class="info-item"><strong>Años de experiencia:</strong> 3 a 5+ años</div>
+                <div class="info-item"><strong>Candidatos:</strong> Menos de 10 candidatos</div>
+                <div class="info-item"><strong>Idiomas requeridos:</strong> Español, Inglés</div>
+            </div>
+
+            <h3 class="modal-desc-title">Descripción:</h3>
+            <p class="modal-desc-text">
+                Promovemos entornos laborales seguros y saludables.<br><br>
+                Como miembro del departamento de Salud y Seguridad Ocupacional, tendrás un rol activo en la definición y evolución de las políticas, prácticas y procedimientos de seguridad estándar de la empresa. Serás responsable de definir, desarrollar e implementar programas orientados a la prevención de riesgos laborales, auditorías en campo y asegurar el cumplimiento normativo.<br><br>
+                El trabajo no es rutinario y es de alta complejidad, lo que implica la aplicación de conocimientos técnicos y normativos avanzados en el área de especialización. Actuarás como un contribuidor clave, tanto de forma individual como siendo parte del equipo, brindando orientación, mentoría y capacitación a otros colaboradores.<br><br>
+                Se requiere título universitario (Licenciatura o Ingeniería) en Salud y Seguridad Ocupacional, Ingeniería Industrial o experiencia equivalente relevante para el área funcional. 7 años de experiencia comprobable en seguridad industrial o campos relacionados.
+            </p>
+
+            <div class="modal-action-box">
+                <a href="registro.html" class="btn-primary" style="padding:16px 50px !important;">Aplica Ahora</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="claro-footer">
+        <div class="claro-footer-inner">
+            <div class="claro-footer-top">
+                <div class="claro-footer-logo">
+                    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 40" width="250" height="40">
+    <!-- Sol de Claro -->
+    <circle cx="20" cy="20" r="16" fill="#DA291C" />
+    <path d="M12 12 C 16 8, 24 8, 28 12 C 24 10, 16 10, 12 12 Z" fill="#FFFFFF" opacity="0.4" />
+    <text x="44" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="25" fill="#FFFFFF" letter-spacing="-0.5">claro</text>
+    <!-- Separador -->
+    <line x1="118" y1="8" x2="118" y2="32" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" />
+    <!-- América Móvil -->
+    <text x="132" y="20" font-family="'Montserrat', sans-serif" font-weight="300" font-size="10" fill="#FFFFFF" letter-spacing="1">AMÉRICA</text>
+    <text x="132" y="32" font-family="'Montserrat', sans-serif" font-weight="700" font-size="12" fill="#FFFFFF" letter-spacing="0.5">MÓVIL</text>
+</svg>
+
+                </div>
+                <div class="claro-footer-social">
+                    <a href="#">F</a>
+                    <a href="#">X</a>
+                    <a href="#">I</a>
+                    <a href="#">W</a>
+                </div>
+            </div>
+            <div class="claro-footer-bottom">
+                <p>Todos los derechos reservados, Claro 2026</p>
+                <div class="claro-footer-links">
+                    <a href="#">Mapa de sitio</a>
+                    <a href="#">Portal de denuncias</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Legal y Regulatorio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Accesibilidad y Chat -->
+    <div class="accessibility-btn" title="Accesibilidad">♿</div>
+    <div class="chat-btn" title="Chatear con nosotros">💬</div>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+================================================================================
+   PAGINA 02: SPLASH PAGE (Homepage / Pagina Principal)
+   Oracle HCM Cloud - Career Site Builder
+================================================================================
+   DONDE SE CONFIGURA: Career Sites Configuration > Edit > Pages > Splash Page
+   ELEMENTOS OBLIGATORIOS: Search Box + Category Tiles
+================================================================================
+
+
+================================================================================
+ESTRUCTURA DE LA PAGINA
+================================================================================
+
+La Splash Page se construye asi (de arriba a abajo):
+
+  HEADER (ya configurado en Theme Tab - Paso 3 del archivo 01)
+  |
+  SECCION 1: HERO BANNER            → [HTML element]
+  |
+  SECCION 2: BARRA DE BUSQUEDA      → [NATIVO: Search Box] (obligatorio)
+  |
+  SECCION 3: CATEGORIAS DE EMPLEO   → [NATIVO: Category Tiles] (obligatorio)
+  |
+  SECCION 4: VACANTES DESTACADAS    → [NATIVO: Featured Jobs o Job List]
+  |
+  SECCION 5: ¿POR QUE CENAM?        → [HTML element]
+  |
+  SECCION 6: CIFRAS / ESTADISTICAS  → [HTML element]
+  |
+  SECCION 7: TESTIMONIOS            → [HTML element]
+  |
+  SECCION 8: CTA FINAL              → [HTML element]
+  |
+  FOOTER (ya configurado en Theme Tab - Paso 4 del archivo 01)
+
+
+================================================================================
+SECCION 1: HERO BANNER
+================================================================================
+TIPO: HTML element dentro de una seccion
+COMO AGREGAR:
+  a) En el editor de Splash Page, clic en "Add Section"
+  b) Configurar background: SIN background (el HTML maneja todo)
+  c) Agregar Row > 1 columna
+  d) Insertar elemento "HTML"
+  e) Pegar el siguiente codigo:
+
+--- INICIO CODIGO HTML: HERO BANNER ---
+
+<style>
+.cenam-hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* CAMBIAR URL por la imagen hero real del diseño */
+    background: linear-gradient(
+        135deg, 
+        rgba(10, 31, 63, 0.85) 0%, 
+        rgba(27, 79, 138, 0.75) 50%,
+        rgba(46, 125, 214, 0.65) 100%
+    ), url('https://TU-SERVIDOR.com/images/hero-cenam.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 80px 24px;
+    overflow: hidden;
+}
+
+/* Efecto de particulas/patron decorativo */
+.cenam-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.cenam-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cenam-hero-badge {
+    display: inline-block;
+    background: rgba(232, 119, 34, 0.9);
+    color: #FFFFFF;
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.cenam-hero h1 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 3.2rem !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    line-height: 1.15 !important;
+    margin-bottom: 20px !important;
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.cenam-hero h1 span {
+    color: #E87722;
+}
+
+.cenam-hero-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.cenam-hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.cenam-hero-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #E87722, #D06A1F);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 25px rgba(232, 119, 34, 0.4);
+}
+
+.cenam-hero-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(232, 119, 34, 0.55);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+.cenam-hero-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    padding: 14px 34px;
+    border-radius: 50px;
+    border: 2px solid rgba(255,255,255,0.4);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cenam-hero-btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.7);
+    transform: translateY(-2px);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+/* Indicador de scroll */
+.cenam-scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.cenam-scroll-indicator span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid rgba(255,255,255,0.5);
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    transform: rotate(45deg);
+    animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+    0% { opacity: 0; transform: rotate(45deg) translate(-8px, -8px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(8px, 8px); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE HERO */
+@media (max-width: 768px) {
+    .cenam-hero {
+        min-height: 500px;
+        padding: 60px 20px;
+        background-attachment: scroll;
+    }
+    
+    .cenam-hero h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .cenam-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .cenam-hero-btn-primary,
+    .cenam-hero-btn-secondary {
+        padding: 14px 28px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cenam-hero {
+        min-height: 450px;
+        padding: 50px 16px;
+    }
+    
+    .cenam-hero h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .cenam-hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+
+<div class="cenam-hero">
+    <div class="cenam-hero-content">
+        <div class="cenam-hero-badge">&#127891; Oportunidades laborales</div>
+        
+        <h1>Construye el <span>futuro</span> de la<br>metrologia en Mexico</h1>
+        
+        <p class="cenam-hero-subtitle">
+            Unete al Centro Nacional de Metrologia y forma parte del equipo 
+            que garantiza la precision y confiabilidad de las mediciones en 
+            nuestro pais. Tu talento marca la diferencia.
+        </p>
+        
+        <div class="cenam-hero-buttons">
+            <a href="#busqueda" class="cenam-hero-btn-primary">
+                &#128269; Explorar Vacantes
+            </a>
+            <a href="/cultura" class="cenam-hero-btn-secondary">
+                &#127970; Conoce CENAM
+            </a>
+        </div>
+    </div>
+    
+    <div class="cenam-scroll-indicator">
+        <span></span>
+    </div>
+</div>
+
+--- FIN CODIGO HTML: HERO BANNER ---
+
+
+================================================================================
+SECCION 2: BARRA DE BUSQUEDA
+================================================================================
+TIPO: Elemento NATIVO "Search Box" (NO usar HTML aqui)
+COMO AGREGAR:
+  a) "Add Section"
+  b) Fondo: color blanco o var(--cenam-gris-claro) #F4F6F9
+  c) Agregar Row > 1 columna
+  d) Insertar elemento NATIVO: "Search Box"
+  e) El estilo ya esta definido en el CSS global (archivo 01)
+
+NOTA: NO puedes reemplazar el Search Box con HTML.
+Es obligatorio para que los candidatos busquen vacantes.
+
+
+================================================================================
+SECCION 3: CATEGORIAS DE EMPLEO
+================================================================================
+TIPO: Elemento NATIVO "Category Tiles" (NO usar HTML aqui)
+COMO AGREGAR:
+  a) "Add Section"
+  b) Fondo: blanco
+  c) Agregar Row > 1 columna
+  d) Insertar elemento NATIVO: "Category Tiles"
+  e) Configurar categorias en la pestana "General" del Career Site
+
+PERSONALIZACION CON CSS (ya incluido en archivo 01):
+  - Las category tiles se estilizan via Custom CSS
+  - Puedes configurar imagenes individuales para cada tile
+  - En el editor, selecciona un tile individual para asignar imagen
+
+TAMBIEN PUEDES agregar un "Headline" NATIVO arriba de los tiles:
+  - Texto: "Explora por area de trabajo"
+  - Esto si puede ser elemento nativo Headline
+
+
+================================================================================
+SECCION 4: VACANTES DESTACADAS
+================================================================================
+TIPO: Elemento NATIVO "Featured Jobs" o "Job List"
+COMO AGREGAR:
+  a) "Add Section"
+  b) Fondo: gris claro #F4F6F9
+  c) Agregar Row > 1 columna
+  d) Insertar elemento NATIVO: "Featured Jobs" (recomendado)
+     O "Job List" (alternativa)
+  e) Configurar:
+     - Header text: "Vacantes Destacadas"
+     - CTA button text: "Ver todas las vacantes"
+     - Estilo: el CSS global ya estiliza las tarjetas
+
+NOTA: El estilo de las tarjetas se controla con el Custom CSS
+global (archivo 01). No necesitas HTML aqui.
+
+
+================================================================================
+SECCION 5: ¿POR QUE CENAM?
+================================================================================
+TIPO: HTML element
+COMO AGREGAR:
+  a) "Add Section"
+  b) Fondo: blanco
+  c) Agregar Row > 1 columna
+  d) Insertar elemento "HTML"
+  e) Pegar el siguiente codigo:
+
+--- INICIO CODIGO HTML: POR QUE CENAM ---
+
+<style>
+.cenam-porque {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.cenam-porque-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cenam-porque-label {
+    display: inline-block;
+    background: rgba(46, 125, 214, 0.1);
+    color: #2E7DD6;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.cenam-porque-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.4rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 16px !important;
+}
+
+.cenam-porque-header p {
+    font-size: 1.1rem !important;
+    color: #6B7280 !important;
+    max-width: 600px;
+    margin: 0 auto !important;
+}
+
+.cenam-porque-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.cenam-porque-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    border: 1px solid #E0E4E8;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cenam-porque-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #E87722, #D4A847);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.cenam-porque-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    border-color: transparent;
+}
+
+.cenam-porque-card:hover::before {
+    transform: scaleX(1);
+}
+
+.cenam-porque-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 20px;
+    transition: transform 0.3s ease;
+}
+
+.cenam-porque-card:hover .cenam-porque-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.cenam-porque-icon.icon-ciencia {
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+}
+
+.cenam-porque-icon.icon-desarrollo {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+}
+
+.cenam-porque-icon.icon-impacto {
+    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+}
+
+.cenam-porque-icon.icon-equipo {
+    background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+}
+
+.cenam-porque-icon.icon-beneficios {
+    background: linear-gradient(135deg, #E0F7FA, #B2EBF2);
+}
+
+.cenam-porque-icon.icon-innovacion {
+    background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+}
+
+.cenam-porque-card h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 12px !important;
+}
+
+.cenam-porque-card p {
+    font-size: 0.92rem !important;
+    color: #6B7280 !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .cenam-porque-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .cenam-porque-header h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .cenam-porque {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cenam-porque-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<div class="cenam-porque">
+    <div class="cenam-porque-header">
+        <div class="cenam-porque-label">&#11088; Nuestras fortalezas</div>
+        <h2>¿Por que trabajar en CENAM?</h2>
+        <p>Descubre las razones que hacen de CENAM un lugar excepcional 
+           para desarrollar tu carrera profesional</p>
+    </div>
+    
+    <div class="cenam-porque-grid">
+        <!-- Card 1 -->
+        <div class="cenam-porque-card">
+            <div class="cenam-porque-icon icon-ciencia">&#128300;</div>
+            <h3>Ciencia de Frontera</h3>
+            <p>Trabaja con equipos de medicion de ultima generacion y 
+               participa en proyectos de investigacion de clase mundial 
+               en metrologia.</p>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="cenam-porque-card">
+            <div class="cenam-porque-icon icon-desarrollo">&#127891;</div>
+            <h3>Desarrollo Profesional</h3>
+            <p>Programas de capacitacion continua, estancias internacionales 
+               y oportunidades de crecimiento dentro de la institucion.</p>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="cenam-porque-card">
+            <div class="cenam-porque-icon icon-impacto">&#127758;</div>
+            <h3>Impacto Nacional</h3>
+            <p>Tu trabajo tiene impacto directo en la economia, la industria 
+               y la salud de millones de mexicanos a traves de mediciones 
+               confiables.</p>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="cenam-porque-card">
+            <div class="cenam-porque-icon icon-equipo">&#129309;</div>
+            <h3>Equipo Multidisciplinario</h3>
+            <p>Colabora con fisicos, quimicos, ingenieros y especialistas 
+               de diversas disciplinas en un ambiente de excelencia.</p>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="cenam-porque-card">
+            <div class="cenam-porque-icon icon-beneficios">&#127968;</div>
+            <h3>Prestaciones Superiores</h3>
+            <p>Seguro de gastos medicos, seguro de vida, vales de despensa, 
+               fondo de ahorro y prestaciones superiores a la ley.</p>
+        </div>
+        
+        <!-- Card 6 -->
+        <div class="cenam-porque-card">
+            <div class="cenam-porque-icon icon-innovacion">&#128161;</div>
+            <h3>Innovacion Constante</h3>
+            <p>Contribuye al desarrollo de nuevas tecnologias y estandares 
+               de medicion que posicionan a Mexico a nivel internacional.</p>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML: POR QUE CENAM ---
+
+
+================================================================================
+SECCION 6: CIFRAS / ESTADISTICAS
+================================================================================
+TIPO: HTML element
+COMO AGREGAR: Add Section > Row > 1 col > HTML element
+FONDO DE SECCION: Usar background image o color azul oscuro
+
+--- INICIO CODIGO HTML: CIFRAS ---
+
+<style>
+.cenam-cifras {
+    background: linear-gradient(135deg, #0A1F3F 0%, #1B4F8A 100%);
+    padding: 70px 24px;
+    text-align: center;
+}
+
+.cenam-cifras-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cenam-cifras h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 50px !important;
+}
+
+.cenam-cifras-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.cenam-cifra-item {
+    padding: 24px;
+    position: relative;
+}
+
+.cenam-cifra-item::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+}
+
+.cenam-cifra-item:last-child::after {
+    display: none;
+}
+
+.cenam-cifra-numero {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #E87722;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.cenam-cifra-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .cenam-cifras-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .cenam-cifra-item::after {
+        display: none;
+    }
+    
+    .cenam-cifra-numero {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cenam-cifras-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<div class="cenam-cifras">
+    <div class="cenam-cifras-inner">
+        <h2>CENAM en numeros</h2>
+        
+        <div class="cenam-cifras-grid">
+            <div class="cenam-cifra-item">
+                <div class="cenam-cifra-numero">30+</div>
+                <div class="cenam-cifra-label">Anos de experiencia</div>
+            </div>
+            
+            <div class="cenam-cifra-item">
+                <div class="cenam-cifra-numero">500+</div>
+                <div class="cenam-cifra-label">Colaboradores</div>
+            </div>
+            
+            <div class="cenam-cifra-item">
+                <div class="cenam-cifra-numero">150+</div>
+                <div class="cenam-cifra-label">Laboratorios</div>
+            </div>
+            
+            <div class="cenam-cifra-item">
+                <div class="cenam-cifra-numero">1000+</div>
+                <div class="cenam-cifra-label">Servicios de medicion</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML: CIFRAS ---
+
+
+================================================================================
+SECCION 7: TESTIMONIOS
+================================================================================
+TIPO: HTML element
+COMO AGREGAR: Add Section > Row > 1 col > HTML element
+
+--- INICIO CODIGO HTML: TESTIMONIOS ---
+
+<style>
+.cenam-testimonios {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.cenam-testimonios-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cenam-testimonios-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+}
+
+.cenam-testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.cenam-testimonio {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #E0E4E8;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cenam-testimonio:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.cenam-testimonio-quote {
+    font-size: 2.5rem;
+    color: #E87722;
+    opacity: 0.3;
+    font-family: serif;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.cenam-testimonio p {
+    font-size: 0.95rem !important;
+    color: #374151 !important;
+    line-height: 1.7 !important;
+    font-style: italic;
+    margin-bottom: 20px !important;
+}
+
+.cenam-testimonio-autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #E0E4E8;
+}
+
+.cenam-testimonio-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: linear-gradient(135deg, #1B4F8A, #2E7DD6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.cenam-testimonio-info h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin: 0 0 2px 0 !important;
+}
+
+.cenam-testimonio-info span {
+    font-size: 0.82rem;
+    color: #6B7280;
+}
+
+@media (max-width: 768px) {
+    .cenam-testimonios-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .cenam-testimonios {
+        padding: 50px 20px;
+    }
+}
+</style>
+
+<div class="cenam-testimonios">
+    <div class="cenam-testimonios-header">
+        <h2>Lo que dicen nuestros colaboradores</h2>
+    </div>
+    
+    <div class="cenam-testimonios-grid">
+        <!-- Testimonio 1 -->
+        <div class="cenam-testimonio">
+            <div class="cenam-testimonio-quote">"</div>
+            <p>Trabajar en CENAM me ha permitido crecer profesionalmente 
+               en un ambiente de excelencia. Cada dia es un reto que me 
+               motiva a dar lo mejor de mi.</p>
+            <div class="cenam-testimonio-autor">
+                <div class="cenam-testimonio-avatar">MC</div>
+                <div class="cenam-testimonio-info">
+                    <h4>Maria C.</h4>
+                    <span>Investigadora - 8 anos en CENAM</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonio 2 -->
+        <div class="cenam-testimonio">
+            <div class="cenam-testimonio-quote">"</div>
+            <p>La oportunidad de participar en proyectos internacionales 
+               y representar a Mexico en metrologia es algo que no hubiera 
+               encontrado en otro lugar.</p>
+            <div class="cenam-testimonio-autor">
+                <div class="cenam-testimonio-avatar">JR</div>
+                <div class="cenam-testimonio-info">
+                    <h4>Juan R.</h4>
+                    <span>Ingeniero Metrologo - 5 anos en CENAM</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonio 3 -->
+        <div class="cenam-testimonio">
+            <div class="cenam-testimonio-quote">"</div>
+            <p>Las prestaciones y el ambiente laboral son extraordinarios. 
+               CENAM realmente se preocupa por el bienestar de sus 
+               colaboradores y sus familias.</p>
+            <div class="cenam-testimonio-autor">
+                <div class="cenam-testimonio-avatar">AL</div>
+                <div class="cenam-testimonio-info">
+                    <h4>Ana L.</h4>
+                    <span>Coordinadora de RRHH - 12 anos en CENAM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML: TESTIMONIOS ---
+
+
+================================================================================
+SECCION 8: CTA FINAL (Call to Action)
+================================================================================
+TIPO: HTML element
+COMO AGREGAR: Add Section > Row > 1 col > HTML element
+
+--- INICIO CODIGO HTML: CTA FINAL ---
+
+<style>
+.cenam-cta-final {
+    background: linear-gradient(135deg, #0A1F3F, #1B4F8A);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cenam-cta-final::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(232, 119, 34, 0.08);
+}
+
+.cenam-cta-final::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(46, 125, 214, 0.08);
+}
+
+.cenam-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cenam-cta-final h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.4rem !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 16px !important;
+}
+
+.cenam-cta-final p {
+    font-size: 1.15rem !important;
+    color: rgba(255,255,255,0.75) !important;
+    margin-bottom: 36px !important;
+    line-height: 1.7 !important;
+}
+
+.cenam-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #E87722, #D06A1F);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    padding: 18px 42px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(232, 119, 34, 0.4);
+}
+
+.cenam-cta-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(232, 119, 34, 0.55);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+    .cenam-cta-final {
+        padding: 50px 20px;
+    }
+    
+    .cenam-cta-final h2 {
+        font-size: 1.8rem !important;
+    }
+}
+</style>
+
+<div class="cenam-cta-final">
+    <div class="cenam-cta-content">
+        <h2>&#127775; Tu proximo reto profesional te espera</h2>
+        <p>Explora nuestras vacantes disponibles y da el siguiente paso 
+           en tu carrera. En CENAM, tu talento tiene el poder de 
+           transformar la metrologia nacional.</p>
+        <a href="/" class="cenam-cta-btn">
+            &#128640; Explorar Vacantes Ahora
+        </a>
+    </div>
+</div>
+
+--- FIN CODIGO HTML: CTA FINAL ---
+
+
+================================================================================
+RESUMEN DE ACCIONES PARA LA SPLASH PAGE
+================================================================================
+
+Orden de implementacion:
+1. [x] Verificar que el Theme (archivo 01) este configurado
+2. [ ] Add Section 1 > Row 1col > HTML element: HERO BANNER
+3. [ ] Add Section 2 > Row 1col > NATIVO: Search Box
+4. [ ] Add Section 3 > Row 1col > NATIVO: Category Tiles
+       (Agregar Headline nativo arriba: "Explora por area")
+5. [ ] Add Section 4 > Row 1col > NATIVO: Featured Jobs
+6. [ ] Add Section 5 > Row 1col > HTML element: POR QUE CENAM
+7. [ ] Add Section 6 > Row 1col > HTML element: CIFRAS
+8. [ ] Add Section 7 > Row 1col > HTML element: TESTIMONIOS
+9. [ ] Add Section 8 > Row 1col > HTML element: CTA FINAL
+10.[ ] Preview Desktop/Tablet/Mobile
+11.[ ] Ajustar imagenes, textos y colores segun PDF
+
+NOTA: Cambiar TODAS las URLs de imagenes 
+(https://TU-SERVIDOR.com/images/...) por URLs reales.

@@ -1,0 +1,313 @@
+================================================================================
+   PAGINA 07: CUSTOM PAGE - CONTACTO
+   Oracle HCM Cloud - Career Site Builder
+================================================================================
+   NOMBRE: "Contacto" | URL: /contacto
+================================================================================
+
+
+================================================================================
+SECCION 1: HERO (version corta)
+================================================================================
+Add Section > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-contacto-hero {
+    background: linear-gradient(135deg, rgba(10,31,63,0.88), rgba(27,79,138,0.78)),
+                url('https://TU-SERVIDOR.com/images/contacto-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 70px 24px;
+    text-align: center;
+}
+
+.cenam-contacto-hero h1 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.6rem !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 12px !important;
+}
+
+.cenam-contacto-hero p {
+    font-size: 1.1rem !important;
+    color: rgba(255,255,255,0.8) !important;
+}
+
+@media (max-width: 768px) {
+    .cenam-contacto-hero h1 { font-size: 2rem !important; }
+    .cenam-contacto-hero { padding: 50px 20px; }
+}
+</style>
+
+<div class="cenam-contacto-hero">
+    <div style="display:inline-block;background:rgba(232,119,34,0.9);color:#fff;padding:6px 20px;border-radius:50px;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">&#128231; Contacto</div>
+    <h1>Contactanos</h1>
+    <p>Estamos aqui para resolver tus dudas sobre oportunidades laborales</p>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 2: INFORMACION DE CONTACTO + MAPA
+================================================================================
+Add Section > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-contacto {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.cenam-contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.cenam-contacto-info h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.8rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 24px !important;
+}
+
+.cenam-contacto-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding: 20px;
+    background: #F4F6F9;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.cenam-contacto-item:hover {
+    background: #E8F4FD;
+    transform: translateX(8px);
+}
+
+.cenam-contacto-item-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+}
+
+.cenam-contacto-item h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin: 0 0 4px 0 !important;
+}
+
+.cenam-contacto-item p {
+    font-size: 0.92rem !important;
+    color: #6B7280 !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+}
+
+.cenam-contacto-item a {
+    color: #2E7DD6 !important;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
+.cenam-contacto-item a:hover {
+    text-decoration: underline !important;
+}
+
+.cenam-mapa-container {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    height: 100%;
+    min-height: 450px;
+}
+
+.cenam-mapa-container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    border: none;
+    display: block;
+}
+
+.cenam-horarios {
+    margin-top: 32px;
+    background: linear-gradient(135deg, #0A1F3F, #1B4F8A);
+    border-radius: 16px;
+    padding: 24px 28px;
+    color: #FFFFFF;
+}
+
+.cenam-horarios h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #D4A847 !important;
+    margin-bottom: 12px !important;
+}
+
+.cenam-horarios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.cenam-horario-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 0.88rem;
+}
+
+.cenam-horario-dia {
+    color: rgba(255,255,255,0.7);
+}
+
+.cenam-horario-hora {
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    .cenam-contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .cenam-contacto { padding: 50px 20px; }
+    .cenam-mapa-container { min-height: 300px; }
+    .cenam-mapa-container iframe { min-height: 300px; }
+    .cenam-horarios-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="cenam-contacto">
+    <div class="cenam-contacto-grid">
+        <!-- Columna 1: Info de contacto -->
+        <div class="cenam-contacto-info">
+            <h2>Area de Reclutamiento</h2>
+            
+            <div class="cenam-contacto-item">
+                <div class="cenam-contacto-item-icon">&#128205;</div>
+                <div>
+                    <h4>Direccion</h4>
+                    <p>Km 4.5 Carretera a Los Cues<br>
+                       El Marques, Queretaro, Mexico<br>
+                       C.P. 76246</p>
+                </div>
+            </div>
+            
+            <div class="cenam-contacto-item">
+                <div class="cenam-contacto-item-icon">&#128222;</div>
+                <div>
+                    <h4>Telefono</h4>
+                    <p>(442) 211-05-00<br>
+                       Extensiones 3143 y 3156</p>
+                </div>
+            </div>
+            
+            <div class="cenam-contacto-item">
+                <div class="cenam-contacto-item-icon">&#9993;</div>
+                <div>
+                    <h4>Correo Electronico</h4>
+                    <p><a href="mailto:recluta@cenam.mx">recluta@cenam.mx</a></p>
+                    <p>Subdireccion de Contratacion,<br>Capacitacion y Desarrollo</p>
+                </div>
+            </div>
+            
+            <div class="cenam-contacto-item">
+                <div class="cenam-contacto-item-icon">&#127760;</div>
+                <div>
+                    <h4>Sitio Institucional</h4>
+                    <p><a href="https://www.cenam.mx" target="_blank">www.cenam.mx</a></p>
+                </div>
+            </div>
+            
+            <!-- Horarios -->
+            <div class="cenam-horarios">
+                <h3>&#128338; Horario de Atencion</h3>
+                <div class="cenam-horarios-grid">
+                    <div>
+                        <div class="cenam-horario-row">
+                            <span class="cenam-horario-dia">Lunes</span>
+                            <span class="cenam-horario-hora">8:00 - 17:00</span>
+                        </div>
+                        <div class="cenam-horario-row">
+                            <span class="cenam-horario-dia">Martes</span>
+                            <span class="cenam-horario-hora">8:00 - 17:00</span>
+                        </div>
+                        <div class="cenam-horario-row">
+                            <span class="cenam-horario-dia">Miercoles</span>
+                            <span class="cenam-horario-hora">8:00 - 17:00</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="cenam-horario-row">
+                            <span class="cenam-horario-dia">Jueves</span>
+                            <span class="cenam-horario-hora">8:00 - 17:00</span>
+                        </div>
+                        <div class="cenam-horario-row">
+                            <span class="cenam-horario-dia">Viernes</span>
+                            <span class="cenam-horario-hora">8:00 - 17:00</span>
+                        </div>
+                        <div class="cenam-horario-row">
+                            <span class="cenam-horario-dia">Sab-Dom</span>
+                            <span class="cenam-horario-hora">Cerrado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Columna 2: Mapa -->
+        <div class="cenam-mapa-container">
+            <!-- CAMBIAR la URL del iframe por la ubicacion real de CENAM en Google Maps -->
+            <!-- Para obtener el iframe: Google Maps > buscar CENAM > Compartir > Insertar mapa -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.1234567890!2d-100.345678!3d20.567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCENAM!5e0!3m2!1ses!2smx!4v1234567890"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+NOTA: Para obtener el iframe correcto de Google Maps:
+1. Ve a Google Maps y busca "CENAM Queretaro"
+2. Haz clic en "Compartir"
+3. Selecciona "Insertar un mapa"
+4. Copia el codigo del iframe
+5. Reemplaza el iframe de arriba con el codigo correcto
+
+
+================================================================================
+CHECKLIST PAGINA CONTACTO
+================================================================================
+[ ] Custom Page creada: "Contacto" / URL: "contacto"
+[ ] Seccion 1: Hero con titulo
+[ ] Seccion 2: Info de contacto + Mapa de Google
+[ ] URL de Google Maps actualizada
+[ ] Datos de contacto verificados
+[ ] Preview en Desktop/Tablet/Mobile verificado
+[ ] Link en navegacion del header

@@ -1,0 +1,425 @@
+================================================================================
+   PAGINA 06: CUSTOM PAGE - PROCESO DE SELECCION
+   Oracle HCM Cloud - Career Site Builder
+================================================================================
+   NOMBRE: "Proceso de Seleccion" | URL: /proceso
+================================================================================
+
+
+================================================================================
+SECCION 1: HERO
+================================================================================
+Reutilizar estructura hero de archivo 04 cambiando:
+  Badge: "&#128203; Proceso de seleccion"
+  H1: "Nuestro proceso de seleccion"
+  P: "Transparencia y profesionalismo en cada etapa"
+  Imagen: url de proceso de seleccion
+
+
+================================================================================
+SECCION 2: PASOS DEL PROCESO (Timeline Visual)
+================================================================================
+Add Section > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-proceso {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.cenam-proceso-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cenam-proceso-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 12px !important;
+}
+
+.cenam-proceso-header p {
+    font-size: 1.05rem !important;
+    color: #6B7280 !important;
+}
+
+.cenam-pasos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+}
+
+/* Linea conectora horizontal */
+.cenam-pasos-grid::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    right: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #2E7DD6, #E87722);
+    border-radius: 2px;
+    z-index: 0;
+}
+
+.cenam-paso {
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.cenam-paso-numero {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.cenam-paso:hover .cenam-paso-numero {
+    transform: scale(1.15);
+}
+
+.cenam-paso:nth-child(1) .cenam-paso-numero { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); color: #1565C0; }
+.cenam-paso:nth-child(2) .cenam-paso-numero { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); color: #E65100; }
+.cenam-paso:nth-child(3) .cenam-paso-numero { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); color: #6A1B9A; }
+.cenam-paso:nth-child(4) .cenam-paso-numero { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); color: #2E7D32; }
+.cenam-paso:nth-child(5) .cenam-paso-numero { background: linear-gradient(135deg, #FFF8E1, #FFECB3); color: #F57F17; }
+.cenam-paso:nth-child(6) .cenam-paso-numero { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); color: #00838F; }
+
+.cenam-paso h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 8px !important;
+}
+
+.cenam-paso p {
+    font-size: 0.88rem !important;
+    color: #6B7280 !important;
+    line-height: 1.6 !important;
+}
+
+.cenam-paso-emoji {
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .cenam-pasos-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .cenam-pasos-grid::before { display: none; }
+    .cenam-proceso { padding: 50px 20px; }
+}
+</style>
+
+<div class="cenam-proceso">
+    <div class="cenam-proceso-header">
+        <h2>Asi funciona nuestro proceso</h2>
+        <p>6 pasos transparentes para encontrar al mejor talento</p>
+    </div>
+    
+    <div class="cenam-pasos-grid">
+        <!-- Paso 1 -->
+        <div class="cenam-paso">
+            <div class="cenam-paso-numero"><span class="cenam-paso-emoji">&#128221;</span></div>
+            <h3>1. Aplicacion</h3>
+            <p>Busca la vacante que se ajuste a tu perfil y envia tu aplicacion 
+               con tu CV actualizado a traves de nuestro portal.</p>
+        </div>
+        
+        <!-- Paso 2 -->
+        <div class="cenam-paso">
+            <div class="cenam-paso-numero"><span class="cenam-paso-emoji">&#128270;</span></div>
+            <h3>2. Revision de Perfil</h3>
+            <p>Nuestro equipo de Recursos Humanos revisara tu experiencia, 
+               formacion y competencias para verificar el ajuste al puesto.</p>
+        </div>
+        
+        <!-- Paso 3 -->
+        <div class="cenam-paso">
+            <div class="cenam-paso-numero"><span class="cenam-paso-emoji">&#127908;</span></div>
+            <h3>3. Entrevista</h3>
+            <p>Te contactaremos para una entrevista (presencial o virtual) 
+               donde conoceremos tu experiencia y motivaciones.</p>
+        </div>
+        
+        <!-- Paso 4 -->
+        <div class="cenam-paso">
+            <div class="cenam-paso-numero"><span class="cenam-paso-emoji">&#128202;</span></div>
+            <h3>4. Evaluacion Tecnica</h3>
+            <p>Segun el puesto, podras realizar evaluaciones tecnicas, 
+               psicometricas o pruebas de conocimientos especificos.</p>
+        </div>
+        
+        <!-- Paso 5 -->
+        <div class="cenam-paso">
+            <div class="cenam-paso-numero"><span class="cenam-paso-emoji">&#128220;</span></div>
+            <h3>5. Oferta Laboral</h3>
+            <p>Si eres seleccionado, recibiras una oferta formal con detalles 
+               de compensacion, beneficios y fecha de inicio.</p>
+        </div>
+        
+        <!-- Paso 6 -->
+        <div class="cenam-paso">
+            <div class="cenam-paso-numero"><span class="cenam-paso-emoji">&#127881;</span></div>
+            <h3>6. Bienvenido a CENAM</h3>
+            <p>Iniciaras tu proceso de onboarding con induccion completa, 
+               conociendo tu equipo y las instalaciones.</p>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 3: FAQ - PREGUNTAS FRECUENTES (Acordeon CSS puro)
+================================================================================
+Add Section > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-faq {
+    background: #F4F6F9;
+    padding: 80px 24px;
+}
+
+.cenam-faq-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cenam-faq-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.cenam-faq-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+}
+
+.cenam-faq-item {
+    background: #FFFFFF;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #E0E4E8;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cenam-faq-item:hover {
+    border-color: #2E7DD6;
+}
+
+/* Hack CSS para acordeon sin JavaScript */
+.cenam-faq-toggle {
+    display: none;
+}
+
+.cenam-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cenam-faq-question:hover {
+    background: #F8FAFC;
+}
+
+.cenam-faq-question h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #0A1F3F !important;
+    margin: 0 !important;
+    flex: 1;
+    padding-right: 16px;
+}
+
+.cenam-faq-arrow {
+    font-size: 1.2rem;
+    color: #2E7DD6;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.cenam-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.cenam-faq-answer-content {
+    padding: 0 24px 0;
+}
+
+.cenam-faq-answer-content p {
+    font-size: 0.92rem !important;
+    color: #6B7280 !important;
+    line-height: 1.7 !important;
+}
+
+/* Cuando el checkbox esta marcado, mostrar respuesta */
+.cenam-faq-toggle:checked ~ .cenam-faq-answer {
+    max-height: 300px;
+}
+
+.cenam-faq-toggle:checked ~ .cenam-faq-answer .cenam-faq-answer-content {
+    padding: 0 24px 20px;
+}
+
+.cenam-faq-toggle:checked ~ .cenam-faq-question .cenam-faq-arrow {
+    transform: rotate(180deg);
+}
+
+.cenam-faq-toggle:checked ~ .cenam-faq-question {
+    background: #F0F7FF;
+}
+
+@media (max-width: 768px) {
+    .cenam-faq { padding: 50px 16px; }
+    .cenam-faq-question { padding: 16px 18px; }
+    .cenam-faq-question h4 { font-size: 0.92rem !important; }
+}
+</style>
+
+<div class="cenam-faq">
+    <div class="cenam-faq-inner">
+        <div class="cenam-faq-header">
+            <h2>&#10067; Preguntas frecuentes</h2>
+        </div>
+        
+        <!-- Pregunta 1 -->
+        <div class="cenam-faq-item">
+            <input type="checkbox" id="faq1" class="cenam-faq-toggle">
+            <label for="faq1" class="cenam-faq-question">
+                <h4>¿Cuanto tiempo dura el proceso de seleccion?</h4>
+                <span class="cenam-faq-arrow">&#9660;</span>
+            </label>
+            <div class="cenam-faq-answer">
+                <div class="cenam-faq-answer-content">
+                    <p>El proceso generalmente toma entre 3 y 6 semanas, 
+                       dependiendo del tipo de puesto y la complejidad de 
+                       las evaluaciones requeridas. Te mantendremos informado 
+                       en cada etapa del proceso.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pregunta 2 -->
+        <div class="cenam-faq-item">
+            <input type="checkbox" id="faq2" class="cenam-faq-toggle">
+            <label for="faq2" class="cenam-faq-question">
+                <h4>¿Necesito experiencia previa en metrologia?</h4>
+                <span class="cenam-faq-arrow">&#9660;</span>
+            </label>
+            <div class="cenam-faq-answer">
+                <div class="cenam-faq-answer-content">
+                    <p>No necesariamente. Si bien algunas posiciones requieren 
+                       experiencia especializada, contamos con puestos para 
+                       diferentes niveles. Ademas, ofrecemos programas de 
+                       capacitacion y el programa SIDEPRO para estudiantes y 
+                       recien egresados.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pregunta 3 -->
+        <div class="cenam-faq-item">
+            <input type="checkbox" id="faq3" class="cenam-faq-toggle">
+            <label for="faq3" class="cenam-faq-question">
+                <h4>¿Puedo aplicar a multiples vacantes al mismo tiempo?</h4>
+                <span class="cenam-faq-arrow">&#9660;</span>
+            </label>
+            <div class="cenam-faq-answer">
+                <div class="cenam-faq-answer-content">
+                    <p>Si, puedes aplicar a todas las vacantes que consideres 
+                       que se ajustan a tu perfil. Cada aplicacion sera evaluada 
+                       de forma independiente por el area correspondiente.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pregunta 4 -->
+        <div class="cenam-faq-item">
+            <input type="checkbox" id="faq4" class="cenam-faq-toggle">
+            <label for="faq4" class="cenam-faq-question">
+                <h4>¿Las entrevistas son presenciales o virtuales?</h4>
+                <span class="cenam-faq-arrow">&#9660;</span>
+            </label>
+            <div class="cenam-faq-answer">
+                <div class="cenam-faq-answer-content">
+                    <p>Dependiendo del puesto y la etapa del proceso, las 
+                       entrevistas pueden ser virtuales (videollamada) o 
+                       presenciales en nuestras instalaciones en Queretaro. 
+                       Te informaremos la modalidad con anticipacion.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pregunta 5 -->
+        <div class="cenam-faq-item">
+            <input type="checkbox" id="faq5" class="cenam-faq-toggle">
+            <label for="faq5" class="cenam-faq-question">
+                <h4>¿Que es el programa SIDEPRO?</h4>
+                <span class="cenam-faq-arrow">&#9660;</span>
+            </label>
+            <div class="cenam-faq-answer">
+                <div class="cenam-faq-answer-content">
+                    <p>El Sistema de Desarrollo Profesional (SIDEPRO) es un 
+                       programa de estancias profesionales para estudiantes y 
+                       recien egresados. Es una excelente via para conocer 
+                       CENAM, desarrollar experiencia practica y vincularte 
+                       con proyectos de investigacion reales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+NOTA: Este acordeon usa el "checkbox hack" de CSS puro.
+NO necesita JavaScript. Funciona en todos los navegadores.
+Es el metodo recomendado para Oracle HCM ya que no permite JS para UI.
+
+
+================================================================================
+SECCION 4: CTA FINAL
+================================================================================
+Reutilizar CTA del archivo 04 con texto adaptado.
+
+
+================================================================================
+CHECKLIST PAGINA PROCESO
+================================================================================
+[ ] Custom Page creada: "Proceso de Seleccion" / URL: "proceso"
+[ ] Seccion 1: Hero adaptado
+[ ] Seccion 2: Pasos del Proceso (timeline)
+[ ] Seccion 3: FAQ con acordeon CSS
+[ ] Seccion 4: CTA final
+[ ] Preview verificado

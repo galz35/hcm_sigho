@@ -1,0 +1,396 @@
+================================================================================
+   PAGINA 05: CUSTOM PAGE - BENEFICIOS
+   Oracle HCM Cloud - Career Site Builder
+================================================================================
+   NOMBRE: "Beneficios" | URL: /beneficios
+   TIPO: Custom Page (95% HTML libre)
+================================================================================
+
+
+================================================================================
+SECCION 1: HERO (misma estructura que Cultura, cambiar textos)
+================================================================================
+Add Section > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-benef-hero {
+    position: relative;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(10,31,63,0.88), rgba(27,79,138,0.78)),
+                url('https://TU-SERVIDOR.com/images/beneficios-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 80px 24px;
+}
+
+.cenam-benef-hero h1 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.8rem !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 12px !important;
+}
+
+.cenam-benef-hero p {
+    font-size: 1.15rem !important;
+    color: rgba(255,255,255,0.8) !important;
+    max-width: 600px;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+    .cenam-benef-hero h1 { font-size: 2rem !important; }
+    .cenam-benef-hero { min-height: 300px; padding: 60px 20px; }
+}
+</style>
+
+<div class="cenam-benef-hero">
+    <div>
+        <div style="display:inline-block;background:rgba(232,119,34,0.9);color:#fff;padding:6px 20px;border-radius:50px;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;">&#127873; Beneficios</div>
+        <h1>Nuestros Beneficios</h1>
+        <p>Conoce las prestaciones y ventajas de formar parte del equipo CENAM</p>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 2: BENEFICIOS PRINCIPALES (Cards con iconos)
+================================================================================
+Add Section > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-beneficios {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.cenam-beneficios-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cenam-beneficios-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 12px !important;
+}
+
+.cenam-beneficios-header p {
+    font-size: 1.05rem !important;
+    color: #6B7280 !important;
+}
+
+.cenam-benef-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.cenam-benef-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid #E0E4E8;
+    transition: all 0.4s ease;
+}
+
+.cenam-benef-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    border-color: transparent;
+}
+
+.cenam-benef-card-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.cenam-benef-card:hover .cenam-benef-card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.cenam-benef-card-icon.bg-blue { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+.cenam-benef-card-icon.bg-green { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+.cenam-benef-card-icon.bg-orange { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); }
+.cenam-benef-card-icon.bg-purple { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+.cenam-benef-card-icon.bg-teal { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); }
+.cenam-benef-card-icon.bg-pink { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); }
+.cenam-benef-card-icon.bg-amber { background: linear-gradient(135deg, #FFF8E1, #FFECB3); }
+.cenam-benef-card-icon.bg-indigo { background: linear-gradient(135deg, #E8EAF6, #C5CAE9); }
+
+.cenam-benef-card h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 8px !important;
+}
+
+.cenam-benef-card p {
+    font-size: 0.92rem !important;
+    color: #6B7280 !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .cenam-benef-grid { grid-template-columns: 1fr; }
+    .cenam-beneficios { padding: 50px 20px; }
+}
+</style>
+
+<div class="cenam-beneficios">
+    <div class="cenam-beneficios-header">
+        <h2>Prestaciones y beneficios</h2>
+        <p>En CENAM nos importa tu bienestar y el de tu familia</p>
+    </div>
+    
+    <div class="cenam-benef-grid">
+        <div class="cenam-benef-card">
+            <div class="cenam-benef-card-icon bg-blue">&#127973;</div>
+            <div>
+                <h3>Seguro de Gastos Medicos Mayores</h3>
+                <p>Cobertura medica de primer nivel para ti y tu familia, 
+                   incluyendo hospitalizacion, cirugias y tratamientos especializados.</p>
+            </div>
+        </div>
+        
+        <div class="cenam-benef-card">
+            <div class="cenam-benef-card-icon bg-green">&#128176;</div>
+            <div>
+                <h3>Fondo de Ahorro</h3>
+                <p>Programa de ahorro con aportaciones patronales que te ayuda a 
+                   construir un patrimonio solido para tu futuro.</p>
+            </div>
+        </div>
+        
+        <div class="cenam-benef-card">
+            <div class="cenam-benef-card-icon bg-orange">&#127828;</div>
+            <div>
+                <h3>Vales de Despensa</h3>
+                <p>Recibe vales de despensa mensuales como complemento a tu 
+                   compensacion, canjeables en tiendas y supermercados.</p>
+            </div>
+        </div>
+        
+        <div class="cenam-benef-card">
+            <div class="cenam-benef-card-icon bg-purple">&#127891;</div>
+            <div>
+                <h3>Capacitacion y Desarrollo</h3>
+                <p>Programas de formacion continua, cursos especializados, 
+                   estancias internacionales y apoyo para estudios de posgrado.</p>
+            </div>
+        </div>
+        
+        <div class="cenam-benef-card">
+            <div class="cenam-benef-card-icon bg-teal">&#127946;</div>
+            <div>
+                <h3>Programa de Vida Saludable</h3>
+                <p>Acceso a instalaciones deportivas, actividades recreativas, 
+                   y programas de bienestar fisico y emocional.</p>
+            </div>
+        </div>
+        
+        <div class="cenam-benef-card">
+            <div class="cenam-benef-card-icon bg-pink">&#128666;</div>
+            <div>
+                <h3>Seguro de Vida</h3>
+                <p>Proteccion para ti y tu familia con seguro de vida que 
+                   brinda tranquilidad y respaldo ante cualquier eventualidad.</p>
+            </div>
+        </div>
+        
+        <div class="cenam-benef-card">
+            <div class="cenam-benef-card-icon bg-amber">&#128337;</div>
+            <div>
+                <h3>Horario Flexible</h3>
+                <p>Esquemas de trabajo que te permiten balancear tu vida 
+                   profesional y personal de manera efectiva.</p>
+            </div>
+        </div>
+        
+        <div class="cenam-benef-card">
+            <div class="cenam-benef-card-icon bg-indigo">&#128652;</div>
+            <div>
+                <h3>Estacionamiento y Comedor</h3>
+                <p>Acceso gratuito a estacionamiento y servicio de comedor 
+                   subsidiado dentro de las instalaciones de CENAM.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 3: TABLA COMPARATIVA DE PRESTACIONES
+================================================================================
+Add Section > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-tabla-section {
+    background: #F4F6F9;
+    padding: 80px 24px;
+}
+
+.cenam-tabla-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cenam-tabla-inner h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+    text-align: center;
+    margin-bottom: 40px !important;
+}
+
+.cenam-tabla {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.cenam-tabla thead th {
+    background: linear-gradient(135deg, #0A1F3F, #1B4F8A);
+    color: #FFFFFF;
+    padding: 16px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cenam-tabla tbody td {
+    padding: 14px 24px;
+    font-size: 0.92rem;
+    color: #374151;
+    border-bottom: 1px solid #E0E4E8;
+    background: #FFFFFF;
+}
+
+.cenam-tabla tbody tr:hover td {
+    background: #F0F7FF;
+}
+
+.cenam-tabla tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.cenam-check {
+    color: #27AE60;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.cenam-star {
+    color: #E87722;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .cenam-tabla-section { padding: 50px 16px; }
+    .cenam-tabla thead th, .cenam-tabla tbody td { padding: 10px 14px; font-size: 0.82rem; }
+}
+</style>
+
+<div class="cenam-tabla-section">
+    <div class="cenam-tabla-inner">
+        <h2>&#128202; Comparativo de prestaciones</h2>
+        
+        <table class="cenam-tabla">
+            <thead>
+                <tr>
+                    <th>Prestacion</th>
+                    <th>Ley</th>
+                    <th>CENAM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Vacaciones</td>
+                    <td>12 dias (1er ano)</td>
+                    <td><span class="cenam-star">&#11088;</span> 20 dias desde el primer ano</td>
+                </tr>
+                <tr>
+                    <td>Aguinaldo</td>
+                    <td>15 dias</td>
+                    <td><span class="cenam-star">&#11088;</span> 40 dias</td>
+                </tr>
+                <tr>
+                    <td>Prima vacacional</td>
+                    <td>25%</td>
+                    <td><span class="cenam-star">&#11088;</span> 50%</td>
+                </tr>
+                <tr>
+                    <td>Seguro de gastos medicos</td>
+                    <td>No aplica</td>
+                    <td><span class="cenam-check">&#10004;</span> Incluido</td>
+                </tr>
+                <tr>
+                    <td>Seguro de vida</td>
+                    <td>No aplica</td>
+                    <td><span class="cenam-check">&#10004;</span> Incluido</td>
+                </tr>
+                <tr>
+                    <td>Fondo de ahorro</td>
+                    <td>No aplica</td>
+                    <td><span class="cenam-check">&#10004;</span> Con aportacion patronal</td>
+                </tr>
+                <tr>
+                    <td>Vales de despensa</td>
+                    <td>No aplica</td>
+                    <td><span class="cenam-check">&#10004;</span> Mensuales</td>
+                </tr>
+                <tr>
+                    <td>Capacitacion especializada</td>
+                    <td>Basica</td>
+                    <td><span class="cenam-star">&#11088;</span> Internacional</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 4: CTA FINAL
+================================================================================
+Reutilizar el CTA de la pagina Cultura (archivo 04, Seccion 5)
+Cambiar el texto a: "Descubre las vacantes disponibles"

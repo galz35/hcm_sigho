@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claro Empleo - Apoyo al Candidato</title>
+    <style>
+        
+/* ==========================================================================
+   PORTAL DE EMPLEO CLARO - ESTILOS GLOBALES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+    --claro-rojo: #DA291C;
+    --claro-rojo-hover: #b81e13;
+    --claro-negro: #1C1C1C;
+    --claro-gris-fondo: #F4F6F9;
+    --claro-gris-borde: #E0E4E8;
+    --claro-gris-texto: #6B7280;
+    --claro-gris-oscuro: #374151;
+    --claro-blanco: #FFFFFF;
+    
+    --fuente-titulo: 'Montserrat', sans-serif;
+    --fuente-texto: 'Open Sans', sans-serif;
+    
+    --borde-radio-pill: 50px;
+    --borde-radio-card: 16px;
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--claro-negro);
+    background-color: var(--claro-blanco);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulo);
+    font-weight: 700;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--claro-rojo);
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+a:hover {
+    color: var(--claro-rojo-hover);
+}
+
+/* Botones */
+.btn-primary {
+    background-color: var(--claro-rojo) !important;
+    color: var(--claro-blanco) !important;
+    border: none !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 12px 30px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: var(--transicion) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--claro-rojo-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(218, 41, 28, 0.3) !important;
+}
+
+.btn-secondary {
+    background-color: transparent !important;
+    color: var(--claro-negro) !important;
+    border: 2px solid var(--claro-negro) !important;
+    border-radius: var(--borde-radio-pill) !important;
+    padding: 10px 28px !important;
+    font-family: var(--fuente-titulo) !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: var(--transicion) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--claro-negro) !important;
+    color: var(--claro-blanco) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Header */
+.claro-header {
+    background-color: var(--claro-blanco);
+    border-bottom: 1px solid var(--claro-gris-borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.claro-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.claro-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.claro-nav a {
+    color: var(--claro-gris-oscuro) !important;
+    font-family: var(--fuente-titulo);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 0;
+    position: relative;
+}
+
+.claro-nav a:hover {
+    color: var(--claro-negro) !important;
+}
+
+.claro-nav a.active {
+    color: var(--claro-rojo) !important;
+}
+
+.claro-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--claro-rojo);
+    border-radius: 2px;
+}
+
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--claro-rojo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--claro-blanco);
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transicion);
+}
+
+.profile-button:hover {
+    background-color: var(--claro-rojo-hover);
+    transform: scale(1.05);
+}
+
+.profile-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer */
+.claro-footer {
+    background-color: var(--claro-negro);
+    color: var(--claro-blanco);
+    padding: 40px 24px 20px;
+}
+
+.claro-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.claro-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.claro-footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+.claro-footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--claro-blanco) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transicion);
+}
+
+.claro-footer-social a:hover {
+    background-color: var(--claro-rojo);
+    transform: translateY(-2px);
+}
+
+.claro-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.claro-footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.claro-footer-links a {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.claro-footer-links a:hover {
+    color: var(--claro-blanco) !important;
+}
+
+/* Accesibilidad y Chat */
+.accessibility-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #0077C8;
+    color: var(--claro-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 99;
+    font-size: 1.3rem;
+}
+
+.chat-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #FBBF24;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 99;
+    font-size: 1.3rem;
+    transition: var(--transicion);
+}
+
+.chat-btn:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+/* Responsive general */
+@media (max-width: 768px) {
+    .claro-header-inner { padding: 12px 16px; }
+    .claro-nav { display: none; } /* En una app real se añadiría menú hamburguesa */
+    .claro-footer-top, .claro-footer-bottom { flex-direction: column; text-align: center; }
+    .claro-footer-links { justify-content: center; }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="claro-header">
+        <div class="claro-header-inner">
+            <div class="claro-logo">
+                <a href="index.html">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" width="130" height="40">
+    <circle cx="20" cy="20" r="16" fill="#DA291C" />
+    <!-- Brillo característico del sol de Claro -->
+    <path d="M12 12 C 16 8, 24 8, 28 12 C 24 10, 16 10, 12 12 Z" fill="#FFFFFF" opacity="0.4" />
+    <circle cx="20" cy="20" r="13" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3" />
+    <text x="44" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="25" fill="#DA291C" letter-spacing="-0.5">claro</text>
+</svg>
+</a>
+            </div>
+            <nav class="claro-nav">
+                <a href="index.html" >Inicio</a>
+                <a href="busqueda.html" >Vacantes</a>
+                <a href="cultura.html" >Nuestra Esencia</a>
+                <a href="pais.html" >Claro en tu País</a>
+                <a href="apoyo.html" class="active">Apoyo al Candidato</a>
+            </nav>
+            <a href="registro.html" class="profile-button" title="Ingresar"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></a>
+        </div>
+    </header>
+
+    <!-- Contenido -->
+    <main>
+        
+<style>
+.support-hero {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    padding: 80px 24px;
+    color: var(--claro-blanco);
+    text-align: center;
+}
+.support-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+.support-hero h1 span {
+    color: var(--claro-rojo);
+}
+.support-hero p {
+    font-size: 1.15rem;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* FAQ y Consejos */
+.faq-tips-section {
+    padding: 80px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+}
+.column-title {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.column-subtitle {
+    font-size: 0.95rem;
+    color: var(--claro-gris-texto);
+    margin-bottom: 30px;
+}
+
+/* Acordeón FAQs (Pure CSS con input checkbox) */
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.faq-item {
+    border: 1px solid var(--claro-gris-borde);
+    border-radius: var(--borde-radio-card);
+    background-color: var(--claro-blanco);
+    overflow: hidden;
+}
+.faq-input {
+    display: none;
+}
+.faq-header {
+    padding: 20px 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: var(--transicion);
+}
+.faq-header:hover {
+    background-color: var(--claro-gris-fondo);
+}
+.faq-header-icon {
+    font-size: 1.2rem;
+    color: var(--claro-rojo);
+    transition: var(--transicion);
+}
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-out;
+    padding: 0 24px;
+    font-size: 0.92rem;
+    color: var(--claro-gris-oscuro);
+    line-height: 1.6;
+}
+/* Al marcar el checkbox, expandir el panel */
+.faq-input:checked ~ .faq-content {
+    max-height: 200px;
+    padding-bottom: 20px;
+}
+.faq-input:checked ~ .faq-header .faq-header-icon {
+    transform: rotate(45deg);
+}
+
+/* Consejos Tarjetas */
+.tips-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.tip-card {
+    background-color: var(--claro-blanco);
+    border: 1px solid var(--claro-gris-borde);
+    border-radius: var(--borde-radio-card);
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: var(--transicion);
+}
+.tip-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-color: rgba(218, 41, 28, 0.3);
+}
+.tip-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(218, 41, 28, 0.05);
+    color: var(--claro-rojo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+.tip-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+.tip-card p {
+    font-size: 0.85rem;
+    color: var(--claro-gris-oscuro);
+    line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+    .faq-tips-section { grid-template-columns: 1fr; gap: 48px; }
+}
+</style>
+
+<!-- Hero -->
+<section class="support-hero">
+    <div class="support-hero-content">
+        <h1>Experiencia del <span>Candidato</span></h1>
+        <p>Tu camino hacia una nueva oportunidad comienza acá. Queremos que tu proceso sea claro, simple y transparente. Conoce cada etapa y prepárate para dar el siguiente paso.</p>
+    </div>
+</section>
+
+<!-- Timeline (Reuse layout) -->
+<section class="experience-section" style="background-color: var(--claro-gris-fondo);">
+    <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 2rem; color: var(--claro-negro);">Así funciona tu proceso en Claro</h2>
+        <p style="color:var(--claro-gris-texto); font-size: 0.95rem; margin-top:8px;">Un proceso transparente, ágil y pensado para que tengas una mejor experiencia.</p>
+    </div>
+    <div class="experience-timeline" style="max-width:1200px; margin:0 auto;">
+        <div class="timeline-step">
+            <div class="timeline-step-icon">📝</div>
+            <h4>1. Postúlate</h4>
+            <p>Encuentra la vacante ideal y envía tu postulación en pocos pasos.</p>
+        </div>
+        <div class="timeline-step">
+            <div class="timeline-step-icon">🔍</div>
+            <h4>2. Descubrimos tu talento</h4>
+            <p>Analizamos tu perfil, experiencia y competencias de forma integral.</p>
+        </div>
+        <div class="timeline-step">
+            <div class="timeline-step-icon">📞</div>
+            <h4>3. Conectamos</h4>
+            <p>Conoce a nuestro equipo y conversemos en confianza sobre tu futuro.</p>
+        </div>
+        <div class="timeline-step">
+            <div class="timeline-step-icon">✔️</div>
+            <h4>4. Comienza tu historia</h4>
+            <p>¡Bienvenido a Claro! Comienza tu nueva etapa profesional de inmediato.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs y Consejos -->
+<section class="faq-tips-section">
+    
+    <!-- FAQs -->
+    <div>
+        <h3 class="column-title">💬 Preguntas frecuentes</h3>
+        <p class="column-subtitle">Resuelve tus dudas sobre el proceso</p>
+        
+        <div class="faq-accordion">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <input type="checkbox" id="faq1" class="faq-input">
+                <label for="faq1" class="faq-header">
+                    <span>¿Necesito crear un perfil para aplicar?</span>
+                    <span class="faq-header-icon">+</span>
+                </label>
+                <div class="faq-content">
+                    Sí. Al crear tu perfil en nuestra comunidad de talento, puedes aplicar a vacantes de forma ágil y dar un seguimiento detallado en tiempo real del estado de tus postulaciones.
+                </div>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <input type="checkbox" id="faq2" class="faq-input">
+                <label for="faq2" class="faq-header">
+                    <span>¿Puedo aplicar a más de una vacante?</span>
+                    <span class="faq-header-icon">+</span>
+                </label>
+                <div class="faq-content">
+                    Sí. Puedes postularte a todas las oportunidades que consideres que se ajustan a tu perfil profesional, competencias y experiencia laboral.
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <input type="checkbox" id="faq3" class="faq-input">
+                <label for="faq3" class="faq-header">
+                    <span>¿Cómo puedo revisar el estado de mi aplicación?</span>
+                    <span class="faq-header-icon">+</span>
+                </label>
+                <div class="faq-content">
+                    Simplemente ingresa a tu perfil de usuario en nuestra plataforma con tu correo y contraseña, y en la sección "Resumen de actividad" podrás visualizar los estatus detallados.
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <input type="checkbox" id="faq4" class="faq-input">
+                <label for="faq4" class="faq-header">
+                    <span>¿Qué pasa si no fui seleccionado?</span>
+                    <span class="faq-header-icon">+</span>
+                </label>
+                <div class="faq-content">
+                    Si tu perfil no avanza para una posición en específico, mantendremos tus datos almacenados de forma segura en nuestra Red de Talento para contactarte cuando surjan vacantes que se adecúen a ti.
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <input type="checkbox" id="faq5" class="faq-input">
+                <label for="faq5" class="faq-header">
+                    <span>¿Puedo actualizar mi perfil después?</span>
+                    <span class="faq-header-icon">+</span>
+                </label>
+                <div class="faq-content">
+                    Sí. Puedes ingresar a tu perfil en cualquier momento para actualizar tu hoja de vida, número telefónico de contacto o tus áreas y países de interés.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Consejos -->
+    <div>
+        <h3 class="column-title">💡 Consejos para postular</h3>
+        <p class="column-subtitle">Prepárate de la mejor forma para destacar</p>
+        
+        <div class="tips-container">
+            <div class="tip-card">
+                <div class="tip-icon-box">👤</div>
+                <div>
+                    <h4>Completa tu perfil</h4>
+                    <p>Asegúrate de mantener tu experiencia laboral y datos de contacto siempre actualizados para facilitar el contacto técnico.</p>
+                </div>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon-box">⭐</div>
+                <div>
+                    <h4>Destaca tu experiencia</h4>
+                    <p>Incluye información muy clara sobre los proyectos en los que has participado, tus logros numéricos y tus habilidades clave.</p>
+                </div>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon-box">✔️</div>
+                <div>
+                    <h4>Revisa tu información</h4>
+                    <p>Verifica que tu correo y número de teléfono estén correctamente ingresados antes de enviar tu formulario de aplicación.</p>
+                </div>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon-box">🎯</div>
+                <div>
+                    <h4>Aplica a oportunidades alineadas</h4>
+                    <p>Postúlate a las vacantes que realmente conecten con tu experiencia previa, tus objetivos profesionales y tu vocación técnica.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="claro-footer">
+        <div class="claro-footer-inner">
+            <div class="claro-footer-top">
+                <div class="claro-footer-logo">
+                    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 40" width="250" height="40">
+    <!-- Sol de Claro -->
+    <circle cx="20" cy="20" r="16" fill="#DA291C" />
+    <path d="M12 12 C 16 8, 24 8, 28 12 C 24 10, 16 10, 12 12 Z" fill="#FFFFFF" opacity="0.4" />
+    <text x="44" y="28" font-family="'Montserrat', sans-serif" font-weight="800" font-size="25" fill="#FFFFFF" letter-spacing="-0.5">claro</text>
+    <!-- Separador -->
+    <line x1="118" y1="8" x2="118" y2="32" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" />
+    <!-- América Móvil -->
+    <text x="132" y="20" font-family="'Montserrat', sans-serif" font-weight="300" font-size="10" fill="#FFFFFF" letter-spacing="1">AMÉRICA</text>
+    <text x="132" y="32" font-family="'Montserrat', sans-serif" font-weight="700" font-size="12" fill="#FFFFFF" letter-spacing="0.5">MÓVIL</text>
+</svg>
+
+                </div>
+                <div class="claro-footer-social">
+                    <a href="#">F</a>
+                    <a href="#">X</a>
+                    <a href="#">I</a>
+                    <a href="#">W</a>
+                </div>
+            </div>
+            <div class="claro-footer-bottom">
+                <p>Todos los derechos reservados, Claro 2026</p>
+                <div class="claro-footer-links">
+                    <a href="#">Mapa de sitio</a>
+                    <a href="#">Portal de denuncias</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Legal y Regulatorio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Accesibilidad y Chat -->
+    <div class="accessibility-btn" title="Accesibilidad">♿</div>
+    <div class="chat-btn" title="Chatear con nosotros">💬</div>
+</body>
+</html>

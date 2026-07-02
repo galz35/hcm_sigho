@@ -1,0 +1,672 @@
+================================================================================
+   PAGINA 04: CUSTOM PAGE - CULTURA ORGANIZACIONAL
+   Oracle HCM Cloud - Career Site Builder
+================================================================================
+   DONDE SE CONFIGURA: Career Sites Config > Edit > Pages > Add Custom Page
+   NOMBRE: "Cultura" | URL: /cultura
+   TIPO: Custom Page (95% HTML libre)
+================================================================================
+
+
+================================================================================
+PASO 1: CREAR LA CUSTOM PAGE
+================================================================================
+a) En el editor, ir al menu de paginas
+b) Clic en "Add Custom Page"
+c) Nombre: "Cultura Organizacional"
+d) En "Page Name Display for URL": escribir "cultura"
+   (para URL: tudominio.com/cultura)
+
+
+================================================================================
+PASO 2: DISENAR LA PAGINA
+================================================================================
+Estructura:
+  SECCION 1: Hero de la pagina     → [HTML element]
+  SECCION 2: Mision/Vision/Valores → [HTML element]
+  SECCION 3: Nuestra Historia      → [HTML element]
+  SECCION 4: Galeria de Fotos      → [HTML element]
+  SECCION 5: CTA                   → [HTML element]
+
+Cada seccion: Add Section > Row > 1 columna > HTML element
+
+
+================================================================================
+SECCION 1: HERO DE LA PAGINA
+================================================================================
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-page-hero {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 31, 63, 0.88) 0%,
+        rgba(27, 79, 138, 0.78) 100%
+    ), url('https://TU-SERVIDOR.com/images/cultura-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 80px 24px;
+}
+
+.cenam-page-hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cenam-page-hero-badge {
+    display: inline-block;
+    background: rgba(232, 119, 34, 0.9);
+    color: #FFFFFF;
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.cenam-page-hero h1 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.8rem !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 16px !important;
+}
+
+.cenam-page-hero p {
+    font-size: 1.15rem !important;
+    color: rgba(255,255,255,0.8) !important;
+    line-height: 1.7 !important;
+}
+
+.cenam-breadcrumb {
+    margin-top: 20px;
+}
+
+.cenam-breadcrumb a {
+    color: rgba(255,255,255,0.6) !important;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+}
+
+.cenam-breadcrumb a:hover {
+    color: #FFFFFF !important;
+}
+
+.cenam-breadcrumb span {
+    color: rgba(255,255,255,0.4);
+    margin: 0 8px;
+}
+
+@media (max-width: 768px) {
+    .cenam-page-hero { min-height: 320px; padding: 60px 20px; }
+    .cenam-page-hero h1 { font-size: 2rem !important; }
+}
+</style>
+
+<div class="cenam-page-hero">
+    <div class="cenam-page-hero-content">
+        <div class="cenam-page-hero-badge">&#127970; Nuestra cultura</div>
+        <h1>Conoce la cultura CENAM</h1>
+        <p>Mas de 30 anos construyendo excelencia cientifica, 
+           innovacion y compromiso con Mexico</p>
+        <div class="cenam-breadcrumb">
+            <a href="/">Inicio</a>
+            <span>&#8250;</span>
+            <a href="/cultura" style="color: #E87722 !important;">Cultura</a>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 2: MISION / VISION / VALORES
+================================================================================
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-mvv {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.cenam-mvv-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cenam-mvv-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 12px !important;
+}
+
+.cenam-mvv-header p {
+    font-size: 1.05rem !important;
+    color: #6B7280 !important;
+    max-width: 550px;
+    margin: 0 auto !important;
+}
+
+.cenam-mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.cenam-mvv-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 40px 32px;
+    text-align: center;
+    border: 1px solid #E0E4E8;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cenam-mvv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    border-color: transparent;
+}
+
+.cenam-mvv-card-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin: 0 auto 24px;
+    transition: transform 0.3s ease;
+}
+
+.cenam-mvv-card:hover .cenam-mvv-card-icon {
+    transform: scale(1.12) rotate(5deg);
+}
+
+.cenam-mvv-mision .cenam-mvv-card-icon {
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+}
+
+.cenam-mvv-vision .cenam-mvv-card-icon {
+    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+}
+
+.cenam-mvv-valores .cenam-mvv-card-icon {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+}
+
+.cenam-mvv-card h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 16px !important;
+}
+
+.cenam-mvv-card p {
+    font-size: 0.95rem !important;
+    color: #6B7280 !important;
+    line-height: 1.7 !important;
+}
+
+.cenam-mvv-card .cenam-mvv-bar {
+    width: 50px;
+    height: 4px;
+    border-radius: 2px;
+    margin: 20px auto 0;
+}
+
+.cenam-mvv-mision .cenam-mvv-bar { background: #2E7DD6; }
+.cenam-mvv-vision .cenam-mvv-bar { background: #E87722; }
+.cenam-mvv-valores .cenam-mvv-bar { background: #27AE60; }
+
+@media (max-width: 768px) {
+    .cenam-mvv-grid { grid-template-columns: 1fr; gap: 24px; }
+    .cenam-mvv { padding: 50px 20px; }
+}
+</style>
+
+<div class="cenam-mvv">
+    <div class="cenam-mvv-header">
+        <h2>Nuestra esencia</h2>
+        <p>Los pilares que guian nuestro trabajo diario y nuestro 
+           compromiso con la excelencia</p>
+    </div>
+    
+    <div class="cenam-mvv-grid">
+        <!-- Mision -->
+        <div class="cenam-mvv-card cenam-mvv-mision">
+            <div class="cenam-mvv-card-icon">&#127919;</div>
+            <h3>Mision</h3>
+            <p>Proveer servicios de medicion de la mas alta calidad, 
+               desarrollar y mantener los patrones nacionales de medida, 
+               y realizar investigacion en metrologia para contribuir al 
+               desarrollo tecnologico e industrial de Mexico.</p>
+            <div class="cenam-mvv-bar"></div>
+        </div>
+        
+        <!-- Vision -->
+        <div class="cenam-mvv-card cenam-mvv-vision">
+            <div class="cenam-mvv-card-icon">&#128301;</div>
+            <h3>Vision</h3>
+            <p>Ser reconocido internacionalmente como un centro de 
+               excelencia en metrologia, liderando la innovacion y el 
+               desarrollo cientifico para posicionar a Mexico como 
+               referente mundial en mediciones.</p>
+            <div class="cenam-mvv-bar"></div>
+        </div>
+        
+        <!-- Valores -->
+        <div class="cenam-mvv-card cenam-mvv-valores">
+            <div class="cenam-mvv-card-icon">&#128142;</div>
+            <h3>Valores</h3>
+            <p>Integridad, compromiso, excelencia, trabajo en equipo, 
+               innovacion y responsabilidad social. Estos valores son el 
+               fundamento de nuestra cultura y guian cada accion que 
+               tomamos como organizacion.</p>
+            <div class="cenam-mvv-bar"></div>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 3: NUESTRA HISTORIA / TIMELINE
+================================================================================
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-historia {
+    background: #F4F6F9;
+    padding: 80px 24px;
+}
+
+.cenam-historia-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cenam-historia-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cenam-historia-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+}
+
+.cenam-timeline {
+    position: relative;
+    padding-left: 50px;
+}
+
+.cenam-timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #2E7DD6, #E87722);
+    border-radius: 2px;
+}
+
+.cenam-timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 24px 28px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+.cenam-timeline-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+}
+
+.cenam-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -42px;
+    top: 28px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #2E7DD6;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 0 3px #2E7DD6;
+}
+
+.cenam-timeline-year {
+    display: inline-block;
+    background: linear-gradient(135deg, #0A1F3F, #1B4F8A);
+    color: #FFFFFF;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cenam-timeline-item h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 8px !important;
+}
+
+.cenam-timeline-item p {
+    font-size: 0.92rem !important;
+    color: #6B7280 !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .cenam-historia { padding: 50px 20px; }
+    .cenam-timeline { padding-left: 40px; }
+    .cenam-timeline-item::before { left: -32px; }
+}
+</style>
+
+<div class="cenam-historia">
+    <div class="cenam-historia-inner">
+        <div class="cenam-historia-header">
+            <h2>&#128214; Nuestra historia</h2>
+        </div>
+        
+        <div class="cenam-timeline">
+            <div class="cenam-timeline-item">
+                <div class="cenam-timeline-year">1992</div>
+                <h4>Fundacion del CENAM</h4>
+                <p>Se establece el Centro Nacional de Metrologia en El Marques, 
+                   Queretaro, como el laboratorio nacional de referencia en 
+                   materia de mediciones.</p>
+            </div>
+            
+            <div class="cenam-timeline-item">
+                <div class="cenam-timeline-year">2000</div>
+                <h4>Reconocimiento Internacional</h4>
+                <p>CENAM obtiene reconocimiento internacional por sus capacidades 
+                   de medicion y calibracion, firmando acuerdos de reconocimiento 
+                   mutuo con organismos internacionales.</p>
+            </div>
+            
+            <div class="cenam-timeline-item">
+                <div class="cenam-timeline-year">2010</div>
+                <h4>Expansion de Laboratorios</h4>
+                <p>Se inauguran nuevos laboratorios especializados en metrologia 
+                   quimica, dimensional y de temperatura, ampliando significativamente 
+                   la capacidad de servicios.</p>
+            </div>
+            
+            <div class="cenam-timeline-item">
+                <div class="cenam-timeline-year">2020</div>
+                <h4>Modernizacion Tecnologica</h4>
+                <p>Implementacion de tecnologias de vanguardia y sistemas de 
+                   gestion digitales, posicionando a CENAM como referente en 
+                   la modernizacion de la metrologia latinoamericana.</p>
+            </div>
+            
+            <div class="cenam-timeline-item">
+                <div class="cenam-timeline-year">Hoy</div>
+                <h4>Mirando al Futuro</h4>
+                <p>CENAM continua innovando, con mas de 500 colaboradores 
+                   comprometidos con la excelencia cientifica y la formacion 
+                   de la proxima generacion de metrologos en Mexico.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 4: GALERIA DE FOTOS
+================================================================================
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-galeria {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.cenam-galeria-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.cenam-galeria-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #0A1F3F !important;
+}
+
+.cenam-galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cenam-galeria-item {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+}
+
+.cenam-galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.cenam-galeria-item:hover img {
+    transform: scale(1.08);
+}
+
+.cenam-galeria-item .cenam-galeria-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(10,31,63,0.85));
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.cenam-galeria-item:hover .cenam-galeria-overlay {
+    transform: translateY(0);
+}
+
+.cenam-galeria-overlay p {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+/* Primer item ocupa 2 columnas para diseño asimetrico */
+.cenam-galeria-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto;
+}
+
+@media (max-width: 768px) {
+    .cenam-galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .cenam-galeria-item:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    .cenam-galeria { padding: 50px 20px; }
+}
+
+@media (max-width: 480px) {
+    .cenam-galeria-grid {
+        grid-template-columns: 1fr;
+    }
+    .cenam-galeria-item:first-child {
+        grid-column: span 1;
+    }
+}
+</style>
+
+<div class="cenam-galeria">
+    <div class="cenam-galeria-header">
+        <h2>&#128247; Nuestras instalaciones</h2>
+    </div>
+    
+    <div class="cenam-galeria-grid">
+        <!-- CAMBIAR todas las URLs por imagenes reales -->
+        <div class="cenam-galeria-item">
+            <img src="https://TU-SERVIDOR.com/images/galeria-1.jpg" alt="Laboratorio principal">
+            <div class="cenam-galeria-overlay">
+                <p>Laboratorio Principal de Metrologia</p>
+            </div>
+        </div>
+        
+        <div class="cenam-galeria-item">
+            <img src="https://TU-SERVIDOR.com/images/galeria-2.jpg" alt="Equipo de trabajo">
+            <div class="cenam-galeria-overlay">
+                <p>Nuestro Equipo de Trabajo</p>
+            </div>
+        </div>
+        
+        <div class="cenam-galeria-item">
+            <img src="https://TU-SERVIDOR.com/images/galeria-3.jpg" alt="Equipos de medicion">
+            <div class="cenam-galeria-overlay">
+                <p>Equipos de Medicion de Alta Precision</p>
+            </div>
+        </div>
+        
+        <div class="cenam-galeria-item">
+            <img src="https://TU-SERVIDOR.com/images/galeria-4.jpg" alt="Capacitacion">
+            <div class="cenam-galeria-overlay">
+                <p>Programas de Capacitacion</p>
+            </div>
+        </div>
+        
+        <div class="cenam-galeria-item">
+            <img src="https://TU-SERVIDOR.com/images/galeria-5.jpg" alt="Instalaciones">
+            <div class="cenam-galeria-overlay">
+                <p>Campus CENAM Queretaro</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+SECCION 5: CTA - UNETE AL EQUIPO
+================================================================================
+Reutilizar el mismo CTA del archivo 02 (Splash Page - Seccion 8)
+O crear una version mas corta:
+
+--- INICIO CODIGO HTML ---
+
+<style>
+.cenam-cultura-cta {
+    background: linear-gradient(135deg, #0A1F3F, #1B4F8A);
+    padding: 60px 24px;
+    text-align: center;
+}
+
+.cenam-cultura-cta h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 20px !important;
+}
+
+.cenam-cultura-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #E87722, #D06A1F);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 25px rgba(232,119,34,0.4);
+}
+
+.cenam-cultura-cta a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(232,119,34,0.55);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+</style>
+
+<div class="cenam-cultura-cta">
+    <h2>&#128640; ¿Listo para ser parte de CENAM?</h2>
+    <a href="/">Explorar Vacantes Disponibles</a>
+</div>
+
+--- FIN CODIGO HTML ---
+
+
+================================================================================
+CHECKLIST PAGINA CULTURA
+================================================================================
+[ ] Custom Page creada con nombre "Cultura Organizacional"
+[ ] URL amigable configurada: "cultura"
+[ ] Seccion 1: Hero (HTML element) - pegar codigo
+[ ] Seccion 2: Mision/Vision/Valores (HTML element) - pegar codigo
+[ ] Seccion 3: Timeline Historia (HTML element) - pegar codigo
+[ ] Seccion 4: Galeria de Fotos (HTML element) - pegar codigo
+[ ] Seccion 5: CTA (HTML element) - pegar codigo
+[ ] Todas las URLs de imagenes actualizadas
+[ ] Textos adaptados al contenido real de CENAM
+[ ] Preview en Desktop/Tablet/Mobile verificado
+[ ] Link agregado al menu de navegacion del header

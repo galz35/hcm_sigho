@@ -1,0 +1,50 @@
+================================================================================
+   DOCUMENTACIÓN DEL PROYECTO: PORTAL DE EMPLEO CLARO
+   ARCHIVADOR DE APRENDIZAJE - PARTE 1: PROPÓSITO Y FIN DEL PROYECTO
+================================================================================
+   Ubicación: d:\sigho diseño\documentacion_proyecto\01_proposito_y_fin_del_proyecto.txt
+   Autor: Antigravity pair programming assistant
+================================================================================
+
+1. ¿CUÁL ES EL FIN DE ESTE PROYECTO?
+El objetivo principal de este proyecto es rediseñar y construir las maquetas web
+estáticas (en formato HTML y CSS puros) para el nuevo Portal de Carreras y Empleo
+de Claro Centroamérica (especialmente enfocado en la región de Honduras y CENAM).
+
+El portal debe cumplir con dos metas fundamentales:
+*   Fidelidad Visual Absoluta (100%): Cada página debe ser una réplica exacta del
+    diseño propuesto en las capturas del PDF original ("Diseño portal web empleo_Cenam 1.pdf").
+*   Branding Oficial de Claro: Adoptar e integrar estrictamente la paleta de
+    colores corporativa (Rojo Claro #DA291C, Negro #1C1C1C, Gris Claro #F4F6F9 y
+    blanco) y su tipografía característica (Montserrat y Open Sans).
+
+2. EL CONTEXTO TECNOLÓGICO: ¿POR QUÉ EN HTML ESTÁTICO PURO?
+El Career Site Builder de Oracle HCM Recruiting (la plataforma donde finalmente se
+alojará el portal) es una nube cerrada. No permite instalar servidores Node.js,
+compiladores de JavaScript o bases de datos a nivel de frontend.
+
+Toda la personalización avanzada se realiza inyectando fragmentos de código en
+widgets de "HTML Personalizado" (Custom HTML) y aplicando clases en la hoja de
+estilos global ("Custom CSS") del tema. 
+
+Por esta razón, construimos archivos HTML independientes y autoportantes que:
+- Usan Tailwind CSS de forma directa y transparente a través de su CDN.
+- Contienen todo el CSS de estilización incrustado dentro de etiquetas <style>.
+- No dependen de bases de datos locales ni frameworks complejos como React/Vite.
+- Utilizan trucos ingeniosos de CSS puro (como selectores :checked o :target) 
+  para lograr interactividad (como el modal de login y las pestañas del registro)
+  sin necesidad de utilizar scripts de JavaScript agresivos que puedan chocar 
+  con la lógica interna de Oracle Cloud.
+
+3. ¿QUÉ APRENDERÁS CON ESTAS MAQUETAS?
+Este código te servirá como una plantilla de aprendizaje de nivel profesional en:
+*   Diseño Web Responsivo: Ajustar layouts con flexbox y grid para que se vean 
+    perfectos en móviles, tablets y monitores de escritorio.
+*   Uso Consistente de Marca: Cómo aplicar guías de estilo institucionales con
+    estricta consistencia de colores e iconos.
+*   Interactividad Avanzada sin dependencias: Implementar menús desplegables,
+    modales y formularios por pasos utilizando únicamente selectores avanzados de CSS.
+*   Gráficos Vectoriales (SVGs): Dibujar y animar logotipos e iconos directamente
+    en código, asegurando tiempos de carga ultra rápidos y calidad de imagen infinita.
+
+================================================================================

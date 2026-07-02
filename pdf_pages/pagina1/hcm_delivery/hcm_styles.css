@@ -1,0 +1,300 @@
+/* ==========================================================================
+   ORACLE HCM GLOBAL CUSTOM CSS - CLARO CAREERS
+   Paste these styles inside the "Custom CSS" section in the Theme Tab.
+   This file imports Tailwind CSS v2 and defines all the JIT classes
+   used in our Claro vacancy landing page design.
+   ========================================================================== */
+
+/* 1. Importación Global de Tailwind CSS (Aceptado por Oracle en la pestaña Theme) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+
+/* 2. Custom Fonts & Core Overrides */
+.hero-bg {
+    background: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=2069&ixlib=rb-4.0.3') center/cover no-repeat;
+    position: relative;
+}
+
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 35%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+.process-line {
+    position: absolute;
+    top: 3.5rem;
+    left: 12.5%;
+    width: 75%;
+    height: 2px;
+    border-top: 2px dashed #999999;
+    z-index: 0;
+}
+
+.nav-link {
+    font-size: 14px;
+    color: #4a4a4a;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #da291c;
+}
+
+.nav-link.active {
+    color: #da291c;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #da291c;
+    border-radius: 2px;
+}
+
+.dot-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #da291c;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot-indicator.active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* 3. Mapeo de Clases Utilitarias Arbitrarias (Tailwind JIT Overrides) */
+.bg-\[\#da291c\] {
+    background-color: #da291c !important;
+}
+
+.bg-\[\#b81e13\] {
+    background-color: #b81e13 !important;
+}
+
+.bg-\[\#990000\] {
+    background-color: #990000 !important;
+}
+
+.bg-\[\#dce3e8\] {
+    background-color: #dce3e8 !important;
+}
+
+.bg-\[\#f4f4f4\] {
+    background-color: #f4f4f4 !important;
+}
+
+.bg-\[\#2B2B2B\] {
+    background-color: #2B2B2B !important;
+}
+
+.bg-\[\#3D3D3D\] {
+    background-color: #3D3D3D !important;
+}
+
+.bg-gray-850 {
+    background-color: #1f2937 !important;
+}
+
+.bg-gray-800\/40 {
+    background-color: rgba(31, 41, 55, 0.4) !important;
+}
+
+.bg-white\/10 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-white\/5 {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.bg-black\/20 {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.bg-black\/30 {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.text-\[\#da291c\] {
+    color: #da291c !important;
+}
+
+.text-white\/95 {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.text-white\/90 {
+    color: rgba(255, 255, 255, 0.90) !important;
+}
+
+.text-gray-400 {
+    color: #9ca3af !important;
+}
+
+.border-gray-750\/80 {
+    border-color: rgba(55, 65, 81, 0.8) !important;
+}
+
+.border-gray-700\/50 {
+    border-color: rgba(55, 65, 81, 0.5) !important;
+}
+
+.border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.border-gray-750 {
+    border-color: #374151 !important;
+}
+
+.border-\[\#da291c\] {
+    border-color: #da291c !important;
+}
+
+.rounded-\[2rem\] {
+    border-radius: 2rem !important;
+}
+
+.-mt-12 {
+    margin-top: -3rem !important;
+}
+
+.-top-2 {
+    top: -0.5rem !important;
+}
+
+.-mt-8 {
+    margin-top: -2rem !important;
+}
+
+.top-6 {
+    top: 1.5rem !important;
+}
+
+.top-8 {
+    top: 2rem !important;
+}
+
+.left-\[12\.5\%\] {
+    left: 12.5% !important;
+}
+
+.right-\[12\.5\%\] {
+    right: 12.5% !important;
+}
+
+.text-\[2rem\] {
+    font-size: 2rem !important;
+}
+
+.text-\[17px\] {
+    font-size: 17px !important;
+}
+
+.text-\[11px\] {
+    font-size: 11px !important;
+}
+
+.text-\[12px\] {
+    font-size: 12px !important;
+}
+
+.text-\[10px\] {
+    font-size: 10px !important;
+}
+
+.text-\[13px\] {
+    font-size: 13px !important;
+}
+
+.max-w-\[150px\] {
+    max-w: 150px !important;
+}
+
+.max-w-\[460px\] {
+    max-w: 460px !important;
+}
+
+.max-w-\[340px\] {
+    max-w: 340px !important;
+}
+
+.aspect-\[4\/3\] {
+    aspect-ratio: 4/3 !important;
+}
+
+/* Interactive Hover Actions */
+.hover\:bg-claro-red-hover:hover {
+    background-color: #b81e13 !important;
+}
+
+.hover\:bg-gray-100:hover {
+    background-color: #f3f4f6 !important;
+}
+
+.hover\:bg-white\/10:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.hover\:bg-gray-50:hover {
+    background-color: #f9fafb !important;
+}
+
+.hover\:bg-gray-700:hover {
+    background-color: #374151 !important;
+}
+
+.hover\:text-white:hover {
+    color: #ffffff !important;
+}
+
+.hover\:-translate-y-0.5:hover {
+    transform: translateY(-0.125rem) !important;
+}
+
+.hover\:-translate-y-2:hover {
+    transform: translateY(-0.5rem) !important;
+}
+
+/* Timeline Hover Icon Inversion */
+.group:hover .group-hover\:bg-white {
+    background-color: #ffffff !important;
+}
+
+.group:hover .group-hover\:text-\[\#da291c\] {
+    color: #da291c !important;
+}
+
+.group:hover .group-hover\:border-white {
+    border-color: #ffffff !important;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .md\:text-\[4rem\] {
+        font-size: 4rem !important;
+    }
+
+    .md\:translate-x-4 {
+        transform: translateX(1rem) !important;
+    }
+
+    .md\:scale-102:hover {
+        transform: scale(1.02) !important;
+    }
+}

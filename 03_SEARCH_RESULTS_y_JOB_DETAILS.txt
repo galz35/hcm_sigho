@@ -1,0 +1,309 @@
+================================================================================
+   PAGINA 03: SEARCH RESULTS + JOB DETAILS
+   Oracle HCM Cloud - Career Site Builder
+================================================================================
+   Search Results: Career Sites Config > Edit > Pages > Search Results Page
+   Job Details: Career Sites Config > Edit > Pages > Job Details Page
+================================================================================
+
+NOTA IMPORTANTE: Estas dos paginas son MAYORMENTE NATIVAS.
+El 80-90% del contenido lo genera Oracle automaticamente.
+Solo puedes agregar secciones extras arriba/abajo y ajustar CSS.
+
+
+================================================================================
+PAGINA 3A: SEARCH RESULTS (Resultados de Busqueda)
+================================================================================
+
+ESTRUCTURA:
+  HEADER (global - ya configurado)
+  |
+  SECCION EXTRA ARRIBA: Banner/hero (opcional)  → [HTML element]
+  |
+  BLOQUE NATIVO: Filtros + Lista de vacantes    → [NATIVO - no tocar]
+  |
+  SECCION EXTRA ABAJO: CTA (opcional)           → [HTML element]
+  |
+  FOOTER (global - ya configurado)
+
+
+PASO 3A.1 - CONFIGURAR FILTROS Y LISTA (Pestana General)
+   a) Ir a Career Sites Configuration > Edit > Pestana "General"
+   b) En "Search & Filters" activar:
+      [x] Location (Ubicacion)
+      [x] Job Category (Categoria)
+      [x] Job Function (Funcion)
+      [x] Employment Type (Tipo de empleo)
+      [ ] Organization (opcional)
+      [ ] Management Level (opcional)
+   c) Configurar estilo de lista: seleccionar "Tile" o "List"
+   d) Activar "Infinite Scroll" si lo deseas
+   e) Configurar orden: por fecha (mas recientes primero)
+
+PASO 3A.2 - BANNER SUPERIOR (Opcional)
+   a) En el editor de Search Results Page
+   b) Add Section (arriba de todo) > Row > 1 col > HTML element
+   c) Pegar codigo:
+
+--- INICIO CODIGO HTML: BANNER SEARCH RESULTS ---
+
+<style>
+.cenam-search-banner {
+    background: linear-gradient(135deg, #0A1F3F 0%, #1B4F8A 100%);
+    padding: 48px 24px;
+    text-align: center;
+}
+
+.cenam-search-banner h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 8px !important;
+}
+
+.cenam-search-banner p {
+    font-size: 1.05rem !important;
+    color: rgba(255,255,255,0.7) !important;
+    margin: 0 !important;
+}
+</style>
+
+<div class="cenam-search-banner">
+    <h2>&#128270; Encuentra tu proxima oportunidad</h2>
+    <p>Explora todas las vacantes disponibles en CENAM</p>
+</div>
+
+--- FIN CODIGO HTML: BANNER SEARCH RESULTS ---
+
+
+PASO 3A.3 - ESTILOS DE TARJETAS DE VACANTES
+   Ya estan definidos en el Custom CSS global (archivo 01).
+   Las clases .job-card, .job-list-item aplican automaticamente.
+   Si necesitas ajustes adicionales, agregar al Custom CSS global.
+
+
+================================================================================
+PAGINA 3B: JOB DETAILS (Detalle de Vacante)
+================================================================================
+
+ESTRUCTURA:
+  HEADER (global)
+  |
+  SECCION EXTRA ARRIBA: Mini-banner    → [HTML element]
+  |
+  BLOQUE NATIVO: Titulo + Descripcion  → [N/A - automatico]
+  BLOQUE NATIVO: Requisitos            → [N/A - automatico]
+  BLOQUE NATIVO: Boton "Aplicar"       → [N/A - NO TOCAR]
+  |
+  SECCION EXTRA ABAJO: Sobre CENAM     → [HTML element]
+  |
+  FOOTER (global)
+
+
+PASO 3B.1 - CONFIGURAR CAMPOS VISIBLES
+   Ruta: My Client Groups > HCM Experience Design Studio
+   a) Seleccionar "Recruiting" > "Job Requisition"
+   b) Mostrar/ocultar campos segun necesidades:
+      [x] Titulo del puesto
+      [x] Descripcion
+      [x] Responsabilidades
+      [x] Requisitos
+      [x] Ubicacion
+      [x] Tipo de empleo
+      [ ] Rango salarial (segun politica)
+      [x] Fecha de publicacion
+
+PASO 3B.2 - SECCION SUPERIOR (Mini-banner)
+   Add Section (arriba) > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML: MINI BANNER JOB DETAILS ---
+
+<style>
+.cenam-job-banner {
+    background: linear-gradient(135deg, #0A1F3F, #1B4F8A);
+    padding: 32px 24px;
+    text-align: center;
+}
+
+.cenam-job-banner-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.cenam-job-banner img {
+    height: 36px;
+    width: auto;
+}
+
+.cenam-job-banner p {
+    color: rgba(255,255,255,0.8) !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+.cenam-job-banner a {
+    color: #E87722 !important;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
+.cenam-job-banner a:hover {
+    text-decoration: underline !important;
+}
+</style>
+
+<div class="cenam-job-banner">
+    <div class="cenam-job-banner-inner">
+        <p>&#127970; <a href="/">Volver a todas las vacantes</a> &nbsp;|&nbsp; 
+           <a href="/beneficios">Ver nuestros beneficios</a> &nbsp;|&nbsp;
+           <a href="/proceso">Conocer el proceso de seleccion</a></p>
+    </div>
+</div>
+
+--- FIN CODIGO HTML: MINI BANNER JOB DETAILS ---
+
+
+PASO 3B.3 - SECCION INFERIOR (Sobre CENAM)
+   Add Section (abajo del contenido nativo) > Row > 1 col > HTML element:
+
+--- INICIO CODIGO HTML: SECCION INFERIOR JOB DETAILS ---
+
+<style>
+.cenam-job-footer-section {
+    background: #F4F6F9;
+    padding: 60px 24px;
+}
+
+.cenam-job-footer-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.cenam-job-footer-text h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: #0A1F3F !important;
+    margin-bottom: 16px !important;
+}
+
+.cenam-job-footer-text p {
+    font-size: 0.95rem !important;
+    color: #6B7280 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 20px !important;
+}
+
+.cenam-job-footer-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.cenam-job-footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFFFFF;
+    color: #1B4F8A !important;
+    text-decoration: none !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: 1px solid #E0E4E8;
+    transition: all 0.3s ease;
+}
+
+.cenam-job-footer-link:hover {
+    background: #1B4F8A;
+    color: #FFFFFF !important;
+    border-color: #1B4F8A;
+    transform: translateY(-2px);
+    text-decoration: none !important;
+}
+
+.cenam-job-footer-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.cenam-job-footer-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .cenam-job-footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .cenam-job-footer-image {
+        order: -1;
+    }
+}
+</style>
+
+<div class="cenam-job-footer-section">
+    <div class="cenam-job-footer-inner">
+        <div class="cenam-job-footer-text">
+            <h3>&#127775; ¿Por que elegir CENAM?</h3>
+            <p>En el Centro Nacional de Metrologia ofrecemos un ambiente 
+               laboral de excelencia, prestaciones superiores a la ley, 
+               y la oportunidad de contribuir a la ciencia y tecnologia 
+               de Mexico.</p>
+            <div class="cenam-job-footer-links">
+                <a href="/cultura" class="cenam-job-footer-link">
+                    &#127970; Cultura
+                </a>
+                <a href="/beneficios" class="cenam-job-footer-link">
+                    &#127873; Beneficios
+                </a>
+                <a href="/proceso" class="cenam-job-footer-link">
+                    &#128203; Proceso
+                </a>
+                <a href="/contacto" class="cenam-job-footer-link">
+                    &#128231; Contacto
+                </a>
+            </div>
+        </div>
+        
+        <div class="cenam-job-footer-image">
+            <!-- CAMBIAR URL por imagen real de CENAM -->
+            <img src="https://TU-SERVIDOR.com/images/instalaciones-cenam.jpg" 
+                 alt="Instalaciones CENAM">
+        </div>
+    </div>
+</div>
+
+--- FIN CODIGO HTML: SECCION INFERIOR JOB DETAILS ---
+
+
+================================================================================
+RESUMEN SEARCH RESULTS + JOB DETAILS
+================================================================================
+
+Search Results:
+  [ ] Configurar filtros en pestana General
+  [ ] Elegir estilo List vs Tile
+  [ ] (Opcional) Agregar banner superior con HTML element
+  [ ] CSS de tarjetas ya aplicado desde Theme global
+
+Job Details:
+  [ ] Configurar campos visibles en HCM Experience Design Studio
+  [ ] Agregar mini-banner superior con HTML element
+  [ ] Agregar seccion "¿Por que CENAM?" inferior con HTML element
+  [ ] NO tocar el contenido central ni el boton Aplicar

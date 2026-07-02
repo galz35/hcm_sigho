@@ -1,0 +1,853 @@
+================================================================================
+   GUIA DE IMPLEMENTACION - PORTAL WEB DE EMPLEO CENAM
+   EN ORACLE HCM CLOUD - MODULO DE RECLUTAMIENTO
+================================================================================
+   Basado en: "Diseño portal web empleo_Cenam 1.pdf" (8 paginas de diseño)
+   Fecha: 2 de junio de 2026
+   Preparado para: Implementacion en Oracle HCM Cloud Recruiting
+================================================================================
+
+
+INFORMACION DEL PDF DE DISEÑO
+------------------------------
+- Archivo: Diseño portal web empleo_Cenam 1.pdf
+- Total de paginas: 8
+- Resolucion: 2812 px de ancho (alta resolucion)
+- Tipo: Mockups de diseño web (scroll largo por pagina)
+- Las 8 paginas representan las diferentes secciones/vistas del portal
+
+
+IMPORTANTE - LEER ANTES DE EMPEZAR
+------------------------------
+Oracle HCM Cloud NO usa WordPress ni Drupal. Tiene su propio editor visual
+llamado "Career Site Builder" que funciona de forma similar (arrastrar y soltar,
+secciones, columnas, elementos). Esta guia explica como traducir CADA PAGINA
+del PDF de diseño a configuraciones dentro de Oracle HCM Cloud.
+
+La herramienta de Oracle usa esta jerarquia:
+  Pagina > Seccion > Fila (Row) > Columna > Elemento
+
+Es equivalente a:
+  WordPress Page > Section > Row > Column > Widget/Block
+
+
+================================================================================
+REQUISITOS PREVIOS
+================================================================================
+
+1. ACCESO AL SISTEMA
+   - Rol: Recruiting Administrator (ORA_PER_RECRUITING_ADMINISTRATOR_JOB)
+   - Privilegio: IRC_MANAGE_RECRUITING_ADMINISTRATION
+   - El modulo de Recruiting debe estar habilitado (Opt-in en Functional Setup Manager)
+
+2. RECURSOS DE DISEÑO QUE NECESITAS EXTRAER DEL PDF
+   Antes de empezar, del PDF extrae y prepara:
+   
+   [ ] Logo de CENAM para desktop (150 x 40 px, formato PNG/SVG)
+   [ ] Logo de CENAM para movil (150 x 40 px, formato PNG/SVG)
+   [ ] Imagen hero/banner principal (1920 x 600 px minimo)
+   [ ] Imagenes de las secciones (cultura, beneficios, etc.)
+   [ ] Iconos de categorias de empleo
+   [ ] Paleta de colores (anotar codigos HEX de cada color del diseño)
+   [ ] Fuentes tipograficas utilizadas
+   [ ] Textos de cada seccion
+   [ ] Videos (si el diseño incluye videos)
+
+3. SERVIDOR PARA IMAGENES
+   CRITICO: Oracle HCM Cloud NO almacena imagenes internamente.
+   TODAS las imagenes deben estar alojadas en un servidor web publico
+   (CDN, servidor institucional, etc.) sin requerir autenticacion.
+   
+   Opciones para alojar imagenes:
+   - Servidor web institucional de CENAM
+   - Servicio de CDN (Azure Blob, AWS S3, Google Cloud Storage)
+   - Servidor web interno con acceso publico
+
+4. RUTA PARA ACCEDER AL EDITOR
+   Setup and Maintenance
+     > Recruiting and Candidate Experience
+       > Candidate Experience
+         > Career Sites Configuration
+           > [Seleccionar sitio] > Edit
+
+
+================================================================================
+PARTE 1 - PAGINA 1 DEL PDF: PAGINA PRINCIPAL (SPLASH PAGE / HOMEPAGE)
+================================================================================
+Pagina del PDF: 1
+Dimensiones: 2812 x 5255 px (pagina larga con scroll)
+Tipo en Oracle: SPLASH PAGE
+
+DESCRIPCION:
+Esta pagina es la primera impresion que ve el candidato al entrar al portal
+de empleo. Es equivalente al "Homepage" de WordPress. Tipicamente incluye:
+- Header con logo y navegacion
+- Seccion hero con imagen grande y barra de busqueda
+- Categorias de empleo
+- Vacantes destacadas
+- Informacion de la organizacion
+
+COMO IMPLEMENTAR EN ORACLE HCM CLOUD:
+
+Paso 1.1 - Acceder al editor de la Splash Page
+   a) Ir a Career Sites Configuration > Edit
+   b) En el panel izquierdo, seleccionar "Splash Page"
+   c) Se abre el editor visual
+
+Paso 1.2 - Crear la Seccion HERO (Banner Principal)
+   a) Hacer clic en "Add Section"
+   b) En el menu de acciones (lado derecho de la seccion):
+      - Seleccionar "Background Image"
+      - Pegar la URL de la imagen hero (del servidor publico)
+      - Ajustar opacidad si el diseño tiene overlay oscuro
+   c) Agregar una "Row" > seleccionar layout de 1 columna
+   d) Dentro de la columna agregar:
+      - Elemento "Headline": texto principal (ej: "Unete a CENAM")
+      - Elemento "Paragraph": subtitulo descriptivo
+      - Elemento "Search Box": OBLIGATORIO en la Splash Page
+        (este es el buscador de vacantes)
+   e) Ajustar colores del texto a blanco si el fondo es oscuro
+
+Paso 1.3 - Crear Seccion de CATEGORIAS DE EMPLEO
+   a) "Add Section" debajo del hero
+   b) Agregar "Row" > seleccionar layout de 3 o 4 columnas
+   c) En cada columna agregar:
+      - Elemento "Image": icono de la categoria
+      - Elemento "Headline": nombre (ej: "Investigacion", "Administracion")
+      - Elemento "Button": enlace a busqueda filtrada por categoria
+   d) Repetir para cada categoria de empleo del diseño
+
+Paso 1.4 - Crear Seccion de VACANTES DESTACADAS
+   a) "Add Section"
+   b) Agregar "Row" > 1 columna
+   c) Insertar elemento "Job List"
+      - Este elemento muestra automaticamente las vacantes activas
+      - Se puede configurar para mostrar las mas recientes
+
+Paso 1.5 - Crear Seccion "¿POR QUE TRABAJAR EN CENAM?"
+   a) "Add Section" con color de fondo segun diseño
+   b) Agregar "Row" > 3 columnas
+   c) En cada columna:
+      - "Image": foto o icono del beneficio
+      - "Headline": titulo (ej: "Desarrollo Profesional")
+      - "Paragraph": descripcion breve
+
+Paso 1.6 - Crear Seccion de PIE (si aplica contenido antes del footer)
+   a) "Add Section"
+   b) Agregar contenido de cierre segun el diseño del PDF
+      (puede ser un call to action, informacion de contacto, etc.)
+
+
+================================================================================
+PARTE 2 - PAGINA 2 DEL PDF: PAGINA DE RESULTADOS DE BUSQUEDA
+================================================================================
+Pagina del PDF: 2
+Dimensiones: 2812 x 5112 px
+Tipo en Oracle: SEARCH RESULTS PAGE
+
+DESCRIPCION:
+Esta pagina muestra la lista de vacantes cuando el candidato realiza una
+busqueda o selecciona una categoria. Incluye filtros laterales y tarjetas
+de vacantes.
+
+COMO IMPLEMENTAR EN ORACLE HCM CLOUD:
+
+Paso 2.1 - Acceder al editor
+   a) En el panel izquierdo, seleccionar "Search Results Page"
+
+Paso 2.2 - Configurar los Filtros de Busqueda
+   NOTA: Los filtros NO se configuran en el editor visual.
+   Se configuran en la pestana "General" del Career Site:
+   a) Ir a la pestana "General"
+   b) Buscar la seccion "Search Filters"
+   c) Activar los filtros deseados:
+      [ ] Ubicacion (Location)
+      [ ] Categoria de trabajo (Job Category)
+      [ ] Tipo de empleo (Employment Type: tiempo completo, medio tiempo)
+      [ ] Familia de puesto (Job Family)
+      [ ] Fecha de publicacion
+      [ ] Organizacion
+
+Paso 2.3 - Personalizar la apariencia
+   a) Agregar una seccion superior con:
+      - "Headline": "Resultados de Busqueda" o texto del diseño
+      - Opcionalmente una imagen de fondo pequeña (sub-hero)
+   b) La lista de vacantes se genera automaticamente
+   c) Para cambiar el estilo visual de las tarjetas de vacantes,
+      usar CSS personalizado (ver PARTE 6)
+
+Paso 2.4 - Configurar orden de resultados
+   En la pestana "General":
+   - Configurar el orden predeterminado (por fecha, relevancia, etc.)
+   - Configurar el numero de resultados por pagina
+
+
+================================================================================
+PARTE 3 - PAGINA 3 DEL PDF: PAGINA DE DETALLE DE VACANTE
+================================================================================
+Pagina del PDF: 3
+Dimensiones: 2812 x 4984 px
+Tipo en Oracle: JOB DETAILS PAGE
+
+DESCRIPCION:
+Cuando el candidato hace clic en una vacante, llega a esta pagina que muestra
+toda la informacion del puesto y el boton "Aplicar Ahora".
+
+COMO IMPLEMENTAR EN ORACLE HCM CLOUD:
+
+Paso 3.1 - Acceder al editor
+   a) En el panel izquierdo, seleccionar "Job Details Page"
+
+Paso 3.2 - Elementos automaticos (no requieren configuracion manual)
+   Los siguientes se generan automaticamente desde la requisicion:
+   - Titulo de la vacante
+   - Descripcion del puesto
+   - Requisitos y responsabilidades
+   - Ubicacion
+   - Tipo de empleo
+   - Fecha de publicacion
+   - Boton "Aplicar Ahora" / "Apply Now"
+
+Paso 3.3 - Agregar contenido adicional segun diseño
+   a) ARRIBA del contenido automatico:
+      - Agregar seccion con imagen/banner de la organizacion
+   b) ABAJO del contenido automatico:
+      - Seccion "Sobre CENAM" con descripcion de la organizacion
+      - Seccion de beneficios relevantes al puesto
+      - Boton/Link a paginas personalizadas (Cultura, Beneficios)
+   c) LATERAL (si el diseño lo tiene):
+      - Widget de vacantes similares
+      - Informacion de contacto de RRHH
+
+Paso 3.4 - Configurar el flujo de aplicacion
+   En Setup and Maintenance > Application Flow Configuration:
+   - Definir los campos del formulario de aplicacion
+   - Activar/desactivar campos opcionales
+   - Permitir aplicar sin crear cuenta (reduce friccion)
+   - Habilitar carga de CV
+
+
+================================================================================
+PARTE 4 - PAGINA 4 DEL PDF: PAGINA "SOBRE NOSOTROS" / CULTURA
+================================================================================
+Pagina del PDF: 4
+Dimensiones: 2812 x 3798 px
+Tipo en Oracle: CUSTOM PAGE
+
+DESCRIPCION:
+Pagina personalizada que muestra informacion sobre la organizacion,
+su cultura, mision, vision y valores. Es el equivalente a una
+"pagina estatica" de WordPress.
+
+COMO IMPLEMENTAR EN ORACLE HCM CLOUD:
+
+Paso 4.1 - Crear la Custom Page
+   a) En el editor, ir al menu de paginas
+   b) Hacer clic en "Add Custom Page"
+   c) Nombre: "Sobre CENAM" o "Cultura Organizacional"
+   d) En "Page Name Display for URL": escribir "cultura" 
+      (para URL amigable: tudominio.com/cultura)
+
+Paso 4.2 - Diseñar segun el PDF
+   a) Seccion 1 - Hero de la pagina:
+      - Background image con foto institucional
+      - "Headline": "Conoce CENAM"
+      - "Paragraph": descripcion breve
+   
+   b) Seccion 2 - Mision, Vision, Valores:
+      - "Row" con 3 columnas
+      - Columna 1: "Image" + "Headline" (Mision) + "Paragraph"
+      - Columna 2: "Image" + "Headline" (Vision) + "Paragraph"
+      - Columna 3: "Image" + "Headline" (Valores) + "Paragraph"
+   
+   c) Seccion 3 - Galeria o contenido adicional:
+      - Fotos de las instalaciones
+      - Videos institucionales (YouTube URL)
+      - Testimonios de colaboradores
+   
+   d) Seccion 4 - Call to Action:
+      - "Headline": "¿Quieres ser parte?"
+      - "Button": enlace a la pagina de busqueda de vacantes
+
+Paso 4.3 - Vincular la pagina
+   a) Agregarla al menu de navegacion del header
+   b) Agregar botones/links desde la Splash Page
+   c) Agregar links desde la Job Details Page
+
+
+================================================================================
+PARTE 5 - PAGINA 5 DEL PDF: PAGINA DE BENEFICIOS
+================================================================================
+Pagina del PDF: 5
+Dimensiones: 2812 x 4465 px
+Tipo en Oracle: CUSTOM PAGE
+
+DESCRIPCION:
+Pagina que detalla los beneficios de trabajar en la organizacion.
+Prestaciones, desarrollo, ambiente laboral, etc.
+
+COMO IMPLEMENTAR EN ORACLE HCM CLOUD:
+
+Paso 5.1 - Crear la Custom Page
+   a) "Add Custom Page"
+   b) Nombre: "Beneficios"
+   c) URL amigable: "beneficios"
+
+Paso 5.2 - Diseñar segun el PDF
+   a) Seccion Hero:
+      - Background image representativa
+      - "Headline": "Beneficios de trabajar en CENAM"
+   
+   b) Seccion de Beneficios (segun diseño del PDF):
+      Opcion A - Layout con iconos:
+      - "Row" con 2 o 3 columnas
+      - Cada columna: icono + titulo + descripcion del beneficio
+      - Repetir filas para cada grupo de beneficios
+      
+      Opcion B - Layout tipo lista con imagenes:
+      - Secciones alternas (imagen izquierda/texto derecha y viceversa)
+      - "Row" con 2 columnas: "Image" en una, "Headline" + "Paragraph" en otra
+   
+   c) Beneficios tipicos a incluir:
+      - Prestaciones superiores a la ley
+      - Programa de capacitacion y desarrollo (SIDEPRO)
+      - Seguro de gastos medicos
+      - Horario flexible
+      - Estacionamiento
+      - Comedor
+      - Instalaciones deportivas
+      - Programa de vida saludable
+   
+   d) Seccion final - CTA:
+      - "Button": "Ver vacantes disponibles" -> enlace a busqueda
+
+
+================================================================================
+PARTE 6 - PAGINA 6 DEL PDF: PAGINA DE PROCESO DE SELECCION
+================================================================================
+Pagina del PDF: 6
+Dimensiones: 2812 x 3798 px
+Tipo en Oracle: CUSTOM PAGE
+
+DESCRIPCION:
+Pagina que explica al candidato el proceso de seleccion paso a paso.
+Desde aplicar hasta ser contratado.
+
+COMO IMPLEMENTAR EN ORACLE HCM CLOUD:
+
+Paso 6.1 - Crear la Custom Page
+   a) "Add Custom Page"
+   b) Nombre: "Proceso de Seleccion"
+   c) URL amigable: "proceso"
+
+Paso 6.2 - Diseñar segun el PDF
+   a) Seccion Hero:
+      - "Headline": "Nuestro Proceso de Seleccion"
+      - "Paragraph": descripcion del compromiso con la transparencia
+   
+   b) Seccion de Pasos del Proceso:
+      Usar "Row" con 1 columna para cada paso:
+      
+      Paso 1: APLICACION
+      - "Image": icono del paso 1
+      - "Headline": "1. Envia tu aplicacion"
+      - "Paragraph": "Busca la vacante que se ajuste a tu perfil..."
+      
+      Paso 2: REVISION
+      - "Image": icono del paso 2
+      - "Headline": "2. Revision de perfil"
+      - "Paragraph": "Nuestro equipo de RRHH revisara tu CV..."
+      
+      Paso 3: ENTREVISTA
+      - "Image": icono del paso 3
+      - "Headline": "3. Entrevista"
+      - "Paragraph": "Te contactaremos para agendar entrevista..."
+      
+      Paso 4: EVALUACION
+      - "Image": icono del paso 4
+      - "Headline": "4. Evaluacion tecnica"
+      - "Paragraph": "Segun el puesto, puede incluir evaluacion..."
+      
+      Paso 5: OFERTA
+      - "Image": icono del paso 5
+      - "Headline": "5. Oferta laboral"
+      - "Paragraph": "Si eres seleccionado, recibiras una oferta..."
+      
+      Paso 6: CONTRATACION
+      - "Image": icono del paso 6
+      - "Headline": "6. Bienvenido a CENAM"
+      - "Paragraph": "Inicio de tu proceso de onboarding..."
+   
+   c) Opcion visual alternativa:
+      Usar elemento "HTML" para crear una timeline/linea de tiempo
+      personalizada con CSS (ver PARTE 8 para el codigo)
+
+   d) Seccion de Preguntas Frecuentes (si el diseño lo incluye):
+      - Usar "HTML" element con un acordeon (accordion)
+      - O usar multiples secciones de "Headline" + "Paragraph"
+
+
+================================================================================
+PARTE 7 - PAGINA 7 DEL PDF: PAGINA DE CONTACTO / UBICACION
+================================================================================
+Pagina del PDF: 7
+Dimensiones: 2812 x 3106 px (mas corta - menos contenido)
+Tipo en Oracle: CUSTOM PAGE
+
+DESCRIPCION:
+Pagina con informacion de contacto del area de reclutamiento
+y posiblemente mapa de ubicacion.
+
+COMO IMPLEMENTAR EN ORACLE HCM CLOUD:
+
+Paso 7.1 - Crear la Custom Page
+   a) "Add Custom Page"
+   b) Nombre: "Contacto"
+   c) URL amigable: "contacto"
+
+Paso 7.2 - Diseñar segun el PDF
+   a) Seccion de Informacion de Contacto:
+      - "Row" con 2 columnas
+      - Columna 1: Datos de contacto
+        * "Headline": "Contacto de Reclutamiento"
+        * "Paragraph": 
+          Subdireccion de Contratacion, Capacitacion y Desarrollo
+          Telefono: (442) 211-05-00 ext. 3143 / 3156
+          Correo: recluta@cenam.mx
+      - Columna 2: Imagen de las instalaciones o mapa
+   
+   b) Seccion de Mapa (si aplica):
+      - Usar elemento "HTML" para insertar un iframe de Google Maps:
+        <iframe src="https://www.google.com/maps/embed?pb=CENAM_LOCATION" 
+                width="100%" height="400" style="border:0;" 
+                allowfullscreen loading="lazy"></iframe>
+   
+   c) Seccion de Redes Sociales:
+      - Links a perfiles oficiales de CENAM
+      - Usar "Button" elements con enlaces a cada red social
+
+Paso 7.3 - Vincular
+   a) Agregar al menu de navegacion
+   b) Incluir enlace desde el footer
+
+
+================================================================================
+PARTE 8 - PAGINA 8 DEL PDF: LANDING PAGES / CATEGORIAS ESPECIFICAS
+================================================================================
+Pagina del PDF: 8
+Dimensiones: 2812 x 6119 px (la mas larga - mucho contenido)
+Tipo en Oracle: LANDING PAGES + CONFIGURACION ADICIONAL
+
+DESCRIPCION:
+Esta pagina probablemente muestra el diseño de landing pages para
+categorias especificas de empleo (ej: "Vacantes de Investigacion",
+"Vacantes Administrativas") o vistas adicionales del portal.
+
+COMO IMPLEMENTAR EN ORACLE HCM CLOUD:
+
+Paso 8.1 - Crear Landing Pages por Categoria
+   a) En el Career Site Builder, ir a la busqueda
+   b) Realizar una busqueda filtrando por la categoria deseada
+      (ej: Job Category = "Investigacion")
+   c) Hacer clic en "Create a Landing Page"
+   d) Configurar:
+      - Titulo: "Vacantes de Investigacion en CENAM"
+      - Tagline: "Descubre oportunidades en ciencia y metrologia"
+      - Imagen Hero: subir/vincular imagen especifica para esta categoria
+   e) Publicar y copiar URL
+   f) Repetir para cada categoria importante:
+      [ ] Investigacion y Ciencia
+      [ ] Administracion
+      [ ] Tecnologia
+      [ ] Metrologia
+      [ ] Servicios Generales
+
+Paso 8.2 - Crear Landing Pages por Ubicacion
+   a) Misma mecanica pero filtrando por ubicacion
+   b) Ej: "Empleos en Queretaro" (sede principal de CENAM)
+
+Paso 8.3 - Configurar SEO para Landing Pages
+   a) Cada landing page debe tener:
+      - Titulo descriptivo unico
+      - Meta description relevante
+      - URL amigable
+   b) En la pestana "General" del Career Site:
+      - Configurar nombre de organizacion: "CENAM"
+      - Activar "Page Name Display for URL"
+      - Si es posible, configurar Google Search Console API
+
+
+================================================================================
+PARTE 9 - CONFIGURACION DEL TEMA GLOBAL (THEME TAB)
+================================================================================
+(Aplica a TODAS las paginas)
+
+Esta configuracion define la identidad visual global del portal.
+Debe hacerse ANTES de diseñar las paginas individuales.
+
+RUTA: Career Sites Configuration > Edit > Pestana "Theme"
+
+Paso 9.1 - LOGOS
+   a) Logo Desktop: pegar URL del logo CENAM (150x40 px)
+   b) Logo Mobile: pegar URL del logo para movil
+   c) Verificar que se ve correctamente en preview
+
+Paso 9.2 - COLORES CORPORATIVOS
+   Extraer del PDF los colores exactos y configurar:
+   
+   Color Primario:    #_______ (color principal de botones/enlaces)
+   Color Secundario:  #_______ (color de acentos y hover)
+   Color de Fondo:    #_______ (background general)
+   Color de Texto:    #_______ (texto principal)
+   Color de Header:   #_______ (fondo del encabezado)
+   Color de Footer:   #_______ (fondo del pie de pagina)
+   
+   NOTA: Anotar aqui los colores que extraigas del PDF:
+   _______________________________________________
+   _______________________________________________
+   _______________________________________________
+
+Paso 9.3 - FUENTES TIPOGRAFICAS
+   a) Seleccionar la fuente mas cercana al diseño del PDF
+   b) Si necesitas fuente especifica, importar via Custom CSS:
+   
+   @import url('https://fonts.googleapis.com/css2?family=NOMBRE_FUENTE:wght@300;400;600;700&display=swap');
+   body, h1, h2, h3, h4, h5, p, span, a {
+       font-family: 'NOMBRE_FUENTE', sans-serif !important;
+   }
+
+Paso 9.4 - CUSTOM HEADER HTML
+   Pegar el siguiente HTML (adaptar segun diseño del PDF):
+   
+   <div style="background-color: #003366; padding: 10px 20px; display: flex;
+        justify-content: space-between; align-items: center;">
+       <div>
+           <a href="https://www.cenam.mx">
+               <img src="URL_DEL_LOGO" alt="CENAM" style="height: 40px;">
+           </a>
+       </div>
+       <nav>
+           <a href="/cultura" style="color:white; margin:0 15px; text-decoration:none;">Cultura</a>
+           <a href="/beneficios" style="color:white; margin:0 15px; text-decoration:none;">Beneficios</a>
+           <a href="/proceso" style="color:white; margin:0 15px; text-decoration:none;">Proceso</a>
+           <a href="/contacto" style="color:white; margin:0 15px; text-decoration:none;">Contacto</a>
+       </nav>
+   </div>
+   
+   NOTA: El header personalizado se muestra ENCIMA del header del template.
+
+Paso 9.5 - CUSTOM FOOTER HTML
+   Pegar el siguiente HTML (adaptar segun diseño del PDF):
+   
+   <div style="background-color: #003366; color: white; padding: 40px 20px;">
+       <div style="display: flex; justify-content: space-around; flex-wrap: wrap;
+            max-width: 1200px; margin: 0 auto;">
+           <div>
+               <h4 style="color: #FFD700;">Contacto</h4>
+               <p>CENAM - Centro Nacional de Metrologia</p>
+               <p>Tel: (442) 211-05-00 ext. 3143/3156</p>
+               <p>recluta@cenam.mx</p>
+           </div>
+           <div>
+               <h4 style="color: #FFD700;">Siguenos</h4>
+               <p><a href="#" style="color: white;">Facebook</a></p>
+               <p><a href="#" style="color: white;">LinkedIn</a></p>
+               <p><a href="#" style="color: white;">Twitter/X</a></p>
+           </div>
+           <div>
+               <h4 style="color: #FFD700;">Legal</h4>
+               <p><a href="#" style="color: white;">Aviso de Privacidad</a></p>
+               <p><a href="#" style="color: white;">Terminos</a></p>
+           </div>
+       </div>
+       <div style="text-align:center; margin-top:20px; border-top:1px solid #445;">
+           <p style="margin-top:15px;">2025 CENAM - Todos los derechos reservados</p>
+       </div>
+   </div>
+   
+   NOTA: El footer personalizado REEMPLAZA el footer del template.
+
+Paso 9.6 - CUSTOM CSS
+   Pegar en la seccion "Custom CSS" del Theme Tab:
+   
+   /* ===== ESTILOS PERSONALIZADOS PORTAL CENAM ===== */
+   
+   /* Fuente corporativa (cambiar segun PDF) */
+   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+   
+   body {
+       font-family: 'Open Sans', sans-serif !important;
+   }
+   
+   /* Botones principales */
+   .btn-primary, button[type="submit"] {
+       background-color: #FF6600 !important;
+       border: none !important;
+       border-radius: 25px !important;
+       padding: 12px 30px !important;
+       font-weight: 600 !important;
+       text-transform: uppercase !important;
+       transition: all 0.3s ease !important;
+   }
+   
+   .btn-primary:hover {
+       background-color: #E55500 !important;
+       transform: translateY(-2px) !important;
+       box-shadow: 0 4px 15px rgba(255,102,0,0.4) !important;
+   }
+   
+   /* Tarjetas de vacantes */
+   .job-card {
+       border-radius: 12px !important;
+       box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
+       transition: transform 0.3s ease !important;
+   }
+   
+   .job-card:hover {
+       transform: translateY(-5px) !important;
+       box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+   }
+   
+   /* Barra de busqueda */
+   .search-box input {
+       border-radius: 25px !important;
+       padding: 15px 25px !important;
+       font-size: 16px !important;
+   }
+   
+   NOTA: Los nombres de clase CSS pueden variar segun tu version
+   de Oracle. Usa el Inspector del navegador (F12) en tu career site
+   para identificar las clases correctas de cada elemento.
+
+Paso 9.7 - VISTA PREVIA
+   a) Revisar el preview en modo Desktop
+   b) Revisar en modo Tablet
+   c) Revisar en modo Mobile
+   d) Ajustar hasta que se vea como el PDF de diseño
+
+
+================================================================================
+PARTE 10 - CONFIGURACION DE REQUISICIONES Y PROCESO DE SELECCION
+================================================================================
+(Configuracion funcional del backend)
+
+Paso 10.1 - CREAR TEMPLATES DE REQUISICION
+   Ruta: Recruiting > Requisition Templates
+   
+   a) Crear plantilla estandar con:
+      - Familia de puesto (Job Family)
+      - Ubicacion predeterminada (Queretaro / CDMX)
+      - Formato de descripcion estandar
+      - Campos requeridos vs opcionales
+   
+   b) Campos sugeridos para el template:
+      [ ] Titulo del puesto
+      [ ] Departamento/Area
+      [ ] Ubicacion
+      [ ] Tipo de empleo (tiempo completo, medio tiempo, temporal)
+      [ ] Rango salarial (opcional, segun politica)
+      [ ] Descripcion del puesto
+      [ ] Responsabilidades
+      [ ] Requisitos minimos
+      [ ] Requisitos deseables
+      [ ] Beneficios
+      [ ] Fecha de cierre
+
+Paso 10.2 - CONFIGURAR APROBACIONES
+   Ruta: Tools > Transaction Console > Approval Rules
+   
+   a) Buscar "Approve Job Requisition"
+   b) Configurar flujo de aprobacion:
+      Nivel 1: Gerente del area solicitante
+      Nivel 2: Subdireccion de RRHH
+      Nivel 3: Direccion (si aplica)
+   c) Definir condiciones especiales si las hay
+
+Paso 10.3 - CONFIGURAR EL PROCESO DE SELECCION (CSP)
+   Ruta: Setup and Maintenance
+     > Recruiting and Candidate Experience
+       > Candidate Job Applications
+         > Candidate Selection Process Configuration
+   
+   a) Crear nuevo proceso: "Proceso Seleccion CENAM"
+   b) Tipo: Standard (incluye Oferta y Contratacion)
+   c) Configurar las FASES:
+   
+   FASE 1: NUEVO
+   - Estado: Recibido
+   - Estado: En Revision
+   - Accion automatica: Enviar acuse de recibo por correo
+   
+   FASE 2: SCREENING
+   - Estado: Pre-seleccionado
+   - Estado: No Apto
+   - Accion: Cuestionario de screening (si aplica)
+   
+   FASE 3: ENTREVISTA
+   - Estado: Programada
+   - Estado: Completada
+   - Estado: No Aprobado
+   - Accion: Notificacion a entrevistadores
+   
+   FASE 4: EVALUACION
+   - Estado: Evaluacion Tecnica
+   - Estado: Evaluacion Psicometrica
+   - Estado: Aprobado / No Aprobado
+   - Accion: Integracion con proveedor de assessments (si aplica)
+   
+   FASE 5: OFERTA
+   - Estado: Borrador
+   - Estado: Pendiente Aprobacion
+   - Estado: Extendida
+   - Estado: Aceptada / Rechazada
+   - Accion: Generacion automatica de carta oferta
+   
+   FASE 6: CONTRATACION (HR)
+   - Estado: Pendiente Documentos
+   - Estado: Contratado
+   - Accion: Crear registro de empleado en Core HR
+
+Paso 10.4 - CONFIGURAR CAMPOS DEL FORMULARIO DE APLICACION
+   Ruta: Application Flow Configuration
+   
+   Campos sugeridos:
+   [ ] Nombre completo (obligatorio)
+   [ ] Correo electronico (obligatorio)
+   [ ] Telefono (obligatorio)
+   [ ] CV / Resume (obligatorio)
+   [ ] Carta de presentacion (opcional)
+   [ ] LinkedIn URL (opcional)
+   [ ] Disponibilidad para iniciar (opcional)
+   [ ] Pretensiones salariales (segun politica)
+
+
+================================================================================
+PARTE 11 - PUBLICACION Y VERIFICACION
+================================================================================
+
+CHECKLIST FINAL DE PUBLICACION:
+
+DISEÑO VISUAL:
+[ ] Theme configurado (logos, colores, fuentes)
+[ ] Custom CSS aplicado y verificado
+[ ] Custom Header HTML configurado
+[ ] Custom Footer HTML configurado
+[ ] Splash Page (Parte 1) diseñada y completa
+[ ] Search Results Page (Parte 2) personalizada
+[ ] Job Details Page (Parte 3) con contenido adicional
+[ ] Custom Page: Cultura (Parte 4) creada
+[ ] Custom Page: Beneficios (Parte 5) creada
+[ ] Custom Page: Proceso (Parte 6) creada
+[ ] Custom Page: Contacto (Parte 7) creada
+[ ] Landing Pages (Parte 8) creadas por categoria
+[ ] Vista previa Desktop verificada
+[ ] Vista previa Tablet verificada
+[ ] Vista previa Mobile verificada
+
+CONFIGURACION FUNCIONAL:
+[ ] Requisition Templates creados
+[ ] Aprobaciones configuradas
+[ ] Proceso de Seleccion (CSP) configurado
+[ ] Formulario de aplicacion configurado
+[ ] Filtros de busqueda activados
+[ ] SEO configurado (meta descriptions, URLs amigables)
+[ ] Google Search Console conectado (si aplica)
+
+PRUEBAS:
+[ ] Crear una vacante de prueba
+[ ] Verificar que aparece en el Career Site
+[ ] Probar busqueda por categoria
+[ ] Probar busqueda por ubicacion
+[ ] Probar flujo completo de aplicacion
+[ ] Verificar recepcion de acuse de recibo
+[ ] Probar vistas en diferentes navegadores
+[ ] Verificar que todas las imagenes cargan correctamente
+[ ] Verificar que los enlaces de navegacion funcionan
+[ ] Probar en dispositivo movil real
+
+PUBLICACION:
+a) En Career Site Builder, hacer clic en "Publish"
+b) Esperar la confirmacion de publicacion
+c) Verificar la URL publica del career site
+d) Compartir URL con el equipo para revision final
+
+
+================================================================================
+TABLA DE EQUIVALENCIAS RAPIDA: WORDPRESS/DRUPAL vs ORACLE HCM
+================================================================================
+
+WordPress/Drupal              | Oracle HCM Recruiting
+------------------------------|------------------------------------
+Dashboard                     | Setup and Maintenance > Career Sites
+Theme Customizer              | Theme Tab
+Page Builder (Elementor)      | Career Site Design Editor
+Posts (Blog)                  | Job Requisitions (Vacantes)
+Categories/Tags               | Job Family, Job Category
+Custom Post Types             | Requisition Templates
+Plugins                       | Actions/Automations en CSP
+Forms (Contact Form 7)        | Application Flow
+Users/Roles                   | Recruiting Roles (Admin, Recruiter)
+Custom CSS                    | Theme Tab > Custom CSS
+Custom HTML Widget            | HTML Element
+Header/Footer Templates       | Custom Header/Footer HTML
+Yoast SEO                     | General Tab > SEO Configuration
+Landing Pages (Plugins)       | Landing Pages (nativo)
+Media Library                 | Servidor externo/CDN
+Responsive Preview            | Preview (Desktop/Tablet/Mobile)
+Publish                       | Publish (boton en el editor)
+
+
+================================================================================
+ELEMENTOS DISPONIBLES EN EL EDITOR DE ORACLE
+================================================================================
+
+Elemento              | Que hace                              | Uso tipico
+----------------------|---------------------------------------|------------------
+Headline              | Titulo H1-H6                          | Titulos de seccion
+Paragraph             | Texto con formato                     | Descripciones
+Image                 | Imagen (via URL publica)              | Fotos, iconos
+Video                 | Video (YouTube o .mp4)                | Videos corporativos
+Button/Link           | Boton con enlace                      | CTAs, navegacion
+Search Box            | Buscador de vacantes                  | Splash Page (oblig)
+Job List              | Lista automatica de vacantes          | Mostrar empleos
+Space                 | Espaciado vertical (hasta 400px)      | Separar secciones
+Rule                  | Linea horizontal                      | Dividir contenido
+HTML                  | HTML personalizado libre              | Componentes custom
+Talent Community      | Boton para comunidad de talento       | Captacion pasiva
+Recommended Jobs      | Vacantes basadas en CV (IA)           | Personalizacion
+
+
+================================================================================
+NOTAS IMPORTANTES
+================================================================================
+
+1. IMAGENES: Todas DEBEN estar en servidor publico. Oracle NO las almacena.
+
+2. CSS: Los nombres de clase pueden cambiar con actualizaciones de Oracle.
+   Siempre usar Inspector (F12) para verificar clases reales.
+
+3. TEMPLATE: Usar siempre el template "Minimal" (el mas actualizado).
+
+4. PRUEBAS: Siempre probar en ambiente de TEST antes de produccion.
+
+5. ACTUALIZACIONES: Oracle actualiza trimestralmente. Revisar release notes
+   para nuevas funcionalidades del Career Site Builder.
+
+6. SOPORTE: Para problemas tecnicos, contactar Oracle Support.
+   Para dudas funcionales, consultar Oracle Help Center:
+   https://docs.oracle.com/en/cloud/saas/talent-management/farec/
+
+7. CUSTOM HEADER: Se muestra ENCIMA del header del template.
+   CUSTOM FOOTER: REEMPLAZA el footer del template.
+
+8. URL AMIGABLES: Usar "Page Name Display for URL" en cada Custom Page
+   para tener URLs descriptivas en vez de numeros.
+
+
+================================================================================
+FIN DE LA GUIA
+================================================================================
+Documento creado: 2 de junio de 2026
+Para uso interno - Proyecto SIGHO / Portal de Empleo CENAM
+Oracle HCM Cloud - Modulo de Reclutamiento
+================================================================================
