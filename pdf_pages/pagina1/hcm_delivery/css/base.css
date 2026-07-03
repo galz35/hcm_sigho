@@ -1,0 +1,110 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+
+:root {
+    --cenam-azul-oscuro: #0A1F3F;
+    --cenam-azul-medio: #1B4F8A;
+    --cenam-azul-claro: #2E7DD6;
+    --cenam-azul-brillante: #3B9AE8;
+    --cenam-naranja: #E87722;
+    --cenam-naranja-hover: #D06A1F;
+    --cenam-dorado: #D4A847;
+    --cenam-verde: #27AE60;
+    --cenam-blanco: #FFFFFF;
+    --cenam-gris-claro: #F4F6F9;
+    --cenam-gris-medio: #E0E4E8;
+    --cenam-gris-texto: #6B7280;
+    --cenam-gris-oscuro: #374151;
+    --cenam-negro: #1F2937;
+    --claro-rojo: #DA291C;
+    --claro-rojo-hover: #b81e13;
+    --claro-negro: #1C1C1C;
+    --claro-gris-fondo: #F4F6F9;
+    --claro-gris-borde: #E0E4E8;
+    --claro-gris-texto: #6B7280;
+    --claro-gris-oscuro: #374151;
+    --claro-blanco: #FFFFFF;
+    --fuente-titulo: 'Montserrat', sans-serif;
+    --fuente-texto: 'Open Sans', sans-serif;
+    --borde-radio-pill: 50px;
+    --borde-radio-card: 16px;
+    --borde-radio-sm: 6px;
+    --borde-radio-md: 12px;
+    --borde-radio-lg: 20px;
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transicion-rapida: all 0.15s ease;
+    --sombra-suave: 0 2px 8px rgba(0,0,0,0.08);
+    --sombra-media: 0 4px 16px rgba(0,0,0,0.12);
+    --sombra-fuerte: 0 8px 32px rgba(0,0,0,0.18);
+    --sombra-hover: 0 12px 40px rgba(0,0,0,0.22);
+}
+
+.bg-\[\#da291c\] { background-color: #da291c !important; }
+.bg-\[\#b81e13\] { background-color: #b81e13 !important; }
+.bg-\[\#990000\] { background-color: #990000 !important; }
+.bg-\[\#dce3e8\] { background-color: #dce3e8 !important; }
+.bg-\[\#f4f4f4\] { background-color: #f4f4f4 !important; }
+.bg-\[\#2B2B2B\] { background-color: #2B2B2B !important; }
+.bg-\[\#3D3D3D\] { background-color: #3D3D3D !important; }
+.bg-gray-850 { background-color: #1f2937 !important; }
+.bg-gray-800\/40 { background-color: rgba(31, 41, 55, 0.4) !important; }
+.bg-white\/10 { background-color: rgba(255, 255, 255, 0.1) !important; }
+.bg-white\/5 { background-color: rgba(255, 255, 255, 0.05) !important; }
+.bg-black\/20 { background-color: rgba(0, 0, 0, 0.2) !important; }
+.bg-black\/30 { background-color: rgba(0, 0, 0, 0.3) !important; }
+
+.text-\[\#da291c\] { color: #da291c !important; }
+.text-white\/95 { color: rgba(255, 255, 255, 0.95) !important; }
+.text-white\/90 { color: rgba(255, 255, 255, 0.90) !important; }
+.text-gray-400 { color: #9ca3af !important; }
+
+.border-gray-750\/80 { border-color: rgba(55, 65, 81, 0.8) !important; }
+.border-gray-700\/50 { border-color: rgba(55, 65, 81, 0.5) !important; }
+.border-white\/20 { border-color: rgba(255, 255, 255, 0.2) !important; }
+.border-gray-750 { border-color: #374151 !important; }
+.border-\[\#da291c\] { border-color: #da291c !important; }
+
+.rounded-\[2rem\] { border-radius: 2rem !important; }
+
+.-mt-12 { margin-top: -3rem !important; }
+.-top-2 { top: -0.5rem !important; }
+.-mt-8 { margin-top: -2rem !important; }
+.top-6 { top: 1.5rem !important; }
+.top-8 { top: 2rem !important; }
+.left-\[12\.5\%\] { left: 12.5% !important; }
+.right-\[12\.5\%\] { right: 12.5% !important; }
+
+.text-\[2rem\] { font-size: 2rem !important; }
+.text-\[17px\] { font-size: 17px !important; }
+.text-\[11px\] { font-size: 11px !important; }
+.text-\[12px\] { font-size: 12px !important; }
+.text-\[10px\] { font-size: 10px !important; }
+.text-\[13px\] { font-size: 13px !important; }
+.text-\[15px\] { font-size: 15px !important; }
+
+.max-w-\[150px\] { max-width: 150px !important; }
+.max-w-\[460px\] { max-width: 460px !important; }
+.max-w-\[340px\] { max-width: 340px !important; }
+
+.aspect-\[4\/3\] { aspect-ratio: 4/3 !important; }
+
+.hover\:bg-claro-red-hover:hover { background-color: #b81e13 !important; }
+.hover\:bg-gray-100:hover { background-color: #f3f4f6 !important; }
+.hover\:bg-white\/10:hover { background-color: rgba(255, 255, 255, 0.1) !important; }
+.hover\:bg-gray-50:hover { background-color: #f9fafb !important; }
+.hover\:bg-gray-700:hover { background-color: #374151 !important; }
+.hover\:text-white:hover { color: #ffffff !important; }
+
+.hover\:-translate-y-0\.5:hover { transform: translateY(-0.125rem) !important; }
+.hover\:-translate-y-2:hover { transform: translateY(-0.5rem) !important; }
+
+.group:hover .group-hover\:bg-white { background-color: #ffffff !important; }
+.group:hover .group-hover\:text-\[\#da291c\] { color: #da291c !important; }
+.group:hover .group-hover\:border-white { border-color: #ffffff !important; }
+
+.no-underline { text-decoration: none !important; }
+
+@media (min-width: 768px) {
+    .md\:text-\[4rem\] { font-size: 4rem !important; }
+    .md\:translate-x-4 { transform: translateX(1rem) !important; }
+    .md\:scale-102:hover { transform: scale(1.02) !important; }
+}

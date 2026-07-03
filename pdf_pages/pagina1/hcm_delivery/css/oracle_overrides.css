@@ -1,0 +1,7 @@
+/* Ocultar el header nativo de Oracle para mostrar solo el diseno de Claro personalizado */
+.cx-header,
+header,
+[class*="cx-header"],
+.oj-web-applayout-header {
+    display: none !important;
+}

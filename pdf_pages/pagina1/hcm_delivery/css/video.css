@@ -1,0 +1,7 @@
+/* Seccion de video "Claro que te estamos buscando" */
+/* Este bloque usa clases de Tailwind al 100%. */
+/* Si necesitas ajustes finos al integrarlo en Oracle, agrega las reglas aqui. */
+
+.cta-radial-bg {
+    background: radial-gradient(ellipse at top right, rgba(255,255,255,0.15) 0%, transparent 60%);
+}
