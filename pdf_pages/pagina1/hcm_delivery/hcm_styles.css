@@ -1501,6 +1501,19 @@
     flex-shrink: 0 !important;
 }
 
+
+/* Asegurar que el icono dentro del botón de búsqueda sea blanco */
+.search-box-compact__button *,
+.search-box-compact__button::before,
+.search-box-compact__button::after,
+.search-box-compact__button-icon,
+.search-box-compact__button .cx-icon,
+.search-box-compact__button [class*="icon"] {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
 .search-box-compact__button:hover {
     background-color: #b81e13 !important;
     transform: translateY(-1px) !important;
