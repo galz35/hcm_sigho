@@ -1418,8 +1418,10 @@
 
 
 
+
+
 /* ==========================================================================
-   ESTILOS DEL BUSCADOR NATIVO DE ORACLE (Claro Careers) - ESPECIFICIDAD DIRECTA
+   AJUSTES DE ALINEACIÓN Y DISEÑO DEL BUSCADOR NATIVO DE ORACLE
    ========================================================================== */
 
 /* Contenedor Principal del Buscador */
@@ -1429,13 +1431,27 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     border: 1px solid #e5e7eb !important;
     padding: 8px 12px 8px 24px !important;
-    max-width: 600px !important;
-    margin: -65px auto 40px !important; /* Margen negativo para flotar sobre el Hero Banner */
-    z-index: 40 !important;
+    max-width: 650px !important;
+    margin: -70px auto 40px !important; /* Margen negativo aumentado para asegurar la superposición */
+    z-index: 999 !important; /* Aumentar z-index para asegurar que flote por encima del Banner */
     position: relative !important;
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
+    justify-content: space-between !important;
     box-sizing: border-box !important;
+    min-height: 60px !important;
+    height: 60px !important;
+}
+
+/* Forzar transparencia en los contenedores de sección de búsqueda de Oracle */
+.search-jobs,
+.search-jobs-root-container,
+.search-box-compact-recruiting-location,
+[dir] .search-box-compact-recruiting-location {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
 }
 
 /* Ocultar pseudo-elementos de Oracle que ponen bordes y fondos viejos */
@@ -1449,22 +1465,27 @@
     box-shadow: none !important;
 }
 
-/* Quitar bordes y fondos de los contenedores internos */
+/* Alinear horizontalmente todos los elementos en el mismo eje Y */
 [dir] .search-box-compact__form,
 [dir] .search-box-compact__fieldset,
-[dir] .search-box-compact__field {
+[dir] .search-box-compact__field,
+[dir] .search-box-compact-recruiting-location .input-row__search-input,
+[dir] .search-box-compact-recruiting-location .input-row__search-input .oj-combobox-input {
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
     margin: 0 !important;
     padding: 0 !important;
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
+    align-self: center !important;
     width: 100% !important;
+    height: 100% !important;
     box-sizing: border-box !important;
 }
 
-/* Inputs de Texto (Puesto y Ubicación) */
+/* Ajustar inputs de texto */
 [dir] .search-box-compact__input {
     border: none !important;
     background: transparent !important;
@@ -1472,16 +1493,35 @@
     font-size: 14px !important;
     font-weight: 500 !important;
     color: #1f2937 !important;
-    padding: 10px 16px !important;
+    padding: 0 16px !important;
     outline: none !important;
     box-shadow: none !important;
     width: 100% !important;
+    height: 38px !important;
+    line-height: 38px !important;
+    align-self: center !important;
     box-sizing: border-box !important;
+    margin: 0 !important;
 }
 
 [dir] .search-box-compact__input::placeholder {
     color: #9ca3af !important;
     font-weight: 500 !important;
+}
+
+/* Ubicación y Geolocalización (Centrado) */
+[dir] .search-box-compact__action,
+[dir] .search-box-compact__action--location,
+[dir] .search-box-compact__action--radius {
+    border: none !important;
+    background: transparent !important;
+    align-self: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    height: 38px !important;
 }
 
 /* Separador Vertical */
@@ -1492,9 +1532,10 @@
     margin: 0 12px !important;
     display: block !important;
     flex-shrink: 0 !important;
+    align-self: center !important;
 }
 
-/* Botón de Búsqueda */
+/* Botón de Búsqueda Centrado y Fijo */
 [dir] .search-box-compact__button {
     background-color: #da291c !important;
     color: #ffffff !important;
@@ -1503,19 +1544,21 @@
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 700 !important;
     font-size: 14px !important;
-    padding: 10px 24px !important;
+    padding: 0 24px !important;
     cursor: pointer !important;
     transition: background-color 0.3s ease, transform 0.2s ease !important;
     box-shadow: 0 4px 10px rgba(218, 41, 28, 0.3) !important;
+    height: 44px !important;
     min-height: 44px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
-    margin-top: 0 !important;
+    align-self: center !important;
+    margin: 0 !important;
 }
 
-/* Asegurar que el icono dentro del botón de búsqueda sea blanco */
+/* Forzar que el icono de la lupa sea blanco */
 [dir] .search-box-compact__button *,
 [dir] .search-box-compact__button::before,
 [dir] .search-box-compact__button::after,
@@ -1541,6 +1584,8 @@
         padding: 16px !important;
         margin: -30px 16px 24px 16px !important;
         align-items: stretch !important;
+        height: auto !important;
+        min-height: auto !important;
     }
     
     [dir] .search-box-compact__form,
@@ -1548,6 +1593,7 @@
     [dir] .search-box-compact__field {
         flex-direction: column !important;
         align-items: stretch !important;
+        height: auto !important;
     }
     
     [dir] .search-box-compact__separator {
@@ -1559,6 +1605,7 @@
     [dir] .search-box-compact__button {
         width: 100% !important;
         margin-top: 8px !important;
+        height: 44px !important;
     }
 }
 
