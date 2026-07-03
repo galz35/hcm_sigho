@@ -9,27 +9,19 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     border: 1px solid #e5e7eb !important;
     padding: 8px 12px 8px 24px !important;
-    max-width: 650px !important;
-    margin: -70px auto 40px !important; /* Margen negativo aumentado para asegurar la superposición */
-    z-index: 999 !important; /* Aumentar z-index para asegurar que flote por encima del Banner */
+    max-width: 460px !important; /* Ancho maximo identico a code.html */
+    margin: -120px auto 40px !important; /* Margen negativo para subirlo al area del Hero */
+    z-index: 40 !important;
     position: relative !important;
     display: flex !important;
-    flex-direction: row !important;
     align-items: center !important;
-    justify-content: space-between !important;
     box-sizing: border-box !important;
-    min-height: 60px !important;
-    height: 60px !important;
 }
 
-/* Forzar transparencia en los contenedores de sección de búsqueda de Oracle */
-.search-jobs,
-.search-jobs-root-container,
-.search-box-compact-recruiting-location,
-[dir] .search-box-compact-recruiting-location {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
+@media (min-width: 768px) {
+    [dir] .search-box-compact {
+        margin: -140px 0 40px 0 !important; /* Alineado a la izquierda en desktop para quedar bajo el texto del Hero */
+    }
 }
 
 /* Ocultar pseudo-elementos de Oracle que ponen bordes y fondos viejos */
