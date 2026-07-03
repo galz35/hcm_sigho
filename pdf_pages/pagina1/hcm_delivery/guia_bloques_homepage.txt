@@ -1,0 +1,106 @@
+================================================================================
+GUÍA DE IMPLEMENTACIÓN: PORTAL CLARO HOMEPAGE POR BLOQUES (MODULAR)
+Oracle Recruiting Cloud Career Sites
+================================================================================
+
+Esta guía te guiará paso a paso para colocar el nuevo código modular en Oracle.
+Al dividir el código, evitamos el congelamiento del navegador y podemos hacer
+ajustes finos a cada bloque sin alterar el resto de la página.
+
+--------------------------------------------------------------------------------
+PARTE 1: CONFIGURAR LOS IMPORTS DE CSS (Theme > Custom CSS)
+--------------------------------------------------------------------------------
+
+1. Abre el panel de administración de tu Career Site en Oracle.
+2. Ve a la pestaña **Theme** (Tema).
+3. Busca la sección **Custom CSS** (CSS Personalizado).
+4. Borra todo lo que tengas actualmente pegado ahí.
+5. Copia y pega exactamente este bloque de importaciones remotas:
+
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/base.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/header.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/hero.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/search.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/process.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/oracle_overrides.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/pages.css');
+
+6. Haz clic en **Save** (Guardar).
+
+--------------------------------------------------------------------------------
+PARTE 2: CONFIGURAR LA ESTRUCTURA HTML (Splash Page)
+--------------------------------------------------------------------------------
+
+En el editor, selecciona **Splash Page** en el menú de la izquierda y ve agregando las
+secciones de tipo "Custom HTML" y el buscador nativo en este orden exacto:
+
+------------------------------------------------------
+FILA 1: MENÚ DE NAVEGACIÓN (Header Claro)
+------------------------------------------------------
+- Tipo de sección: **Custom HTML**
+- Archivo local de origen: `hcm_delivery/hcm_homepage_divided/seccion1a_header.html`
+- Instrucción: Abre el archivo, copia TODO el contenido y pégalo en la sección de Oracle.
+
+------------------------------------------------------
+FILA 2: HERO BANNER (Sección Principal Claro)
+------------------------------------------------------
+- Tipo de sección: **Custom HTML**
+- Archivo local de origen: `hcm_delivery/hcm_homepage_divided/seccion1b_hero.html`
+- Instrucción: Abre el archivo, copia TODO el contenido y pégalo en la sección de Oracle.
+
+------------------------------------------------------
+FILA 3: BUSCADOR NATIVO DE ORACLE (Widget de Búsqueda)
+------------------------------------------------------
+- Tipo de sección: **Buscador nativo de Oracle** (coloca el componente nativo de búsqueda de vacantes).
+- Instrucción: Simplemente colócalo aquí. El archivo `css/search.css` que importamos en el paso 1 se encargará automáticamente de darle forma de píldora, limitar su ancho a 460px y alinearlo a la izquierda bajo el Hero en desktop.
+
+------------------------------------------------------
+FILA 4: BARRA DE ICONOS (Highlights)
+------------------------------------------------------
+- Tipo de sección: **Custom HTML**
+- Archivo local de origen: `hcm_delivery/hcm_homepage_divided/seccion3a_highlights.html`
+- Instrucción: Abre el archivo, copia todo el contenido y pégalo en Oracle.
+
+------------------------------------------------------
+FILA 5: CARDS DE BENEFICIOS (¿Por qué Claro?)
+------------------------------------------------------
+- Tipo de sección: **Custom HTML**
+- Archivo local de origen: `hcm_delivery/hcm_homepage_divided/seccion3b_benefits.html`
+- Instrucción: Abre el archivo, copia todo el contenido y pégalo en Oracle.
+
+------------------------------------------------------
+FILA 6: VIDEO PRINCIPAL
+------------------------------------------------------
+- Tipo de sección: **Custom HTML**
+- Archivo local de origen: `hcm_delivery/hcm_homepage_divided/seccion3c_video.html`
+- Instrucción: Abre el archivo, copia todo el contenido y pégalo en Oracle.
+
+------------------------------------------------------
+FILA 7: TIMELINE (Proceso de Candidato)
+------------------------------------------------------
+- Tipo de sección: **Custom HTML**
+- Archivo local de origen: `hcm_delivery/hcm_homepage_divided/seccion3d_process.html`
+- Instrucción: Abre el archivo, copia todo el contenido y pégalo en Oracle.
+
+------------------------------------------------------
+FILA 8: BANNER CTA (Iniciar Sesión / Registro)
+------------------------------------------------------
+- Tipo de sección: **Custom HTML**
+- Archivo local de origen: `hcm_delivery/hcm_homepage_divided/seccion3e_cta.html`
+- Instrucción: Abre el archivo, copia todo el contenido y pégalo en Oracle.
+
+------------------------------------------------------
+FILA 9: FOOTER (Derechos Reservados + Redes Sociales)
+------------------------------------------------------
+- Tipo de sección: **Custom HTML**
+- Archivo local de origen: `hcm_delivery/hcm_homepage_divided/seccion3f_footer.html`
+- Instrucción: Abre el archivo, copia todo el contenido y pégalo en Oracle. (Este bloque incluye los botones flotantes laterales de ayuda).
+
+--------------------------------------------------------------------------------
+PARTE 3: VERIFICACIÓN
+--------------------------------------------------------------------------------
+
+Una vez que guardes todos los cambios:
+1. Abre el preview en una ventana de **Incógnito** de tu navegador.
+2. O bien, refresca con **`Ctrl + F5`** para asegurarte de que el navegador no esté cargando estilos antiguos de la caché.
+3. El buscador de Oracle nativo ya debería flotar sobre el Hero de Claro, con el botón rojo de Buscar y los campos de entrada alineados a la izquierda bajo el texto en desktop.
