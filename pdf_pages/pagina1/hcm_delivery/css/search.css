@@ -9,8 +9,10 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     border: 1px solid #e5e7eb !important;
     padding: 8px 12px 8px 24px !important;
-    max-width: 460px !important; /* Ancho maximo identico a code.html */
-    margin: -120px auto 40px !important; /* Margen negativo para subirlo al area del Hero */
+    max-width: 460px !important;
+    /* Ancho maximo identico a code.html */
+    margin: -120px auto 40px !important;
+    /* Margen negativo para subirlo al area del Hero */
     z-index: 40 !important;
     position: relative !important;
     display: flex !important;
@@ -20,7 +22,8 @@
 
 @media (min-width: 768px) {
     [dir] .search-box-compact {
-        margin: -140px auto 40px 15% !important; /* Ajustado a 15% para que se mueva mas a la derecha */
+        margin: -100px auto 40px 24% !important;
+        /* Ajustado a 15% para que se mueva mas a la derecha */
     }
 }
 
@@ -157,7 +160,7 @@
         height: auto !important;
         min-height: auto !important;
     }
-    
+
     [dir] .search-box-compact__form,
     [dir] .search-box-compact__fieldset,
     [dir] .search-box-compact__field {
@@ -165,13 +168,13 @@
         align-items: stretch !important;
         height: auto !important;
     }
-    
+
     [dir] .search-box-compact__separator {
         width: 100% !important;
         height: 1px !important;
         margin: 12px 0 !important;
     }
-    
+
     [dir] .search-box-compact__button {
         width: 100% !important;
         margin-top: 8px !important;
