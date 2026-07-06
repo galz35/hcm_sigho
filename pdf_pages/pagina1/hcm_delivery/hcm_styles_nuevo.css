@@ -1628,9 +1628,9 @@
 
 /* Subir los cuadros rojos de la seccion de beneficios (IMPULSAMOS TU CRECIMIENTO, etc.) */
 .group div.bg-\[\#da291c\].mx-10 {
-    margin-top: -5rem !important; /* Fuerza el margen negativo equivalente a -mt-20 */
-    padding-top: 0.75rem !important; /* Reduce el padding superior (aprox. 12px) */
-    padding-bottom: 0.75rem !important; /* Reduce el padding inferior (aprox. 12px) */
-    padding-left: 1rem !important; /* Reduce el padding izquierdo (aprox. 16px) */
-    padding-right: 1rem !important; /* Reduce el padding derecho (aprox. 16px) */
+    margin-top: -60px !important; /* Ajustable en pixeles: prueba -55px, -60px, -65px, -70px para subirlo de a poco */
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
 }
