@@ -1610,3 +1610,8 @@ header,
 .oj-web-applayout-header {
     display: none !important;
 }
+
+/* Subir los cuadros rojos de la seccion de beneficios (IMPULSAMOS TU CRECIMIENTO, etc.) */
+.group div.bg-\[\#da291c\] {
+    margin-top: -5rem !important; /* Fuerza el margen negativo equivalente a -mt-20 */
+}

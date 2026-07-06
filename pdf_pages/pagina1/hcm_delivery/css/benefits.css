@@ -1,3 +1,8 @@
 /* Cards de beneficios de la homepage */
 /* Este bloque usa clases de Tailwind al 100%. */
 /* Si necesitas ajustes finos al integrarlo en Oracle, agrega las reglas aqui. */
+
+/* Subir los cuadros rojos de la seccion de beneficios (IMPULSAMOS TU CRECIMIENTO, etc.) */
+.group div.bg-\[\#da291c\] {
+    margin-top: -5rem !important; /* Fuerza el margen negativo equivalente a -mt-20 */
+}
