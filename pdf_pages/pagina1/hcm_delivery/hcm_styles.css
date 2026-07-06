@@ -1436,8 +1436,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     border: 1px solid #e5e7eb !important;
     padding: 8px 12px 8px 24px !important;
-    max-width: 460px !important; /* Ancho maximo de la barra */
-    margin: -100px auto 40px !important; /* Centrado por defecto en pantallas medianas/moviles */
+    max-width: 460px !important;
     z-index: 40 !important;
     position: relative !important;
     display: flex !important;
@@ -1445,24 +1444,35 @@
     box-sizing: border-box !important;
 }
 
-/* Constreñir el contenedor de búsqueda de Oracle al mismo ancho del Hero de Claro (1280px) */
-.search-jobs,
-.search-jobs-root-container {
-    max-width: 1280px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+/* ==========================================
+   TRES MEDIDAS DE PANTALLA (RESPONSIVE)
+   ========================================== */
+
+/* 1. CELULARES Y TABLETS (Hasta 768px) */
+@media (max-width: 768px) {
+    [dir] .search-box-compact {
+        flex-direction: column !important;
+        border-radius: 20px !important;
+        padding: 16px !important;
+        margin: -30px 16px 24px 16px !important; /* Centrado y fluido */
+        align-items: stretch !important;
+        height: auto !important;
+        min-height: auto !important;
+        max-width: 100% !important;
+    }
 }
 
-@media (min-width: 768px) {
+/* 2. LAPTOPS / PANTALLAS MEDIANAS (De 768px a 1200px) */
+@media (min-width: 768px) and (max-width: 1200px) {
     [dir] .search-box-compact {
-        margin-top: -120px !important; /* Sube la barra para solapar el Hero */
-        margin-left: 0 !important;      /* Alinea a la izquierda dentro del contenedor */
-        margin-right: auto !important;  /* Empuja el resto a la derecha */
-        margin-bottom: 40px !important;
+        margin: -100px auto 40px 10% !important; /* Margen izquierdo moderado (10%) para pantallas de laptop */
+    }
+}
+
+/* 3. MONITORES / PANTALLAS GRANDES (Mayor a 1200px) */
+@media (min-width: 1200px) {
+    [dir] .search-box-compact {
+        margin: -100px auto 40px 24% !important; /* Tu margen preferido del 24% para pantallas grandes */
     }
 }
 
