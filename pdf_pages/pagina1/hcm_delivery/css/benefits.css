@@ -5,4 +5,8 @@
 /* Subir los cuadros rojos de la seccion de beneficios (IMPULSAMOS TU CRECIMIENTO, etc.) */
 .group div.bg-\[\#da291c\] {
     margin-top: -5rem !important; /* Fuerza el margen negativo equivalente a -mt-20 */
+    padding-top: 0.75rem !important; /* Reduce el padding superior (aprox. 12px) */
+    padding-bottom: 0.75rem !important; /* Reduce el padding inferior (aprox. 12px) */
+    padding-left: 1rem !important; /* Reduce el padding izquierdo (aprox. 16px) */
+    padding-right: 1rem !important; /* Reduce el padding derecho (aprox. 16px) */
 }
