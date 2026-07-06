@@ -1444,7 +1444,7 @@
 
 @media (min-width: 768px) {
     [dir] .search-box-compact {
-        margin: -140px 0 40px 0 !important; /* Alineado a la izquierda en desktop para quedar bajo el texto del Hero */
+        margin: -140px auto 40px 10% !important; /* Ajustado de 0 a 10% para que se alinee con el texto del Hero y no toque el borde de la pantalla */
     }
 }
 
