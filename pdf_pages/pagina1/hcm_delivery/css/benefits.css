@@ -33,8 +33,7 @@
 /* Contenedor de la foto con altura fija y redondeado */
 .benefits-image-box {
     width: 100% !important;
-    height: 256px !important;
-    /* Altura de la foto */
+    height: 256px !important; /* Altura de la foto */
     background-color: #f3f4f6 !important;
     border-radius: 2rem !important;
     overflow: hidden !important;
@@ -48,37 +47,32 @@
     background-color: #da291c !important;
     color: #ffffff !important;
     text-align: center !important;
-    margin-top: -48px !important;
-    /* -mt-12 equivalente */
-    margin-left: 40px !important;
-    /* mx-10 equivalente */
-    margin-right: 40px !important;
-    /* mx-10 equivalente */
-    padding-top: 0px !important;
-    /* py-4 equivalente */
-    padding-bottom: 22px !important;
-    padding-left: 0px !important;
-    /* px-6 equivalente */
-    padding-right: 0px !important;
-    border-top-left-radius: 1rem !important;
-    /* rounded-t-2xl */
-    border-top-right-radius: 1rem !important;
+    margin-top: -48px !important; /* -mt-12 equivalente */
+    margin-left: 40px !important;  /* mx-10 equivalente */
+    margin-right: 40px !important; /* mx-10 equivalente */
+    padding-top: 14px !important;  /* py-4 equivalente */
+    padding-bottom: 14px !important;
+    padding-left: 16px !important; /* px-6 equivalente */
+    padding-right: 16px !important;
+    border-top-left-radius: 1.5rem !important; /* rounded-t-2xl */
+    border-top-right-radius: 1.5rem !important;
     border-bottom-left-radius: 0px !important;
     border-bottom-right-radius: 0px !important;
     z-index: 20 !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 52px !important;
 }
 
 /* Parrafo de texto descriptivo */
 .benefits-description-text {
     text-align: center !important;
     font-size: 13px !important;
-    color: #374151 !important;
-    /* text-gray-700 */
-    margin-top: 16px !important;
-    /* mt-4 equivalente */
-    padding-left: 8px !important;
-    /* px-2 equivalente */
+    color: #374151 !important; /* text-gray-700 */
+    margin-top: 16px !important; /* mt-4 equivalente */
+    padding-left: 8px !important; /* px-2 equivalente */
     padding-right: 8px !important;
     line-height: 1.625 !important;
 }
