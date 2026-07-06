@@ -20,7 +20,7 @@
 
 @media (min-width: 768px) {
     [dir] .search-box-compact {
-        margin: -140px auto 40px 10% !important; /* Ajustado de 0 a 10% para que se alinee con el texto del Hero y no toque el borde de la pantalla */
+        margin: -140px auto 40px 15% !important; /* Ajustado a 15% para que se mueva mas a la derecha */
     }
 }
 
