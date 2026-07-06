@@ -1615,3 +1615,23 @@ header,
 .group div.bg-\[\#da291c\] {
     margin-top: -5rem !important; /* Fuerza el margen negativo equivalente a -mt-20 */
 }
+
+/* Reemplazar la lupa del boton de busqueda por la palabra "Buscar" */
+[dir] .search-box-compact__button-icon,
+[dir] .search-box-compact__button .cx-icon,
+[dir] .search-box-compact__button svg,
+[dir] .search-box-compact__button span[class*="icon"],
+[dir] .search-box-compact__button oj-icon {
+    display: none !important;
+}
+
+[dir] .search-box-compact__button::after {
+    content: "Buscar" !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
