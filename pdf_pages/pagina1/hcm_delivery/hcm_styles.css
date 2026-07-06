@@ -1436,10 +1436,8 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     border: 1px solid #e5e7eb !important;
     padding: 8px 12px 8px 24px !important;
-    max-width: 460px !important;
-    /* Ancho maximo identico a code.html */
-    margin: -120px auto 40px !important;
-    /* Margen negativo para subirlo al area del Hero */
+    max-width: 460px !important; /* Ancho maximo de la barra */
+    margin: -100px auto 40px !important; /* Centrado por defecto en pantallas medianas/moviles */
     z-index: 40 !important;
     position: relative !important;
     display: flex !important;
@@ -1447,10 +1445,24 @@
     box-sizing: border-box !important;
 }
 
+/* Constreñir el contenedor de búsqueda de Oracle al mismo ancho del Hero de Claro (1280px) */
+.search-jobs,
+.search-jobs-root-container {
+    max-width: 1280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
 @media (min-width: 768px) {
     [dir] .search-box-compact {
-        margin: -100px auto 40px 24% !important;
-        /* Ajustado a 15% para que se mueva mas a la derecha */
+        margin-top: -120px !important; /* Sube la barra para solapar el Hero */
+        margin-left: 0 !important;      /* Alinea a la izquierda dentro del contenedor */
+        margin-right: auto !important;  /* Empuja el resto a la derecha */
+        margin-bottom: 40px !important;
     }
 }
 
