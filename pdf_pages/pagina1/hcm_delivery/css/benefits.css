@@ -1,3 +1,63 @@
 /* Cards de beneficios de la homepage */
 /* Este bloque usa clases de Tailwind al 100%. */
 /* Si necesitas ajustes finos al integrarlo en Oracle, agrega las reglas aqui. */
+
+/* ==========================================================================
+   DISEÑO ESTRUCTURAL DE LAS CARDS DE BENEFICIOS (NO SE MUEVEN)
+   ========================================================================== */
+
+/* Contenedor visual relativo del beneficio (limita y encuadra la foto) */
+.benefits-visual-container {
+    position: relative !important;
+    width: 100% !important;
+    height: 256px !important; /* Altura fija de la foto */
+    margin-bottom: 16px !important;
+}
+
+/* Cuadro pequeño del icono superior izquierdo */
+.benefits-icon-badge {
+    position: absolute !important;
+    top: -8px !important;
+    left: 24px !important;
+    background-color: #da291c !important;
+    padding: 10px !important;
+    z-index: 30 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Contenedor de la foto con esquinas redondeadas y recorte */
+.benefits-image-box {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #f3f4f6 !important;
+    border-radius: 2rem !important;
+    overflow: hidden !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Cuadro de texto rojo del titulo (ancla absoluta abajo) */
+.benefits-title-box {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 40px !important;
+    right: 40px !important;
+    background-color: #da291c !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    z-index: 20 !important;
+    transform: translateY(50%) !important; /* Desplaza exactamente la mitad de su tamaño hacia abajo */
+    box-shadow: 0 4px 15px rgba(218, 41, 28, 0.25) !important;
+}
