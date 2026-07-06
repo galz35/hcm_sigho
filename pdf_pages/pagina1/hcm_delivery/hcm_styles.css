@@ -1658,9 +1658,3 @@ header,
 .oj-web-applayout-header {
     display: none !important;
 }
-
-/* Subir los cuadros rojos de la seccion de beneficios (IMPULSAMOS TU CRECIMIENTO, etc.) */
-.group div.bg-\[\#da291c\].mx-10 {
-    margin-top: -60px !important; /* Ajustable en pixeles */
-    padding: 0 !important; /* Resetea todo el padding a 0 para anular py-4 y px-6 de Tailwind */
-}
