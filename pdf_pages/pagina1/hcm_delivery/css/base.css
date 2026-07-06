@@ -108,3 +108,26 @@
     .md\:translate-x-4 { transform: translateX(1rem) !important; }
     .md\:scale-102:hover { transform: scale(1.02) !important; }
 }
+
+/* ==========================================================================
+   RESET DE ENLACES VISITADOS (Prevenir el color violeta de Oracle/Redwood)
+   ========================================================================== */
+a:visited,
+a:visited *,
+.nav-link:visited,
+.hero-bg a:visited,
+.group a:visited,
+[class*="text-"]:visited {
+    color: inherit !important;
+}
+
+/* Forzar blanco en botones de fondo rojo visitados */
+a.bg-\[\#da291c\]:visited,
+a.text-white:visited {
+    color: #ffffff !important;
+}
+
+/* Forzar gris oscuro en botones secundarios visitados */
+a.text-gray-800:visited {
+    color: #1f2937 !important;
+}
