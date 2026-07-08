@@ -1,0 +1,31 @@
+.hero-bg {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 35%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+.dot-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #da291c;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot-indicator.active {
+    opacity: 1;
+    transform: scale(1.2);
+}

@@ -1,0 +1,22 @@
+.nav-link {
+    font-size: 14px;
+    color: #4a4a4a;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover { color: #da291c; }
+.nav-link.active { color: #da291c; }
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #da291c;
+    border-radius: 2px;
+}

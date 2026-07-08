@@ -1,4 +1,4 @@
-================================================================================
+4================================================================================
 GUIA DE IMPLEMENTACION - PORTAL DE EMPLEO CLARO / CENAM
 Oracle HCM Cloud Career Sites
 Fecha: 2 de julio 2026

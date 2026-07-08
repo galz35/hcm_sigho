@@ -1,0 +1,3 @@
+.cta-radial-bg {
+    background: radial-gradient(ellipse at top right, rgba(255,255,255,0.15) 0%, transparent 60%);
+}

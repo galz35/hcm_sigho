@@ -1,0 +1,355 @@
+================================================================================
+ ANÁLISIS COMPLETO DE CONFLICTOS: DISEÑO CLARO vs ORACLE HCM
+================================================================================
+Fecha: Julio 2026
+Proyecto: D:\sigho diseño\pdf_pages\pagina1
+Archivo base: code.html
+CSS dividido: hcm_delivery/css/
+Secciones divididas: hcm_delivery/hcm_homepage_divided/
+================================================================================
+
+
+1. RESUMEN - CAUSA PRINCIPAL
+================================================================================
+Oracle HCM inyecta su propio CSS (main-minimal.css + oj-redwood-min.css) que
+hace un RESET GLOBAL de estilos y define su propio sistema de diseño. Tu
+diseño usa Tailwind CSS v3 JIT con configuración personalizada, pero en
+Oracle solo tienes disponible Tailwind v2 compilado via @import.
+
+Las 3 reglas de Oracle que más afectan tu diseño:
+
+  a) html { font-size: 13px }   → 1rem = 13px (no 16px del navegador)
+  b) body { line-height: 1 }     → Texto muy apretado
+  c) a { color: var(--color-theme-1); text-decoration: none }
+     a:hover { text-decoration: underline }
+     → Tus enlaces .nav-link se pintan del color tema de Oracle
+
+
+2. PROBLEMA #1: font-title NO EXISTE EN ORACLE
+================================================================================
+ ARCHIVOS AFECTADOS: TODAS las secciones
+ GRAVEDAD: CRÍTICA
+
+En code.html defines:
+  tailwind.config = {
+    theme: { extend: { fontFamily: {
+      'sans': ['Open Sans', ...],
+      'title': ['Montserrat', ...]
+    }}}
+  }
+  → Esto genera las clases .font-title y .font-sans
+
+En Oracle NO tienes este script. Solo importas Tailwind v2 compilado
+ (base.css linea 1), que NO incluye font-family personalizadas.
+
+ IMPACTO:
+ - .hcm_homepage_divided/seccion1a_header.html  → usa font-title en links
+ - .seccion1b_hero.html                          → usa font-title en h1
+ - .seccion3b_benefits.html                      → usa font-title en h3
+ - .seccion3c_video.html                         → usa font-title en h2
+ - .seccion3d_process.html                       → usa font-title en h4
+ - .seccion3e_cta.html                           → usa font-title en h2
+ - .seccion3f_footer.html                        → usa font-title en logos
+
+ CONCLUSIÓN: TODOS los textos con font-title se ven con la fuente
+ genérica de Oracle (Open Sans) en vez de Montserrat.
+
+ SOLUCIÓN: Agregar a base.css:
+   .font-title { font-family: 'Montserrat', Arial, sans-serif !important; }
+   .font-sans  { font-family: 'Open Sans', Arial, sans-serif !important; }
+
+
+3. PROBLEMA #2: Tailwind v2 COMPILADO NO TIENE ARBITRARY VALUES
+================================================================================
+ ARCHIVOS AFECTADOS: Todas las secciones
+ GRAVEDAD: ALTA
+
+En code.html usas Tailwind v3 JIT (via CDN script) que soporta:
+  text-[13px], text-[17px], rounded-[2rem], bg-[#da291c], etc.
+
+En Oracle, base.css importa:
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+  → Tailwind v2 COMPILADO. NO soporta arbitrary values.
+
+ TU SOLUCIÓN ACTUAL (parcial):
+   base.css ya incluye !important para las clases más comunes:
+   ✓ .text-[13px], .text-[17px], .text-[15px], .text-[11px], etc.
+   ✓ .bg-[#da291c], .bg-[#b81e13], .bg-[#990000], etc.
+   ✓ .rounded-[2rem]
+   ✓ .-mt-12, .-top-2
+   ✓ .max-w-[150px], .max-w-[460px], .max-w-[340px]
+   ✓ .hover:-translate-y-0\.5, .hover:-translate-y-2
+
+ CLASES QUE FALTAN en base.css (NO cubiertas):
+   ✗ .text-[14px]     → se usa en los selects del buscador (code.html line 235,243)
+   ✗ .text-[4rem]     → md:text-[4rem] está cubierto en media query
+   ✗ .leading-[1.05]  → se usa en h1 del hero (code.html line 210)
+   ✗ .gap-[3rem]      → no se usa actualmente
+   ✗ .space-x-12      → en el nav (header). Tailwind v2 tiene space-x-12
+                         pero con !important de Oracle puede fallar
+   ✗ .tracking-tight  → Tailwind v2 lo tiene, pero Oracle lo resetea
+   ✗ .tracking-widest → Tailwind v2 lo tiene, pero Oracle lo resetea
+
+ SOLUCIÓN: Agregar a base.css:
+   .text-\[14px\] { font-size: 14px !important; }
+   .leading-\[1\.05\] { line-height: 1.05 !important; }
+
+
+4. PROBLEMA #3: Oracle RESETEA TODOS LOS ELEMENTOS
+================================================================================
+ ARCHIVOS AFECTADOS: Todas las secciones
+ GRAVEDAD: ALTA
+
+main-minimal.css tiene estas reglas que afectan TODO:
+
+  /* Reset universal */
+  html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,ul,li,section,nav,... {
+      margin: 0; padding: 0; border: 0;
+      font-size: 100%; font: inherit;
+      vertical-align: baseline;
+  }
+
+  /* Headings heredan color */
+  h1,h2,h3,h4,h5,h6 { color: inherit; }
+
+  /* Line-height apretado */
+  body { line-height: 1; }
+
+  /* Listas sin viñetas */
+  ol,ul { list-style: none; }
+
+  ol li, ul li { line-height: inherit; }
+
+  /* Enlaces */
+  a { color: var(--color-theme-1); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:visited { color: var(--color-theme-1); }
+
+  /* Elementos semánticos en block */
+  section, nav, header, footer, article, aside { display: block; }
+
+  /* Html base */
+  html { font-size: 13px; line-height: 1.2; }
+
+IMPACTO EN CADA SECCIÓN:
+  SECCIÓN       | QUÉ AFECTA
+  --------------|--------------------------------------------------------------
+  header        | a { color } pinta .nav-link con color tema Oracle
+  hero          | h1 hereda color, font-size 100% resetea el tamaño
+  highlights    | a { color } pinta los icon-links
+  benefits      | h3 hereda color, font-size 100% resetea
+  video         | h2 hereda color, p font-size reseteado
+  process       | h3,h4 heredan color, ol/ul sin viñetas
+  cta           | h2 hereda color
+  footer        | a { color } pinta enlaces de redes sociales
+
+SOLUCIÓN: La mayoría está resuelta con !important en base.css. Pero:
+  - .nav-link necesita force color y text-decoration
+  - Los enlaces en highlights y footer necesitan color: white !important
+
+
+5. PROBLEMA #4: html { font-size: 13px } ROMPE REM
+================================================================================
+ ARCHIVOS AFECTADOS: Todas las secciones que usan rem
+ GRAVEDAD: ALTA
+
+Oracle establece: html { font-size: 13px; }
+
+Esto afecta todos los valores en rem:
+  - py-16   = 4rem   = 52px (en vez de 64px)
+  - mb-10   = 2.5rem = 32.5px (en vez de 40px)
+  - mt-4    = 1rem   = 13px (en vez de 16px)
+  - px-6    = 1.5rem = 19.5px (en vez de 24px)
+  - gap-8   = 2rem   = 26px (en vez de 32px)
+  - text-sm = 0.875rem = 11.375px (en vez de 14px)
+  - text-xs = 0.75rem = 9.75px (en vez de 12px)
+  - w-80    = 20rem  = 260px (en vez de 320px)
+  - h-64    = 16rem  = 208px (en vez de 256px)
+
+TU SOLUCIÓN ACTUAL:
+  - base.css cubre los tamaños de fuente con px: .text-[13px], .text-[17px]
+  - benefits.css usa height: 256px !important (fijo en px)
+  - Pero las clases de Tailwind (py-16, mb-10, gap-8, etc.) NO están
+    protegidas y se ven afectadas por font-size: 13px
+
+SOLUCIÓN: En la medida de lo posible, usa valores en px con !important
+  o forza html { font-size: 16px !important; } en oracle_overrides.css
+
+
+6. PROBLEMA #5: HEADER NATIVO DE ORACLE SE SUPERPONE
+================================================================================
+ ARCHIVO: oracle_overrides.css
+ GRAVEDAD: ALTA (ya lo tienes resuelto parcialmente)
+
+Tu oracle_overrides.css oculta el header de Oracle:
+  .cx-header, header, [class*="cx-header"], .oj-web-applayout-header {
+      display: none !important;
+  }
+
+PERO main-minimal.css también tiene estilos para:
+  .app-header-horizontal     → posicionamiento del header nativo
+  .app-header-horizontal__nav → navegación del header
+  .app__top-wrapper          → wrapper del header
+  .app__top-background       → fondo del header
+
+Si el header nativo está oculto pero su espacio se mantiene, tu
+header personalizado puede aparecer desplazado.
+
+REVISAR: Asegúrate de que al ocultar el header de Oracle también
+se elimine su espacio (height: 0 o display: none en el contenedor).
+
+
+7. PROBLEMA #6: SECCIÓN DE BENEFICIOS - ANÁLISIS ESPECÍFICO
+================================================================================
+ ARCHIVO: hcm_homepage_divided/seccion3b_benefits.html
+ GRAVEDAD: MEDIA-ALTA
+
+ESTRUCTURA ACTUAL (ya mejorada con !important inline):
+
+  ✅ .benefits-card-container → position:relative; display:flex; flex-direction:column
+  ✅ .benefits-icon-badge     → position:absolute; top:-8px; left:24px; con !important
+  ✅ .benefits-image-box      → width:100%; height:256px; border-radius:2rem; !important
+  ✅ .benefits-title-box-flow → margin-top:-48px; con !important
+  ✅ .benefits-description-text → font-size:13px; line-height:1.625; !important
+
+PROBLEMAS PERSISTENTES:
+  1. h3 dentro de .benefits-title-box-flow usa font-title (NO existe en Oracle)
+  2. El contenedor padre del grid usa gap-8 (se reduce con font-size:13px)
+  3. El section usa py-16, mb-10 (rem afectado por font-size:13px)
+  4. h2 del título usa text-4xl, font-title (font-title no existe)
+
+IMPORTANTE: El seccion3b_benefits.html ya tiene la estructura mejorada
+con !important inline. Pero el code.html ORIGINAL (lineas 328-403) NO
+tiene esas protecciones. Si subes code.html directamente, fallará.
+
+
+8. PROBLEMA #7: CSS VACÍOS O INCOMPLETOS
+================================================================================
+ ARCHIVOS AFECTADOS:
+   - css/footer.css     → solo comentarios (3 líneas)
+   - css/highlights.css → solo comentarios (3 líneas)
+   - css/video.css      → solo cta-radial-bg (7 líneas)
+
+Estas secciones dependen 100% de Tailwind. Al cargarse en Oracle,
+sin tener las clases protegidas con !important, el diseño se rompe.
+
+  SECCIÓN      | CLASES CRÍTICAS SIN PROTECCIÓN
+  -------------|--------------------------------------------------------------
+  highlights   | grid-cols-1, md:grid-cols-3, divide-y, divide-white/20
+  highlights   | rounded-b-3xl, shadow-2xl, border-x, border-b
+  video        | grid-cols-1, md:grid-cols-2, gap-12, items-center
+  video        | aspect-[4/3], shadow-xl, group-hover:scale-110
+  footer       | space-x-6, space-x-4, w-9, h-9, rounded-full
+  footer       | border-gray-750, bg-gray-850, hover:bg-[#da291c]
+
+SOLUCIÓN: Agregar reglas CSS con !important para estas clases en sus
+archivos correspondientes (ej: highlights.css, footer.css, video.css).
+
+
+9. PROBLEMA #8: ICONOS Y FUENTES
+================================================================================
+ GRAVEDAD: BAJA-MEDIA
+
+Oracle carga su propia fuente de iconos (cxicon.woff). Si usas iconos
+SVG inline (como en code.html), no hay problema.
+
+PERO si usas clases de Font Awesome o similar:
+  - Oracle fuerza su propia fuente de iconos
+  - Los iconos pueden mostrarse como cuadros vacíos
+
+TU SITUACIÓN: Usas SVG inline en todas partes → ✅ No hay conflicto
+
+
+10. PROBLEMA #9: ORDEN DE CARGA DE CSS
+================================================================================
+ GRAVEDAD: MEDIA
+
+En Oracle HCM el orden de carga es:
+  1. oj-redwood-min.css (Oracle JET framework)
+  2. main-minimal.css (Oracle HCM base)
+  3. ce-custom.css (tema: colores, fuentes)
+  4. TUS CSS via @import en <style id="custom-css">
+
+TU CSS SE CARGA DE ÚLTIMO → gana en cascada... PERO:
+  - Oracle usa selectores con [dir] (especificidad más alta)
+  - Oracle usa selectores compuestos (body:has(...)) muy específicos
+  - main-minimal.css usa !important en algunas reglas
+
+REVISAR: Si alguna regla de Oracle tiene más especificidad que la tuya,
+necesitas agregar !important o aumentar la especificidad de tu selector.
+
+
+11. CHECKLIST DE VERIFICACIÓN POR ARCHIVO
+================================================================================
+
+□ base.css
+  - Agregar .font-title { font-family: 'Montserrat'... !important; }
+  - Agregar .font-sans { font-family: 'Open Sans'... !important; }
+  - Agregar .text-\[14px\] { font-size: 14px !important; }
+  - Agregar .leading-\[1\.05\] { line-height: 1.05 !important; }
+  - Verificar .gap-8, .gap-12, .gap-4 con valores fijos
+
+□ header.css
+  - .nav-link ya tiene font-family: Montserrat → ✅
+  - .nav-link necesita color con !important contra Oracle
+  - .nav-link:hover necesita text-decoration: none !important
+
+□ hero.css
+  - .hero-bg y .hero-bg::before → sin Tailwind → ✅
+  - .dot-indicator sin Tailwind → ✅
+
+□ search.css
+  - Ya todo con !important → ✅ MUY BIEN PROTEGIDO
+
+□ benefits.css (DUPLICADO EN base.css también)
+  - .benefits-card-container, .benefits-icon-badge → listo ✅
+  - .benefits-title-box-flow h3 falta font-family !important
+  - h3 dentro de title-box-flow no hereda font-title
+
+□ process.css
+  - .process-line sin Tailwind → ✅
+  - Pero las steps usan font-title, text-sm, text-[11px] → protegido?
+
+□ oracle_overrides.css
+  - Oculta header de Oracle → ✅
+  - Podría agregar html { font-size: 16px !important; }
+
+□ footer.css → VACÍO - necesita reglas !important
+□ highlights.css → VACÍO - necesita reglas !important
+□ video.css → solo cta-radial-bg - necesita más reglas
+□ cta.css → solo cta-radial-bg → ✅
+
+
+12. RESUMEN DE ACCIONES PRIORIZADAS
+================================================================================
+
+ PRIORIDAD ALTA (urgencia):
+  1. Agregar .font-title y .font-sans a base.css
+  2. Agregar .text-[14px] a base.css
+  3. Completar footer.css, highlights.css, video.css con !important
+  4. Agregar html { font-size: 16px !important; } a oracle_overrides.css
+
+ PRIORIDAD MEDIA:
+  5. Verificar que .nav-link color no sea pisado por Oracle
+  6. Agregar leading-[1.05] a base.css
+  7. Revisar todos los gap-*, space-x-*, py-*, mb-* por valores en px
+
+ PRIORIDAD BAJA:
+  8. Revisar especificidad de selectores de Oracle con [dir] y :has()
+  9. Verificar que el header oculto no deje espacio residual
+ 10. Probar cada sección individualmente en Oracle
+
+
+13. NOTA: DIFERENCIA ENTRE code.html Y hcm_homepage_divided/
+================================================================================
+
+code.html → Usa Tailwind v3 JIT + script CDN. Funciona standalone.
+  NO está protegido contra Oracle CSS.
+
+hcm_homepage_divided/ → HTML dividido para subir por sesiones en Oracle.
+  - seccion3b_benefits.html ya tiene !important inline → protegido
+  - Las otras secciones pueden o no tener protección
+
+IMPORTANTE: Si subes code.html directamente a Oracle (como custom HTML),
+TODO el diseño está desprotegido. Usa los archivos de hcm_homepage_divided/
+que ya tienen las protecciones necesarias.
