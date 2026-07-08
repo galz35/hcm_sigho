@@ -1,19 +1,29 @@
 <!-- BEGIN: Video Section -->
 <section class="bg-[#dce3e8] py-20 border-t border-b border-gray-300">
     <div class="container mx-auto px-10 max-w-6xl">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="text-left">
-                <h2 class="text-2xl md:text-[2rem] font-bold font-title mb-4 leading-tight text-gray-900">
+        <!-- Reemplazamos cols-2 por un grid de 12 columnas (7 para texto, 5 para video) para dar más espacio al título -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Columna de Texto (7/12 de ancho) -->
+            <div class="md:col-span-7 text-left">
+                <h2 class="text-2xl md:text-[2.25rem] font-bold font-title mb-4 leading-tight text-gray-900" style="font-family: 'Montserrat', Arial, sans-serif !important;">
                     ¡<span class="text-[#da291c]">Claro</span> que te estamos buscando!
                 </h2>
                 <p class="text-gray-600 text-[17px] font-medium pr-6 leading-relaxed">
                     Tu talento puede transformar el futuro: conecta, crece y haz <br class="hidden md:inline"> posible un mundo mejor con Claro.
                 </p>
             </div>
-            <div class="relative rounded-[1rem] overflow-hidden shadow-xl md:translate-x-4 transition duration-300 aspect-[16/9] w-full" style="border-radius: 1rem !important; overflow: hidden !important;">
-                <!-- Reemplaza ID_DEL_VIDEO por el código final de tu link de YouTube (ejemplo: dQw4w9WgXcQ) -->
-                <iframe class="w-full h-full" src="https://www.youtube.com/embed/ID_DEL_VIDEO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: 0 !important; width: 100% !important; height: 100% !important;"></iframe>
+            
+            <!-- Columna de Video (5/12 de ancho, con aspect-ratio nativo fijado en CSS inline) -->
+            <div class="md:col-span-5 relative rounded-[1rem] overflow-hidden shadow-xl md:translate-x-4 transition duration-300 w-full"
+                style="border-radius: 1rem !important; overflow: hidden !important; aspect-ratio: 16/9 !important; width: 100% !important;">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/gslvYFsDz-0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style="border: 0 !important; width: 100% !important; height: 100% !important; position: absolute !important; top: 0 !important; left: 0 !important;"></iframe>
             </div>
+            
         </div>
     </div>
 </section>
