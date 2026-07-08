@@ -163,7 +163,8 @@ a.text-gray-800:visited {
 /* Contenedor de la foto con altura fija y redondeado */
 .benefits-image-box {
     width: 100% !important;
-    height: 256px !important; /* Altura de la foto */
+    height: 256px !important;
+    /* Altura de la foto */
     background-color: #f3f4f6 !important;
     border-radius: 2rem !important;
     overflow: hidden !important;
@@ -177,14 +178,20 @@ a.text-gray-800:visited {
     background-color: #da291c !important;
     color: #ffffff !important;
     text-align: center !important;
-    margin-top: -48px !important; /* -mt-12 equivalente */
-    margin-left: 24px !important;  /* mx-10 equivalente */
-    margin-right: 24px !important; /* mx-10 equivalente */
-    padding-top: 14px !important;  /* py-4 equivalente */
+    margin-top: -48px !important;
+    /* -mt-12 equivalente */
+    margin-left: 24px !important;
+    /* mx-10 equivalente */
+    margin-right: 24px !important;
+    /* mx-10 equivalente */
+    padding-top: 14px !important;
+    /* py-4 equivalente */
     padding-bottom: 14px !important;
-    padding-left: 16px !important; /* px-6 equivalente */
+    padding-left: 16px !important;
+    /* px-6 equivalente */
     padding-right: 16px !important;
-    border-top-left-radius: 1.5rem !important; /* rounded-t-2xl */
+    border-top-left-radius: 1.5rem !important;
+    /* rounded-t-2xl */
     border-top-right-radius: 1.5rem !important;
     border-bottom-left-radius: 0px !important;
     border-bottom-right-radius: 0px !important;
@@ -193,43 +200,19 @@ a.text-gray-800:visited {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    min-height: 52px !important;
+    min-height: 48px !important;
 }
 
 /* Parrafo de texto descriptivo */
 .benefits-description-text {
     text-align: center !important;
     font-size: 13px !important;
-    color: #374151 !important; /* text-gray-700 */
-    margin-top: 16px !important; /* mt-4 equivalente */
-    padding-left: 8px !important; /* px-2 equivalente */
+    color: #374151 !important;
+    /* text-gray-700 */
+    margin-top: 16px !important;
+    /* mt-4 equivalente */
+    padding-left: 8px !important;
+    /* px-2 equivalente */
     padding-right: 8px !important;
     line-height: 1.625 !important;
-}
-
-/* ==========================================================================
-   CORRECCIONES DE CONFLICTOS ORACLE HCM (ANÁLISIS TÉCNICO)
-   ========================================================================== */
-
-/* Bypass del reset html de Oracle (usando :root para evitar bloqueo del validador) */
-:root {
-    font-size: 16px !important;
-}
-
-/* Soporte para fuentes personalizadas que no se cargaban en Oracle */
-.font-title {
-    font-family: 'Montserrat', Arial, sans-serif !important;
-}
-
-.font-sans {
-    font-family: 'Open Sans', Arial, sans-serif !important;
-}
-
-/* Soporte para arbitrary classes faltantes en Tailwind v2 compilado */
-.text-\[14px\] {
-    font-size: 14px !important;
-}
-
-.leading-\[1\.05\] {
-    line-height: 1.05 !important;
 }
