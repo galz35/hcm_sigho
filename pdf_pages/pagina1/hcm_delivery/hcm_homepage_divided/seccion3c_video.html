@@ -1,7 +1,7 @@
 <!-- BEGIN: Video Section -->
 <section class="bg-[#dce3e8] py-20 border-t border-b border-gray-300">
     <div class="container mx-auto px-10 max-w-6xl">
-        <!-- Reemplazamos cols-2 por un grid de 12 columnas (7 para texto, 5 para video) para dar más espacio al título -->
+        <!-- Grid de 12 columnas (7 para texto, 5 para video) para dar espacio al título -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             
             <!-- Columna de Texto (7/12 de ancho) -->
@@ -14,9 +14,9 @@
                 </p>
             </div>
             
-            <!-- Columna de Video (5/12 de ancho, con aspect-ratio nativo fijado en CSS inline) -->
+            <!-- Columna de Video (5/12 de ancho con proporción 16:9 fija y RELATIVE inline obligatorio) -->
             <div class="md:col-span-5 relative rounded-[1rem] overflow-hidden shadow-xl md:translate-x-4 transition duration-300 w-full"
-                style="border-radius: 1rem !important; overflow: hidden !important; aspect-ratio: 16/9 !important; width: 100% !important;">
+                style="position: relative !important; border-radius: 1rem !important; overflow: hidden !important; aspect-ratio: 16/9 !important; width: 100% !important;">
                 <iframe class="w-full h-full" src="https://www.youtube.com/embed/gslvYFsDz-0"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
