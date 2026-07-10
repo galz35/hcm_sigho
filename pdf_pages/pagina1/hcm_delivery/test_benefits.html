@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Prueba de Maquetación: Sección Beneficios Claro</title>
+    <title>Prueba de Maquetación: Retrato de Beneficios Claro</title>
     
     <!-- Tailwind CSS para el prototipo -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,142 +23,82 @@
             }
         }
     </script>
-
-    <style>
-        /* ==========================================================================
-           PROPUESTA C: DISEÑO DE OPCIÓN B BLINDADO CON CSS DEDICADO
-           ========================================================================== */
-        
-        /* Contenedor principal de la tarjeta */
-        .benefits-card-container {
-            position: relative !important;
-            display: flex !important;
-            flex-direction: column !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-        /* Icono pequeño superior izquierdo */
-        .benefits-icon-badge {
-            position: absolute !important;
-            top: -8px !important;
-            left: 24px !important;
-            background-color: #da291c !important;
-            padding: 10px !important;
-            z-index: 30 !important;
-            color: #ffffff !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-        }
-
-        /* Contenedor de la foto con altura fija y redondeado */
-        .benefits-image-box {
-            width: 100% !important;
-            height: 256px !important; /* Altura de la foto */
-            background-color: #f3f4f6 !important;
-            border-radius: 2rem !important;
-            overflow: hidden !important;
-            position: relative !important;
-            z-index: 10 !important;
-        }
-
-        /* Caja de título rojo (idéntico visualmente a la Opción B original) */
-        .benefits-title-box-flow {
-            position: relative !important;
-            background-color: #da291c !important;
-            color: #ffffff !important;
-            text-align: center !important;
-            margin-top: -48px !important; /* -mt-12 equivalente */
-            margin-left: 40px !important;  /* mx-10 equivalente */
-            margin-right: 40px !important; /* mx-10 equivalent */
-            padding-top: 16px !important;  /* py-4 equivalente (16px) */
-            padding-bottom: 16px !important;
-            padding-left: 24px !important; /* px-6 equivalente (24px) */
-            padding-right: 24px !important;
-            border-top-left-radius: 1rem !important; /* rounded-t-2xl */
-            border-top-right-radius: 1rem !important;
-            border-bottom-left-radius: 0px !important;
-            border-bottom-right-radius: 0px !important;
-            z-index: 20 !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-        }
-
-        /* Párrafo de texto descriptivo */
-        .benefits-description-text {
-            text-align: center !important;
-            font-size: 13px !important;
-            color: #374151 !important; /* text-gray-700 */
-            margin-top: 16px !important; /* mt-4 equivalente */
-            padding-left: 8px !important; /* px-2 equivalente */
-            padding-right: 8px !important;
-            line-height: 1.625 !important;
-        }
-    </style>
 </head>
 <body class="bg-gray-50 py-12 px-6 font-sans">
 
     <div class="max-w-6xl mx-auto">
-        <h1 class="text-2xl font-bold text-gray-800 text-center mb-2">Maquetación de Pruebas: Área de Beneficios</h1>
-        <p class="text-gray-500 text-center mb-12 text-sm">Abre este archivo directamente en tu navegador para ver y comparar ambas estructuras.</p>
+        <h1 class="text-2xl font-bold text-gray-800 text-center mb-2">Opciones de Maquetación: Sección Beneficios</h1>
+        <p class="text-gray-500 text-center mb-12 text-sm">Prueba estas dos opciones en tu navegador local para ver cómo se comportan.</p>
 
         <!-- ==========================================================================
-             VISTA 1: PROPUESTA NUEVA BLINDADA (ESTILO OPCION B)
+             OPCIÓN 1: RETRATO ESTRUCTURAL ENLAZADO (PROPUESTA "CUADRO O RETRATO")
              ========================================================================== -->
         <div class="mb-20">
-            <h2 class="text-lg font-bold text-green-600 mb-6 border-b pb-2">Opción C: Estructura de la Opción B (Protegida con CSS Especial)</h2>
-            <p class="text-xs text-gray-500 -mt-4 mb-6">Esta opción se ve EXACTAMENTE como la Opción B, pero su padding, márgenes y esquinas están protegidos con clases exclusivas en CSS. Aunque cambies Tailwind, este diseño nunca cambiará.</p>
+            <h2 class="text-lg font-bold text-blue-600 mb-2 border-b pb-2">Opción 1: El Retrato Enlazado (Icono, Foto y Caja Roja como un solo Bloque)</h2>
+            <p class="text-xs text-gray-500 mb-6">En esta opción, la foto, el icono y el título rojo forman un único "retrato" rígido. El título está pegado físicamente a la foto y nunca se va a desplazar de ella, dejando el texto descriptivo libre abajo.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Tarjeta 1 -->
-                <div class="benefits-card-container hover:-translate-y-2 transition-all duration-300 group">
-                    <!-- Icono -->
-                    <div class="benefits-icon-badge">
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                        </svg>
+                <div class="flex flex-col hover:-translate-y-2 transition-all duration-300 group" style="width: 100% !important;">
+                    
+                    <!-- MARCO/RETRATO DE LA FOTO (Contenedor relativo sin overflow-hidden) -->
+                    <div style="position: relative !important; width: 100% !important; height: 256px !important; z-index: 10 !important;">
+                        
+                        <!-- Icono pequeño (Absoluto respecto al retrato) -->
+                        <div style="position: absolute !important; top: -8px !important; left: 24px !important; z-index: 30 !important; background-color: #da291c !important; padding: 10px !important; color: #ffffff !important; box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                            </svg>
+                        </div>
+                        
+                        <!-- Foto Recortada (Esquina redondeada con overflow-hidden) -->
+                        <div style="width: 100% !important; height: 100% !important; border-radius: 2rem !important; overflow: hidden !important; position: relative !important; z-index: 10 !important;">
+                            <img alt="Team working" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80">
+                        </div>
+                        
+                        <!-- Título Rojo Flotante (Absoluto al borde inferior del retrato) -->
+                        <div style="position: absolute !important; bottom: 0 !important; left: 24px !important; right: 24px !important; transform: translateY(50%) !important; background-color: #da291c !important; color: #ffffff !important; text-align: center !important; padding: 14px 16px !important; border-top-left-radius: 1.5rem !important; border-top-right-radius: 1.5rem !important; border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; z-index: 20 !important; display: flex !important; align-items: center !important; justify-content: center !important; min-height: 48px !important; box-shadow: 0 4px 10px rgba(218, 41, 28, 0.2) !important;">
+                            <h3 class="font-title font-bold text-[13px] uppercase leading-tight" style="margin: 0 !important;">IMPULSAMOS TU CRECIMIENTO</h3>
+                        </div>
+                        
                     </div>
-                    <!-- Foto -->
-                    <div class="benefits-image-box">
-                        <img alt="Team working" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80">
-                    </div>
-                    <!-- Título Rojo -->
-                    <div class="benefits-title-box-flow">
-                        <h3 class="font-title font-bold text-[13px] uppercase leading-tight">IMPULSAMOS TU CRECIMIENTO</h3>
-                    </div>
-                    <!-- Texto descriptivo -->
-                    <p class="benefits-description-text">Desarrolla tu talento en una empresa que apuesta por tu aprendizaje, evolución profesional y nuevos retos constantes.</p>
+                    
+                    <!-- Texto descriptivo (Separado con margen para dar espacio al título flotante) -->
+                    <p class="text-center text-[13px] text-gray-700 mt-8 px-2 leading-relaxed" style="text-align: center !important; font-size: 13px !important; color: #374151 !important; margin-top: 32px !important; padding-left: 8px !important; padding-right: 8px !important; line-height: 1.625 !important;">
+                        Desarrolla tu talento en una empresa que apuesta por tu aprendizaje, evolución profesional y nuevos retos constantes.
+                    </p>
                 </div>
             </div>
         </div>
 
         <!-- ==========================================================================
-             VISTA 2: DISEÑO ANTERIOR ORIGINAL (CON MARGEN NEGATIVO EN FLUJO)
+             OPCION 2: FLUJO DE CODE.HTML PROTEGIDO (CON MÁRGENES NEGATIVOS)
              ========================================================================== -->
         <div>
-            <h2 class="text-lg font-bold text-red-600 mb-6 border-b pb-2">Opción B: Diseño con Margen Negativo (Estructura Original de code.html)</h2>
-            <p class="text-xs text-gray-500 -mt-4 mb-6">Esta opción coloca el título abajo de la foto y lo sube usando un margen negativo en el flujo.</p>
+            <h2 class="text-lg font-bold text-red-600 mb-2 border-b pb-2">Opción 2: Flujo con Margen Negativo (Estructura Original de code.html pero con Estilos en Línea)</h2>
+            <p class="text-xs text-gray-500 mb-6">Esta opción recrea el código de code.html donde los elementos van uno debajo de otro y la caja roja se desplaza hacia arriba con un margen negativo en el flujo.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Tarjeta 1 -->
-                <div class="flex flex-col relative hover:-translate-y-2 transition-all duration-300 group">
+                <div class="flex flex-col relative hover:-translate-y-2 transition-all duration-300 group" style="position: relative !important; display: flex !important; flex-direction: column !important; width: 100% !important;">
                     <!-- Icono -->
-                    <div class="absolute -top-2 left-6 bg-claro-red p-2.5 rounded-none z-30 text-white shadow-md">
+                    <div style="position: absolute !important; top: -8px !important; left: 24px !important; z-index: 30 !important; background-color: #da291c !important; padding: 10px !important; color: #ffffff !important; box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                         </svg>
                     </div>
                     <!-- Foto -->
-                    <div class="w-full h-64 bg-gray-100 relative rounded-[2rem] overflow-hidden z-10">
+                    <div style="width: 100% !important; height: 256px !important; border-radius: 2rem !important; overflow: hidden !important; position: relative !important; z-index: 10 !important; background-color: #f3f4f6 !important;">
                         <img alt="Team working" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80">
                     </div>
                     <!-- Título Rojo -->
-                    <div class="bg-claro-red text-white text-center py-4 px-6 rounded-t-2xl rounded-b-none -mt-12 relative z-20 mx-10 shadow-md">
-                        <h3 class="font-title font-bold text-[13px] uppercase leading-tight">IMPULSAMOS TU CRECIMIENTO</h3>
+                    <div style="position: relative !important; background-color: #da291c !important; color: #ffffff !important; text-align: center !important; margin-top: -48px !important; margin-left: 24px !important; margin-right: 24px !important; padding-top: 14px !important; padding-bottom: 14px !important; padding-left: 16px !important; padding-right: 16px !important; border-top-left-radius: 1.5rem !important; border-top-right-radius: 1.5rem !important; border-bottom-left-radius: 0px !important; border-bottom-right-radius: 0px !important; z-index: 20 !important; display: flex !important; align-items: center !important; justify-content: center !important; min-height: 48px !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;">
+                        <h3 class="font-title font-bold text-[13px] uppercase leading-tight" style="margin: 0 !important;">IMPULSAMOS TU CRECIMIENTO</h3>
                     </div>
                     <!-- Texto descriptivo -->
-                    <p class="text-center text-[13px] text-gray-700 mt-4 px-2 leading-relaxed">Desarrolla tu talento en una empresa que apuesta por tu aprendizaje, evolución profesional y nuevos retos constantes.</p>
+                    <p class="text-center text-[13px] text-gray-700 mt-4 px-2 leading-relaxed" style="text-align: center !important; font-size: 13px !important; color: #374151 !important; margin-top: 16px !important; padding-left: 8px !important; padding-right: 8px !important; line-height: 1.625 !important;">
+                        Desarrolla tu talento en una empresa que apuesta por tu aprendizaje, evolución profesional y nuevos retos constantes.
+                    </p>
                 </div>
             </div>
         </div>
