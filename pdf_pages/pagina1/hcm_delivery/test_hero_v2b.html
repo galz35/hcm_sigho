@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Hero V2B — Versión Sencilla Refinada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'claro-red': '#da291c',
+                        'claro-red-hover': '#b81e13'
+                    },
+                    fontFamily: {
+                        'title': ['Montserrat', 'sans-serif'],
+                        'sans': ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-original {
+            background: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=2069') center/cover no-repeat;
+            position: relative;
+        }
+        .hero-original::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%);
+            z-index: 1;
+        }
+
+        .hero-v2b {
+            background: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
+            position: relative;
+        }
+        .hero-v2b::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 30%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0) 100%);
+            z-index: 1;
+        }
+
+        .dot-indicator {
+            width: 10px; height: 10px; background-color: #da291c; border-radius: 50%;
+            display: inline-block; margin: 0 4px; opacity: 0.3; cursor: pointer; transition: all 0.3s ease;
+        }
+        .dot-indicator.active { opacity: 1; transform: scale(1.2); }
+
+        .version-label {
+            text-align: center;
+            padding: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .version-label.v1 { background: #f3f4f6; color: #6b7280; }
+        .version-label.v2 { background: #fff5f5; color: #da291c; }
+        .divider {
+            height: 4px;
+            background: linear-gradient(90deg, #da291c, #ff6b6b, #da291c);
+        }
+
+        .hero-v2b-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #da291c;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+        .hero-v2b-tag-line {
+            width: 28px;
+            height: 2px;
+            background-color: #da291c;
+            border-radius: 1px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+
+    <!-- ========== VERSIÓN 1: Hero Original (code.html) ========== -->
+    <div class="version-label v1">⬇ Versión Original (code.html) ⬇</div>
+
+    <section class="hero-original relative min-h-[600px] flex items-center pt-16 pb-24">
+        <div class="container mx-auto px-10 relative z-10 max-w-7xl">
+            <div class="flex flex-col md:flex-row gap-8 items-start justify-between relative">
+                <div class="max-w-xl pt-6 w-full md:w-1/2 text-left">
+                    <h1 class="text-5xl md:text-[4rem] font-bold font-title leading-[1.05] mb-6 tracking-tight text-gray-900">
+                        Construye <br>tu futuro en <span class="text-[#da291c]">Claro</span>
+                    </h1>
+                    <p class="text-[17px] mb-10 text-gray-900 max-w-md leading-relaxed font-semibold">
+                        Sé parte de la empresa que conecta personas, tecnología y oportunidades.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-20">
+                        <a class="bg-[#da291c] text-white px-7 py-3 rounded-full text-[15px] font-bold hover:bg-claro-red-hover transition flex items-center shadow-md"
+                            href="#/jobs">
+                            Ver Vacantes <span class="ml-2 font-bold">→</span>
+                        </a>
+                        <a class="bg-transparent text-gray-800 border border-gray-300 px-7 py-3 rounded-full text-[15px] font-bold hover:bg-gray-50 transition flex items-center shadow-md"
+                            href="#/pages/7005">
+                            Conoce la experiencia
+                            <svg class="h-4 w-4 ml-2 text-gray-700" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block w-full max-w-[340px] md:w-1/2 h-[350px]"></div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div class="dot-indicator active"></div>
+                <div class="dot-indicator"></div>
+                <div class="dot-indicator"></div>
+                <div class="dot-indicator"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========== VERSIÓN 2B: Mi Versión Sencilla ========== -->
+    <div class="version-label v2">⬇ Mi Versión (Sencilla + ADN Claro Nicaragua) ⬇</div>
+
+    <section class="hero-v2b relative min-h-[600px] flex items-center pt-16 pb-24">
+        <div class="container mx-auto px-10 relative z-10 max-w-7xl">
+            <div class="flex flex-col md:flex-row gap-8 items-start justify-between relative">
+                <div class="max-w-xl pt-6 w-full md:w-1/2 text-left">
+
+                    <!-- Pequeña etiqueta de identidad -->
+                    <div class="hero-v2b-tag">
+                        <span class="hero-v2b-tag-line"></span>
+                        Claro Nicaragua
+                    </div>
+
+                    <h1 class="text-5xl md:text-[4rem] font-bold font-title leading-[1.05] mb-6 tracking-tight text-gray-900">
+                        Conecta tu<br>futuro con <span class="text-[#da291c]">Claro</span>
+                    </h1>
+                    <p class="text-[17px] mb-10 text-gray-700 max-w-md leading-relaxed font-medium">
+                        Crece profesionalmente en el líder en telecomunicaciones de Nicaragua. Aquí tu talento transforma la vida de millones.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-12">
+                        <a class="bg-[#da291c] text-white px-7 py-3 rounded-full text-[15px] font-bold hover:bg-claro-red-hover transition flex items-center shadow-md transform hover:-translate-y-0.5"
+                            href="#/jobs">
+                            Ver Vacantes <span class="ml-2 font-bold">→</span>
+                        </a>
+                        <a class="bg-transparent text-gray-800 border border-gray-300 px-7 py-3 rounded-full text-[15px] font-bold hover:bg-gray-50 transition flex items-center shadow-md transform hover:-translate-y-0.5"
+                            href="#/pages/7005">
+                            Conoce la experiencia
+                            <svg class="h-4 w-4 ml-2 text-gray-700" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Mini estadísticas discretas -->
+                    <div class="flex gap-8 text-gray-500">
+                        <div>
+                            <span class="text-[#da291c] font-title font-extrabold text-xl">2,500+</span>
+                            <span class="text-xs font-semibold ml-1 uppercase tracking-wide">Colaboradores</span>
+                        </div>
+                        <div class="w-px bg-gray-300"></div>
+                        <div>
+                            <span class="text-[#da291c] font-title font-extrabold text-xl">98%</span>
+                            <span class="text-xs font-semibold ml-1 uppercase tracking-wide">Cobertura</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="hidden md:block w-full max-w-[340px] md:w-1/2 h-[350px]"></div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div class="dot-indicator active"></div>
+                <div class="dot-indicator"></div>
+                <div class="dot-indicator"></div>
+                <div class="dot-indicator"></div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
