@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    background-color: #1a1a2e;
+    background-color: #ffffff;
 }
 
 .hero-v2-bg::before {
@@ -12,18 +12,10 @@
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(135deg, rgba(218,41,28,0.15) 0%, transparent 50%),
-        linear-gradient(225deg, rgba(218,41,28,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 20% 80%, rgba(218,41,28,0.12) 0%, transparent 60%);
+        linear-gradient(135deg, rgba(218,41,28,0.06) 0%, transparent 50%),
+        linear-gradient(225deg, rgba(218,41,28,0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(218,41,28,0.05) 0%, transparent 60%);
     z-index: 1;
-}
-
-.hero-v2-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(26,26,46,0.3) 0%, rgba(26,26,46,0.6) 100%);
-    z-index: 2;
 }
 
 .hero-v2-content {
@@ -50,9 +42,9 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(218,41,28,0.15);
-    border: 1px solid rgba(218,41,28,0.3);
-    color: #ff6b6b;
+    background: rgba(218,41,28,0.08);
+    border: 1px solid rgba(218,41,28,0.2);
+    color: #da291c;
     font-size: 12px;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
@@ -81,7 +73,7 @@
     font-size: 3.2rem !important;
     font-weight: 800 !important;
     line-height: 1.1 !important;
-    color: #ffffff !important;
+    color: #1c1c1c !important;
     margin-bottom: 20px !important;
     letter-spacing: -1px;
 }
@@ -92,7 +84,7 @@
 
 .hero-v2-subtitle {
     font-size: 1.1rem !important;
-    color: rgba(255,255,255,0.75) !important;
+    color: #6b7280 !important;
     line-height: 1.7 !important;
     margin-bottom: 32px !important;
     max-width: 440px;
@@ -121,7 +113,7 @@
 
 .hero-v2-stat-label {
     font-size: 12px;
-    color: rgba(255,255,255,0.5);
+    color: #9ca3af;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -146,13 +138,13 @@
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(218,41,28,0.3);
+    box-shadow: 0 4px 20px rgba(218,41,28,0.25);
 }
 
 .hero-v2-btn-primary:hover {
     background: #b81e13;
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(218,41,28,0.4);
+    box-shadow: 0 8px 30px rgba(218,41,28,0.35);
 }
 
 .hero-v2-btn-secondary {
@@ -160,20 +152,20 @@
     align-items: center;
     gap: 8px;
     background: transparent;
-    color: rgba(255,255,255,0.9);
+    color: #374151;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 700;
     padding: 14px 28px;
     border-radius: 50px;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid #d1d5db;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .hero-v2-btn-secondary:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.4);
+    background: #f9fafb;
+    border-color: #9ca3af;
     transform: translateY(-2px);
 }
 
@@ -190,10 +182,10 @@
     height: 420px;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
     position: relative;
     z-index: 2;
-    border: 3px solid rgba(255,255,255,0.1);
+    border: 3px solid rgba(0,0,0,0.06);
 }
 
 .hero-v2-photo-main img {
@@ -208,9 +200,9 @@
     height: 220px;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
     z-index: 3;
-    border: 3px solid rgba(255,255,255,0.15);
+    border: 3px solid rgba(255,255,255,0.9);
 }
 
 .hero-v2-photo-accent.top-right {
@@ -232,43 +224,43 @@
 .hero-v2-glow-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.3;
+    filter: blur(100px);
+    opacity: 0.12;
     z-index: 0;
 }
 
 .hero-v2-glow-orb.red {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     background: #da291c;
-    top: -50px;
-    right: -50px;
+    top: -80px;
+    right: -80px;
 }
 
 .hero-v2-glow-orb.blue {
-    width: 200px;
-    height: 200px;
-    background: #1e40af;
-    bottom: -30px;
-    left: 20px;
+    width: 250px;
+    height: 250px;
+    background: #3b82f6;
+    bottom: -60px;
+    left: -40px;
 }
 
 .hero-v2-floating-card {
     position: absolute;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.85);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(0,0,0,0.08);
     border-radius: 16px;
     padding: 14px 18px;
     z-index: 5;
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #ffffff;
+    color: #1c1c1c;
     font-size: 13px;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
 }
 
 .hero-v2-floating-card.card-nica {
@@ -292,7 +284,7 @@
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: rgba(218,41,28,0.2);
+    background: rgba(218,41,28,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -309,7 +301,7 @@
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    color: rgba(255,255,255,0.4);
+    color: #9ca3af;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -319,7 +311,7 @@
 .hero-v2-scroll-line {
     width: 1px;
     height: 30px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    background: linear-gradient(to bottom, #d1d5db, transparent);
     animation: hero-v2-scroll-anim 2s ease-in-out infinite;
 }
 
