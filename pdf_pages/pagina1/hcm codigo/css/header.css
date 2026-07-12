@@ -1,169 +1,186 @@
-/* DESACTIVADO TOTALMENTE: Se comentan todas las reglas del menú para que el menú nativo de Oracle Cloud HCM Recruiting y su botón/icono de perfil se muestren con el estilo nativo de Oracle sin interferencias de CSS personalizado.
+/* ==========================================================================
+   ESTILOS PERSONALIZADOS PARA EL MENÚ/HEADER HORIZONTAL NATIVO DE ORACLE HCM
+   ========================================================================== */
 
-.nav-link {
-    font-size: 14px;
-    color: #4a4a4a;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    position: relative;
+/* Contenedor General de la Cabecera */
+:root [dir] .app-header-horizontal {
+    background-color: #ffffff !important;
+    height: 72px !important;
+    padding: 0 2.5rem !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
 }
 
-.nav-link:hover { color: #da291c; }
-.nav-link.active { color: #da291c; }
-
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -22px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background-color: #da291c;
-    border-radius: 2px;
+/* Alineador Izquierdo (Logo + Links) */
+:root [dir] .app-header-horizontal__left-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 3rem !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
 }
 
-/ * DESACTIVADO: Se comenta para dejar los estilos nativos de Oracle Cloud HCM Recruiting libres sin interferencias de CSS personalizado
+/* Alineador Derecho (Sitemap + Soy empleado + Menú Perfil) */
+:root [dir] .app-header-horizontal__right-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+}
 
-/ * ==========================================================================
-   DISEÑO Y COMPORTAMIENTO DEL POPOVER DE INICIO DE SESIÓN (PURE CSS)
-   ========================================================================== * /
-
-/ * Ocultar enlace de depuración por defecto * /
-.peer.hidden {
+/* Ocultar enlace sitemap */
+:root [dir] .sitemap-link {
     display: none !important;
 }
 
-/ * Estructura base del contenedor del perfil * /
-#profile-container {
-    position: relative !important;
+/* Ocultar barras de desplazamiento horizontales de los links */
+:root [dir] .app-header-horizontal-navbar__links-menu {
+    overflow: visible !important;
 }
 
-/ * El Popover de Login: Oculto por defecto y con transiciones suaves * /
-#profile-container > div.absolute {
-    position: absolute !important;
-    right: 0 !important;
-    top: 100% !important;
-    margin-top: 12px !important;
-    width: 320px !important;
-    background-color: #ffffff !important;
-    padding: 24px !important;
-    border-radius: 24px !important;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
-    border: 1px solid #f3f4f6 !important;
-    z-index: 50 !important;
-    transform: scale(0.95) !important;
-    transform-origin: top right !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transition: transform 0.2s ease, opacity 0.2s ease !important;
-    box-sizing: border-box !important;
-}
-
-/ * Triángulo del Popover * /
-#profile-container > div.absolute > div.absolute {
-    position: absolute !important;
-    top: -8px !important;
-    right: 16px !important;
-    width: 16px !important;
-    height: 16px !important;
-    background-color: #ffffff !important;
-    transform: rotate(45deg) !important;
-    border-left: 1px solid #f3f4f6 !important;
-    border-top: 1px solid #f3f4f6 !important;
-    z-index: -1 !important;
-}
-
-/ * MOSTRAR POPOVER CUANDO EL CHECKBOX ESTÁ ACTIVO * /
-#profile-toggle:checked ~ div.absolute {
-    transform: scale(1) !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-/ * Estilos internos del popover para prevenir roturas por falta de Tailwind * /
-#profile-container label.block {
-    display: block !important;
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    color: #1f2937 !important;
-    margin-bottom: 6px !important;
-    margin-left: 4px !important;
-    text-align: left !important;
-}
-
-#profile-container input.w-full {
-    width: 100% !important;
-    background-color: #f4f4f4 !important;
-    border: 0 !important;
-    border-radius: 12px !important;
-    padding: 12px !important;
-    font-size: 14px !important;
-    color: #4b5563 !important;
-    box-sizing: border-box !important;
-    outline: none !important;
-    transition: ring 0.2s ease !important;
-}
-
-#profile-container input.w-full:focus {
-    box-shadow: 0 0 0 2px #da291c !important;
-}
-
-/ * Contenedor de Botones en Flexbox * /
-#profile-container .flex.space-x-3 {
+/* Lista de Enlaces del Menú */
+:root [dir] .app-header-horizontal-navbar__links {
     display: flex !important;
     flex-direction: row !important;
-    gap: 12px !important;
-    width: 100% !important;
-    margin-top: 16px !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
 }
 
-/ * Botón Iniciar sesión * /
-#profile-container button.flex-1 {
-    flex: 1 1 0% !important;
-    background-color: #da291c !important;
-    color: #ffffff !important;
-    border-radius: 9999px !important;
-    padding: 10px 16px !important;
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    border: 0 !important;
-    cursor: pointer !important;
+/* Items individuales de la lista */
+:root [dir] .app-header-horizontal-navbar__item {
+    margin: 0 !important;
+    padding: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-    transition: background-color 0.2s ease !important;
 }
 
-#profile-container button.flex-1:hover {
-    background-color: #b81e13 !important;
-}
-
-/ * Botón Crear Perfil * /
-#profile-container a.flex-1 {
-    flex: 1 1 0% !important;
-    background-color: #ffffff !important;
-    color: #1f2937 !important;
-    border: 1px solid #d1d5db !important;
-    border-radius: 9999px !important;
-    padding: 10px 16px !important;
-    font-size: 13px !important;
+/* Enlaces de texto del menú */
+:root [dir] .app-header-horizontal-navbar__text {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
-    cursor: pointer !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    color: #4b5563 !important;
     text-decoration: none !important;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
-    transition: background-color 0.2s ease !important;
+    transition: color 0.2s ease !important;
+    padding: 10px 0 !important;
+    position: relative !important;
+    display: inline-block !important;
 }
 
-#profile-container a.flex-1:hover {
+/* Efecto Hover en Enlaces */
+:root [dir] .app-header-horizontal-navbar__text:hover {
+    color: #da291c !important;
+}
+
+/* Botón "Soy empleado" */
+:root [dir] .internal-user-login-button {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #4b5563 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+:root [dir] .internal-user-login-button:hover {
+    color: #da291c !important;
+}
+
+/* Botón del Perfil de Usuario (Redondo Rojo de Alta Calidad) */
+:root [dir] .user-menu__header {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background-color: #da291c !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+}
+
+:root [dir] .user-menu__header:hover {
+    background-color: #b81e13 !important;
+    transform: scale(1.05) !important;
+}
+
+/* Icono del Perfil (Reemplazado por SVG blanco vectorial en CSS) */
+:root [dir] .user-menu__icon {
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E") no-repeat center !important;
+    background-size: contain !important;
+}
+
+/* Dropdown del Menú del Perfil */
+:root [dir] .user-menu__dropdown {
+    background-color: #ffffff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #f3f4f6 !important;
+    padding: 16px !important;
+    width: 220px !important;
+}
+
+:root [dir] .user-menu__title-item {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    color: #1f2937 !important;
+    margin-bottom: 2px !important;
+}
+
+:root [dir] .user-menu__subtitle-item {
+    font-family: 'Open Sans', Arial, sans-serif !important;
+    font-size: 11px !important;
+    color: #6b7280 !important;
+    margin-bottom: 8px !important;
+}
+
+:root [dir] .user-menu__separator {
+    border-top: 1px solid #f3f4f6 !important;
+    margin: 8px 0 !important;
+}
+
+:root [dir] .user-menu__action-item button {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    color: #4b5563 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 8px 12px !important;
+    width: 100% !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    border-radius: 8px !important;
+    transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+:root [dir] .user-menu__action-item button:hover {
     background-color: #f9fafb !important;
+    color: #da291c !important;
 }
 
-* /
-
-*/
+/* Ajustes responsivos para móviles */
+@media (max-width: 768px) {
+    :root [dir] .app-header-horizontal {
+        padding: 0 1rem !important;
+        height: 64px !important;
+    }
+}
