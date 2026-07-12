@@ -121,35 +121,34 @@
     <div class="section-label">Fila 6: Sección de Video (Fiel al original, clic abre video)</div>
     <!-- BEGIN: Video Section -->
 <section class="bg-[#dce3e8] py-20 border-t border-b border-gray-300" style="background-color: #dce3e8 !important; padding-top: 5rem !important; padding-bottom: 5rem !important; border-top: 1px solid #d1d5db !important; border-bottom: 1px solid #d1d5db !important;">
-    <div class="container mx-auto px-10 max-w-6xl">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="text-left">
-                <!-- Sin whitespace-nowrap para que no se desborde en móvil, pero forzando el color original -->
-                <h2 class="text-2xl md:text-[2rem] font-bold font-title mb-4 leading-tight text-gray-900" style="font-family: 'Montserrat', Arial, sans-serif !important; color: #111827 !important; font-weight: 700 !important; margin-bottom: 1rem !important; line-height: 1.25 !important;">
+    <div class="container mx-auto px-10 max-w-6xl" style="max-width: 1152px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 2.5rem !important; padding-right: 2.5rem !important; box-sizing: border-box !important;">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center" style="display: flex !important; flex-flow: row wrap !important; align-items: center !important; justify-content: space-between !important; gap: 2rem !important; width: 100% !important; box-sizing: border-box !important;">
+            
+            <!-- Left text column -->
+            <div class="text-left" style="flex: 1 1 45% !important; min-width: 280px !important; text-align: left !important; box-sizing: border-box !important;">
+                <h2 class="text-2xl md:text-[2rem] font-bold font-title mb-4 leading-tight text-gray-900" style="font-family: 'Montserrat', Arial, sans-serif !important; color: #111827 !important; font-weight: 700 !important; font-size: 1.875rem !important; line-height: 1.25 !important; margin: 0px !important; margin-bottom: 1rem !important; padding: 0px !important;">
                     ¡<span class="text-[#da291c]" style="color: #da291c !important;">Claro</span> que te estamos buscando!
                 </h2>
-                <p class="text-gray-600 text-[15px] font-medium leading-relaxed" style="color: #4b5563 !important; font-size: 15px !important; font-weight: 500 !important; line-height: 1.625 !important; padding-right: 0px !important; margin: 0px !important;">
-                    Tu talento puede transformar el futuro: conecta, crece y haz <br class="hidden md:inline"> posible un mundo mejor con Claro.
+                <!-- Párrafo sin <br> y con tamaño de letra ajustado para que se muestre en exactamente 2 líneas -->
+                <p class="text-gray-600" style="font-family: 'Open Sans', Arial, sans-serif !important; color: #4b5563 !important; font-size: 15px !important; font-weight: 500 !important; line-height: 1.5 !important; padding-right: 0px !important; margin: 0px !important; padding: 0px !important;">
+                    Tu talento puede transformar el futuro: conecta, crece y haz posible un mundo mejor con Claro.
                 </p>
             </div>
-            <!-- Contenedor del video: idéntico a code.html con miniatura y botón de play (abre el video real) -->
-            <a href="https://www.youtube.com/watch?v=gslvYFsDz-0" target="_blank" class="relative rounded-none overflow-hidden cursor-pointer group shadow-xl md:translate-x-4 transition duration-300 block w-full"
-               style="position: relative !important; border-radius: 0px !important; overflow: hidden !important; cursor: pointer !important; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important; display: block !important; width: 100% !important;">
-                <img alt="Video thumbnail"
-                    class="w-full aspect-[4/3] object-cover group-hover:scale-102 transition duration-500"
-                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" style="aspect-ratio: 4/3 !important; width: 100% !important; object-fit: cover !important; display: block !important;">
-                <div
-                    class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition" style="position: absolute !important; inset: 0 !important; display: flex !important; align-items: center !important; justify-content: center !important; background-color: rgba(0, 0, 0, 0.2) !important;">
-                    <div
-                        class="bg-white text-[#da291c] rounded-full p-5 shadow-lg transition duration-300 group-hover:scale-110" style="background-color: #ffffff !important; border-radius: 9999px !important; padding: 1.25rem !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important; display: flex !important; align-items: center !important; justify-content: center !important;">
-                        <svg class="h-10 w-10 ml-1 fill-current" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg" style="height: 2.5rem !important; width: 2.5rem !important; fill: #da291c !important; margin-left: 0.25rem !important; display: block !important;">
-                            <path d="M4.5 3.5v13a1 1 0 001.555.832l9-6.5a1 1 0 000-1.664l-9-6.5A1 1 0 004.5 3.5z">
-                            </path>
-                        </svg>
-                    </div>
+            
+            <!-- Right video column (Embed de YouTube directo sin redirección externa) -->
+            <div style="flex: 1 1 45% !important; min-width: 280px !important; box-sizing: border-box !important;">
+                <div class="relative rounded-none overflow-hidden shadow-xl"
+                     style="position: relative !important; border-radius: 0px !important; overflow: hidden !important; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important; width: 100% !important; aspect-ratio: 16/9 !important; padding-bottom: 56.25% !important; height: 0 !important; background-color: #000000 !important;">
+                    <iframe src="https://www.youtube.com/embed/gslvYFsDz-0" 
+                            title="Claro Video Player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen 
+                            style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; border: 0 !important;">
+                    </iframe>
                 </div>
-            </a>
+            </div>
+            
         </div>
     </div>
 </section>
