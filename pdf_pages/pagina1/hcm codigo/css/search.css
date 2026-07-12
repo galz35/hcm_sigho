@@ -1,9 +1,9 @@
 /* ==========================================================================
-   AJUSTES DE ALINEACIÓN Y DISEÑO DEL BUSCADOR NATIVO DE ORACLE (ESTILO MODULAR)
+   AJUSTES DE ALINEACIÓN Y DISEÑO DEL BUSCADOR NATIVO DE ORACLE (MÁXIMA ESPECIFICIDAD)
    ========================================================================== */
 
 /* Contenedor Principal del Buscador */
-[dir] .search-box-compact {
+:root [dir] .search-box-compact {
     background-color: transparent !important;
     border-radius: 0px !important;
     box-shadow: none !important;
@@ -24,12 +24,12 @@
 
 /* 1. CELULARES Y TABLETS (Hasta 768px) */
 @media (max-width: 768px) {
-    [dir] .search-box-compact {
+    :root [dir] .search-box-compact {
         flex-direction: column !important;
         align-items: stretch !important;
         gap: 10px !important;
         padding: 0 16px !important;
-        margin: -30px auto 24px auto !important; /* Centrado y fluido */
+        margin: -30px auto 24px auto !important;
         max-width: 100% !important;
         height: auto !important;
         min-height: auto !important;
@@ -38,23 +38,23 @@
 
 /* 2. LAPTOPS / PANTALLAS MEDIANAS (De 768px a 1200px) */
 @media (min-width: 768px) and (max-width: 1200px) {
-    [dir] .search-box-compact {
-        margin: -100px auto 40px 10% !important; /* Margen izquierdo moderado (10%) para pantallas de laptop */
+    :root [dir] .search-box-compact {
+        margin: -100px auto 40px 10% !important;
     }
 }
 
 /* 3. MONITORES / PANTALLAS GRANDES (Mayor a 1200px) */
 @media (min-width: 1200px) {
-    [dir] .search-box-compact {
-        margin: -100px auto 40px 24% !important; /* Margen del 24% para pantallas grandes */
+    :root [dir] .search-box-compact {
+        margin: -100px auto 40px 24% !important;
     }
 }
 
 /* Ocultar pseudo-elementos de Oracle que ponen bordes y fondos viejos */
-[dir] .search-box-compact__form::before,
-[dir] .search-box-compact__fieldset::before,
-[dir] .search-box-compact__button-border,
-[dir] .search-box-compact__button-background {
+:root [dir] .search-box-compact .search-box-compact__form::before,
+:root [dir] .search-box-compact .search-box-compact__fieldset::before,
+:root [dir] .search-box-compact .search-box-compact__button-border,
+:root [dir] .search-box-compact .search-box-compact__button-background {
     display: none !important;
     border: none !important;
     background: transparent !important;
@@ -62,7 +62,7 @@
 }
 
 /* Contenedor del Formulario */
-[dir] .search-box-compact__form {
+:root [dir] .search-box-compact .search-box-compact__form {
     display: flex !important;
     flex-flow: row nowrap !important;
     align-items: center !important;
@@ -78,40 +78,40 @@
 }
 
 /* Hacemos cada input un bloque independiente (Pill blanco con borde gris sutil) */
-[dir] .search-box-compact__fieldset {
+:root [dir] .search-box-compact .search-box-compact__fieldset {
     background-color: #ffffff !important;
-    border: 1px solid #d1d5db !important; /* Borde gris claro */
-    border-radius: 9999px !important; /* Forma de píldora redondeada */
+    border: 1px solid #d1d5db !important;
+    border-radius: 9999px !important;
     padding: 4px 20px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     flex: 1 1 0% !important;
-    height: 48px !important; /* Altura perfecta */
+    height: 48px !important;
     box-sizing: border-box !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
     position: relative !important;
 }
 
-[dir] .search-box-compact__fieldset:hover,
-[dir] .search-box-compact__fieldset:focus-within {
-    border-color: #da291c !important; /* Cambia a rojo al interactuar */
+:root [dir] .search-box-compact .search-box-compact__fieldset:hover,
+:root [dir] .search-box-compact .search-box-compact__fieldset:focus-within {
+    border-color: #da291c !important;
     box-shadow: 0 4px 12px rgba(218, 41, 28, 0.1) !important;
 }
 
 /* Ocultar el espaciador por defecto de Oracle */
-[dir] .search-box-compact__fieldset-spacer {
+:root [dir] .search-box-compact .search-box-compact__fieldset-spacer {
     display: none !important;
 }
 
 /* Ocultar etiquetas (labels) repetitivas dentro de las píldoras */
-[dir] .search-box-compact__label {
+:root [dir] .search-box-compact .search-box-compact__label {
     display: none !important;
 }
 
 /* Contenedor del input */
-[dir] .search-box-compact__field {
+:root [dir] .search-box-compact .search-box-compact__field {
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
@@ -125,7 +125,7 @@
 }
 
 /* Estilo del texto del input */
-[dir] .search-box-compact__input {
+:root [dir] .search-box-compact .search-box-compact__input {
     border: none !important;
     background: transparent !important;
     font-family: 'Open Sans', sans-serif !important;
@@ -141,13 +141,13 @@
     line-height: normal !important;
 }
 
-[dir] .search-box-compact__input::placeholder {
+:root [dir] .search-box-compact .search-box-compact__input::placeholder {
     color: #9ca3af !important;
     font-weight: 500 !important;
 }
 
 /* Flecha hacia abajo (Chevron down) en el extremo derecho de cada píldora */
-[dir] .search-box-compact__fieldset::after {
+:root [dir] .search-box-compact .search-box-compact__fieldset::after {
     content: "" !important;
     display: inline-block !important;
     width: 12px !important;
@@ -158,9 +158,9 @@
 }
 
 /* Ubicación y Geolocalización nativos */
-[dir] .search-box-compact__action,
-[dir] .search-box-compact__action--location,
-[dir] .search-box-compact__action--radius {
+:root [dir] .search-box-compact .search-box-compact__action,
+:root [dir] .search-box-compact .search-box-compact__action--location,
+:root [dir] .search-box-compact .search-box-compact__action--radius {
     border: none !important;
     background: transparent !important;
     align-self: center !important;
@@ -173,24 +173,24 @@
 }
 
 /* Separador de menú / geolocalización */
-[dir] .search-box-compact__separator {
+:root [dir] .search-box-compact .search-box-compact__separator {
     display: none !important;
 }
 
 /* Botón de Búsqueda Centrado en Rojo Píldora (Rediseño) */
-[dir] .search-box-compact__button {
+:root [dir] .search-box-compact .search-box-compact__button {
     background-color: #da291c !important;
     color: #ffffff !important;
-    border-radius: 9999px !important; /* Píldora completa */
+    border-radius: 9999px !important;
     border: none !important;
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 700 !important;
     font-size: 14px !important;
-    padding: 0 32px !important; /* Más ancho para que luzca limpio */
+    padding: 0 32px !important;
     cursor: pointer !important;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
     box-shadow: 0 4px 12px rgba(218, 41, 28, 0.25) !important;
-    height: 48px !important; /* Mismo alto de los inputs */
+    height: 48px !important;
     min-height: 48px !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -201,15 +201,15 @@
 }
 
 /* Ocultar iconos nativos de la lupa en el botón para mostrar solo texto */
-[dir] .search-box-compact__button-icon,
-[dir] .search-box-compact__button .cx-icon,
-[dir] .search-box-compact__button svg,
-[dir] .search-box-compact__button span[class*="icon"],
-[dir] .search-box-compact__button oj-icon {
+:root [dir] .search-box-compact .search-box-compact__button-icon,
+:root [dir] .search-box-compact .search-box-compact__button .cx-icon,
+:root [dir] .search-box-compact .search-box-compact__button svg,
+:root [dir] .search-box-compact .search-box-compact__button span[class*="icon"],
+:root [dir] .search-box-compact .search-box-compact__button oj-icon {
     display: none !important;
 }
 
-[dir] .search-box-compact__button::after {
+:root [dir] .search-box-compact .search-box-compact__button::after {
     content: "Buscar" !important;
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 700 !important;
@@ -220,7 +220,7 @@
     justify-content: center !important;
 }
 
-[dir] .search-box-compact__button:hover {
+:root [dir] .search-box-compact .search-box-compact__button:hover {
     background-color: #b81e13 !important;
     transform: translateY(-1px) !important;
     box-shadow: 0 6px 18px rgba(218, 41, 28, 0.35) !important;
@@ -228,19 +228,19 @@
 
 /* Responsivo para móviles */
 @media (max-width: 768px) {
-    [dir] .search-box-compact__form {
+    :root [dir] .search-box-compact .search-box-compact__form {
         flex-direction: column !important;
         align-items: stretch !important;
         gap: 10px !important;
     }
 
-    [dir] .search-box-compact__fieldset {
+    :root [dir] .search-box-compact .search-box-compact__fieldset {
         flex: 1 1 auto !important;
         width: 100% !important;
         height: 46px !important;
     }
 
-    [dir] .search-box-compact__button {
+    :root [dir] .search-box-compact .search-box-compact__button {
         width: 100% !important;
         margin-top: 4px !important;
         height: 46px !important;
