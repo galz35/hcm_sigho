@@ -21,6 +21,8 @@
     border-radius: 2px;
 }
 
+/* DESACTIVADO: Se comenta para dejar los estilos nativos de Oracle Cloud HCM Recruiting libres sin interferencias de CSS personalizado
+
 /* ==========================================================================
    DISEÑO Y COMPORTAMIENTO DEL POPOVER DE INICIO DE SESIÓN (PURE CSS)
    ========================================================================== */
@@ -159,3 +161,5 @@
 #profile-container a.flex-1:hover {
     background-color: #f9fafb !important;
 }
+
+*/
