@@ -1,14 +1,14 @@
 <!-- BEGIN: Icon Highlights -->
 <section class="claro-hl-section" style="position: relative !important; margin-top: -32px !important; z-index: 20 !important; background: transparent !important; padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; box-sizing: border-box !important;">
     
-    <!-- El fondo rojo tipo "alfombra" que se extiende al 100% de la pantalla usando hack de viewport (100vw) -->
-    <div class="claro-hl-carpet" style="position: absolute !important; top: 24px !important; height: 64px !important; background-color: #b81e13 !important; z-index: 0 !important; width: 100vw !important; left: 50% !important; transform: translateX(-50%) !important; right: auto !important;"></div>
-    
-    <!-- Contenedor central -->
+    <!-- Contenedor central (coordenada de referencia para el centrado vertical) -->
     <div class="claro-hl-container" style="position: relative !important; z-index: 10 !important; max-width: 1152px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 1.5rem !important; padding-right: 1.5rem !important; box-sizing: border-box !important;">
         
-        <!-- Caja roja principal redondeada abajo -->
-        <div class="claro-hl-card" style="background-color: #da291c !important; border-bottom-left-radius: 1.5rem !important; border-bottom-right-radius: 1.5rem !important; border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; overflow: hidden !important; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important; max-width: 896px !important; margin-left: auto !important; margin-right: auto !important; padding-top: 0.25rem !important; padding-bottom: 0px !important; box-sizing: border-box !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; border-top-width: 0px !important;">
+        <!-- El fondo rojo tipo "alfombra" metido AQUÍ adentro para que su top se alinee perfectamente a 0px con la tarjeta -->
+        <div class="claro-hl-carpet" style="position: absolute !important; top: 0px !important; height: 64px !important; background-color: #b81e13 !important; z-index: 0 !important; width: 100vw !important; left: 50% !important; transform: translateX(-50%) !important; right: auto !important;"></div>
+        
+        <!-- Caja roja principal redondeada abajo (z-index superior para estar sobre la alfombra) -->
+        <div class="claro-hl-card" style="position: relative !important; z-index: 10 !important; background-color: #da291c !important; border-bottom-left-radius: 1.5rem !important; border-bottom-right-radius: 1.5rem !important; border-top-left-radius: 0px !important; border-top-right-radius: 0px !important; overflow: hidden !important; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important; max-width: 896px !important; margin-left: auto !important; margin-right: auto !important; padding-top: 0.25rem !important; padding-bottom: 0px !important; box-sizing: border-box !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; border-top-width: 0px !important;">
             
             <!-- Flexbox de 3 columnas compatible con Oracle -->
             <div class="claro-hl-grid" style="display: flex !important; flex-flow: row wrap !important; width: 100% !important; box-sizing: border-box !important; margin: 0 !important; padding: 0 !important;">

@@ -22,8 +22,8 @@ header,
 
 .claro-hl-carpet {
     position: absolute !important;
-    top: 32px !important;
-    height: 56px !important;
+    top: 0px !important;
+    height: 64px !important;
     background-color: #b81e13 !important;
     z-index: 0 !important;
     width: 100vw !important;
