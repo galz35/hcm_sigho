@@ -2,8 +2,8 @@
    ESTILOS PERSONALIZADOS PARA EL MENÚ/HEADER HORIZONTAL NATIVO DE ORACLE HCM
    ========================================================================== */
 
-/* Contenedor General de la Cabecera */
-:root [dir] .app-header-horizontal {
+/* Contenedor General de la Cabecera (Usando ID para Máxima Especificidad) */
+#app-header-horizontal.app-header-horizontal {
     background-color: #ffffff !important;
     height: 72px !important;
     padding: 0 2.5rem !important;
@@ -16,7 +16,7 @@
 }
 
 /* Alineador Izquierdo (Logo + Links) */
-:root [dir] .app-header-horizontal__left-wrapper {
+#app-header-horizontal .app-header-horizontal__left-wrapper {
     display: flex !important;
     align-items: center !important;
     gap: 3rem !important;
@@ -25,7 +25,7 @@
 }
 
 /* Alineador Derecho (Sitemap + Soy empleado + Menú Perfil) */
-:root [dir] .app-header-horizontal__right-wrapper {
+#app-header-horizontal .app-header-horizontal__right-wrapper {
     display: flex !important;
     align-items: center !important;
     gap: 1.5rem !important;
@@ -34,17 +34,17 @@
 }
 
 /* Ocultar enlace sitemap */
-:root [dir] .sitemap-link {
+#app-header-horizontal .sitemap-link {
     display: none !important;
 }
 
 /* Ocultar barras de desplazamiento horizontales de los links */
-:root [dir] .app-header-horizontal-navbar__links-menu {
+#app-header-horizontal .app-header-horizontal-navbar__links-menu {
     overflow: visible !important;
 }
 
 /* Lista de Enlaces del Menú */
-:root [dir] .app-header-horizontal-navbar__links {
+#app-header-horizontal .app-header-horizontal-navbar__links {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
@@ -56,7 +56,7 @@
 }
 
 /* Items individuales de la lista */
-:root [dir] .app-header-horizontal-navbar__item {
+#app-header-horizontal .app-header-horizontal-navbar__item {
     margin: 0 !important;
     padding: 0 !important;
     display: inline-flex !important;
@@ -64,7 +64,7 @@
 }
 
 /* Enlaces de texto del menú */
-:root [dir] .app-header-horizontal-navbar__text {
+#app-header-horizontal .app-header-horizontal-navbar__text {
     font-family: 'Montserrat', Arial, sans-serif !important;
     font-size: 14px !important;
     font-weight: 700 !important;
@@ -77,12 +77,12 @@
 }
 
 /* Efecto Hover en Enlaces */
-:root [dir] .app-header-horizontal-navbar__text:hover {
+#app-header-horizontal .app-header-horizontal-navbar__text:hover {
     color: #da291c !important;
 }
 
 /* Botón "Soy empleado" */
-:root [dir] .internal-user-login-button {
+#app-header-horizontal .internal-user-login-button {
     font-family: 'Montserrat', Arial, sans-serif !important;
     font-size: 14px !important;
     font-weight: 700 !important;
@@ -93,12 +93,12 @@
     align-items: center !important;
 }
 
-:root [dir] .internal-user-login-button:hover {
+#app-header-horizontal .internal-user-login-button:hover {
     color: #da291c !important;
 }
 
 /* Botón del Perfil de Usuario (Redondo Rojo de Alta Calidad) */
-:root [dir] .user-menu__header {
+#app-header-horizontal .user-menu__header {
     width: 40px !important;
     height: 40px !important;
     border-radius: 50% !important;
@@ -113,13 +113,13 @@
     box-sizing: border-box !important;
 }
 
-:root [dir] .user-menu__header:hover {
+#app-header-horizontal .user-menu__header:hover {
     background-color: #b81e13 !important;
     transform: scale(1.05) !important;
 }
 
 /* Icono del Perfil (Reemplazado por SVG blanco vectorial en CSS) */
-:root [dir] .user-menu__icon {
+#app-header-horizontal .user-menu__icon {
     display: inline-block !important;
     width: 20px !important;
     height: 20px !important;
@@ -128,7 +128,7 @@
 }
 
 /* Dropdown del Menú del Perfil */
-:root [dir] .user-menu__dropdown {
+#app-header-horizontal .user-menu__dropdown {
     background-color: #ffffff !important;
     border-radius: 16px !important;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
@@ -137,7 +137,7 @@
     width: 220px !important;
 }
 
-:root [dir] .user-menu__title-item {
+#app-header-horizontal .user-menu__title-item {
     font-family: 'Montserrat', Arial, sans-serif !important;
     font-weight: 700 !important;
     font-size: 13px !important;
@@ -145,19 +145,19 @@
     margin-bottom: 2px !important;
 }
 
-:root [dir] .user-menu__subtitle-item {
+#app-header-horizontal .user-menu__subtitle-item {
     font-family: 'Open Sans', Arial, sans-serif !important;
     font-size: 11px !important;
     color: #6b7280 !important;
     margin-bottom: 8px !important;
 }
 
-:root [dir] .user-menu__separator {
+#app-header-horizontal .user-menu__separator {
     border-top: 1px solid #f3f4f6 !important;
     margin: 8px 0 !important;
 }
 
-:root [dir] .user-menu__action-item button {
+#app-header-horizontal .user-menu__action-item button {
     font-family: 'Montserrat', Arial, sans-serif !important;
     font-weight: 700 !important;
     font-size: 12px !important;
@@ -172,14 +172,14 @@
     transition: background-color 0.2s ease, color 0.2s ease !important;
 }
 
-:root [dir] .user-menu__action-item button:hover {
+#app-header-horizontal .user-menu__action-item button:hover {
     background-color: #f9fafb !important;
     color: #da291c !important;
 }
 
 /* Ajustes responsivos para móviles */
 @media (max-width: 768px) {
-    :root [dir] .app-header-horizontal {
+    #app-header-horizontal.app-header-horizontal {
         padding: 0 1rem !important;
         height: 64px !important;
     }
