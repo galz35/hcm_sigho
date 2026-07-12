@@ -1,10 +1,12 @@
-/* Ocultar el header nativo de Oracle para mostrar solo el diseno de Claro personalizado */
+/* DESACTIVADO: Se comenta esta regla para permitir mostrar el menú/header nativo propio de Oracle Cloud HCM Recruiting */
+/*
 .cx-header,
 header,
 [class*="cx-header"],
 .oj-web-applayout-header {
     display: none !important;
 }
+*/
 
 /* ==========================================================================
    DISEÑO ESTRUCTURAL DE HIGHLIGHTS (FILA 3 DE ORACLE)
