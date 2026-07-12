@@ -20,3 +20,142 @@
     background-color: #da291c;
     border-radius: 2px;
 }
+
+/* ==========================================================================
+   DISEÑO Y COMPORTAMIENTO DEL POPOVER DE INICIO DE SESIÓN (PURE CSS)
+   ========================================================================== */
+
+/* Ocultar enlace de depuración por defecto */
+.peer.hidden {
+    display: none !important;
+}
+
+/* Estructura base del contenedor del perfil */
+#profile-container {
+    position: relative !important;
+}
+
+/* El Popover de Login: Oculto por defecto y con transiciones suaves */
+#profile-container > div.absolute {
+    position: absolute !important;
+    right: 0 !important;
+    top: 100% !important;
+    margin-top: 12px !important;
+    width: 320px !important;
+    background-color: #ffffff !important;
+    padding: 24px !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #f3f4f6 !important;
+    z-index: 50 !important;
+    transform: scale(0.95) !important;
+    transform-origin: top right !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+    box-sizing: border-box !important;
+}
+
+/* Triángulo del Popover */
+#profile-container > div.absolute > div.absolute {
+    position: absolute !important;
+    top: -8px !important;
+    right: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    background-color: #ffffff !important;
+    transform: rotate(45deg) !important;
+    border-left: 1px solid #f3f4f6 !important;
+    border-top: 1px solid #f3f4f6 !important;
+    z-index: -1 !important;
+}
+
+/* MOSTRAR POPOVER CUANDO EL CHECKBOX ESTÁ ACTIVO */
+#profile-toggle:checked ~ div.absolute {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Estilos internos del popover para prevenir roturas por falta de Tailwind */
+#profile-container label.block {
+    display: block !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    margin-bottom: 6px !important;
+    margin-left: 4px !important;
+    text-align: left !important;
+}
+
+#profile-container input.w-full {
+    width: 100% !important;
+    background-color: #f4f4f4 !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+    color: #4b5563 !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    transition: ring 0.2s ease !important;
+}
+
+#profile-container input.w-full:focus {
+    box-shadow: 0 0 0 2px #da291c !important;
+}
+
+/* Contenedor de Botones en Flexbox */
+#profile-container .flex.space-x-3 {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: 16px !important;
+    box-sizing: border-box !important;
+}
+
+/* Botón Iniciar sesión */
+#profile-container button.flex-1 {
+    flex: 1 1 0% !important;
+    background-color: #da291c !important;
+    color: #ffffff !important;
+    border-radius: 9999px !important;
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    border: 0 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    transition: background-color 0.2s ease !important;
+}
+
+#profile-container button.flex-1:hover {
+    background-color: #b81e13 !important;
+}
+
+/* Botón Crear Perfil */
+#profile-container a.flex-1 {
+    flex: 1 1 0% !important;
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 9999px !important;
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    transition: background-color 0.2s ease !important;
+}
+
+#profile-container a.flex-1:hover {
+    background-color: #f9fafb !important;
+}
