@@ -1,3 +1,5 @@
+/* DESACTIVADO TOTALMENTE: Se comentan todas las reglas del menú para que el menú nativo de Oracle Cloud HCM Recruiting y su botón/icono de perfil se muestren con el estilo nativo de Oracle sin interferencias de CSS personalizado.
+
 .nav-link {
     font-size: 14px;
     color: #4a4a4a;
@@ -21,23 +23,23 @@
     border-radius: 2px;
 }
 
-/* DESACTIVADO: Se comenta para dejar los estilos nativos de Oracle Cloud HCM Recruiting libres sin interferencias de CSS personalizado
+/ * DESACTIVADO: Se comenta para dejar los estilos nativos de Oracle Cloud HCM Recruiting libres sin interferencias de CSS personalizado
 
-/* ==========================================================================
+/ * ==========================================================================
    DISEÑO Y COMPORTAMIENTO DEL POPOVER DE INICIO DE SESIÓN (PURE CSS)
-   ========================================================================== */
+   ========================================================================== * /
 
-/* Ocultar enlace de depuración por defecto */
+/ * Ocultar enlace de depuración por defecto * /
 .peer.hidden {
     display: none !important;
 }
 
-/* Estructura base del contenedor del perfil */
+/ * Estructura base del contenedor del perfil * /
 #profile-container {
     position: relative !important;
 }
 
-/* El Popover de Login: Oculto por defecto y con transiciones suaves */
+/ * El Popover de Login: Oculto por defecto y con transiciones suaves * /
 #profile-container > div.absolute {
     position: absolute !important;
     right: 0 !important;
@@ -58,7 +60,7 @@
     box-sizing: border-box !important;
 }
 
-/* Triángulo del Popover */
+/ * Triángulo del Popover * /
 #profile-container > div.absolute > div.absolute {
     position: absolute !important;
     top: -8px !important;
@@ -72,14 +74,14 @@
     z-index: -1 !important;
 }
 
-/* MOSTRAR POPOVER CUANDO EL CHECKBOX ESTÁ ACTIVO */
+/ * MOSTRAR POPOVER CUANDO EL CHECKBOX ESTÁ ACTIVO * /
 #profile-toggle:checked ~ div.absolute {
     transform: scale(1) !important;
     opacity: 1 !important;
     pointer-events: auto !important;
 }
 
-/* Estilos internos del popover para prevenir roturas por falta de Tailwind */
+/ * Estilos internos del popover para prevenir roturas por falta de Tailwind * /
 #profile-container label.block {
     display: block !important;
     font-size: 13px !important;
@@ -107,7 +109,7 @@
     box-shadow: 0 0 0 2px #da291c !important;
 }
 
-/* Contenedor de Botones en Flexbox */
+/ * Contenedor de Botones en Flexbox * /
 #profile-container .flex.space-x-3 {
     display: flex !important;
     flex-direction: row !important;
@@ -117,7 +119,7 @@
     box-sizing: border-box !important;
 }
 
-/* Botón Iniciar sesión */
+/ * Botón Iniciar sesión * /
 #profile-container button.flex-1 {
     flex: 1 1 0% !important;
     background-color: #da291c !important;
@@ -139,7 +141,7 @@
     background-color: #b81e13 !important;
 }
 
-/* Botón Crear Perfil */
+/ * Botón Crear Perfil * /
 #profile-container a.flex-1 {
     flex: 1 1 0% !important;
     background-color: #ffffff !important;
@@ -161,5 +163,7 @@
 #profile-container a.flex-1:hover {
     background-color: #f9fafb !important;
 }
+
+* /
 
 */
