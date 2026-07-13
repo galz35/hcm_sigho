@@ -1,17 +1,12 @@
 /* ==========================================================================
    ESTILOS PERSONALIZADOS PARA EL MENÚ/HEADER HORIZONTAL NATIVO DE ORACLE HCM
-   (DISEÑO ULTRA-RESPONSIVO CON BREAKPOINTS ADAPTATIVOS PARA LAPTOPS)
    ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. ESTILOS COMUNES (Para todas las pantallas)
-   -------------------------------------------------------------------------- */
 
 /* Contenedor General de la Cabecera */
 .app__top .app-header #app-header-horizontal.app-header-horizontal {
     background-color: #ffffff !important;
     height: 72px !important;
-    padding: 0 1.5rem !important;
+    padding: 0 2.5rem !important;
     border-bottom: 1px solid #f3f4f6 !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
     display: flex !important;
@@ -20,17 +15,65 @@
     box-sizing: border-box !important;
 }
 
+/* Alineador Izquierdo (Logo + Links) */
+.app__top .app-header #app-header-horizontal .app-header-horizontal__left-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 3rem !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Alineador Derecho (Sitemap + Soy empleado + Menú Perfil) */
+.app__top .app-header #app-header-horizontal .app-header-horizontal__right-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+}
+
 /* Ocultar enlace sitemap */
 .app__top .app-header #app-header-horizontal .sitemap-link {
     display: none !important;
 }
 
-/* Enlaces de texto del menú (Estilo base de fuente Claro) */
+/* Ocultar barras de desplazamiento horizontales de los links */
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
+    overflow: visible !important;
+}
+
+/* Lista de Enlaces del Menú */
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Items individuales de la lista */
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__item {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* Enlaces de texto del menú */
 .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text {
     font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
+    color: #4b5563 !important;
     text-decoration: none !important;
     transition: color 0.2s ease !important;
+    padding: 10px 0 !important;
+    position: relative !important;
+    display: inline-block !important;
 }
 
 /* Efecto Hover en Enlaces */
@@ -38,24 +81,26 @@
     color: #da291c !important;
 }
 
-/* Botón "Soy empleado" (Estilo unificado y limpio, sin saltos de línea) */
+/* Botón "Soy empleado" */
 .app__top .app-header #app-header-horizontal .internal-user-login-button {
     font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
     color: #4b5563 !important;
     text-decoration: none !important;
     transition: color 0.2s ease !important;
     display: inline-flex !important;
     align-items: center !important;
-    white-space: nowrap !important;
 }
 
 .app__top .app-header #app-header-horizontal .internal-user-login-button:hover {
     color: #da291c !important;
 }
 
-/* Botón del Perfil de Usuario (Caja redonda roja Claro) */
+/* Botón del Perfil de Usuario (Redondo Rojo de Alta Calidad) */
 .app__top .app-header #app-header-horizontal .user-menu__header {
+    width: 40px !important;
+    height: 40px !important;
     border-radius: 50% !important;
     background-color: #da291c !important;
     display: flex !important;
@@ -73,20 +118,13 @@
     transform: scale(1.05) !important;
 }
 
-/* Icono del Perfil (Reemplazado 100% por SVG vectorial limpio) */
+/* Icono del Perfil (Reemplazado por SVG blanco vectorial en CSS) */
 .app__top .app-header #app-header-horizontal .user-menu__icon {
     display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E") no-repeat center !important;
     background-size: contain !important;
-}
-
-/* ELIMINAR EL ICONO DE SILUETA GRIS NATIVO DE ORACLE (Evita doble icono) */
-.app__top .app-header #app-header-horizontal .user-menu__icon::before,
-.app__top .app-header #app-header-horizontal .user-menu__icon::after,
-.app__top .app-header #app-header-horizontal .user-menu__header::before,
-.app__top .app-header #app-header-horizontal .user-menu__header::after {
-    content: none !important;
-    display: none !important;
 }
 
 /* Dropdown del Menú del Perfil */
@@ -139,168 +177,10 @@
     color: #da291c !important;
 }
 
-
-/* --------------------------------------------------------------------------
-   2. PANTALLAS GRANDES / DE ESCRITORIO (Desde 1201px en adelante)
-   -------------------------------------------------------------------------- */
-@media (min-width: 1201px) {
-    .app__top .app-header #app-header-horizontal .app-header-horizontal__left-wrapper {
-        display: flex !important;
-        align-items: center !important;
-        gap: 3rem !important;
-        height: 100% !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal__right-wrapper {
-        display: flex !important;
-        align-items: center !important;
-        gap: 1.5rem !important;
-        height: 100% !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
-        overflow: visible !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 2rem !important;
-        list-style: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__item {
-        display: inline-flex !important;
-        align-items: center !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text {
-        font-size: 14px !important;
-        padding: 10px 0 !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .user-menu__header {
-        width: 40px !important;
-        height: 40px !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .user-menu__icon {
-        width: 20px !important;
-        height: 20px !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .internal-user-login-button {
-        font-size: 14px !important;
-    }
-}
-
-
-/* --------------------------------------------------------------------------
-   3. PANTALLAS DE LAPTOPS / MEDIANAS (Entre 769px y 1200px)
-   -------------------------------------------------------------------------- */
-@media (min-width: 769px) and (max-width: 1200px) {
-    /* Ajustar gaps y anchuras para prevenir desbordes en laptops */
-    .app__top .app-header #app-header-horizontal .app-header-horizontal__left-wrapper {
-        display: flex !important;
-        align-items: center !important;
-        gap: 1.25rem !important;
-        height: 100% !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal__right-wrapper {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.75rem !important;
-        height: 100% !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
-        overflow: visible !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 1rem !important;
-        list-style: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__item {
-        display: inline-flex !important;
-        align-items: center !important;
-    }
-
-    /* Reducir tamaño de letra del menú en Laptops */
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text {
-        font-size: 13px !important;
-        padding: 8px 0 !important;
-    }
-
-    /* Botón de perfil más compacto en laptops */
-    .app__top .app-header #app-header-horizontal .user-menu__header {
-        width: 34px !important;
-        height: 34px !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .user-menu__icon {
-        width: 17px !important;
-        height: 17px !important;
-    }
-
-    /* "Soy empleado" más compacto */
-    .app__top .app-header #app-header-horizontal .internal-user-login-button {
-        font-size: 12px !important;
-    }
-}
-
-
-/* --------------------------------------------------------------------------
-   4. PANTALLAS PEQUEÑAS / MÓVILES (Hasta 768px)
-   -------------------------------------------------------------------------- */
+/* Ajustes responsivos para móviles */
 @media (max-width: 768px) {
-    /* Ajustes generales de cabecera en móvil */
     .app__top .app-header #app-header-horizontal.app-header-horizontal {
-        height: 60px !important;
         padding: 0 1rem !important;
-    }
-
-    /* Ocultar los links de texto para permitir que cargue la hamburguesa nativa de Oracle */
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
-        display: none !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
-        display: none !important;
-    }
-
-    /* Reducir gaps en el wrapper derecho para evitar amontonamiento */
-    .app__top .app-header #app-header-horizontal .app-header-horizontal__right-wrapper {
-        gap: 0.5rem !important;
-    }
-
-    /* Botón "Soy empleado" súper compacto tipo píldora */
-    .app__top .app-header #app-header-horizontal .internal-user-login-button {
-        font-size: 11px !important;
-        padding: 4px 8px !important;
-        background-color: #f3f4f6 !important;
-        border-radius: 9999px !important;
-        border: 1px solid #e5e7eb !important;
-    }
-
-    /* Botón de perfil móvil */
-    .app__top .app-header #app-header-horizontal .user-menu__header {
-        width: 32px !important;
-        height: 32px !important;
-    }
-
-    .app__top .app-header #app-header-horizontal .user-menu__icon {
-        width: 16px !important;
-        height: 16px !important;
+        height: 64px !important;
     }
 }
