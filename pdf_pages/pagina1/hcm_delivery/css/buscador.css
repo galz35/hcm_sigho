@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AJUSTES DE ALINEACIÓN Y DISEÑO DEL BUSCADOR NATIVO DE ORACLE
+   RESTAURACIÓN DEL BUSCADOR NATIVO DE ORACLE (DISEÑO HORIZONTAL ORIGINAL)
    ========================================================================== */
 
 /* Contenedor Principal del Buscador */
@@ -17,17 +17,13 @@
     box-sizing: border-box !important;
 }
 
-/* ==========================================
-   TRES MEDIDAS DE PANTALLA (RESPONSIVE)
-   ========================================== */
-
 /* 1. CELULARES Y TABLETS (Hasta 768px) */
 @media (max-width: 768px) {
     [dir] .search-box-compact {
         flex-direction: column !important;
         border-radius: 20px !important;
         padding: 16px !important;
-        margin: -30px auto 24px auto !important; /* Centrado y fluido */
+        margin: -30px auto 24px auto !important;
         align-items: stretch !important;
         height: auto !important;
         min-height: auto !important;
@@ -38,18 +34,18 @@
 /* 2. LAPTOPS / PANTALLAS MEDIANAS (De 768px a 1200px) */
 @media (min-width: 768px) and (max-width: 1200px) {
     [dir] .search-box-compact {
-        margin: -100px auto 40px 10% !important; /* Margen izquierdo moderado (10%) para pantallas de laptop */
+        margin: -100px auto 40px 10% !important;
     }
 }
 
 /* 3. MONITORES / PANTALLAS GRANDES (Mayor a 1200px) */
 @media (min-width: 1200px) {
     [dir] .search-box-compact {
-        margin: -100px auto 40px 24% !important; /* Margen del 24% para pantallas grandes */
+        margin: -100px auto 40px 24% !important;
     }
 }
 
-/* Ocultar pseudo-elementos de Oracle que ponen bordes y fondos viejos */
+/* Ocultar pseudo-elementos nativos */
 [dir] .search-box-compact__form::before,
 [dir] .search-box-compact__fieldset::before,
 [dir] .search-box-compact__button-border,
@@ -60,7 +56,7 @@
     box-shadow: none !important;
 }
 
-/* Alinear horizontalmente todos los elementos en el mismo eje Y */
+/* Alinear elementos horizontalmente */
 [dir] .search-box-compact__form,
 [dir] .search-box-compact__fieldset,
 [dir] .search-box-compact__field,
@@ -80,7 +76,7 @@
     box-sizing: border-box !important;
 }
 
-/* Ajustar inputs de texto */
+/* Estilo de los inputs */
 [dir] .search-box-compact__input {
     border: none !important;
     background: transparent !important;
@@ -104,7 +100,7 @@
     font-weight: 500 !important;
 }
 
-/* Ubicación y Geolocalización (Centrado) */
+/* Geolocalización */
 [dir] .search-box-compact__action,
 [dir] .search-box-compact__action--location,
 [dir] .search-box-compact__action--radius {
@@ -130,7 +126,7 @@
     align-self: center !important;
 }
 
-/* Botón de Búsqueda Centrado y Fijo */
+/* Botón de Búsqueda Rojo */
 [dir] .search-box-compact__button {
     background-color: #da291c !important;
     color: #ffffff !important;
@@ -153,58 +149,7 @@
     margin: 0 !important;
 }
 
-/* Forzar que el icono de la lupa sea blanco */
-[dir] .search-box-compact__button *,
-[dir] .search-box-compact__button::before,
-[dir] .search-box-compact__button::after,
-[dir] .search-box-compact__button-icon,
-[dir] .search-box-compact__button .cx-icon,
-[dir] .search-box-compact__button [class*="icon"] {
-    color: #ffffff !important;
-    fill: #ffffff !important;
-    stroke: #ffffff !important;
-}
-
-[dir] .search-box-compact__button:hover {
-    background-color: #b81e13 !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 6px 15px rgba(218, 41, 28, 0.4) !important;
-}
-
-/* Ajustes de Responsividad para el Buscador */
-@media (max-width: 768px) {
-    [dir] .search-box-compact {
-        flex-direction: column !important;
-        border-radius: 20px !important;
-        padding: 16px !important;
-        margin: -30px auto 24px auto !important;
-        align-items: stretch !important;
-        height: auto !important;
-        min-height: auto !important;
-    }
-
-    [dir] .search-box-compact__form,
-    [dir] .search-box-compact__fieldset,
-    [dir] .search-box-compact__field {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        height: auto !important;
-    }
-
-    [dir] .search-box-compact__separator {
-        width: 100% !important;
-        height: 1px !important;
-        margin: 12px 0 !important;
-    }
-
-    [dir] .search-box-compact__button {
-        width: 100% !important;
-        margin-top: 8px !important;
-        height: 44px !important;
-    }
-}
-
-/* Reemplazar la lupa del boton de busqueda por la palabra "Buscar" */
+/* Texto Buscar en el botón */
 [dir] .search-box-compact__button-icon,
 [dir] .search-box-compact__button .cx-icon,
 [dir] .search-box-compact__button svg,
