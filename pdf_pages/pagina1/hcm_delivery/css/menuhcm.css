@@ -1,6 +1,6 @@
 /* ==========================================================================
    ESTILOS PERSONALIZADOS PARA EL MENÚ/HEADER HORIZONTAL NATIVO DE ORACLE HCM
-   (DISEÑO ULTRA-RESPONSIVO CORREGIDO)
+   (DISEÑO ULTRA-RESPONSIVO CON BREAKPOINTS ADAPTATIVOS PARA LAPTOPS)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -47,7 +47,7 @@
     transition: color 0.2s ease !important;
     display: inline-flex !important;
     align-items: center !important;
-    white-space: nowrap !important; /* Previene que se rompa en múltiples líneas */
+    white-space: nowrap !important;
 }
 
 .app__top .app-header #app-header-horizontal .internal-user-login-button:hover {
@@ -141,10 +141,9 @@
 
 
 /* --------------------------------------------------------------------------
-   2. PANTALLAS GRANDES / ESCRITORIO (Desde 769px en adelante)
+   2. PANTALLAS GRANDES / DE ESCRITORIO (Desde 1201px en adelante)
    -------------------------------------------------------------------------- */
-@media (min-width: 769px) {
-    /* Alineadores con espaciado amplio */
+@media (min-width: 1201px) {
     .app__top .app-header #app-header-horizontal .app-header-horizontal__left-wrapper {
         display: flex !important;
         align-items: center !important;
@@ -159,12 +158,10 @@
         height: 100% !important;
     }
 
-    /* Ocultar barras de desplazamiento horizontales de los links */
     .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
         overflow: visible !important;
     }
 
-    /* Lista de Enlaces en Fila */
     .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
         display: flex !important;
         flex-direction: row !important;
@@ -185,7 +182,6 @@
         padding: 10px 0 !important;
     }
 
-    /* Botón de perfil grande */
     .app__top .app-header #app-header-horizontal .user-menu__header {
         width: 40px !important;
         height: 40px !important;
@@ -196,7 +192,6 @@
         height: 20px !important;
     }
 
-    /* Texto de "Soy empleado" completo */
     .app__top .app-header #app-header-horizontal .internal-user-login-button {
         font-size: 14px !important;
     }
@@ -204,7 +199,69 @@
 
 
 /* --------------------------------------------------------------------------
-   3. PANTALLAS PEQUEÑAS / MÓVILES (Hasta 768px)
+   3. PANTALLAS DE LAPTOPS / MEDIANAS (Entre 769px y 1200px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) and (max-width: 1200px) {
+    /* Ajustar gaps y anchuras para prevenir desbordes en laptops */
+    .app__top .app-header #app-header-horizontal .app-header-horizontal__left-wrapper {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.25rem !important;
+        height: 100% !important;
+    }
+
+    .app__top .app-header #app-header-horizontal .app-header-horizontal__right-wrapper {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        height: 100% !important;
+    }
+
+    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
+        overflow: visible !important;
+    }
+
+    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__item {
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+
+    /* Reducir tamaño de letra del menú en Laptops */
+    .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text {
+        font-size: 13px !important;
+        padding: 8px 0 !important;
+    }
+
+    /* Botón de perfil más compacto en laptops */
+    .app__top .app-header #app-header-horizontal .user-menu__header {
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    .app__top .app-header #app-header-horizontal .user-menu__icon {
+        width: 17px !important;
+        height: 17px !important;
+    }
+
+    /* "Soy empleado" más compacto */
+    .app__top .app-header #app-header-horizontal .internal-user-login-button {
+        font-size: 12px !important;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   4. PANTALLAS PEQUEÑAS / MÓVILES (Hasta 768px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
     /* Ajustes generales de cabecera en móvil */
@@ -213,9 +270,9 @@
         padding: 0 1rem !important;
     }
 
-    /* No forzar horizontalidad en móvil para que actúe el colapso nativo de Oracle */
+    /* Ocultar los links de texto para permitir que cargue la hamburguesa nativa de Oracle */
     .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
-        display: none !important; /* Deja que el menú hamburguesa nativo de Oracle se encargue */
+        display: none !important;
     }
 
     .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
@@ -224,10 +281,10 @@
 
     /* Reducir gaps en el wrapper derecho para evitar amontonamiento */
     .app__top .app-header #app-header-horizontal .app-header-horizontal__right-wrapper {
-        gap: 0.75rem !important;
+        gap: 0.5rem !important;
     }
 
-    /* Botón "Soy empleado" más compacto */
+    /* Botón "Soy empleado" súper compacto tipo píldora */
     .app__top .app-header #app-header-horizontal .internal-user-login-button {
         font-size: 11px !important;
         padding: 4px 8px !important;
@@ -236,7 +293,7 @@
         border: 1px solid #e5e7eb !important;
     }
 
-    /* Botón de perfil más compacto en móviles */
+    /* Botón de perfil móvil */
     .app__top .app-header #app-header-horizontal .user-menu__header {
         width: 32px !important;
         height: 32px !important;
