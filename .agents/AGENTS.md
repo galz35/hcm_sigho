@@ -22,3 +22,6 @@ Estas reglas previenen los bloqueos de seguridad del validador de Oracle HCM en 
 
 ## 3. Buscador Nativo y Posicionamiento
 * **Superposición (Overlap)**: Para lograr que el buscador nativo flote sobre el Hero Banner como en el diseño de Figma/HTML, se debe colocar el componente de búsqueda nativo justo debajo del bloque Hero en el editor de Oracle, y aplicar un margen negativo en CSS (`margin-top: -65px !important; z-index: 40; position: relative;`).
+
+## 4. Estilo de Comunicación del Agente
+* **Explicaciones breves y directas**: Al final de cada interacción, el agente debe proporcionar una explicación o resumen de su trabajo de forma extremadamente concisa, directa y utilizando viñetas claras, sin rodeos ni explicaciones largas.
