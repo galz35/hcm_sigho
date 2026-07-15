@@ -1,0 +1,170 @@
+/* ==========================================================================
+   RESTAURACIÓN DEL BUSCADOR NATIVO DE ORACLE (DISEÑO HORIZONTAL ORIGINAL)
+   ========================================================================== */
+
+/* Contenedor Principal del Buscador */
+[dir] .search-box-compact {
+    background-color: #ffffff !important;
+    border-radius: 50px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #e5e7eb !important;
+    padding: 8px 12px 8px 24px !important;
+    max-width: 460px !important;
+    z-index: 40 !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+/* 1. CELULARES Y TABLETS (Hasta 768px) */
+@media (max-width: 768px) {
+    [dir] .search-box-compact {
+        flex-direction: column !important;
+        border-radius: 20px !important;
+        padding: 16px !important;
+        margin: -30px auto 24px auto !important;
+        align-items: stretch !important;
+        height: auto !important;
+        min-height: auto !important;
+        max-width: 100% !important;
+    }
+}
+
+/* 2. LAPTOPS / PANTALLAS MEDIANAS (De 768px a 1200px) */
+@media (min-width: 768px) and (max-width: 1200px) {
+    [dir] .search-box-compact {
+        margin: -100px auto 40px 10% !important;
+    }
+}
+
+/* 3. MONITORES / PANTALLAS GRANDES (Mayor a 1200px) */
+@media (min-width: 1200px) {
+    [dir] .search-box-compact {
+        margin: -100px auto 40px 24% !important;
+    }
+}
+
+/* Ocultar pseudo-elementos nativos */
+[dir] .search-box-compact__form::before,
+[dir] .search-box-compact__fieldset::before,
+[dir] .search-box-compact__button-border,
+[dir] .search-box-compact__button-background {
+    display: none !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Alinear elementos horizontalmente */
+[dir] .search-box-compact__form,
+[dir] .search-box-compact__fieldset,
+[dir] .search-box-compact__field,
+[dir] .search-box-compact-recruiting-location .input-row__search-input,
+[dir] .search-box-compact-recruiting-location .input-row__search-input .oj-combobox-input {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    align-self: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Estilo de los inputs */
+[dir] .search-box-compact__input {
+    border: none !important;
+    background: transparent !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #1f2937 !important;
+    padding: 0 16px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    height: 38px !important;
+    line-height: 38px !important;
+    align-self: center !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+}
+
+[dir] .search-box-compact__input::placeholder {
+    color: #9ca3af !important;
+    font-weight: 500 !important;
+}
+
+/* Geolocalización */
+[dir] .search-box-compact__action,
+[dir] .search-box-compact__action--location,
+[dir] .search-box-compact__action--radius {
+    border: none !important;
+    background: transparent !important;
+    align-self: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    height: 38px !important;
+}
+
+/* Separador Vertical */
+[dir] .search-box-compact__separator {
+    width: 1px !important;
+    height: 24px !important;
+    background-color: #d1d5db !important;
+    margin: 0 12px !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    align-self: center !important;
+}
+
+/* Botón de Búsqueda Rojo */
+[dir] .search-box-compact__button {
+    background-color: #da291c !important;
+    color: #ffffff !important;
+    border-radius: 50px !important;
+    border: none !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    padding: 0 24px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+    box-shadow: 0 4px 10px rgba(218, 41, 28, 0.3) !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    align-self: center !important;
+    margin: 0 !important;
+}
+
+/* Texto Buscar en el botón */
+[dir] .search-box-compact__button-icon,
+[dir] .search-box-compact__button .cx-icon,
+[dir] .search-box-compact__button svg,
+[dir] .search-box-compact__button span[class*="icon"],
+[dir] .search-box-compact__button oj-icon {
+    display: none !important;
+}
+
+[dir] .search-box-compact__button::after {
+    content: "Buscar" !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}

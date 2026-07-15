@@ -1,0 +1,96 @@
+.app__top .app-header #app-header-horizontal.app-header-horizontal {
+    background: #fff !important;
+    height: 72px !important;
+    padding: 0 1.5rem !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+}
+.app__top .app-header #app-header-horizontal .sitemap-link {
+    display: none !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal__left-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important; /* Reducido de 3rem a 1.5rem para evitar saltos */
+    height: 100% !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal__right-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important; /* Reducido de 1.5rem a 1rem */
+    height: 100% !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
+    overflow: visible !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.25rem !important; /* Reducido de 2rem a 1.25rem */
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important; /* Previene el salto de fila */
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 13px !important; /* Reducido a 13px para mejorar distribución */
+    font-weight: 700 !important;
+    color: #4b5563 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important; /* Previene que se rompa un link largo como "Apoyo al candidato" */
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text:hover {
+    color: #da291c !important;
+}
+.app__top .app-header #app-header-horizontal .internal-user-login-button {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #4b5563 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+.app__top .app-header #app-header-horizontal .internal-user-login-button:hover {
+    color: #da291c !important;
+}
+
+/* BOTÓN DE PERFIL ULTRA LIMPIO (SIN DOBLE ICONO) */
+.app__top .app-header #app-header-horizontal .user-menu__header {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background-color: #da291c !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 20px !important; /* Centrado del SVG blanco */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+.app__top .app-header #app-header-horizontal .user-menu__header:hover {
+    background-color: #b81e13 !important;
+}
+
+/* ELIMINAR COMPLETAMENTE CUALQUIER ICONO O TEXTO NATIVO DE ORACLE DENTRO DEL BOTÓN DE PERFIL */
+.app__top .app-header #app-header-horizontal .user-menu__header * {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+@media(max-width:768px) {
+    .app__top .app-header #app-header-horizontal.app-header-horizontal {
+        padding: 0 1rem !important;
+        height: 64px !important;
+    }
+}
