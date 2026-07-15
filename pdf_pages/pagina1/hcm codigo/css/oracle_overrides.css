@@ -24,7 +24,7 @@ header,
 .claro-hl-carpet {
     position: absolute !important;
     top: 0px !important;
-    height: 88px !important;
+    height: 104px !important;
     background-color: #b81e13 !important;
     z-index: 0 !important;
     width: 100vw !important;
@@ -75,7 +75,7 @@ header,
     flex: 1 1 30% !important;
     min-width: 200px !important;
     text-align: center !important;
-    padding: 12px 24px 10px 24px !important;
+    padding: 20px 24px 18px 24px !important;
     color: #ffffff !important;
     display: flex !important;
     flex-direction: column !important;
