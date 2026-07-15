@@ -27,7 +27,7 @@
     background-size: cover !important;
     background-repeat: no-repeat !important;
     
-    /* IMAGEN DE FONDO PREDETERMINADA (Para carga inicial y fallback) */
+    /* IMAGEN DE FONDO PREDETERMINADA */
     background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=2069&q=80') !important;
     
     /* ANCHO COMPLETO IGUAL AL DE LA PÁGINA (Full Bleed) */
@@ -39,7 +39,53 @@
     
     /* EFECTO CARRUSEL ACTIVO (20 segundos por ciclo completo) */
     animation: hero-carousel 20s infinite !important;
-    transition: background-image 1s ease-in-out !important;
+    transition: background-image 0.6s ease-in-out !important;
+}
+
+/* ==========================================================================
+   INTERACTIVIDAD POR CLICS SIN JAVASCRIPT (CSS PSEUDO-CLASS HACK)
+   ========================================================================== */
+
+/* Detener animación automática al seleccionar un slide manualmente */
+.hero-bg:has(#slide-1:checked),
+.hero-bg:has(#slide-2:checked),
+.hero-bg:has(#slide-3:checked),
+.hero-bg:has(#slide-4:checked) {
+    animation: none !important;
+}
+
+/* Cambiar la imagen de fondo según el botón de radio seleccionado */
+.hero-bg:has(#slide-1:checked) {
+    background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=2069&q=80') !important;
+}
+.hero-bg:has(#slide-2:checked) {
+    background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2069&q=80') !important;
+}
+.hero-bg:has(#slide-3:checked) {
+    background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=2069&q=80') !important;
+}
+.hero-bg:has(#slide-4:checked) {
+    background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2069&q=80') !important;
+}
+
+/* Activar visualmente el puntito correspondiente */
+.hero-bg:has(#slide-1:checked) label[for="slide-1"],
+.hero-bg:has(#slide-2:checked) label[for="slide-2"],
+.hero-bg:has(#slide-3:checked) label[for="slide-3"],
+.hero-bg:has(#slide-4:checked) label[for="slide-4"] {
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+    background-color: #da291c !important;
+}
+
+/* Ocultar inputs de radio por completo */
+.hero-bg input[type="radio"].hidden {
+    display: none !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
 }
 
 /* Capa de degradado Claro para legibilidad del texto */
@@ -51,7 +97,7 @@
     z-index: 1 !important;
 }
 
-/* Indicadores de Carrusel (Puntitos) */
+/* Indicadores de Carrusel (Puntitos/Labels) */
 .dot-indicator {
     width: 10px !important;
     height: 10px !important;
@@ -64,7 +110,6 @@
     transition: all 0.3s ease !important;
 }
 
-.dot-indicator.active {
-    opacity: 1 !important;
-    transform: scale(1.2) !important;
+.dot-indicator:hover {
+    opacity: 0.7 !important;
 }
