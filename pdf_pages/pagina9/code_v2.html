@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Experiencia del Candidato - Claro</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            claro: {
+              red: '#DA291C',
+              dark: '#2A2A2A',
+              light: '#F8F8F8',
+              gray: '#7A7A7A'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style data-purpose="custom-styles">
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    .hero-bg {
+      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXahoh02NFOxTwyyg45abM7g9GbH_3NH82_B4wywr-HIo4Od0frAx99e0Xw4vealbLr5JYGNwcYyflcjybmcg52W3V32hIYMenIZJPMmp01x0_a1C2bpTHfAB71XhSRxowPHciC0eQ4P4jVxHk_jYlZyOMTmHvHlGkJVRSOuhSnIfuNuX0Pi0fyEkQ2jxRIXzv88i_jh7vANv5T6gy_bWR47FSTOTlVyWrqDGYvu-sYS748U4dIOwXkGo8C0KV4mc2BBg');
+      background-size: cover;
+      background-position: center top;
+      position: relative;
+    }
+    .hero-overlay {
+      background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.15) 100%);
+    }
+    .accordion-button::after {
+      content: '+';
+      float: right;
+      color: #DA291C;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+    .cta-bg {
+      background: linear-gradient(90deg, #A11913 0%, #DA291C 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-pattern {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.2;
+      background-image: radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent), radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent);
+      background-size: 100px 50px;
+    }
+    .login-dropdown-arrow::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      border-width: 0 10px 10px 10px;
+      border-style: solid;
+      border-color: transparent transparent #e5e7eb transparent;
+    }
+    .login-dropdown-arrow::after {
+      content: "";
+      position: absolute;
+      top: -9px;
+      right: 15px;
+      border-width: 0 9px 9px 9px;
+      border-style: solid;
+      border-color: transparent transparent #eef1f4 transparent;
+    }
+    .card-shadow {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+  </style>
+</head>
+<body class="text-gray-800 antialiased bg-[#fbfbfb] overflow-x-hidden">
+  <!-- BEGIN: MainHeader -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="container mx-auto px-4 lg:px-8 py-3 flex items-center justify-between relative">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img alt="Claro Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbCtOxGJJx-ou4hkG5DvYOlqNUV68BZ4u3LdWjwEz5oSxS2yP8ZpQ16Ohe_aFhq7j0rfzYJWtyjy9Cz0cKBIRFWmSoc_yxz_rvURQ9vOqSx5nLfjpqKmtA0GtPrew6kHWufFWaHrgSZoPXy1kzMY0_rFRfqxH2ov0Fsr2oApeZQNKu4omcxCiIK6ZW_ZClYZ0_xfzoj3yZpzuMHqGN6jiP_nu3MSPooZGT1CnUPqGk1yCb_VIY4IaZ"/>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium text-gray-600">
+        <a class="hover:text-claro-red transition-colors py-2" href="#">Inicio</a>
+        <a class="hover:text-claro-red transition-colors py-2" href="#">Vacantes</a>
+        <a class="hover:text-claro-red transition-colors py-2" href="#">Nuestra Esencia</a>
+        <a class="hover:text-claro-red transition-colors py-2" href="#">Claro en tu País</a>
+        <a class="text-claro-red border-b-2 border-claro-red pb-2 font-semibold" href="#">Apoyo al Candidato</a>
+      </nav>
+
+      <!-- Profile Icon & Login Dropdown -->
+      <div class="relative flex items-center">
+        <button id="profile-btn" class="bg-claro-red text-white p-2.5 rounded-full hover:bg-red-700 transition-colors focus:outline-none">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </button>
+
+        <!-- Login Dropdown Popover (Visible by default to match image) -->
+        <div id="login-dropdown" class="absolute right-0 top-12 w-[340px] bg-[#eef1f4] border border-gray-200 rounded-2xl shadow-xl p-5 z-50 login-dropdown-arrow transition-all">
+          <!-- Correo Electrónico -->
+          <div class="mb-3">
+            <label class="block text-xs font-bold text-gray-600 mb-1">Correo Electrónico</label>
+            <input type="email" placeholder="ejemplo@correo.com" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-claro-red focus:border-claro-red"/>
+          </div>
+          <!-- Contraseña -->
+          <div class="mb-4">
+            <label class="block text-xs font-bold text-gray-600 mb-1">Contraseña</label>
+            <input type="password" placeholder="************" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-claro-red focus:border-claro-red"/>
+          </div>
+          <!-- Buttons -->
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-claro-red hover:bg-[#c91820] text-white text-xs font-bold py-2.5 px-3 rounded-full flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-user text-xs mr-1.5"></i> Iniciar sesión
+            </button>
+            <button class="flex-1 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-xs font-bold py-2.5 px-3 rounded-full flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-user-plus text-xs mr-1.5"></i> Crear Perfil
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END: MainHeader -->
+
+  <main>
+    <!-- BEGIN: Hero Section -->
+    <section class="relative bg-gray-200 min-h-[500px] flex items-center hero-bg">
+      <div class="absolute inset-0 hero-overlay"></div>
+      <div class="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col md:flex-row justify-between items-center py-12">
+        <!-- Text Content -->
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            Experiencia del <br/>
+            <span class="text-claro-red">Candidato</span>
+          </h1>
+          <h2 class="text-xl md:text-2xl font-semibold mb-4 text-gray-900">Tu camino hacia una nueva oportunidad comienza acá</h2>
+          <p class="text-base md:text-lg text-gray-850 max-w-md">
+            Queremos que tu proceso sea claro, simple y transparente. Conoce cada etapa, resuelve tus dudas y prepárate para dar el siguiente paso.
+          </p>
+          <!-- Pagination dots -->
+          <div class="flex items-center space-x-2 mt-8">
+            <span class="h-2 w-2 rounded-full bg-white/50 shadow"></span>
+            <span class="h-2 w-2 rounded-full bg-white/50"></span>
+            <span class="h-3.5 w-3.5 rounded-full bg-white"></span>
+            <span class="h-2 w-2 rounded-full bg-white/50"></span>
+          </div>
+        </div>
+        <!-- Right Column Spacer -->
+        <div class="md:w-1/2"></div>
+      </div>
+    </section>
+    <!-- END: Hero Section -->
+
+    <!-- BEGIN: Selection Process -->
+    <section class="py-16 bg-[#fbfbfb]">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-claro-red font-bold text-lg mb-2">Nuestro Proceso de Selección</h3>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Así funciona tu proceso en Claro</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto mb-16">
+          Un proceso transparente, ágil y pensado para que<br/> tengas una mejor experiencia.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-between items-start relative max-w-5xl mx-auto px-4 md:px-0">
+          <!-- Connecting Line (hidden on mobile) -->
+          <div class="hidden md:block absolute top-12 left-12 right-12 border-t-2 border-dashed border-gray-300 z-0"></div>
+
+          <!-- Step 1 -->
+          <div class="flex flex-col items-center relative z-10 w-full md:w-1/4 mb-8 md:mb-0">
+            <div class="w-24 h-24 rounded-full bg-claro-red text-white flex items-center justify-center mb-4 shadow-md">
+              <i class="fa-regular fa-file-lines text-4xl"></i>
+            </div>
+            <h4 class="font-bold text-xl mb-2">1. Postúlate</h4>
+            <p class="text-sm text-gray-500 px-2">Encuentra la vacante ideal y envía tu postulación en pocos pasos.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col items-center relative z-10 w-full md:w-1/4 mb-8 md:mb-0">
+            <div class="w-24 h-24 rounded-full bg-claro-red text-white flex items-center justify-center mb-4 shadow-md">
+              <i class="fa-solid fa-file-signature text-4xl"></i>
+            </div>
+            <h4 class="font-bold text-xl mb-2">2. Descubrimos<br/>tu talento</h4>
+            <p class="text-sm text-gray-500 px-2">Analizamos tu perfil, experiencia y competencias.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center relative z-10 w-full md:w-1/4 mb-8 md:mb-0">
+            <div class="w-24 h-24 rounded-full bg-claro-red text-white flex items-center justify-center mb-4 shadow-md">
+              <i class="fa-solid fa-user-voice text-4xl"></i>
+            </div>
+            <h4 class="font-bold text-xl mb-2">3. Conectamos</h4>
+            <p class="text-sm text-gray-500 px-2">Conoce a nuestro equipo y conversemos sobre tu futuro.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flex flex-col items-center relative z-10 w-full md:w-1/4">
+            <div class="w-24 h-24 rounded-full bg-claro-red text-white flex items-center justify-center mb-4 shadow-md">
+              <i class="fa-regular fa-circle-check text-4xl"></i>
+            </div>
+            <h4 class="font-bold text-xl mb-2">4. Comienza tu<br/>historia en Claro</h4>
+            <p class="text-sm text-gray-500 px-2">¡Bienvenido(a) a Claro! Comienza tu nueva etapa profesional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Selection Process -->
+
+    <!-- BEGIN: FAQ and Tips Section -->
+    <section class="py-16 bg-white border-t border-gray-150">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="flex flex-col lg:flex-row gap-12">
+          <!-- Left Column: FAQ -->
+          <div class="lg:w-1/2 pr-0 lg:pr-8 lg:border-r border-red-100">
+            <div class="flex items-center mb-8">
+              <div class="w-12 h-12 text-claro-red mr-4 flex items-center justify-center">
+                <i class="fa-regular fa-comments text-4xl"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900">Preguntas frecuentes</h2>
+                <p class="text-gray-600">Resuelve tus dudas</p>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <!-- Accordion Item 1 -->
+              <div class="border border-gray-200 rounded-lg p-4 bg-white">
+                <button class="w-full text-left font-bold text-gray-800 accordion-button focus:outline-none">
+                  ¿Necesito crear un perfil para aplicar?
+                </button>
+                <div class="mt-2 text-sm text-gray-600 pr-8">
+                  Sí. Al crear tu perfil puedes aplicar a vacantes y dar seguimiento a tus postulaciones.
+                </div>
+              </div>
+
+              <!-- Accordion Item 2 -->
+              <div class="border border-gray-200 rounded-lg p-4 bg-white">
+                <button class="w-full text-left font-bold text-gray-800 accordion-button focus:outline-none">
+                  ¿Puedo aplicar a más de una vacante?
+                </button>
+                <div class="mt-2 text-sm text-gray-600 pr-8">
+                  Sí. Puedes aplicar a las oportunidades que se ajusten a tu perfil y experiencia.
+                </div>
+              </div>
+
+              <!-- Accordion Item 3 -->
+              <div class="border border-gray-200 rounded-lg p-4 bg-white">
+                <button class="w-full text-left font-bold text-gray-800 accordion-button focus:outline-none">
+                  ¿Cómo puedo revisar el estado de mi aplicación?
+                </button>
+                <div class="mt-2 text-sm text-gray-600 pr-8">
+                  Ingresa a tu perfil y revisa el seguimiento de tus postulaciones.
+                </div>
+              </div>
+
+              <!-- Accordion Item 4 -->
+              <div class="border border-gray-200 rounded-lg p-4 bg-white">
+                <button class="w-full text-left font-bold text-gray-800 accordion-button focus:outline-none">
+                  ¿Qué pasa si no fui seleccionado?
+                </button>
+                <div class="mt-2 text-sm text-gray-600 pr-8">
+                  Tu información seguirá en nuestra comunidad de talento para futuras oportunidades.
+                </div>
+              </div>
+
+              <!-- Accordion Item 5 -->
+              <div class="border border-gray-200 rounded-lg p-4 bg-white">
+                <button class="w-full text-left font-bold text-gray-800 accordion-button focus:outline-none">
+                  ¿Puedo actualizar mi perfil después?
+                </button>
+                <div class="mt-2 text-sm text-gray-600 pr-8">
+                  Sí. Puedes ingresar y actualizar tu información cuando lo necesites.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Tips -->
+          <div class="lg:w-1/2">
+            <div class="flex items-center mb-8">
+              <div class="w-12 h-12 text-claro-red mr-4 flex items-center justify-center">
+                <i class="fa-regular fa-lightbulb text-4xl"></i>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-gray-900">Consejos para postular</h2>
+                <p class="text-gray-600">Prepárate para destacar</p>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <!-- Tip Card 1 -->
+              <div class="flex items-start border border-gray-200 rounded-2xl p-5 bg-white shadow-sm hover:shadow-md transition">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-50 text-claro-red flex items-center justify-center mr-4">
+                  <i class="fa-solid fa-users text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800 mb-1">Completa tu perfil</h3>
+                  <p class="text-sm text-gray-600">Asegúrate de mantener tu experiencia y datos actualizados.</p>
+                </div>
+              </div>
+
+              <!-- Tip Card 2 -->
+              <div class="flex items-start border border-gray-200 rounded-2xl p-5 bg-white shadow-sm hover:shadow-md transition">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-50 text-claro-red flex items-center justify-center mr-4">
+                  <i class="fa-regular fa-star text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800 mb-1">Destaca tu experiencia</h3>
+                  <p class="text-sm text-gray-600">Incluye información clara sobre proyectos, logros y habilidades.</p>
+                </div>
+              </div>
+
+              <!-- Tip Card 3 -->
+              <div class="flex items-start border border-gray-200 rounded-2xl p-5 bg-white shadow-sm hover:shadow-md transition">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-50 text-claro-red flex items-center justify-center mr-4">
+                  <i class="fa-regular fa-circle-check text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800 mb-1">Revisa tu información</h3>
+                  <p class="text-sm text-gray-600">Verifica que tus datos estén correctos antes de enviar tu aplicación.</p>
+                </div>
+              </div>
+
+              <!-- Tip Card 4 -->
+              <div class="flex items-start border border-gray-200 rounded-2xl p-5 bg-white shadow-sm hover:shadow-md transition">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-50 text-claro-red flex items-center justify-center mr-4">
+                  <i class="fa-solid fa-bullseye text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800 mb-1">Aplica a oportunidades alineadas con tu perfil</h3>
+                  <p class="text-sm text-gray-600">Postúlate a vacantes que realmente conecten con tu experiencia y objetivos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: FAQ and Tips Section -->
+
+    <!-- BEGIN: Call to Action -->
+    <section class="cta-bg py-16">
+      <div class="cta-pattern"></div>
+      <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row justify-between items-center text-white max-w-5xl">
+        <div class="mb-8 md:mb-0 md:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">Dá el siguiente paso<br/>en tu carrera</h2>
+          <p class="text-white/90">Crea tu perfil y recibe oportunidades que<br/>impulsen tu crecimiento profesional.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+          <button id="cta-login-btn" class="bg-white text-claro-red font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
+            <i class="fa-regular fa-user"></i> Iniciar sesión
+          </button>
+          <button class="bg-transparent border border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+            Crear Perfil <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- END: Call to Action -->
+  </main>
+
+  <!-- BEGIN: Footer -->
+  <footer class="bg-claro-dark text-white py-8">
+    <div class="container mx-auto px-4 border-b border-gray-600 pb-6 mb-6 flex flex-col md:flex-row justify-between items-center">
+      <!-- Footer Logo -->
+      <div class="flex items-center mb-4 md:mb-0">
+        <img alt="Claro" class="h-8 brightness-0 invert mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-a7EwGxnjQt8YEIf_8dGY3JGlA5ltBfSxBx9wWPJwrYFDPhpgUmFfq1SUeLVbeE256Kod11UvXaro1b1-sxyq7vKWRd7G2iyyYnM9LVWASLSUsbVXYYN-IAXkHsCWUJxpMYWW54ZETUkZP8RQhohkokfIBAnAH1WYhKAVDvzoNGYuFZOR1h6cF52qlefXJ-kgv8rH7Q6WCcXBuTkv7hFyIx5F9lF5owhUiITTwjC5ojwsIH86Y_7l"/>
+        <span class="text-xs text-gray-400 ml-4 border-l border-gray-600 pl-4">una empresa<br/><strong>AMÉRICA MÓVIL</strong></span>
+      </div>
+      <!-- Social Icons -->
+      <div class="flex space-x-4">
+        <a class="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center hover:bg-claro-red transition-colors" href="#"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+        <a class="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center hover:bg-claro-red transition-colors" href="#"><i class="fa-brands fa-x-twitter text-sm"></i></a>
+        <a class="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center hover:bg-claro-red transition-colors" href="#"><i class="fa-brands fa-instagram text-sm"></i></a>
+        <a class="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center hover:bg-claro-red transition-colors" href="#"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+      </div>
+    </div>
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+      <p>Todos los derechos reservados, Claro 2026</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a class="hover:text-white" href="#">Mapa de sitio</a>
+        <span>|</span>
+        <a class="hover:text-white" href="#">Portal de denuncias</a>
+        <span>|</span>
+        <a class="hover:text-white" href="#">Privacidad</a>
+        <span>|</span>
+        <a class="hover:text-white" href="#">Legal y Regulatorio</a>
+      </div>
+    </div>
+
+    <!-- Floating Accessibility Icon -->
+    <div class="fixed bottom-4 left-4 z-50">
+      <button class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:bg-blue-700">
+        <i class="fa-solid fa-universal-access"></i>
+      </button>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <div class="fixed bottom-4 right-4 z-50">
+      <button class="w-10 h-10 rounded-full bg-yellow-500 text-white flex items-center justify-center shadow-lg hover:bg-yellow-600">
+        <i class="fa-solid fa-comment-dots text-xl"></i>
+      </button>
+    </div>
+  </footer>
+  <!-- END: Footer -->
+
+  <!-- Interactive script to toggle dropdown -->
+  <script>
+    const profileBtn = document.getElementById('profile-btn');
+    const ctaLoginBtn = document.getElementById('cta-login-btn');
+    const loginDropdown = document.getElementById('login-dropdown');
+    
+    function toggleDropdown(e) {
+      e.stopPropagation();
+      loginDropdown.classList.toggle('hidden');
+    }
+
+    profileBtn.addEventListener('click', toggleDropdown);
+    if(ctaLoginBtn) {
+      ctaLoginBtn.addEventListener('click', toggleDropdown);
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!loginDropdown.contains(e.target) && e.target !== profileBtn && !profileBtn.contains(e.target)) {
+        loginDropdown.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

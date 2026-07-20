@@ -1,0 +1,60 @@
+================================================================================
+  GUÍA DE INTEGRACIÓN EN ORACLE HCM - NUESTRA ESENCIA (PÁGINA 7)
+================================================================================
+
+Este directorio contiene los archivos preparados y optimizados para Oracle Cloud
+HCM Recruiting (ORC) con aislamiento de estilos para evitar conflictos entre páginas.
+
+ESTRUCTURA DE ARCHIVOS:
+  1. nuestra_esencia_styles.css   -> Estilos scoped (Theme > Custom CSS)
+  2. nuestra_esencia_template.html -> HTML completo limpio (Custom HTML block)
+  3. nuestra_esencia_divided/      -> Secciones divididas por si subes bloques separados
+
+================================================================================
+  PASO 1: PEGAR EL CSS EN EL TEMA DE ORACLE HCM
+================================================================================
+
+1. Inicia sesión en Oracle Cloud HCM.
+2. Ve a: Setup and Maintenance (Configuración y mantenimiento) -> Recruiting -> Career Sites.
+3. Edita tu sitio de carreras.
+4. En el panel izquierdo, abre la pestaña "Theme" (Tema).
+5. Selecciona "Custom CSS" (CSS personalizado).
+6. Copia todo el contenido de:
+   [nuestra_esencia_styles.css](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagina7/hcm_delivery/nuestra_esencia_styles.css)
+7. Pégalo en el editor de CSS de Oracle.
+8. Guarda los cambios ("Save").
+
+* NOTA: Todos los estilos de esta página están aislados bajo la clase CSS
+  `.hcm-nuestra-esencia`, lo que garantiza que ninguna otra página del sitio de
+  carreras se vea afectada.
+
+================================================================================
+  PASO 2: PEGAR EL HTML
+================================================================================
+
+Opción A: Subir el contenido unificado (Recomendado si usas un solo bloque)
+---------------------------------------------------------------------------
+1. En el editor de páginas, selecciona la página correspondiente a "Nuestra Esencia".
+2. Agrega o edita una sección de tipo "Custom HTML".
+3. Copia todo el contenido de:
+   [nuestra_esencia_template.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagina7/hcm_delivery/nuestra_esencia_template.html)
+4. Pégalo en el bloque y haz clic en "Done" (Listo).
+
+Opción B: Subir por secciones separadas
+--------------------------------------
+Si prefieres estructurar el sitio web con múltiples bloques HTML separados en el
+editor de Oracle, utiliza los archivos de la carpeta `nuestra_esencia_divided`:
+- [seccion1_hero.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion1_hero.html)
+- [seccion2_features.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion2_features.html)
+- [seccion3_red_divider.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion3_red_divider.html)
+
+* IMPORTANTE: Cada bloque está envuelto en un contenedor `<div class="hcm-nuestra-esencia">`
+  para que el CSS se aplique correctamente a cada parte por separado sin interferencias.
+
+================================================================================
+  REGLAS DE SEGURIDAD ORACLE HCM CUMPLIDAS
+================================================================================
+✓ Cero etiquetas restringidas: No hay <html>, <head>, <body>, <style> ni <script>.
+✓ Sin llamadas complejas a Google Fonts (previene bloqueos WAF 403).
+✓ Scoping estricto por clase y por ID para evitar que herede o rompa estilos de otras páginas.
+================================================================================

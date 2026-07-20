@@ -1,0 +1,63 @@
+================================================================================
+  GUÍA DE INTEGRACIÓN EN ORACLE HCM - CLARO EN HONDURAS (PÁGINA 8)
+================================================================================
+
+Este directorio contiene los archivos preparados y optimizados para Oracle Cloud
+HCM Recruiting (ORC) con aislamiento de estilos para evitar conflictos entre páginas.
+
+ESTRUCTURA DE ARCHIVOS:
+  1. honduras_styles.css   -> Estilos scoped (Theme > Custom CSS)
+  2. honduras_template.html -> HTML completo limpio (Custom HTML block)
+  3. honduras_divided/      -> Secciones divididas por si subes bloques separados
+
+================================================================================
+  PASO 1: PEGAR EL CSS EN EL TEMA DE ORACLE HCM
+================================================================================
+
+1. Inicia sesión en Oracle Cloud HCM.
+2. Ve a: Setup and Maintenance (Configuración y mantenimiento) -> Recruiting -> Career Sites.
+3. Edita tu sitio de carreras.
+4. En el panel izquierdo, abre la pestaña "Theme" (Tema).
+5. Selecciona "Custom CSS" (CSS personalizado).
+6. Copia todo el contenido de:
+   [honduras_styles.css](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagin8/hcm_delivery/honduras_styles.css)
+7. Pégalo en el editor de CSS de Oracle.
+8. Guarda los cambios ("Save").
+
+* NOTA: Todos los estilos de esta página están aislados bajo la clase CSS
+  `.hcm-claro-honduras`, lo que garantiza que ninguna otra página del sitio de
+  carreras se vea afectada.
+
+================================================================================
+  PASO 2: PEGAR EL HTML
+================================================================================
+
+Opción A: Subir el contenido unificado (Recomendado si usas un solo bloque)
+---------------------------------------------------------------------------
+1. En el editor de páginas, selecciona la página correspondiente a "Claro en tu País (Honduras)".
+2. Agrega o edita una sección de tipo "Custom HTML".
+3. Copia todo el contenido de:
+   [honduras_template.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagin8/hcm_delivery/honduras_template.html)
+4. Pégalo en el bloque y haz clic en "Done" (Listo).
+
+Opción B: Subir por secciones separadas
+--------------------------------------
+Si prefieres estructurar el sitio web con múltiples bloques HTML separados en el
+editor de Oracle, utiliza los archivos de la carpeta `honduras_divided`:
+- [seccion1_hero.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion1_hero.html)
+- [seccion2_pasantia.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion2_pasantia.html)
+- [seccion3_cultura.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion3_cultura.html)
+- [seccion4_testimonios.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion4_testimonios.html)
+- [seccion5_historia.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion5_historia.html)
+- [seccion6_cta.html](file:///D:/sigho%20dise%C3%B1o/pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion6_cta.html)
+
+* IMPORTANTE: Cada bloque está envuelto en un contenedor `<div class="hcm-claro-honduras">`
+  para que el CSS se aplique correctamente a cada parte por separado sin interferencias.
+
+================================================================================
+  REGLAS DE SEGURIDAD ORACLE HCM CUMPLIDAS
+================================================================================
+✓ Cero etiquetas restringidas: No hay <html>, <head>, <body>, <style> ni <script>.
+✓ Sin llamadas complejas a Google Fonts (previene bloqueos WAF 403).
+✓ Scoping estricto por clase y por ID para evitar que herede o rompa estilos de otras páginas.
+================================================================================

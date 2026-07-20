@@ -1,0 +1,48 @@
+/* ==========================================================================
+   ORACLE HCM CUSTOM STYLESHEET - NUESTRA ESENCIA (PÁGINA 7)
+   All selectors are scoped under #hcm-nuestra-esencia to prevent conflicts.
+   ========================================================================== */
+
+/* Import Tailwind CSS v2 directly (allowed by WAF) */
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+
+/* Custom Scoped Styles */
+.hcm-nuestra-esencia {
+  font-family: "Inter", sans-serif;
+}
+
+.hcm-nuestra-esencia .hero-bg {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 100%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuDI2Wj_QRQiZbGBQea6oJ3TwpNHRPv9EV5XFRFAPmoL2FER_kDVKOIFiT7R7gI_BEjiYtUoh43pTBKwjSpSPKmPza6QCPzSDiBwo1glW3Mee2s07IolGxnsV4QxEMFIfsL7nen4FkMOE_Dg2UpKo2kC5X-OZfWQZsJDYMATR3Wb2L_gKQnswRIGM-sRnfpbC1tK97fxzgDqymcWnAyB-GsA33iCkE6m_t5TBwtnHUuqS5nkB4OMfBSw);
+  background-size: cover;
+  background-position: center;
+}
+
+.hcm-nuestra-esencia .login-dropdown-arrow::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #e5e7eb transparent;
+}
+
+.hcm-nuestra-esencia .login-dropdown-arrow::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  right: 15px;
+  border-width: 0 9px 9px 9px;
+  border-style: solid;
+  border-color: transparent transparent #eef1f4 transparent;
+}
+
+.hcm-nuestra-esencia .card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.hcm-nuestra-esencia .icon-circle {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+}

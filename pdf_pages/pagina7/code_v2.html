@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Vive la experiencia Claro</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            claro: {
+              red: '#e32029',
+              dark: '#333333',
+              gray: '#f4f4f4'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style data-purpose="custom-styles">
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    .hero-bg {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 100%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuDI2Wj_QRQiZbGBQea6oJ3TwpNHRPv9EV5XFRFAPmoL2FER_kDVKOIFiT7R7gI_BEjiYtUoh43pTBKwjSpSPKmPza6QCPzSDiBwo1glW3Mee2s07IolGxnsV4QxEMFIfsL7nen4FkMOE_Dg2UpKo2kC5X-OZfWQZsJDYMATR3Wb2L_gKQnswRIGM-sRnfpbC1tK97fxzgDqymcWnAyB-GsA33iCkE6m_t5TBwtnHUuqS5nkB4OMfBSw);
+      background-size: cover;
+      background-position: center;
+    }
+    .login-dropdown-arrow::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      border-width: 0 10px 10px 10px;
+      border-style: solid;
+      border-color: transparent transparent #e5e7eb transparent;
+    }
+    .login-dropdown-arrow::after {
+      content: "";
+      position: absolute;
+      top: -9px;
+      right: 15px;
+      border-width: 0 9px 9px 9px;
+      border-style: solid;
+      border-color: transparent transparent #eef1f4 transparent;
+    }
+    .card-shadow {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .icon-circle {
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
+  <!-- BEGIN: MainHeader -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="container mx-auto px-4 lg:px-8 py-3 flex items-center justify-between relative">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img alt="Claro Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbCtOxGJJx-ou4hkG5DvYOlqNUV68BZ4u3LdWjwEz5oSxS2yP8ZpQ16Ohe_aFhq7j0rfzYJWtyjy9Cz0cKBIRFWmSoc_yxz_rvURQ9vOqSx5nLfjpqKmtA0GtPrew6kHWufFWaHrgSZoPXy1kzMY0_rFRfqxH2ov0Fsr2oApeZQNKu4omcxCiIK6ZW_ZClYZ0_xfzoj3yZpzuMHqGN6jiP_nu3MSPooZGT1CnUPqGk1yCb_VIY4IaZ"/>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600">
+        <a href="#" class="hover:text-claro-red transition-colors py-2">Inicio</a>
+        <a href="#" class="hover:text-claro-red transition-colors py-2">Vacantes</a>
+        <a href="#" class="text-claro-red border-b-2 border-claro-red pb-2 font-semibold">Nuestra Esencia</a>
+        <a href="#" class="hover:text-claro-red transition-colors py-2">Claro en tu País</a>
+        <a href="#" class="hover:text-claro-red transition-colors py-2">Apoyo al Candidato</a>
+      </nav>
+
+      <!-- Profile Button & Popover -->
+      <div class="relative flex items-center">
+        <button id="profile-btn" class="w-10 h-10 rounded-full bg-claro-red hover:bg-[#c91820] text-white flex items-center justify-center focus:outline-none transition-colors">
+          <i class="fa-solid fa-user text-lg"></i>
+        </button>
+
+        <!-- Login Dropdown Popover (Visible by default to match image) -->
+        <div id="login-dropdown" class="absolute right-0 top-12 w-[340px] bg-[#eef1f4] border border-gray-200 rounded-2xl shadow-xl p-5 z-50 login-dropdown-arrow transition-all">
+          <!-- Correo Electrónico -->
+          <div class="mb-3">
+            <label class="block text-xs font-bold text-gray-600 mb-1">Correo Electrónico</label>
+            <input type="email" placeholder="ejemplo@correo.com" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-claro-red focus:border-claro-red"/>
+          </div>
+          <!-- Contraseña -->
+          <div class="mb-4">
+            <label class="block text-xs font-bold text-gray-600 mb-1">Contraseña</label>
+            <input type="password" placeholder="************" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-claro-red focus:border-claro-red"/>
+          </div>
+          <!-- Buttons -->
+          <div class="flex space-x-2">
+            <button class="flex-1 bg-claro-red hover:bg-[#c91820] text-white text-xs font-bold py-2.5 px-3 rounded-full flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-user text-xs mr-1.5"></i> Iniciar sesión
+            </button>
+            <button class="flex-1 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-xs font-bold py-2.5 px-3 rounded-full flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-user-plus text-xs mr-1.5"></i> Crear Perfil
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END: MainHeader -->
+
+  <!-- BEGIN: Hero Section -->
+  <section class="hero-bg relative min-h-[500px] md:min-h-[600px] flex items-center">
+    <div class="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center py-12">
+      <!-- Text Content -->
+      <div class="max-w-xl mb-12 md:mb-0">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
+          Vive la<br/>experiencia <span class="text-claro-red">Claro</span>
+        </h1>
+        <p class="text-lg text-gray-800">
+          Más que un lugar para trabajar, somos un ecosistema donde impulsamos tu talento y bienestar.
+        </p>
+      </div>
+    </div>
+    <!-- Carousel Indicators -->
+    <div class="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-2">
+      <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white"></button>
+      <button class="w-3.5 h-3.5 rounded-full bg-white hover:bg-white"></button>
+      <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white"></button>
+      <button class="w-2 h-2 rounded-full bg-white/50 hover:bg-white"></button>
+    </div>
+  </section>
+  <!-- END: Hero Section -->
+
+  <!-- BEGIN: Main Content - Features -->
+  <main class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Así es trabajar en Claro</h2>
+      <p class="text-lg text-gray-600">Una cultura que conecta talento, innovación y propósito para transformar vidas.</p>
+    </div>
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-lg overflow-hidden border border-gray-200 card-shadow flex flex-col">
+          <div class="relative h-48">
+            <img alt="Nuestra cultura" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOh82yGawsho9geLXKLysFJsRbLklGvDpvT8atA6lK56aK7FS-ZFnOFb7VHu5rwOYzay-OE1Vk1OlbhMxgg6or0kwR69OBiVIV16g6kqj7939qSn7RhZx-1K6M89kem09efAThU_ogufhgrR7bgfwpXfRavep5dPQnbH1d-XdgBYkGhKZ7_t38-ZWknrKpBhIHvxZpHrG5xgkpPAHhJ2_-GrPKMIm0ynG4DL9OYvAjTuBoDVWmsEf4"/>
+            <div class="icon-circle bg-claro-red text-white w-12 h-12 rounded-full flex items-center justify-center border-4 border-white shadow-sm">
+              <i class="fa-solid fa-users text-xl"></i>
+            </div>
+          </div>
+          <div class="p-6 pt-8 flex-1 flex flex-col">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Nuestra cultura</h3>
+            <p class="text-sm text-gray-600 mb-4 flex-1">Fomentamos un ambiente inclusivo, colaborativo y enfocado en el bienestar de nuestra gente.</p>
+            <a class="text-claro-red font-semibold text-sm hover:underline inline-flex items-center" href="#">
+              Ver beneficios <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white rounded-lg overflow-hidden border border-gray-200 card-shadow flex flex-col">
+          <div class="relative h-48">
+            <img alt="Historias que inspiran" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ_SQyKY6DA07MbihbAKlFnkziNI5gTpTuwkIc9Jajxs6KzAhkafnLb6AcG0FNt0BguZPxTjZLNxQSwR4Fm74EyMDHiP-aPk7zkpnsbaBCkxKrjWRKVMPkbVGZps4sN6LnBUNqn4A7fbe_AkjJkRI8ortbxuiw7HO4Ns9ZbrNJcp6SUVioImfjR2V8Rv0er4rQ0D1x1umyRy1ltFwTs9z4qK2sRtp_lx2p2QnANuYKm-KivtVhm_Kk"/>
+            <div class="icon-circle bg-claro-red text-white w-12 h-12 rounded-full flex items-center justify-center border-4 border-white shadow-sm">
+              <i class="fa-solid fa-user-voice text-xl"></i>
+            </div>
+          </div>
+          <div class="p-6 pt-8 flex-1 flex flex-col">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Historias que inspiran</h3>
+            <p class="text-sm text-gray-600 mb-4 flex-1">Conoce las experiencias de nuestros colaboradores y cómo han crecido en Claro.</p>
+            <a class="text-claro-red font-semibold text-sm hover:underline inline-flex items-center" href="#">
+              Ver beneficios <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white rounded-lg overflow-hidden border border-gray-200 card-shadow flex flex-col">
+          <div class="relative h-48">
+            <img alt="Creces en Claro" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKbJXnwIHGmuilDKku_lD-NtIAjSh7h6bW-hK2sk0qN_k_jjU-wGXuSc9Lo_J6KV3x5Qz05evd5psedi1IefwQPo0d6HZ8hZYlwFydXlcgFevUDj3swF53xYlHV1pbJL2RQs5QH6W1vIF3HGoAdWwP4vHnN1OQ915P1aZPKvM4-HDo3mICCOY6GZcYBbOh482lqLpFsea12aeT_hvaoc4SeTC-KO_B9E-M9my61XuQD5IvZjbE3Gog"/>
+            <div class="icon-circle bg-claro-red text-white w-12 h-12 rounded-full flex items-center justify-center border-4 border-white shadow-sm">
+              <i class="fa-solid fa-arrow-trend-up text-xl"></i>
+            </div>
+          </div>
+          <div class="p-6 pt-8 flex-1 flex flex-col">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Creces en Claro</h3>
+            <p class="text-sm text-gray-600 mb-4 flex-1">Impulsamos tu desarrollo profesional con programas de formación, movilidad y liderazgo.</p>
+            <a class="text-claro-red font-semibold text-sm hover:underline inline-flex items-center" href="#">
+              Ver beneficios <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-white rounded-lg overflow-hidden border border-gray-200 card-shadow flex flex-col">
+          <div class="relative h-48">
+            <img alt="Beneficios" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfKO8M-OnO6Ds3Czs2qO1K96OFwH82gbBMBtVtocuVi46_rLcrRHGK753rR50ImCHzHHPa4a53IANIrwChsal0tJcdbhE8t0zcFe3o2Q84MYh-2NaB07LNgf3xDdbYA8MgAnPKm2fhIMt8NF2233EpGRCo2fZdP_Odh9EhZAu9_2x_QdqNvmMvl1hWT6xm_G4-XawK-RW2JSbfDvml-8S0KT8jgKXZM8IPy4T072li7Gk1_amVr2MG"/>
+            <div class="icon-circle bg-claro-red text-white w-12 h-12 rounded-full flex items-center justify-center border-4 border-white shadow-sm">
+              <i class="fa-regular fa-heart text-xl"></i>
+            </div>
+          </div>
+          <div class="p-6 pt-8 flex-1 flex flex-col">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Beneficios</h3>
+            <p class="text-sm text-gray-600 mb-4 flex-1">Te ofrecemos beneficios competitivos pensados para tu bienestar y el de tu familia.</p>
+            <a class="text-claro-red font-semibold text-sm hover:underline inline-flex items-center" href="#">
+              Ver beneficios <i class="fa-solid fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- END: Main Content - Features -->
+
+  <!-- BEGIN: Red Divider Section -->
+  <section class="bg-[#cc292b] text-white py-12">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-red-400/50">
+        <!-- Info Block 1 -->
+        <div class="text-center px-4 py-4 md:py-0">
+          <div class="mb-3">
+            <i class="fa-solid fa-chart-line text-3xl"></i>
+          </div>
+          <h4 class="font-bold mb-2">Trabaja con nosotros</h4>
+          <p class="text-xs text-red-100 leading-tight max-w-xs mx-auto">Descubre nuevas oportunidades y forma parte de un equipo que conecta personas, innovación y tecnología en toda la región.</p>
+        </div>
+        <!-- Info Block 2 -->
+        <div class="text-center px-4 py-4 md:py-0">
+          <div class="mb-3">
+            <i class="fa-solid fa-users text-3xl"></i>
+          </div>
+          <h4 class="font-bold mb-2">Gestión de Talento</h4>
+          <p class="text-xs text-red-100 leading-tight max-w-xs mx-auto">Impulsamos el crecimiento de nuestra gente mediante programas de formación, desarrollo profesional y aprendizaje continuo en distintas áreas de negocio.</p>
+        </div>
+        <!-- Info Block 3 -->
+        <div class="text-center px-4 py-4 md:py-0">
+          <div class="mb-3">
+            <i class="fa-regular fa-heart text-3xl"></i>
+          </div>
+          <h4 class="font-bold mb-2">Salud y Bienestar</h4>
+          <p class="text-xs text-red-100 leading-tight max-w-xs mx-auto">Promovemos un entorno laboral seguro, saludable y equilibrado, enfocado en el bienestar integral de nuestros colaboradores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END: Red Divider Section -->
+
+  <!-- BEGIN: Footer -->
+  <footer class="bg-[#2d3035] text-white">
+    <div class="container mx-auto px-4 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center border-b border-gray-600">
+      <!-- Logos -->
+      <div class="flex items-center space-x-6 mb-6 md:mb-0">
+        <img alt="Claro" class="h-8 brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-a7EwGxnjQt8YEIf_8dGY3JGlA5ltBfSxBx9wWPJwrYFDPhpgUmFfq1SUeLVbeE256Kod11UvXaro1b1-sxyq7vKWRd7G2iyyYnM9LVWASLSUsbVXYYN-IAXkHsCWUJxpMYWW54ZETUkZP8RQhohkokfIBAnAH1WYhKAVDvzoNGYuFZOR1h6cF52qlefXJ-kgv8rH7Q6WCcXBuTkv7hFyIx5F9lF5owhUiITTwjC5ojwsIH86Y_7l"/>
+        <div class="h-6 w-px bg-gray-500"></div>
+        <img alt="América Móvil" class="h-6 brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa-zwCcRY4WNLwYhnWcRusFaXGduJhReGJvEgOntbZ89dk5p7o_ivf059bb1nqFHOb2g-6MakQvRpDf0F-WlaSWVVnbC333Wg0aj0huLkJ-vdSYr1jr-Iiimfv3IKn45HghCjygzJ4Bc9fIGAOcQ4ymFquwsUJmWX9sdmPVNtwZ0N-goQZ-9Eue859VSAjPPSQMcIC0XpI_l0athHbEbEtHwRI5yDBlSOqKKnhfTwtwEOZeM4kGLc3"/>
+      </div>
+      <!-- Social Icons -->
+      <div class="flex space-x-4">
+        <a class="w-8 h-8 rounded-full bg-gray-600 hover:bg-claro-red transition-colors flex items-center justify-center" href="#">
+          <i class="fa-brands fa-facebook-f text-sm"></i>
+        </a>
+        <a class="w-8 h-8 rounded-full bg-gray-600 hover:bg-claro-red transition-colors flex items-center justify-center" href="#">
+          <i class="fa-brands fa-x-twitter text-sm"></i>
+        </a>
+        <a class="w-8 h-8 rounded-full bg-gray-600 hover:bg-claro-red transition-colors flex items-center justify-center" href="#">
+          <i class="fa-brands fa-instagram text-sm"></i>
+        </a>
+        <a class="w-8 h-8 rounded-full bg-gray-600 hover:bg-claro-red transition-colors flex items-center justify-center" href="#">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Copyright & Links -->
+    <div class="bg-[#26282c] py-4">
+      <div class="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+        <p class="mb-4 md:mb-0">Todos los derechos reservados, Claro 2026</p>
+        <div class="flex space-x-4 divide-x divide-gray-600">
+          <a class="hover:text-white transition-colors pl-0" href="#">Mapa de sitio</a>
+          <a class="hover:text-white transition-colors pl-4" href="#">Portal de denuncias</a>
+          <a class="hover:text-white transition-colors pl-4" href="#">Privacidad</a>
+          <a class="hover:text-white transition-colors pl-4" href="#">Legal y Regulatorio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- END: Footer -->
+
+  <!-- Floating Accessibility/Chat Icons -->
+  <div class="fixed bottom-4 left-4 z-50">
+    <button class="w-10 h-10 rounded-full bg-blue-600 text-white shadow-lg flex items-center justify-center hover:bg-blue-700">
+      <i class="fa-solid fa-universal-access"></i>
+    </button>
+  </div>
+  <div class="fixed bottom-4 right-4 z-50">
+    <button class="w-12 h-12 rounded-full bg-yellow-500 text-white shadow-lg flex items-center justify-center hover:bg-yellow-600">
+      <i class="fa-solid fa-comment-dots text-xl"></i>
+    </button>
+  </div>
+
+  <!-- Interactive script to toggle dropdown -->
+  <script>
+    const profileBtn = document.getElementById('profile-btn');
+    const loginDropdown = document.getElementById('login-dropdown');
+    
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      loginDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!loginDropdown.contains(e.target) && e.target !== profileBtn && !profileBtn.contains(e.target)) {
+        loginDropdown.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+/* ==========================================================================
+   ORACLE HCM CUSTOM STYLESHEET - CLARO EN HONDURAS (PÁGINA 8)
+   All selectors are scoped under .hcm-claro-honduras to prevent conflicts.
+   ========================================================================== */
+
+/* Import Tailwind CSS v2 directly (allowed by WAF) */
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+
+/* Custom Scoped Styles */
+.hcm-claro-honduras {
+  font-family: 'Roboto', sans-serif;
+}
+
+.hcm-claro-honduras .hero-bg {
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAJubr0LSdqS2fYfEuJJqcjER7ckJUhLLQXve8KrcQWMpoICMvx7OFoW5IJ8mRW2nLmif39WOxasdLSFrsi-l6Cy50pX7zYtA8lngkro-tFjnOifH19_-MIiMxT9gRWSmpfLPeQc4NKtgsWspIYw7POKCxmItbZZIPnThIckwYyncoB780BnLZo-BdmkSRjsfCUnM2X5l_qWBBZe2HVf0PqweDP2CV0EswMsB5GaUqua67lPaqEBNJs);
+  background-size: cover;
+  background-position: center;
+}
+
+.hcm-claro-honduras .timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #DA291C;
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.hcm-claro-honduras .cta-bg {
+  background: linear-gradient(135deg, #a81c1c 0%, #DA291C 50%, #901616 100%);
+}
+
+.hcm-claro-honduras .card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.hcm-claro-honduras .login-dropdown-arrow::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #e5e7eb transparent;
+}
+
+.hcm-claro-honduras .login-dropdown-arrow::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  right: 15px;
+  border-width: 0 9px 9px 9px;
+  border-style: solid;
+  border-color: transparent transparent #eef1f4 transparent;
+}

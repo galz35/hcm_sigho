@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Claro en Honduras - Conectá tu talento</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style data-purpose="custom-fonts">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            claro: {
+              red: '#DA291C',
+              dark: '#2A2A2A',
+              light: '#F4F4F4',
+              gray: '#E6E6E6',
+              text: '#333333'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style data-purpose="custom-styles">
+    .hero-bg {
+      background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAJubr0LSdqS2fYfEuJJqcjER7ckJUhLLQXve8KrcQWMpoICMvx7OFoW5IJ8mRW2nLmif39WOxasdLSFrsi-l6Cy50pX7zYtA8lngkro-tFjnOifH19_-MIiMxT9gRWSmpfLPeQc4NKtgsWspIYw7POKCxmItbZZIPnThIckwYyncoB780BnLZo-BdmkSRjsfCUnM2X5l_qWBBZe2HVf0PqweDP2CV0EswMsB5GaUqua67lPaqEBNJs);
+      background-size: cover;
+      background-position: center;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: #DA291C;
+      z-index: 0;
+      transform: translateY(-50%);
+    }
+    .cta-bg {
+      background: linear-gradient(135deg, #a81c1c 0%, #DA291C 50%, #901616 100%);
+    }
+    .login-dropdown-arrow::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      border-width: 0 10px 10px 10px;
+      border-style: solid;
+      border-color: transparent transparent #e5e7eb transparent;
+    }
+    .login-dropdown-arrow::after {
+      content: "";
+      position: absolute;
+      top: -9px;
+      right: 15px;
+      border-width: 0 9px 9px 9px;
+      border-style: solid;
+      border-color: transparent transparent #eef1f4 transparent;
+    }
+  </style>
+</head>
+<body class="bg-white text-claro-text antialiased overflow-x-hidden">
+  <!-- BEGIN: MainHeader -->
+  <header class="bg-white sticky top-0 z-50 border-b border-gray-200">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="flex justify-between items-center h-20 relative">
+        <!-- Logo -->
+        <a class="flex items-center" href="#">
+          <img alt="Claro Logo" class="h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ4bUqUz9YfYazIfdvJgNpwNJ8H1rTpC7ZuBpkkD3YrzdHSLCyiTajhC-420aZyVmivr_k1wqhmY06VAmQU1K0CpPgYVcUv3P6VnuyXeozmJEXa_cNytrzOfR1cjn7vmad_QRAnH8jgmdiQMHdh5TAdHk84HF_94QUpivAVgOWmKwcVpXADnuMRIe46rJHH1Lxb27xrTiuoEaVj_LtLT3w7j3PI4ROFONTirYOJvd7tsyFXI3EcXJN"/>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex space-x-6 lg:space-x-8">
+          <a class="text-sm font-medium text-gray-600 hover:text-claro-red transition-colors" href="#">Inicio</a>
+          <a class="text-sm font-medium text-gray-600 hover:text-claro-red transition-colors" href="#">Vacantes</a>
+          <a class="text-sm font-medium text-gray-600 hover:text-claro-red transition-colors" href="#">Nuestra Esencia</a>
+          <a class="text-sm font-medium text-claro-red border-b-2 border-claro-red pb-1 font-semibold" href="#">Claro en tu País</a>
+          <a class="text-sm font-medium text-gray-600 hover:text-claro-red transition-colors" href="#">Apoyo al Candidato</a>
+        </nav>
+
+        <!-- Profile Icon & Login Dropdown -->
+        <div class="relative flex items-center">
+          <button id="profile-btn" class="bg-claro-red text-white p-2.5 rounded-full hover:bg-red-700 transition-colors focus:outline-none">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+
+          <!-- Login Dropdown Popover (Visible by default to match image) -->
+          <div id="login-dropdown" class="absolute right-0 top-12 w-[340px] bg-[#eef1f4] border border-gray-200 rounded-2xl shadow-xl p-5 z-50 login-dropdown-arrow transition-all">
+            <!-- Correo Electrónico -->
+            <div class="mb-3">
+              <label class="block text-xs font-bold text-gray-600 mb-1">Correo Electrónico</label>
+              <input type="email" placeholder="ejemplo@correo.com" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-claro-red focus:border-claro-red"/>
+            </div>
+            <!-- Contraseña -->
+            <div class="mb-4">
+              <label class="block text-xs font-bold text-gray-600 mb-1">Contraseña</label>
+              <input type="password" placeholder="************" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-claro-red focus:border-claro-red"/>
+            </div>
+            <!-- Buttons -->
+            <div class="flex space-x-2">
+              <button class="flex-1 bg-claro-red hover:bg-[#c91820] text-white text-xs font-bold py-2.5 px-3 rounded-full flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-user text-xs mr-1.5"></i> Iniciar sesión
+              </button>
+              <button class="flex-1 bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 text-xs font-bold py-2.5 px-3 rounded-full flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-user-plus text-xs mr-1.5"></i> Crear Perfil
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END: MainHeader -->
+
+  <main>
+    <!-- BEGIN: Hero Section -->
+    <section class="hero-bg relative pt-16 pb-24 md:pt-24 md:pb-32 min-h-[500px] flex items-center">
+      <div class="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between">
+        <!-- Left Content -->
+        <div class="w-full md:w-1/2 lg:w-5/12 mb-10 md:mb-0">
+          <p class="text-sm font-bold text-gray-800 mb-2">Claro en <span class="text-claro-red">Honduras</span></p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            Conectá tu talento con <br/>
+            nuevas <span class="text-claro-red">oportunidades</span>
+          </h1>
+          <p class="text-gray-700 text-lg mb-6 max-w-md">
+            Descubrí cómo vivimos la experiencia Claro en <strong>Honduras</strong> y conocé una cultura enfocada en el crecimiento, la innovación y las personas.
+          </p>
+          <div class="relative w-48">
+            <select class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded-full leading-tight focus:outline-none focus:bg-white focus:border-claro-red">
+              <option>País</option>
+              <option>Honduras</option>
+              <option>Guatemala</option>
+              <option>El Salvador</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+              <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- Right Content (Empty spacer to allow background image to be visible on large screens) -->
+        <div class="w-full md:w-5/12 lg:w-4/12"></div>
+      </div>
+
+      <!-- Dots -->
+      <div class="absolute bottom-6 left-0 right-0 flex justify-center items-center space-x-2">
+        <span class="block w-2 h-2 rounded-full bg-white/50 cursor-pointer"></span>
+        <span class="block w-2 h-2 rounded-full bg-white/50 cursor-pointer"></span>
+        <span class="block w-3.5 h-3.5 rounded-full bg-white cursor-pointer"></span>
+        <span class="block w-2 h-2 rounded-full bg-white/50 cursor-pointer"></span>
+      </div>
+    </section>
+    <!-- END: Hero Section -->
+
+    <!-- BEGIN: Impulsa tu carrera -->
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Impulsa tu carrera desde el inicio :</h2>
+          <div class="h-1 w-24 bg-claro-red mx-auto"></div>
+        </div>
+
+        <div class="bg-white border border-red-200 rounded-3xl p-6 md:p-10 flex flex-col lg:flex-row gap-8 max-w-5xl mx-auto items-center shadow-sm">
+          <!-- Text Content -->
+          <div class="lg:w-1/3">
+            <h3 class="text-2xl font-bold mb-4">Programa de pasantía</h3>
+            <p class="text-gray-700 text-sm mb-6 leading-relaxed">
+              Inicia tu carrera donde las ideas se convierten en impacto. Vive una experiencia que te reta, te forma y te conecta con un propósito mayor: transformar vidas a través de la tecnología.
+            </p>
+            <a class="text-claro-red font-bold flex items-center hover:underline text-sm" href="#">
+              Conoce más...
+              <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Image/Location Content -->
+          <div class="lg:w-2/3 w-full">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-claro-light flex items-center justify-center border border-gray-250 shadow-sm mr-3 overflow-hidden">
+                <img alt="Bandera Honduras" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq2bG3_-lTI9l_0t0aDITX1yO6b4gEmuBHEbtFdK62lPWCij5yfmxw3m88o7aEJUEF9VWX6vMrupjAVcrw6J6dTZO9cs6NiysClfZkE9jOkpvCSekkfU2_sG2Z_bj-rfNRraBzTsacOvOFktudza1EIJPWMd5ANcCxZaTYYYPzg5aUGG6JrUOMwArcyZt0k2W6-n-QGru34XQF4aTTJVFthDQmhyLhPwGzu1kvPbtoIG-NLoRGAflS"/>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg leading-tight">Honduras</h4>
+                <p class="text-xs text-gray-600">Sumate a nuestro equipo en Honduras y desarrollá tu talento en un entorno de innovación y crecimiento.</p>
+              </div>
+            </div>
+            <img alt="Graduados y Ciudad" class="w-full rounded-2xl object-cover h-48 md:h-64 shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTIimNuZ3OOY3ty4vYaQ8yXs2rPe6hZX5ShfqVXIGZgaxEgqfzuJ2_eoclcg4Nwqmt6jwmDvOdsNnfpIAwf7eyE45hT-fCFHhqBEnJ1gXLrg0V4_fIZ7-S3NsbLbNlR_Z8f96ZE_UvMx5LZqKZaNsIkrQLF_kQW43TUs1gAcAfyesjydMjMO-48n8_Zrd_oD2HEuWMeVem5Ay7xyB8XOLM3HcW7PqYnxmqX4TUyJBAVEhOLt7ApnXu"/>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Impulsa tu carrera -->
+
+    <!-- BEGIN: Cultura Local -->
+    <section class="bg-gray-100 py-16 md:py-24">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
+          <div class="lg:w-1/2">
+            <p class="text-sm font-bold uppercase tracking-wider mb-2 border-b border-black inline-block pb-1">Nuestra Cultura Local</p>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Así vivimos Claro en <span class="text-claro-red">Honduras</span></h2>
+            <p class="text-gray-700 text-sm mb-4 leading-relaxed">
+              Creemos en una cultura donde vos podés crecer, aprender y desarrollar tu talento en un ambiente colaborativo y enfocado en las personas.
+            </p>
+            <p class="text-gray-700 text-sm leading-relaxed">
+              Promovemos espacios donde las ideas, el trabajo en equipo y el bienestar generan experiencias que impulsan tu desarrollo.
+            </p>
+          </div>
+          <div class="lg:w-1/2 w-full relative">
+            <img alt="Video Placeholder" class="w-full rounded-lg shadow-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOFOtDbNc2bY4kqP-r34xUeZ7HytcsFmO-KUzPVkol5S2_2YNIjMCBndn9lYuQcHPQxW82UEvFmFDphQmnsYE7nljVP-WTOek14n81ov8RCAdiEHgzjEsySTeDROAOl2HLqwyCf67rVDoSRlU2wdv0ZGmnJSqQEWay6eV-paYvCW5A-8MJk0fB0WixrxDDPLXaIf7Lk-aFblwqSgnmtg_eYozWp4Mhp3MJDlMXsAEg138NGjl0uWVv"/>
+            <button class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white rounded-full p-4 hover:bg-opacity-90 transition-all">
+              <svg class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Cultura Local -->
+
+    <!-- BEGIN: Historias de Nuestra Gente -->
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4 lg:px-8 text-center max-w-6xl">
+        <p class="text-claro-red font-bold text-lg mb-1">Historias de Nuestra Gente</p>
+        <h2 class="text-3xl md:text-5xl font-bold mb-16">Personas que inspiran</h2>
+        <p class="text-sm text-gray-600 mb-12 max-w-2xl mx-auto">
+          Conocé historias reales de colaboradores que encontraron oportunidades, crecieron profesionalmente y hoy forman parte de la experiencia Claro.
+        </p>
+
+        <div class="relative flex items-center justify-center">
+          <!-- Prev Button -->
+          <button class="absolute left-0 z-10 bg-claro-red hover:bg-red-700 text-white rounded-full p-3 shadow-md transform -translate-x-1/2 md:translate-x-0">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+
+          <!-- Cards Container -->
+          <div class="flex justify-center items-center gap-6 overflow-hidden py-4 w-full px-8 md:px-16">
+            <!-- Card 1 (Side) -->
+            <div class="hidden md:flex flex-col bg-gray-100 rounded-3xl p-6 w-1/3 opacity-70 transform scale-90">
+              <div class="flex flex-col items-start text-left relative">
+                <i class="fa-solid fa-quote-left text-claro-red text-2xl mb-2 absolute -top-2 right-0"></i>
+                <div class="flex items-center mb-4">
+                  <img alt="Anderson" class="rounded-full w-12 h-12 mr-3 border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLVbRvkt8SIc84tRE2-b0WVheJ7XK_ZhvhnYemLNx9UTX9bXHtCFuOQ1RyweFZK2-cIhDZkOzi8HxLjDX0hZUu-rlN_PFUGH_xYUq95MmZpDkt1fslOy_q3fUB2ftDczAAHr5oTIknr0yCBuSKUgN-TJJ1Lk19HXsd90T8mZKd0zVwJr6z8HSeqBkGBVxSBr7MLCVv3gmb0QhZrf5hRgUP-N4swa2P9jSd-8dj3W5hMxJ18twbgt9A"/>
+                </div>
+                <p class="text-xs italic text-gray-700 mb-4 h-16">"Entré buscando una oportunidad y encontré un lugar para crecer."</p>
+                <div>
+                  <h4 class="font-bold text-sm">Anderson Velicio</h4>
+                  <p class="text-xs text-gray-500">Gerente de Ventas</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 (Center - Active) -->
+            <div class="flex flex-col bg-gray-55 rounded-3xl p-8 w-full md:w-5/12 shadow-xl z-10 border border-gray-100">
+              <div class="flex flex-col items-start text-left relative">
+                <i class="fa-solid fa-quote-left text-claro-red text-3xl mb-4 absolute top-0 right-4"></i>
+                <div class="flex items-center mb-6">
+                  <img alt="Manuel" class="rounded-full w-20 h-20 mr-4 border-4 border-white shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhVrToKPoVdnjdAuPpyqYPmeOrom846dQW83IFT4hWGewPh0aSDBcoBVaGI8-HoV1YikfKWZFOTSdtDIy2W4Rq_blj3ySqmjJTwXRbtixjMZP0bFK46faZkw6UTCEQbJpH5QBVntzGaJ9ksEoMruRN9GmBvu2zEMkUvg7TYVMQ3rdoFnV-z4Ezlb2BM-NgXVLp8JU5g6FldBrCfsUtD22MElUbkQ4c6XiREhHiyNUVDMiS9N1VIL35"/>
+                </div>
+                <p class="text-sm font-medium text-gray-800 mb-6 h-12">"En Claro descubrí nuevos retos y oportunidades para desarrollar mi carrera."</p>
+                <div>
+                  <h4 class="font-bold text-base">Manuel Calán</h4>
+                  <p class="text-xs text-gray-500 mt-1">Gerente de Producción</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 (Side) -->
+            <div class="hidden md:flex flex-col bg-gray-100 rounded-3xl p-6 w-1/3 opacity-70 transform scale-90">
+              <div class="flex flex-col items-start text-left relative">
+                <i class="fa-solid fa-quote-left text-claro-red text-2xl mb-2 absolute -top-2 right-0"></i>
+                <div class="flex items-center mb-4">
+                  <img alt="Nathaly" class="rounded-full w-12 h-12 mr-3 border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7uk-rYzmP7NqTESfQ5mk8D5OyYwPZn1GCbHewpnLnvzPl2IxRneIO5hNBj4kwRwa6dBhY8tuL-idqe4TILHPUa5NiE-XtZE0JAz_F5SKgPLpJkZVwCO_x_8s_a1b57EbVktBhVpV9czPHsENFzeJ0dleyKxtD8kt2QQni5gWopzDlSjXoemL06ffR0-f60Apm6nOOmDiYXVl4RTUsfeIoOs1UJ5EoUASKIprbcIE9ZWO36t-PDTN8"/>
+                </div>
+                <p class="text-xs italic text-gray-700 mb-4 h-16">"Claro que me gusta trabajar aquí, he acumulado muy buenas experiencias."</p>
+                <div>
+                  <h4 class="font-bold text-sm">Nathaly Batz</h4>
+                  <p class="text-xs text-gray-500">Gerente de Marketing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Button -->
+          <button class="absolute right-0 z-10 bg-claro-red hover:bg-red-700 text-white rounded-full p-3 shadow-md transform translate-x-1/2 md:-translate-x-0">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- END: Historias de Nuestra Gente -->
+
+    <!-- BEGIN: Nuestra historia -->
+    <section class="bg-gray-50 py-16 md:py-24 overflow-hidden">
+      <div class="container mx-auto px-4 lg:px-8 text-center max-w-5xl">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Nuestra historia</h2>
+        <p class="text-sm text-gray-700 mb-16 max-w-3xl mx-auto leading-relaxed">
+          <strong class="text-claro-red">Somos Claro Honduras</strong> y formamos parte de América Móvil, uno de los grupos de telecomunicaciones más importantes de Latinoamérica. Desde nuestra llegada al país, trabajamos para conectar personas, impulsar la innovación y acercar nuevas oportunidades a millones de hondureños mediante tecnología y servicios que transforman vidas.
+        </p>
+
+        <div class="relative py-10 mt-8 hidden md:block">
+          <div class="timeline-line"></div>
+          <div class="flex justify-between items-start relative z-10 w-full px-4">
+            <!-- Node 1 -->
+            <div class="flex flex-col items-center w-32 relative">
+              <h3 class="text-2xl font-bold mb-4">2003</h3>
+              <div class="w-8 h-8 rounded-full bg-claro-red border-4 border-white shadow-sm mb-4 absolute top-12"></div>
+              <p class="text-[10px] text-gray-600 mt-14 px-2 leading-tight">
+                <strong>Iniciamos operaciones en Honduras</strong><br/>Comenzamos nuestro camino en el país como Megatel, llevando nuevas alternativas de conectividad.
+              </p>
+            </div>
+            <!-- Node 2 -->
+            <div class="flex flex-col items-center w-32 relative">
+              <h3 class="text-2xl font-bold mb-4">2006</h3>
+              <div class="w-8 h-8 rounded-full bg-claro-red border-4 border-white shadow-sm mb-4 absolute top-12"></div>
+              <p class="text-[10px] text-gray-600 mt-14 px-2 leading-tight">
+                <strong>Nace Claro en Honduras</strong><br/>La marca Claro llega oficialmente a Honduras como parte de la unificación regional impulsada por América Móvil.
+              </p>
+            </div>
+            <!-- Node 3 -->
+            <div class="flex flex-col items-center w-32 relative">
+              <h3 class="text-2xl font-bold mb-4">2008</h3>
+              <div class="w-8 h-8 rounded-full bg-claro-red border-4 border-white shadow-sm mb-4 absolute top-12"></div>
+              <p class="text-[10px] text-gray-600 mt-14 px-2 leading-tight">
+                <strong>Lanzamos tecnología 3G</strong><br/>Fuimos pioneros en llevar servicios móviles de tercera generación, impulsando nuevas experiencias digitales.
+              </p>
+            </div>
+            <!-- Node 4 -->
+            <div class="flex flex-col items-center w-32 relative">
+              <h3 class="text-2xl font-bold mb-4">2015</h3>
+              <div class="w-8 h-8 rounded-full bg-claro-red border-4 border-white shadow-sm mb-4 absolute top-12"></div>
+              <p class="text-[10px] text-gray-600 mt-14 px-2 leading-tight">
+                <strong>Expandimos nuestra red 4G LTE</strong><br/>Continuamos evolucionando nuestra infraestructura para brindar una mejor experiencia y mayor velocidad de conexión.
+              </p>
+            </div>
+            <!-- Node 5 -->
+            <div class="flex flex-col items-center w-32 relative">
+              <h3 class="text-2xl font-bold mb-4">2023</h3>
+              <div class="w-8 h-8 rounded-full bg-claro-red border-4 border-white shadow-sm mb-4 absolute top-12"></div>
+              <p class="text-[10px] text-gray-600 mt-14 px-2 leading-tight">
+                <strong>20 años conectando Honduras</strong><br/>Celebramos dos décadas impulsando la conectividad, innovación y compromiso con el desarrollo del país.
+              </p>
+            </div>
+            <!-- Node 6 -->
+            <div class="flex flex-col items-center w-32 relative">
+              <h3 class="text-2xl font-bold mb-4">hoy</h3>
+              <div class="w-8 h-8 rounded-full bg-claro-red border-4 border-white shadow-sm mb-4 absolute top-12"></div>
+              <p class="text-[10px] text-gray-600 mt-14 px-2 leading-tight">
+                <strong>Seguimos conectando oportunidades</strong><br/>Continuamos innovando para acercar personas, impulsar talento y construir el futuro digital de Honduras.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:hidden flex flex-col space-y-8 text-left border-l-2 border-claro-red ml-4 pl-6">
+          <div class="relative">
+            <div class="absolute -left-[31px] w-4 h-4 rounded-full bg-claro-red border-2 border-white top-1"></div>
+            <h3 class="font-bold text-lg">2003</h3>
+            <p class="text-xs text-gray-600">Iniciamos operaciones en Honduras...</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[31px] w-4 h-4 rounded-full bg-claro-red border-2 border-white top-1"></div>
+            <h3 class="font-bold text-lg">2006</h3>
+            <p class="text-xs text-gray-600">Nace Claro en Honduras...</p>
+          </div>
+          <div class="relative">
+            <div class="absolute -left-[31px] w-4 h-4 rounded-full bg-claro-red border-2 border-white top-1"></div>
+            <h3 class="font-bold text-lg">hoy</h3>
+            <p class="text-xs text-gray-600">Seguimos conectando oportunidades...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Nuestra historia -->
+
+    <!-- BEGIN: Call to Action -->
+    <section class="cta-bg py-16 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);"></div>
+      <div class="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between">
+        <div class="text-white mb-8 md:mb-0 md:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Tu próxima oportunidad<br/>puede estar acá</h2>
+          <p class="text-white/90 text-sm max-w-md">Da el siguiente paso y encontrá un lugar donde vos podás crecer y desarrollar tu potencial.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 md:w-1/2 justify-end w-full">
+          <button id="cta-login-btn" class="bg-white text-claro-red font-bold py-3 px-8 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg">
+            <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            Iniciar sesión
+          </button>
+          <button class="bg-transparent border border-white text-white font-bold py-3 px-8 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+            Crear Perfil
+            <svg class="h-5 w-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- END: Call to Action -->
+  </main>
+
+  <!-- BEGIN: Main Footer -->
+  <footer class="bg-[#2A2A2A] text-white pt-10 pb-6 border-b border-gray-700">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-6 border-b border-gray-600 pb-6">
+        <!-- Footer Logo -->
+        <div class="mb-6 md:mb-0">
+          <img alt="Claro Logo" class="h-8 mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB58oM7oaChZGPcL6P2QcMLtLprtQGZCafSGJzzTyXtxePWhNWR9n2yMQfzi1c_GndGXiW2bJFpdBwMW5HuW3cGDRM_LUTJvRDoG_MBvJsgOXh4lAGpbuhhTGDbMhSLfc31TFKaAdmvBlQP-T-fuXJHqRUuy08ZQNZf0iGSXvvgP03A68DbpZV70rLRGxxt-cJR9uQ9gKoXZA161RzD7xpdNXcUTnIU84zJPULFLvzE8qIHoAX6lu8"/>
+          <img alt="America Movil" class="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDERsasglnVvH_heD-q5IDT-VwqsXmcgYDvYSxohT0ikikYe_sHt6wHmNBVVVBLE4LwJuFw3gnR5aRf7DGwjYi9kSp4dY4oOaAQHHOOdKHw0FJp2kZ7gcyi-vj9diBN5HLSvtIVsFKbeWWm92NAyR_xIR9fPlPBYQPKxQ19spD9J-pou6X7YNgB_lFtIRAuFhvkZ4w5kBMXRdfA-mwfD7Prr5YJ6e2tFno1Svxblh__M1Aee0LT7FuS"/>
+        </div>
+        <!-- Social Icons -->
+        <div class="flex space-x-4">
+          <a class="bg-gray-600 hover:bg-claro-red p-2 rounded-full transition-colors text-white flex items-center justify-center w-9 h-9" href="#">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+          </a>
+          <a class="bg-gray-600 hover:bg-claro-red p-2 rounded-full transition-colors text-white flex items-center justify-center w-9 h-9" href="#">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+          </a>
+          <a class="bg-gray-600 hover:bg-claro-red p-2 rounded-full transition-colors text-white flex items-center justify-center w-9 h-9" href="#">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" fill-rule="evenodd"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+        <p>Todos los derechos reservados, Claro 2026</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a class="hover:text-white transition-colors" href="#">Mapa de sitio</a>
+          <span>|</span>
+          <a class="hover:text-white transition-colors" href="#">Portal de denuncias</a>
+          <span>|</span>
+          <a class="hover:text-white transition-colors" href="#">Privacidad</a>
+          <span>|</span>
+          <a class="hover:text-white transition-colors" href="#">Legal y Regulatorio</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Accessibility Icon -->
+    <div class="fixed bottom-6 left-6 z-50">
+      <button class="w-10 h-10 rounded-full bg-blue-600 text-white shadow-lg flex items-center justify-center hover:bg-blue-700">
+        <i class="fa-solid fa-universal-access"></i>
+      </button>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button class="fixed bottom-6 right-6 bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-full shadow-lg z-50">
+      <i class="fa-solid fa-comment-dots text-xl"></i>
+    </button>
+  </footer>
+  <!-- END: Main Footer -->
+
+  <!-- Interactive script to toggle dropdown -->
+  <script>
+    const profileBtn = document.getElementById('profile-btn');
+    const ctaLoginBtn = document.getElementById('cta-login-btn');
+    const loginDropdown = document.getElementById('login-dropdown');
+    
+    function toggleDropdown(e) {
+      e.stopPropagation();
+      loginDropdown.classList.toggle('hidden');
+    }
+
+    profileBtn.addEventListener('click', toggleDropdown);
+    if(ctaLoginBtn) {
+      ctaLoginBtn.addEventListener('click', toggleDropdown);
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!loginDropdown.contains(e.target) && e.target !== profileBtn && !profileBtn.contains(e.target)) {
+        loginDropdown.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
