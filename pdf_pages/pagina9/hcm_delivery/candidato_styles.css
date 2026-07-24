@@ -1,27 +1,16 @@
-/* ==========================================================================
-   ORACLE HCM CUSTOM STYLESHEET - CANDIDATE EXPERIENCE (PÁGINA 9)
-   All selectors are scoped under .hcm-candidato-claro to prevent conflicts.
-   ========================================================================== */
-
-/* Import Tailwind CSS v2 directly (allowed by WAF) */
 @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
-
-/* Custom Scoped Styles */
 .hcm-candidato-claro {
   font-family: "Inter", sans-serif;
 }
-
 .hcm-candidato-claro .hero-bg {
   background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXahoh02NFOxTwyyg45abM7g9GbH_3NH82_B4wywr-HIo4Od0frAx99e0Xw4vealbLr5JYGNwcYyflcjybmcg52W3V32hIYMenIZJPMmp01x0_a1C2bpTHfAB71XhSRxowPHciC0eQ4P4jVxHk_jYlZyOMTmHvHlGkJVRSOuhSnIfuNuX0Pi0fyEkQ2jxRIXzv88i_jh7vANv5T6gy_bWR47FSTOTlVyWrqDGYvu-sYS748U4dIOwXkGo8C0KV4mc2BBg');
   background-size: cover;
   background-position: center top;
   position: relative;
 }
-
 .hcm-candidato-claro .hero-overlay {
   background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.15) 100%);
 }
-
 .hcm-candidato-claro .accordion-button::after {
   content: '+';
   float: right;
@@ -29,13 +18,11 @@
   font-weight: bold;
   font-size: 1.25rem;
 }
-
 .hcm-candidato-claro .cta-bg {
   background: linear-gradient(90deg, #A11913 0%, #DA291C 100%);
   position: relative;
   overflow: hidden;
 }
-
 .hcm-candidato-claro .cta-pattern {
   position: absolute;
   top: 0;
@@ -46,11 +33,9 @@
   background-image: radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent), radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent);
   background-size: 100px 50px;
 }
-
 .hcm-candidato-claro .card-shadow {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-
 .hcm-candidato-claro .login-dropdown-arrow::before {
   content: "";
   position: absolute;
@@ -60,7 +45,6 @@
   border-style: solid;
   border-color: transparent transparent #e5e7eb transparent;
 }
-
 .hcm-candidato-claro .login-dropdown-arrow::after {
   content: "";
   position: absolute;
