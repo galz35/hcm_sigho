@@ -1,4 +1,19 @@
 @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+.hcm-claro-honduras .bg-claro-red {
+  background-color: #DA291C !important;
+}
+.hcm-claro-honduras .text-claro-red {
+  color: #DA291C !important;
+}
+.hcm-claro-honduras .border-claro-red {
+  border-color: #DA291C !important;
+}
+.hcm-claro-honduras .bg-claro-light {
+  background-color: #F8F8F8 !important;
+}
+.hcm-claro-honduras .bg-claro-dark {
+  background-color: #2A2A2A !important;
+}
 .hcm-claro-honduras {
   font-family: 'Roboto', sans-serif;
 }

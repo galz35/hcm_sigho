@@ -1,4 +1,19 @@
 @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+.hcm-nuestra-esencia .bg-claro-red {
+  background-color: #DA291C !important;
+}
+.hcm-nuestra-esencia .text-claro-red {
+  color: #DA291C !important;
+}
+.hcm-nuestra-esencia .border-claro-red {
+  border-color: #DA291C !important;
+}
+.hcm-nuestra-esencia .bg-claro-light {
+  background-color: #F8F8F8 !important;
+}
+.hcm-nuestra-esencia .bg-claro-dark {
+  background-color: #2A2A2A !important;
+}
 .hcm-nuestra-esencia {
   font-family: "Inter", sans-serif;
 }
