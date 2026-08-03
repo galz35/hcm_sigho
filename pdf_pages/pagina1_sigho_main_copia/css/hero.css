@@ -1,0 +1,102 @@
+/* ==========================================================================
+   DISEÑO DEL HERO BANNER CON ANCHO COMPLETO (100VW) Y CARRUSEL DE IMÁGENES
+   ========================================================================== */
+
+/* Animación del Carrusel de Fondos con las imágenes de sigho-main */
+@keyframes hero-carousel {
+    0%, 20% {
+        background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg1.jpg');
+    }
+    25%, 45% {
+        background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg02.jpg');
+    }
+    50%, 70% {
+        background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg3.jpg');
+    }
+    75%, 95% {
+        background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/img-05.jpg');
+    }
+    100% {
+        background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg1.jpg');
+    }
+}
+
+.hero-bg {
+    position: relative !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg1.jpg') !important;
+    
+    width: 100vw !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    box-sizing: border-box !important;
+    
+    animation: hero-carousel 20s infinite !important;
+    transition: background-image 0.6s ease-in-out !important;
+}
+
+.hero-bg:has(#slide-1:checked),
+.hero-bg:has(#slide-2:checked),
+.hero-bg:has(#slide-3:checked),
+.hero-bg:has(#slide-4:checked) {
+    animation: none !important;
+}
+
+.hero-bg:has(#slide-1:checked) {
+    background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg1.jpg') !important;
+}
+.hero-bg:has(#slide-2:checked) {
+    background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg02.jpg') !important;
+}
+.hero-bg:has(#slide-3:checked) {
+    background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg3.jpg') !important;
+}
+.hero-bg:has(#slide-4:checked) {
+    background-image: url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/img-05.jpg') !important;
+}
+
+.hero-bg:has(#slide-1:checked) label[for="slide-1"],
+.hero-bg:has(#slide-2:checked) label[for="slide-2"],
+.hero-bg:has(#slide-3:checked) label[for="slide-3"],
+.hero-bg:has(#slide-4:checked) label[for="slide-4"] {
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+    background-color: #c6272b !important;
+}
+
+.hero-bg input[type="radio"].hidden {
+    display: none !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.hero-bg::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 35%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 100%) !important;
+    z-index: 1 !important;
+}
+
+.dot-indicator {
+    width: 10px !important;
+    height: 10px !important;
+    background-color: #c6272b !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+    margin: 0 4px !important;
+    opacity: 0.3 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.dot-indicator.active {
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+}
