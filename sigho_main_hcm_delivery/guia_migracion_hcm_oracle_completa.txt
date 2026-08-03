@@ -1,0 +1,160 @@
+================================================================================
+GUÍA MAESTRA DE MIGRACIÓN: CLARO TALENTO -> ORACLE CLOUD HCM RECRUITING
+================================================================================
+
+PASO 1: CONFIGURAR EL CUSTOM CSS (ESTILO GLOBAL EN EL TEMA)
+--------------------------------------------------------------------------------
+1. En el administrador de Oracle Cloud HCM, ve a:
+   Sitios de Candidatos (Candidate Experience) -> Tema (Theme) -> Custom CSS.
+
+2. Pega exactamente este bloque de código (contiene las hojas de estilo CDN y el
+   estilo de navegación/perfil nativo):
+
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@d3eb68080d8df33d8eb62a4ba0b948b1d6648b36/pdf_pages/pagina1/hcm_delivery/css/sigho_main_global_styles.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/base.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/header.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/hero.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/buscador.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/highlights.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/benefits.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/video.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/process.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/cta.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/footer.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/pages.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina7/hcm_delivery/nuestra_esencia_styles.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagin8/hcm_delivery/honduras_styles.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina9/hcm_delivery/candidato_styles.css');
+
+.app__top .app-header #app-header-horizontal.app-header-horizontal {
+    background: #fff !important;
+    height: 72px !important;
+    padding: 0 1.5rem !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+}
+.app__top .app-header #app-header-horizontal .sitemap-link {
+    display: none !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal__left-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    height: 100% !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal__right-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    height: 100% !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links-menu {
+    overflow: visible !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #4b5563 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+.app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text:hover {
+    color: #da291c !important;
+}
+.app__top .app-header #app-header-horizontal .internal-user-login-button {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #4b5563 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+.app__top .app-header #app-header-horizontal .internal-user-login-button:hover {
+    color: #da291c !important;
+}
+
+/* BOTÓN DE PERFIL ULTRA LIMPIO DE ORACLE */
+.app__top .app-header #app-header-horizontal .user-menu__header {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background-color: #da291c !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+.app__top .app-header #app-header-horizontal .user-menu__header:hover {
+    background-color: #b81e13 !important;
+}
+
+.app__top .app-header #app-header-horizontal .user-menu__header * {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+@media(max-width:768px) {
+    .app__top .app-header #app-header-horizontal.app-header-horizontal {
+        padding: 0 1rem !important;
+        height: 64px !important;
+    }
+}
+
+
+PASO 2: ESTRUCTURA DE COMPONENTES POR PÁGINA
+--------------------------------------------------------------------------------
+
+1. PÁGINA DE INICIO (HOME / PÁGINA PRINCIPAL):
+   - Componente Custom HTML 1: inicio/inicio_divided/seccion1_hero.html
+   - Widget Nativo Oracle: Arrastrar el Buscador de vacantes de Oracle debajo del Hero.
+   - Componente Custom HTML 2: inicio/inicio_divided/seccion2_strip_highlights.html
+   - Componente Custom HTML 3: inicio/inicio_divided/seccion3_porque_claro.html
+   - Componente Custom HTML 4: inicio/inicio_divided/seccion4_video_spotlight.html
+   - Componente Custom HTML 5: inicio/inicio_divided/seccion5_proceso_candidato.html
+   - Componente Custom HTML 6: inicio/inicio_divided/seccion6_cta.html
+
+2. PÁGINA DE NUESTRA ESENCIA:
+   - Componente Custom HTML 1: nuestra_esencia/esencia_divided/seccion1_hero.html
+   - Componente Custom HTML 2: nuestra_esencia/esencia_divided/seccion2_features.html
+   - Componente Custom HTML 3: nuestra_esencia/esencia_divided/seccion3_strip_pilares.html
+   - Componente Custom HTML 4: nuestra_esencia/esencia_divided/seccion4_cta.html
+
+3. PÁGINA DE CLARO EN TU PAÍS (HONDURAS / REGIONAL):
+   - Componente Custom HTML 1: claro_pais/pais_divided/seccion1_hero.html
+   - Componente Custom HTML 2: claro_pais/pais_divided/seccion2_pasantia.html
+   - Componente Custom HTML 3: claro_pais/pais_divided/seccion3_cta.html
+
+4. PÁGINA DE APOYO AL CANDIDATO:
+   - Componente Custom HTML 1: apoyo_candidato/apoyo_divided/seccion1_hero.html
+   - Componente Custom HTML 2: apoyo_candidato/apoyo_divided/seccion2_proceso.html
+   - Componente Custom HTML 3: apoyo_candidato/apoyo_divided/seccion3_faq_consejos.html
+   - Componente Custom HTML 4: apoyo_candidato/apoyo_divided/seccion4_cta.html
+
+
+PASO 3: REGLAS DE SEGURIDAD Y VALIDACIÓN DE ORACLE
+--------------------------------------------------------------------------------
+- Jamás incluir etiquetas <html, <head, <body, <script o <style en bloques HTML.
+- No incluir la etiqueta <link rel="stylesheet">.
+- Usar rutas relativas hash (#/jobs, #/pages/...) en lugar de enlaces .html.
