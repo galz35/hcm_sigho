@@ -2,16 +2,18 @@
 GUÍA MAESTRA DE MIGRACIÓN: CLARO TALENTO -> ORACLE CLOUD HCM RECRUITING
 ================================================================================
 
-PASO 1: CONFIGURAR EL CUSTOM CSS (ESTILO GLOBAL EN EL TEMA)
+PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
 --------------------------------------------------------------------------------
 1. En el administrador de Oracle Cloud HCM, ve a:
    Sitios de Candidatos (Candidate Experience) -> Tema (Theme) -> Custom CSS.
 
-2. Pega exactamente este bloque de código (respetando los imports de tu equipo):
+2. Pega exactamente este bloque de código. La referencia al commit exacto 
+   (@ff85f9730f55cf6703957be913ee8061bc4fc97e) purga la caché del CDN e impone 
+   las imágenes oficiales de sigho-main (bg1.jpg, bg02.jpg, bg3.jpg) de inmediato:
 
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/base.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/header.css');
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/hero.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@ff85f9730f55cf6703957be913ee8061bc4fc97e/pdf_pages/pagina1/hcm_delivery/css/hero.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/buscador.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/highlights.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/benefits.css');
@@ -121,12 +123,10 @@ PASO 1: CONFIGURAR EL CUSTOM CSS (ESTILO GLOBAL EN EL TEMA)
 }
 
 
-PASO 2: ESTRUCTURA DE ARCHIVOS PROBADOS POR PÁGINA
+PASO 2: ARCHIVOS HTML DE SECCIONES PROBADAS
 --------------------------------------------------------------------------------
 
 1. PÁGINA 1: INICIO (HOME / PÁGINA PRINCIPAL)
-   Utiliza los bloques validados de: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/
-   
    - Componente Custom HTML 1: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion1b_hero.html
    - Widget Nativo Oracle: Arrastrar el Buscador de vacantes de Oracle debajo del Hero.
    - Componente Custom HTML 2: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3a_highlights.html
@@ -134,22 +134,3 @@ PASO 2: ESTRUCTURA DE ARCHIVOS PROBADOS POR PÁGINA
    - Componente Custom HTML 4: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3c_video.html
    - Componente Custom HTML 5: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3d_process.html
    - Componente Custom HTML 6: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3e_cta.html
-
-2. PÁGINA 7: NUESTRA ESENCIA
-   - Componente Custom HTML 1: pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion1_hero.html
-   - Componente Custom HTML 2: pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion2_features.html
-   - Componente Custom HTML 3: pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion3_red_divider.html
-
-3. PÁGINA 8: CLARO EN TU PAÍS (HONDURAS)
-   - Componente Custom HTML 1: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion1_hero.html
-   - Componente Custom HTML 2: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion2_pasantia.html
-   - Componente Custom HTML 3: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion3_cultura.html
-   - Componente Custom HTML 4: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion4_testimonios.html
-   - Componente Custom HTML 5: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion5_historia.html
-   - Componente Custom HTML 6: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion6_cta.html
-
-4. PÁGINA 9: APOYO AL CANDIDATO
-   - Componente Custom HTML 1: pdf_pages/pagina9/hcm_delivery/candidato_divided/seccion1_hero.html
-   - Componente Custom HTML 2: pdf_pages/pagina9/hcm_delivery/candidato_divided/seccion2_proceso.html
-   - Componente Custom HTML 3: pdf_pages/pagina9/hcm_delivery/candidato_divided/seccion3_faq_consejos.html
-   - Componente Custom HTML 4: pdf_pages/pagina9/hcm_delivery/candidato_divided/seccion4_cta.html
