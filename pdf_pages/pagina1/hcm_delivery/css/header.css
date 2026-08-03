@@ -2,9 +2,21 @@
    ESTILOS PERSONALIZADOS PARA EL MENÚ/HEADER HORIZONTAL NATIVO DE ORACLE HCM
    ========================================================================== */
 
+/* HACER EL ENCABEZADO Y MENÚ NATIVO DE ORACLE STICKY/FLOTANTE COMO EN INDEX.HTML */
+.app__top .app-header,
+:root [dir] .app-header-horizontal,
+.app-header-horizontal {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
 /* Contenedor General de la Cabecera */
 :root [dir] .app-header-horizontal {
-    background-color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.94) !important;
     height: 72px !important;
     padding: 0 2.5rem !important;
     border-bottom: 1px solid #f3f4f6 !important;
@@ -78,7 +90,7 @@
 
 /* Efecto Hover en Enlaces */
 :root [dir] .app-header-horizontal-navbar__text:hover {
-    color: #da291c !important;
+    color: #c6272b !important;
 }
 
 /* Botón "Soy empleado" */
@@ -94,7 +106,7 @@
 }
 
 :root [dir] .internal-user-login-button:hover {
-    color: #da291c !important;
+    color: #c6272b !important;
 }
 
 /* Botón del Perfil de Usuario (Redondo Rojo de Alta Calidad) */
@@ -102,7 +114,7 @@
     width: 40px !important;
     height: 40px !important;
     border-radius: 50% !important;
-    background-color: #da291c !important;
+    background-color: #c6272b !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -114,7 +126,7 @@
 }
 
 :root [dir] .user-menu__header:hover {
-    background-color: #b81e13 !important;
+    background-color: #9e1e22 !important;
     transform: scale(1.05) !important;
 }
 
@@ -174,7 +186,7 @@
 
 :root [dir] .user-menu__action-item button:hover {
     background-color: #f9fafb !important;
-    color: #da291c !important;
+    color: #c6272b !important;
 }
 
 /* Ajustes responsivos para móviles */
