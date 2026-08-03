@@ -7,14 +7,13 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
 1. En el administrador de Oracle Cloud HCM, ve a:
    Sitios de Candidatos (Candidate Experience) -> Tema (Theme) -> Custom CSS.
 
-2. Pega exactamente este bloque de código. Las referencias a los commits exactos 
-   purgan la caché del CDN e imponen los estilos del hero e inhabilitan el 
-   componente nativo de categorías (ul.categories-list):
+2. Pega exactamente este bloque de código (incluye la regla que oculta 
+   "Todos los puestos (0)" / categories-list__group de forma directa):
 
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/base.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/header.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@ece3f19/pdf_pages/pagina1_sigho_main_copia/css/hero.css');
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@b404ad3/pdf_pages/pagina1/hcm_delivery/css/buscador.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/buscador.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/highlights.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/benefits.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/video.css');
@@ -111,6 +110,25 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
     content: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
+}
+
+/* OCULTAR COMPONENTE NATIVO DE CATEGORÍAS Y "TODOS LOS PUESTOS (0)" DE ORACLE */
+ul.categories-list,
+.categories-list,
+li.categories-list__group,
+a.categories-list__button,
+.categories-list__title,
+.categories-list__counter,
+a[data-qa="searchCategoriesShowAllJobsLink"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 }
 
 @media(max-width:768px) {

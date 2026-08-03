@@ -100,15 +100,21 @@
     font-weight: 500 !important;
 }
 
-/* OCULTAR COMPONENTE NATIVO DE CATEGORÍAS DE BÚSQUEDA DE ORACLE */
+/* OCULTAR COMPONENTE NATIVO DE CATEGORÍAS Y "TODOS LOS PUESTOS (0)" */
 ul.categories-list,
 .categories-list,
-.categories-list__group,
-.categories-list__button,
-[data-qa="searchCategoriesShowAllJobsLink"] {
+li.categories-list__group,
+a.categories-list__button,
+.categories-list__title,
+.categories-list__counter,
+a[data-qa="searchCategoriesShowAllJobsLink"] {
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
+    max-height: 0 !important;
     opacity: 0 !important;
     pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 }
