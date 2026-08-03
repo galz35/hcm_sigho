@@ -1,3 +1,50 @@
+/* ==========================================================================
+   CTA BANNER SECTION - CLARO TALENTO (EXACT SIGHO-MAIN DESIGN)
+   ========================================================================== */
+
+.cta-banner {
+    background: linear-gradient(120deg, rgba(198, 39, 43, 0.88) 0%, rgba(142, 26, 29, 0.92) 100%), url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg2.jpg') !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    padding: 56px 48px !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 30px !important;
+    flex-wrap: wrap !important;
+}
+
+.cta-content {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 40px !important;
+    margin: auto !important;
+    width: 100% !important;
+}
+
+.cta-banner h2 {
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: clamp(24px, 2.6vw, 32px) !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 0 12px 0 !important;
+    max-width: 520px !important;
+    line-height: 1.25 !important;
+}
+
+.cta-banner p {
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 1.05rem !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0 !important;
+    max-width: 480px !important;
+    line-height: 1.5 !important;
+}
+
 .cta-radial-bg {
     background: radial-gradient(ellipse at top right, rgba(255,255,255,0.15) 0%, transparent 60%);
 }
