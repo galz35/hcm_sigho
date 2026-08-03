@@ -7,10 +7,8 @@ PASO 1: CONFIGURAR EL CUSTOM CSS (ESTILO GLOBAL EN EL TEMA)
 1. En el administrador de Oracle Cloud HCM, ve a:
    Sitios de Candidatos (Candidate Experience) -> Tema (Theme) -> Custom CSS.
 
-2. Pega exactamente este bloque de código (contiene las hojas de estilo CDN y el
-   estilo de navegación/perfil nativo):
+2. Pega exactamente este bloque de código (respetando los imports de tu equipo):
 
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@d3eb68080d8df33d8eb62a4ba0b948b1d6648b36/pdf_pages/pagina1/hcm_delivery/css/sigho_main_global_styles.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/base.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/header.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/hero.css');
@@ -123,38 +121,35 @@ PASO 1: CONFIGURAR EL CUSTOM CSS (ESTILO GLOBAL EN EL TEMA)
 }
 
 
-PASO 2: ESTRUCTURA DE COMPONENTES POR PÁGINA
+PASO 2: ESTRUCTURA DE ARCHIVOS PROBADOS POR PÁGINA
 --------------------------------------------------------------------------------
 
-1. PÁGINA DE INICIO (HOME / PÁGINA PRINCIPAL):
-   - Componente Custom HTML 1: inicio/inicio_divided/seccion1_hero.html
+1. PÁGINA 1: INICIO (HOME / PÁGINA PRINCIPAL)
+   Utiliza los bloques validados de: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/
+   
+   - Componente Custom HTML 1: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion1b_hero.html
    - Widget Nativo Oracle: Arrastrar el Buscador de vacantes de Oracle debajo del Hero.
-   - Componente Custom HTML 2: inicio/inicio_divided/seccion2_strip_highlights.html
-   - Componente Custom HTML 3: inicio/inicio_divided/seccion3_porque_claro.html
-   - Componente Custom HTML 4: inicio/inicio_divided/seccion4_video_spotlight.html
-   - Componente Custom HTML 5: inicio/inicio_divided/seccion5_proceso_candidato.html
-   - Componente Custom HTML 6: inicio/inicio_divided/seccion6_cta.html
+   - Componente Custom HTML 2: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3a_highlights.html
+   - Componente Custom HTML 3: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3b_benefits.html
+   - Componente Custom HTML 4: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3c_video.html
+   - Componente Custom HTML 5: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3d_process.html
+   - Componente Custom HTML 6: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3e_cta.html
 
-2. PÁGINA DE NUESTRA ESENCIA:
-   - Componente Custom HTML 1: nuestra_esencia/esencia_divided/seccion1_hero.html
-   - Componente Custom HTML 2: nuestra_esencia/esencia_divided/seccion2_features.html
-   - Componente Custom HTML 3: nuestra_esencia/esencia_divided/seccion3_strip_pilares.html
-   - Componente Custom HTML 4: nuestra_esencia/esencia_divided/seccion4_cta.html
+2. PÁGINA 7: NUESTRA ESENCIA
+   - Componente Custom HTML 1: pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion1_hero.html
+   - Componente Custom HTML 2: pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion2_features.html
+   - Componente Custom HTML 3: pdf_pages/pagina7/hcm_delivery/nuestra_esencia_divided/seccion3_red_divider.html
 
-3. PÁGINA DE CLARO EN TU PAÍS (HONDURAS / REGIONAL):
-   - Componente Custom HTML 1: claro_pais/pais_divided/seccion1_hero.html
-   - Componente Custom HTML 2: claro_pais/pais_divided/seccion2_pasantia.html
-   - Componente Custom HTML 3: claro_pais/pais_divided/seccion3_cta.html
+3. PÁGINA 8: CLARO EN TU PAÍS (HONDURAS)
+   - Componente Custom HTML 1: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion1_hero.html
+   - Componente Custom HTML 2: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion2_pasantia.html
+   - Componente Custom HTML 3: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion3_cultura.html
+   - Componente Custom HTML 4: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion4_testimonios.html
+   - Componente Custom HTML 5: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion5_historia.html
+   - Componente Custom HTML 6: pdf_pages/pagin8/hcm_delivery/honduras_divided/seccion6_cta.html
 
-4. PÁGINA DE APOYO AL CANDIDATO:
-   - Componente Custom HTML 1: apoyo_candidato/apoyo_divided/seccion1_hero.html
-   - Componente Custom HTML 2: apoyo_candidato/apoyo_divided/seccion2_proceso.html
-   - Componente Custom HTML 3: apoyo_candidato/apoyo_divided/seccion3_faq_consejos.html
-   - Componente Custom HTML 4: apoyo_candidato/apoyo_divided/seccion4_cta.html
-
-
-PASO 3: REGLAS DE SEGURIDAD Y VALIDACIÓN DE ORACLE
---------------------------------------------------------------------------------
-- Jamás incluir etiquetas <html, <head, <body, <script o <style en bloques HTML.
-- No incluir la etiqueta <link rel="stylesheet">.
-- Usar rutas relativas hash (#/jobs, #/pages/...) en lugar de enlaces .html.
+4. PÁGINA 9: APOYO AL CANDIDATO
+   - Componente Custom HTML 1: pdf_pages/pagina9/hcm_delivery/candidato_divided/seccion1_hero.html
+   - Componente Custom HTML 2: pdf_pages/pagina9/hcm_delivery/candidato_divided/seccion2_proceso.html
+   - Componente Custom HTML 3: pdf_pages/pagina9/hcm_delivery/candidato_divided/seccion3_faq_consejos.html
+   - Componente Custom HTML 4: pdf_pages/pagina9/hcm_delivery/candidato_divided/seccion4_cta.html
