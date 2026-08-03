@@ -1,16 +1,50 @@
-<!-- BEGIN: CTA Banner Section (Exact sigho-main design with inline fallback styles) -->
-<section class="cta-banner" style="background: linear-gradient(120deg, rgba(198, 39, 43, 0.9) 0%, rgba(142, 26, 29, 0.92) 100%), url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg2.jpg') !important; background-size: cover !important; background-attachment: fixed !important; background-position: center !important; padding: 56px 48px !important; color: #ffffff !important; display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; box-sizing: border-box !important;">
-  <div class="cta-content" style="display: flex !important; flex-wrap: wrap !important; align-items: center !important; justify-content: space-between !important; gap: 30px !important; max-width: 1152px !important; margin: 0 auto !important; width: 100% !important;">
-    <div style="flex: 1 1 500px !important;">
-      <h2 style="font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important; font-size: 32px !important; font-weight: 700 !important; color: #ffffff !important; margin: 0 0 12px 0 !important; line-height: 1.25 !important;">Dá el siguiente paso en tu carrera</h2>
-      <p style="font-family: 'Lato', Arial, sans-serif !important; font-size: 15px !important; color: rgba(255, 255, 255, 0.9) !important; margin: 0 !important; line-height: 1.5 !important;">
-        Crea tu perfil y recibe oportunidades que impulsen tu crecimiento profesional.
-      </p>
+<!-- BEGIN: CTA Banner (Sección 6 basada en seccion3e_cta.html con fondo bg2.jpg de sigho-main) -->
+<section class="bg-[#c6272b] py-8 relative overflow-hidden" 
+         style="background: #c6272b url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg2.jpg') center/cover no-repeat fixed !important; padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; position: relative !important; overflow: hidden !important; width: 100vw !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important;">
+    <!-- Capa de oscurecimiento sutil para garantizar legibilidad -->
+    <div style="position: absolute !important; inset: 0 !important; background-color: rgba(198, 39, 43, 0.85) !important; z-index: 1 !important;"></div>
+    
+    <div class="container mx-auto px-10 relative z-10 max-w-6xl" style="max-width: 1152px !important; margin-left: auto !important; margin-right: auto !important; padding-left: 2.5rem !important; padding-right: 2.5rem !important; box-sizing: border-box !important; position: relative !important; z-index: 10 !important;">
+        <!-- Container Flexbox compatible con Oracle -->
+        <div style="display: flex !important; flex-flow: row wrap !important; align-items: center !important; justify-content: space-between !important; gap: 2rem !important; width: 100% !important; box-sizing: border-box !important;">
+            
+            <!-- Left Text Column -->
+            <div style="flex: 1 1 50% !important; min-width: 280px !important; text-align: left !important; box-sizing: border-box !important;">
+                <h2 class="text-2xl md:text-3xl font-bold font-title mb-2 leading-tight" 
+                    style="color: #ffffff !important; font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important; font-weight: 700 !important; font-size: 1.875rem !important; line-height: 1.25 !important; margin: 0px !important; margin-bottom: 0.5rem !important;">
+                    Dá el siguiente paso<br>en tu carrera
+                </h2>
+                <p style="color: rgba(255, 255, 255, 0.95) !important; font-family: 'Lato', Arial, sans-serif !important; font-size: 0.925rem !important; font-weight: 500 !important; line-height: 1.5 !important; margin: 0px !important;">
+                    Crea tu perfil y recibe oportunidades que<br>impulsen tu crecimiento profesional.
+                </p>
+            </div>
+            
+            <!-- Right Buttons Column -->
+            <div style="flex: 0 1 auto !important; display: flex !important; flex-flow: row wrap !important; align-items: center !important; gap: 1rem !important; box-sizing: border-box !important;">
+                <!-- Iniciar Sesión (Pill blanco con icono de usuario relleno en rojo) -->
+                <a href="#/login"
+                    class="bg-white text-[#c6272b] px-6 py-2.5 rounded-full text-xs font-bold hover:bg-gray-100 transition flex items-center justify-center shadow-lg cursor-pointer text-center select-none"
+                    style="background-color: #ffffff !important; color: #c6272b !important; padding: 0.75rem 2rem !important; border-radius: 9999px !important; font-size: 0.85rem !important; font-family: 'Lato', Arial, sans-serif !important; font-weight: 700 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15) !important; cursor: pointer !important; text-decoration: none !important; border: 0 !important; transition: all 0.3s ease !important;">
+                    <!-- Icono de usuario relleno (Solid) -->
+                    <svg class="h-4 w-4 mr-2" viewBox="0 0 24 24" style="height: 1rem !important; width: 1rem !important; fill: #c6272b !important; margin-right: 0.5rem !important; display: block !important;">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                    </svg>
+                    Iniciar sesión
+                </a>
+                
+                <!-- Crear Perfil (Pill transparente con borde blanco y flecha de línea) -->
+                <a href="#/register"
+                    class="border border-white/60 text-white px-6 py-2.5 rounded-full text-xs font-bold hover:bg-white/10 transition flex items-center justify-center text-center"
+                    style="border: 1.5px solid rgba(255, 255, 255, 0.8) !important; background-color: transparent !important; color: #ffffff !important; padding: 0.75rem 2rem !important; border-radius: 9999px !important; font-size: 0.85rem !important; font-family: 'Lato', Arial, sans-serif !important; font-weight: 700 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: all 0.3s ease !important;">
+                    Crear Perfil
+                    <!-- Flecha de línea delgada (SVG) -->
+                    <svg class="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="height: 1rem !important; width: 1rem !important; margin-left: 0.5rem !important; display: block !important;">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+                    </svg>
+                </a>
+            </div>
+            
+        </div>
     </div>
-    <div style="display: flex !important; flex-wrap: wrap !important; gap: 12px !important; align-items: center !important;">
-      <a href="#/login" class="btn btn-white m1" style="background-color: #ffffff !important; color: #c6272b !important; padding: 12px 28px !important; border-radius: 999px !important; font-family: 'Lato', Arial, sans-serif !important; font-weight: 700 !important; font-size: 15px !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;">Iniciar sesión</a>
-      <a href="#/register" class="btn btn-outline-light" style="background-color: transparent !important; color: #ffffff !important; border: 2px solid #ffffff !important; padding: 12px 28px !important; border-radius: 999px !important; font-family: 'Lato', Arial, sans-serif !important; font-weight: 700 !important; font-size: 15px !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important;">Crear Perfil</a>
-    </div>
-  </div>
 </section>
-<!-- END: CTA Banner Section -->
+<!-- END: CTA Banner -->
