@@ -7,14 +7,14 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
 1. En el administrador de Oracle Cloud HCM, ve a:
    Sitios de Candidatos (Candidate Experience) -> Tema (Theme) -> Custom CSS.
 
-2. Pega exactamente este bloque de código. La referencia al commit exacto 
-   (@ff85f9730f55cf6703957be913ee8061bc4fc97e) purga la caché del CDN e impone 
-   las imágenes oficiales de sigho-main (bg1.jpg, bg02.jpg, bg3.jpg) de inmediato:
+2. Pega exactamente este bloque de código. Las referencias a los commits exactos 
+   purgan la caché del CDN e imponen los estilos del hero e inhabilitan el 
+   componente nativo de categorías (ul.categories-list):
 
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/base.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/header.css');
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@ff85f9730f55cf6703957be913ee8061bc4fc97e/pdf_pages/pagina1/hcm_delivery/css/hero.css');
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/buscador.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@ece3f19/pdf_pages/pagina1_sigho_main_copia/css/hero.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@b404ad3/pdf_pages/pagina1/hcm_delivery/css/buscador.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/highlights.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/benefits.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/video.css');
@@ -22,9 +22,7 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/cta.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/footer.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/pages.css');
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina7/hcm_delivery/nuestra_esencia_styles.css');
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagin8/hcm_delivery/honduras_styles.css');
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina9/hcm_delivery/candidato_styles.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/css/font-claro.css');
 
 .app__top .app-header #app-header-horizontal.app-header-horizontal {
     background: #fff !important;
@@ -73,7 +71,7 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
     white-space: nowrap !important;
 }
 .app__top .app-header #app-header-horizontal .app-header-horizontal-navbar__text:hover {
-    color: #da291c !important;
+    color: #c6272b !important;
 }
 .app__top .app-header #app-header-horizontal .internal-user-login-button {
     font-family: 'Montserrat', Arial, sans-serif !important;
@@ -84,7 +82,7 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
     white-space: nowrap !important;
 }
 .app__top .app-header #app-header-horizontal .internal-user-login-button:hover {
-    color: #da291c !important;
+    color: #c6272b !important;
 }
 
 /* BOTÓN DE PERFIL ULTRA LIMPIO DE ORACLE */
@@ -92,7 +90,7 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
     width: 40px !important;
     height: 40px !important;
     border-radius: 50% !important;
-    background-color: #da291c !important;
+    background-color: #c6272b !important;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
@@ -105,7 +103,7 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
     position: relative !important;
 }
 .app__top .app-header #app-header-horizontal .user-menu__header:hover {
-    background-color: #b81e13 !important;
+    background-color: #9e1e22 !important;
 }
 
 .app__top .app-header #app-header-horizontal .user-menu__header * {
@@ -121,16 +119,3 @@ PASO 1: CONFIGURAR EL CUSTOM CSS EN ORACLE HCM (CON PURGA DE CACHÉ CDN)
         height: 64px !important;
     }
 }
-
-
-PASO 2: ARCHIVOS HTML DE SECCIONES PROBADAS
---------------------------------------------------------------------------------
-
-1. PÁGINA 1: INICIO (HOME / PÁGINA PRINCIPAL)
-   - Componente Custom HTML 1: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion1b_hero.html
-   - Widget Nativo Oracle: Arrastrar el Buscador de vacantes de Oracle debajo del Hero.
-   - Componente Custom HTML 2: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3a_highlights.html
-   - Componente Custom HTML 3: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3b_benefits.html
-   - Componente Custom HTML 4: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3c_video.html
-   - Componente Custom HTML 5: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3d_process.html
-   - Componente Custom HTML 6: pdf_pages/pagina1/hcm_delivery/hcm_homepage_divided/seccion3e_cta.html
