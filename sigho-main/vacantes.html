@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vacantes | Claro Talento</title>
+		<link rel="icon" href="assets/images/favicon.png" type="image/png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Lato:wght@600;700;800&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/styles.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="header-inner">
+				<a href="index.html" class="logo">
+					<img src="assets/images/logo-claro-rojo.svg" alt="Claro Talento" />
+				</a>
+				<nav class="main-nav">
+					<a href="index.html">Inicio</a>
+					<a href="vacantes.html" class="active">Vacantes</a>
+					<a href="nuestra-esencia.html">Nuestra Esencia</a>
+					<a href="claro-pais.html">Claro en tu País</a>
+					<a href="apoyo-candidato.html">Apoyo al Candidato</a>
+				</nav>
+				<details class="account">
+					<summary aria-label="Cuenta">
+						<i class="ico-user"></i>
+					</summary>
+					<div class="account-panel">
+						<div class="form-group">
+							<label>Correo Electrónico</label>
+							<input type="email" placeholder="ejemplo@correo.com" />
+						</div>
+						<div class="form-group">
+							<label>Contraseña</label>
+							<input type="password" placeholder="••••••••••••••••" />
+						</div>
+						<div class="account-actions">
+							<a href="login.html" class="btn btn-primary btn-sm"
+								>Iniciar sesión</a
+							>
+							<a href="crear-perfil.html" class="btn btn-outline-red btn-sm"
+								>Crear Perfil</a
+							>
+						</div>
+					</div>
+				</details>
+			</div>
+		</header>
+
+		<section class="hero">
+			<div class="hero-slider">
+				<!-- Slide 1 -->
+				<div class="hero-slide active">
+					<img src="assets/images/bg1.jpg" alt="" />
+					<div class="hero-grid">
+						<div>
+							<h1>Construye tu futuro en <span>Claro</span></h1>
+							<p class="lead">
+								Sé parte de la empresa que conecta personas, tecnología y
+								oportunidades.
+							</p>
+
+							<div class="hero-actions">
+								<a href="vacantes.html" class="btn btn-primary">
+									Ver Vacantes
+								</a>
+
+								<a href="nuestra-esencia.html" class="btn btn-outline-red">
+									Conoce la experiencia
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 2 -->
+				<div class="hero-slide">
+					<img src="assets/images/bg02.jpg" alt="" />
+					<div class="hero-grid">
+						<div>
+							<h1>Encuentra tu próximo <span>gran desafío</span></h1>
+							<p class="lead">
+								Explora nuestras áreas de trabajo y encuentra oportunidades que
+								impulsen tu crecimiento profesional.
+							</p>
+
+							<!-- <div class="hero-actions">
+							  <a href="vacantes.html" class="btn btn-primary">
+								  Ver Vacantes
+							  </a>
+		
+							  <a href="nuestra-esencia.html" class="btn btn-outline-red">
+								  Conoce la experiencia
+							  </a>
+						  </div> -->
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 3 -->
+				<div class="hero-slide">
+					<img src="assets/images/bg3.jpg" alt="" />
+					<div class="hero-grid">
+						<div>
+							<h1>Construye el <span>futuro digital</span></h1>
+							<p class="lead">
+								Sé parte del equipo que transforma las telecomunicaciones en la
+								región.
+							</p>
+
+							<div class="hero-actions">
+								<a href="vacantes.html" class="btn btn-primary">
+									Explorar oportunidades
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Flechas -->
+			<button class="slider-prev">&#10094;</button>
+			<button class="slider-next">&#10095;</button>
+
+			<!-- Indicadores -->
+			<div class="slider-dots"></div>
+
+			<!-- Buscador -->
+			<div class="container">
+				<form class="search-card" role="search">
+					<div class="field">
+						<select>
+							<option>Cargo</option>
+							<option>Cargo1</option>
+							<option>Cargo2</option>
+							<option>Cargo3</option>
+						</select>
+					</div>
+					<div class="field">
+						<select>
+							<option>País</option>
+							<option>Guatemala</option>
+							<option>Honduras</option>
+							<option>Nicaragua</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary">Buscar</button>
+				</form>
+			</div>
+		</section>
+
+		<section class="section-tight">
+			<div class="container text-center">
+				<div class="results-bar">
+					<h1>Resultados de tu búsqueda</h1>
+				</div>
+				<div class="filters">
+					<span class="chip">Ubicaciones ▾</span>
+					<span class="chip">Puesto ▾</span>
+					<span class="chip">Fechas de publicación ▾</span>
+					<span class="chip">Nivel de Experiencia ▾</span>
+				</div>
+				<span class="chip clear">Limpiar filtros</span>
+				<div class="sort text-right">Ordenar por: Fecha de publicación</div>
+
+				<div class="job-grid">
+					<a href="vacante-detalle.html" class="job-card dark">
+						<span class="badge-new">
+							<i class="ico-star"></i>
+						</span>
+						<h3>Telemarketing y Canales Digitales</h3>
+						<div class="loc">Guatemala – Ciudad de Guatemala</div>
+						<div class="country">Guatemala</div>
+
+						<div class="desc-label">
+							<i class="ico-clock"></i> Sé el primero en aplicar
+						</div>
+
+						<span class="apply">
+							<div class="desc-job">
+								<div class="desc-label">Descripción</div>
+								<p class="desc">
+									Atención, ventas y experiencia en canales digitales.
+								</p>
+							</div>
+							<i class="ico-chevron-right"></i>
+						</span>
+					</a>
+
+					<a href="vacante-detalle.html" class="job-card">
+						<span class="badge-new"><i class="ico-star"></i></span>
+						<h3>Salud y Seguridad Ocupacional</h3>
+						<div class="loc">Honduras – San Pedro Sula</div>
+						<div class="country">Honduras</div>
+						<div class="desc-label">
+							<i class="ico-clock"></i> Sé el primero en aplicar
+						</div>
+						<span class="apply">
+							<div class="desc-job">
+								<div class="desc-label">Descripción</div>
+								<p class="desc">
+									Promovemos entornos laborales seguros y saludables.
+								</p>
+							</div>
+							<i class="ico-chevron-right"></i>
+						</span>
+					</a>
+
+					<a href="vacante-detalle.html" class="job-card">
+						<span class="badge-new"><i class="ico-star"></i></span>
+						<h3>Inteligencia y Desarrollo Comercial</h3>
+						<div class="loc">Nicaragua – Managua</div>
+						<div class="country">Nicaragua</div>
+						<div class="desc-label">
+							<i class="ico-clock"></i> Sé el primero en aplicar
+						</div>
+						<span class="apply">
+							<div class="desc-job">
+								<div class="desc-label">Descripción</div>
+								<p class="desc">
+									Estrategia, análisis y desarrollo de oportunidades.
+								</p>
+							</div>
+							<i class="ico-chevron-right"></i>
+						</span>
+					</a>
+
+					<a href="vacante-detalle.html" class="job-card">
+						<span class="badge-new"><i class="ico-star"></i></span>
+						<h3>Call Center</h3>
+						<div class="loc">Honduras – Telamar</div>
+						<div class="country">Honduras</div>
+						<div class="desc-label">
+							<i class="ico-clock"></i> Sé el primero en aplicar
+						</div>
+
+						<span class="apply">
+							<div class="desc-job">
+								<div class="desc-label">Descripción</div>
+								<p class="desc">Servicio al cliente y soporte especializado.</p>
+							</div>
+							<i class="ico-chevron-right"></i>
+						</span>
+					</a>
+
+					<div class="job-card feature text-center">
+						<h3 class="text-center">
+							Red de Talento <br />
+							Claro Centroamérica
+						</h3>
+						<p class="text-white">
+							Obtén información profesional y oportunidades de empleo. Únete a
+							nuestra red.
+						</p>
+						<a href="crear-perfil.html" class="btn btn-ghost btn-sm">
+							Únete a nuestra red
+						</a>
+					</div>
+
+					<a href="vacante-detalle.html" class="job-card">
+						<span class="badge-new"><i class="ico-star"></i></span>
+						<h3>Recursos Humanos</h3>
+						<div class="loc">Guatemala – Ciudad de Guatemala</div>
+						<div class="country">Guatemala</div>
+						<div class="desc-label">
+							<i class="ico-clock"></i> Sé el primero en aplicar
+						</div>
+
+						<span class="apply">
+							<div>
+								<div class="desc-label">Descripción</div>
+								<p class="desc">
+									Gestión del talento, cultura y desarrollo organizacional.
+								</p>
+							</div>
+
+							<i class="ico-chevron-right"></i>
+						</span>
+					</a>
+				</div>
+
+				<div class="load-more">
+					<button class="btn btn-dark">Ver más</button>
+				</div>
+
+				<div class="subscribe-banner">
+					<div class="icon-suscribe">
+						<i class="ico-file-text"></i>
+					</div>
+					<div class="text-left">
+						<h2>¿No encuentras la vacante ideal?</h2>
+						<p>
+							Registra tus datos y te notificaremos cuando hayan vacantes que se
+							ajusten a tu perfil.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-tint100 p4">
+			<div class="container col-2">
+				<div class="section-head">
+					<div class="eyebrow">Tu camino en Claro</div>
+					<h2>Experiencia del Candidato</h2>
+					<p>
+						Un proceso transparente, ágil y pensado para que tengas una mejor
+						experiencia.
+					</p>
+				</div>
+				<div class="process">
+					<div class="step text-center">
+						<div class="icon-process"><i class="ico-file-text"> </i></div>
+						<span class="n">1. Postúlate</span>
+						<p>
+							Encuentra la vacante ideal y envía tu postulación en pocos pasos.
+						</p>
+					</div>
+					<div class="step text-center">
+						<div class="icon-process"><i class="ico-file-plus"> </i></div>
+						<span class="n">2. Descubrimos tu talento</span>
+						<p>Analizamos tu perfil, experiencia y competencias.</p>
+					</div>
+					<div class="step text-center">
+						<div class="icon-process"><i class="ico-user-check"> </i></div>
+						<span class="n">3. Conectamos</span>
+						<p>Conoce a nuestro equipo y conversemos sobre tu futuro.</p>
+					</div>
+					<div class="step text-center">
+						<div class="icon-process"><i class="ico-claro-user"> </i></div>
+						<span class="n">4. Comienza tu historia en Claro</span>
+						<p>¡Bienvenido(a) a Claro! Comienza tu nueva etapa profesional.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<span class="logo logo-mini">
+					<img src="assets/images/logo-claro-rojo.svg" alt="Claro Talento" />
+					|
+					<img src="assets/images/logo-amx-bco.svg" alt="Claro Talento" />
+					<ul class="social-links">
+						<li>
+							<a href="#"><i class="ico-facebook-s"> </i></a>
+						</li>
+						<li>
+							<a href="#"><i class="ico-x-s"> </i></a>
+						</li>
+						<li>
+							<a href="#"><i class="ico-instagram-s"> </i></a>
+						</li>
+						<li>
+							<a href="#"><i class="ico-whatsapp-s"></i></a>
+						</li>
+					</ul>
+				</span>
+			</div>
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="footer-bottom-inner">
+						<div>
+							<p>Todos los derechos reservados, Claro 2026.</p>
+						</div>
+						<div>
+							<ul class="footer-links">
+								<li><a href="terminos.html">Mapa de sitio</a></li>
+								<li><a href="politicas.html">Portal de denuncias</a></li>
+								<li><a href="terminos.html">Privacidad</a></li>
+								<li><a href="politicas.html">Legal y Regulatorio</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script src="assets/js/script.js"></script>
+</html>
