@@ -1,9 +1,9 @@
 /* ==========================================================================
-   CTA BANNER SECTION - CLARO TALENTO (EXACT SIGHO-MAIN DESIGN)
+   CTA BANNER SECTION - CLARO TALENTO (EXACT SIGHO-MAIN DESIGN WITH bg02.jpg)
    ========================================================================== */
 
 .cta-banner {
-    background: linear-gradient(120deg, rgba(198, 39, 43, 0.88) 0%, rgba(142, 26, 29, 0.92) 100%), url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg2.jpg') !important;
+    background: linear-gradient(120deg, rgba(198, 39, 43, 0.88) 0%, rgba(142, 26, 29, 0.92) 100%), url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg02.jpg') !important;
     background-size: cover !important;
     background-attachment: fixed !important;
     background-position: center !important;
