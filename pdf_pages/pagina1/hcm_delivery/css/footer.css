@@ -1,3 +1,48 @@
-/* Footer de la homepage de Claro */
-/* Este bloque usa clases de Tailwind al 100%. */
-/* Si necesitas ajustes finos al integrarlo en Oracle, agrega las reglas aqui. */
+/* ==========================================================================
+   SITE FOOTER - CLARO TALENTO (EXACT SIGHO-MAIN STYLES.CSS)
+   ========================================================================== */
+
+.social-links {
+	display: flex !important;
+	gap: 12px !important;
+	margin-left: 15px !important;
+	list-style: none !important;
+	padding: 0 !important;
+}
+
+.social-links li a {
+	box-sizing: border-box !important;
+	border-radius: 50px !important;
+	font-size: 0 !important;
+	overflow: hidden !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 32px !important;
+	height: 32px !important;
+	border: rgba(255, 255, 255, 0.3) 1px solid !important;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.32) 0%,
+		rgba(152, 152, 152, 0.32) 100%
+	) !important;
+	position: relative !important;
+	text-decoration: none !important;
+	transition: all 0.3s ease !important;
+}
+
+.social-links li a:hover {
+	background: #c6272b !important;
+	border-color: #c6272b !important;
+}
+
+.social-links li a i {
+	font-size: 16px !important;
+	color: #ffffff !important;
+	line-height: 1 !important;
+}
+
+.footer-links a:hover {
+	color: #ffffff !important;
+	text-decoration: underline !important;
+}
