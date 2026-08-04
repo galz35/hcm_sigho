@@ -5,24 +5,90 @@ description: Guidelines and utility code transformations to successfully integra
 
 # Skill: Integración Limpia en Oracle Cloud HCM Career Sites
 
-Este skill provee instrucciones detalladas para transformar diseños HTML/CSS planos en código compatible con Oracle Recruiting Cloud (ORC) sin activar las restricciones de seguridad sobre etiquetas o palabras clave, ni sobrecargar la interfaz.
+Este skill provee instrucciones detalladas y mejores prácticas aprendidas al transformar diseños web completos en bloques HTML/CSS modulares totalmente compatibles con Oracle Recruiting Cloud (ORC).
 
-## 1. Procedimiento de Limpieza HTML
-Cuando se trabaje en archivos de plantilla para HCM:
-1. **Remover cualquier estructura de documento** (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`).
-2. **Remover o desviar bloques** `<style>` y `<script>`.
-3. **Sanitizar atributos de enlaces** (`href="archivo.html"` -> `href="#"`).
-4. **Reemplazar estilos en línea** (`style="background..."`) por clases de utilidad que se agregarán en el CSS.
-5. **Purgar todo comentario** que contenga nombres de tags entre `< >` (ej: no escribir `<!-- No usar <script> -->` ya que arroja falsos positivos).
-6. **PROHIBIDO `<link rel="stylesheet">`:** Nunca usar esta etiqueta para cargar hojas de estilo en los bloques Custom HTML, ya que la palabra `stylesheet` contiene la subcadena `style`, la cual es bloqueada por el validador estricto de HTML de Oracle.
+---
 
-## 2. Procedimiento de Evasión en CSS (Theme Custom CSS)
-Dado que el Custom CSS del Theme tab en Oracle HCM no acepta selectores directos de `body`/`html` y posee filtros WAF estrictos:
-1. **Reemplazar `html` selector** por `:root`.
-2. **Reemplazar `body` selector** por `:root > *:last-child` o por la clase de carga `.app-loading`.
-3. **Quitar todo bloque de comentarios** del CSS para evitar falsos positivos de palabras reservadas.
-4. **Evitar parámetros en `@import` (Bypass WAF 403):** El WAF de Oracle bloquea peticiones de guardado si los imports contienen caracteres XSS comunes (`?`, `&`, `=`, `:`), como ocurre con los URLs complejos de Google Fonts. Importar las fuentes de forma simple o gestionarlas nativamente en el Theme, y mantener solo imports de CDNs limpios (ej: Tailwind CSS en archivo directo `.min.css`).
-5. **Carga remota via CDN (Solución a congelamientos):** Si el CSS consolidado supera los 10KB, el editor de Oracle HCM suele congelar el navegador al pegar el código. La solución recomendada es alojar el archivo CSS en un repositorio de GitHub público y consumirlo en el Custom CSS de Oracle mediante una única línea de importación:
+## 1. Reglas de Limpieza HTML para Oracle Cloud HCM
+Cuando se trabajen bloques de contenido HTML en Oracle HCM:
+1. **Zero etiquetas de documento**: No incluir jamás `<html>`, `<head>`, `<body>`, `<script>`, o `<style>`.
+2. **PROHIBIDO `<link rel="stylesheet">`**: La subcadena `style` dentro de `stylesheet` provoca el rechazo automático del validador estricto de HTML de Oracle ("elementos restringidos").
+3. **Zero enlaces a `.html`**: Reemplazar rutas como `contacto.html` por rutas de navegación de Oracle (`#/jobs`, `#/pages/ID`) o placeholders `#`.
+4. **Zero comentarios con etiquetas**: No escribir explicaciones que mencionen nombres de tags (ej: `<!-- No usar <script> -->`), ya que el validador busca coincidencias exactas del texto y arroja falso positivo.
+
+---
+
+## 2. Estrategia de CSS Maestro Unificado (`master_bundle.css`)
+Para evitar sobrecargar el editor de Oracle HCM y resolver el problema de congelamiento del navegador:
+1. **Un solo `@import` en Custom CSS**: Consolidar todas las hojas de estilo modulares (`base`, `header`, `hero`, `buscador`, `highlights`, `benefits`, `video`, `process`, `cta`, `footer`, `font-claro`) en un archivo maestro público en GitHub (`master_bundle.css`).
+2. **Purga de Caché CDN Instantánea**: Usar la URL de jsDelivr incluyendo el **commit hash exacto** para que Oracle cargue los cambios de inmediato sin esperar la caché global del CDN (5-10 minutos):
    ```css
-   @import url('https://cdn.jsdelivr.net/gh/USERNAME/REPO@BRANCH/PATH/TO/styles.css');
+   @import url('https://cdn.jsdelivr.net/gh/USUARIO/REPO@COMMIT_HASH/PATH/TO/master_bundle.css');
    ```
+
+---
+
+## 3. Ancho de Pantalla Edge-to-Edge (`100vw` Full Bleed)
+Para hacer que secciones personalizadas (Hero Banner, Strip de Alfombra Roja, Sección de Video, Proceso, CTA Banner y Footer) abarquen el 100% del ancho del navegador rompiendo los márgenes del contenedor nativo de Oracle HCM:
+```html
+<section style="width: 100vw !important; position: relative !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important; overflow: hidden !important;">
+    <div style="max-width: 1152px !important; margin: 0 auto !important; padding: 0 1.5rem !important; box-sizing: border-box !important;">
+        <!-- Contenido centrado -->
+    </div>
+</section>
+```
+
+---
+
+## 4. Menú y Encabezado Superior Sticky / Flotante
+Para lograr que el menú de navegación superior nativo de Oracle permanezca fijo en la parte superior del navegador con un efecto translúcido al hacer scroll hacia abajo (igual al diseño de `sigho-main`):
+```css
+.app__top .app-header,
+:root [dir] .app-header-horizontal,
+.app-header-horizontal {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+```
+
+---
+
+## 5. Ocultar Componentes Nativos Molestos (`ul.categories-list`)
+Cuando el buscador nativo de Oracle inyecta automáticamente el listado de categorías/facetas debajo de los inputs (ej: *"Todos los puestos (0)"*):
+```css
+ul.categories-list,
+.categories-list,
+li.categories-list__group,
+a.categories-list__button,
+.categories-list__title,
+.categories-list__counter,
+a[data-qa="searchCategoriesShowAllJobsLink"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+```
+
+---
+
+## 6. Medalla Cuadrada de Beneficios e Íconos de Marca
+- **Insignia Cuadrada**: La medalla de beneficios usa `.why-photo .badge-icon` con `border-radius: 0px`, `width: 45px`, `height: 45px`, `background: #c6272b` en posición absoluta `top: -10px`, `left: 16px`.
+- **Ícono de marca**: Se incrusta la clase `<i class="ico-claro-logo"></i>` importando `@import url('.../sigho-main/assets/css/font-claro.css');`.
+
+---
+
+## 7. Renderizado Inmediato con Estilos Inline de Respaldo
+Para evitar que bloques principales aparezcan sin formato o sin imagen durante retrasos de red o caché CDN, incrustar atributos `style="..."` inline esenciales con `!important` para:
+- Imágenes de fondo de alta resolución (`bg1.jpg`, `bg2.jpg`, `bg02.jpg`).
+- Capas de gradientes transparentes (`rgba(198, 39, 43, 0.35)`).
+- Botones de acción principales (Pill blanco y Pill transparente con bordes).
