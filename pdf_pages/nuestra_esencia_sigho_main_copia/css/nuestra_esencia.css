@@ -1,0 +1,153 @@
+/* ==========================================================================
+   NUESTRA ESENCIA PAGE STYLES - CLARO TALENTO (EXACT SIGHO-MAIN STYLES.CSS)
+   ========================================================================== */
+
+/* Quad Grid (Así es trabajar en Claro) */
+.quad-grid {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    justify-content: center !important;
+    gap: 1.75rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.quad-card {
+    flex: 1 1 22% !important;
+    min-width: 250px !important;
+    max-width: 280px !important;
+    background: #ffffff !important;
+    border-radius: 1.25rem !important;
+    padding: 1.25rem !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #f3f4f6 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.quad-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.quad-card .img-card {
+    width: 100% !important;
+    height: 160px !important;
+    border-radius: 0.875rem !important;
+    overflow: hidden !important;
+    margin-bottom: 1rem !important;
+}
+
+.quad-card .img-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.quad-card .icon {
+    width: 36px !important;
+    height: 36px !important;
+    background: #c6272b !important;
+    color: #ffffff !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.quad-card h3 {
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #1b1b1d !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.quad-card p {
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 13.5px !important;
+    color: #4a4a4c !important;
+    line-height: 1.5 !important;
+    margin: 0 0 1rem 0 !important;
+    flex-grow: 1 !important;
+}
+
+.quad-card a {
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    color: #c6272b !important;
+    text-decoration: none !important;
+}
+
+.quad-card a:hover {
+    text-decoration: underline !important;
+}
+
+/* Strip Wrap Us (Trabaja con nosotros / Gestión de talento / Salud y Bienestar) */
+.strip-wrap-us {
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    background-color: #c6272b !important;
+    padding: 3.5rem 0 !important;
+    margin-top: 3.5rem !important;
+    box-sizing: border-box !important;
+}
+
+.strip-wrap-us .strip {
+    max-width: 1152px !important;
+    margin: 0 auto !important;
+    padding: 0 1.5rem !important;
+    display: flex !important;
+    flex-flow: row wrap !important;
+    justify-content: space-between !important;
+    gap: 2rem !important;
+    box-sizing: border-box !important;
+}
+
+.strip-wrap-us .cell {
+    flex: 1 1 30% !important;
+    min-width: 260px !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
+}
+
+.strip-wrap-us .cell .ic {
+    width: 48px !important;
+    height: 48px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 1rem !important;
+    color: #ffffff !important;
+    font-size: 24px !important;
+}
+
+.strip-wrap-us .cell h3 {
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.strip-wrap-us .cell p {
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 13.5px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+}
