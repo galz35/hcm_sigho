@@ -2,6 +2,21 @@
    NUESTRA ESENCIA PAGE STYLES - CLARO TALENTO (EXACT SIGHO-MAIN STYLES.CSS)
    ========================================================================== */
 
+/* Full Bleed White Wrapper Section */
+.quad-section-wrapper {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
 /* Quad Grid (Así es trabajar en Claro) */
 .quad-grid {
     display: flex !important;
