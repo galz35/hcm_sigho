@@ -14,8 +14,29 @@
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/footer.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/pagina1/hcm_delivery/css/pages.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/css/font-claro.css');
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@b8915e1/pdf_pages/nuestra_esencia_sigho_main_copia/css/nuestra_esencia.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/nuestra_esencia_sigho_main_copia/css/nuestra_esencia.css');
 @import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/pdf_pages/claro_pais_sigho_main_copia/css/claro_pais.css');
+
+/* ==========================================================================
+   ANULAR MÁRGENES, RESTRICCIONES Y FONDOS BLANCOS/GRISES DE CONTENEDORES NATIVOS
+   ========================================================================== */
+.cc-column,
+.cc-column--default,
+.cc-column__content,
+.cc-element,
+.cc-element--custom-html,
+div[class*="cc-column"],
+div[class*="cc-element"] {
+    background-color: transparent !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: visible !important;
+}
 
 /* REGLAS STICKY/FLOTANTE PARA EL ENCABEZADO Y MENÚ DE ORACLE */
 .app__top .app-header,
