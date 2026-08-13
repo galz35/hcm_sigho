@@ -1,0 +1,121 @@
+/* ==========================================================================
+   APOYO AL CANDIDATO CSS - ORACLE CLOUD HCM (CLARO SIGHT MIGRATION)
+   ========================================================================== */
+
+/* Two Col Grid */
+.two-col-apoyo {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    justify-content: space-between !important;
+    gap: 3.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.two-col-apoyo > div {
+    flex: 1 1 45% !important;
+    min-width: 300px !important;
+    box-sizing: border-box !important;
+}
+
+/* FAQ Titles */
+.faq-title {
+    display: flex !important;
+    gap: 1rem !important;
+    align-items: center !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.faq-title i {
+    font-size: 2.75rem !important;
+    color: #c6272b !important;
+    line-height: 1 !important;
+}
+
+.faq-title h1 {
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #c6272b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    margin: 0 !important;
+}
+
+.faq-title h2 {
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: 1.75rem !important;
+    font-weight: 800 !important;
+    color: #1b1b1d !important;
+    margin: 0.25rem 0 0 0 !important;
+}
+
+/* FAQ Items */
+.faq-item {
+    border-bottom: 1px solid #e5e7eb !important;
+    padding: 1.25rem 0 !important;
+}
+
+.faq-item:last-child {
+    border-bottom: none !important;
+}
+
+.faq-item h4 {
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+}
+
+.faq-item p {
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 14.5px !important;
+    color: #4b5563 !important;
+    line-height: 1.65 !important;
+    margin: 0.5rem 0 0 0 !important;
+}
+
+/* Tip Items */
+.tip-item {
+    display: flex !important;
+    gap: 1.25rem !important;
+    padding: 1.25rem 0 !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    align-items: flex-start !important;
+}
+
+.tip-item:last-child {
+    border-bottom: none !important;
+}
+
+.tip-item .num {
+    width: 50px !important;
+    height: 50px !important;
+    flex: none !important;
+    border-radius: 50% !important;
+    background: #fde8e8 !important;
+    color: #c6272b !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.5rem !important;
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+}
+
+.tip-item h4 {
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+}
+
+.tip-item p {
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 14px !important;
+    color: #4b5563 !important;
+    line-height: 1.6 !important;
+    margin: 0.35rem 0 0 0 !important;
+}
