@@ -312,3 +312,19 @@
     line-height: 1.6 !important;
     text-align: center !important;
 }
+
+/* CTA Banner with bg2.jpg background image */
+.cta-banner {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background-image: linear-gradient(to right, rgba(198, 39, 43, 0.88), rgba(142, 26, 29, 0.92)), url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg2.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    padding: 4rem 0 !important;
+    box-sizing: border-box !important;
+}
+
