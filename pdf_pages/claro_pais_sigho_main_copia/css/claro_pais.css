@@ -110,7 +110,7 @@
 }
 
 
-/* Info Pair & Trio Cards (Fondo suave sin bordes ni sombras separadas) */
+/* Info Pair & Trio Cards (Zero border 1:1 match with prototype screenshot) */
 .info-pair {
     display: flex !important;
     flex-flow: row wrap !important;
@@ -118,19 +118,24 @@
     align-items: stretch !important;
     gap: 2rem !important;
     width: 100% !important;
+    border: 0 !important;
+    border-style: none !important;
     box-sizing: border-box !important;
 }
 
 .trio-card {
     flex: 1 1 45% !important;
     min-width: 280px !important;
-    background: #f3f4f6 !important;
+    background: #f1f3f5 !important;
     border-radius: 1.25rem !important;
     padding: 2rem !important;
-    border: none !important;
+    border: 0 !important;
+    border-style: none !important;
+    outline: none !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
 }
+
 
 .trio-card h3 {
     font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
