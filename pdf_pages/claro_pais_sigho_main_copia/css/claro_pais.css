@@ -171,6 +171,18 @@
     flex-direction: column !important;
     justify-content: space-between !important;
     box-sizing: border-box !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.testi-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.testi-card.center {
+    border: 1.5px solid #c6272b !important;
+    box-shadow: 0 15px 30px -5px rgba(198, 39, 43, 0.12) !important;
+    transform: translateY(-4px) !important;
 }
 
 .testi-card .quote-mark {
@@ -208,11 +220,22 @@
     display: flex !important;
     flex-flow: row wrap !important;
     justify-content: space-between !important;
-    gap: 1.5rem !important;
+    gap: 1.25rem !important;
     margin-top: 3rem !important;
     position: relative !important;
     width: 100% !important;
     box-sizing: border-box !important;
+}
+
+.timeline::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 42px !important;
+    left: 20px !important;
+    right: 20px !important;
+    height: 3px !important;
+    background: #e5e7eb !important;
+    z-index: 1 !important;
 }
 
 .tl-item {
@@ -224,6 +247,25 @@
     border: 1px solid #e5e7eb !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04) !important;
     box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 2 !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.tl-item:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.tl-item .story-point {
+    width: 14px !important;
+    height: 14px !important;
+    background-color: #c6272b !important;
+    border-radius: 50% !important;
+    margin-bottom: 0.75rem !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 0 0 0 2px #c6272b !important;
+    display: block !important;
 }
 
 .tl-item .yr {
