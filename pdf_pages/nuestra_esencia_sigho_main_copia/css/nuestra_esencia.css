@@ -103,6 +103,24 @@
     text-decoration: underline !important;
 }
 
+/* Anulación estricta de contenedores Oracle que envuelven franjas Full Bleed */
+.cc-column:has(.strip-wrap-us),
+.cc-column__content:has(.strip-wrap-us),
+.cc-element:has(.strip-wrap-us),
+.cc-element--custom-html:has(.strip-wrap-us),
+div[class*="cc-column"]:has(.strip-wrap-us),
+div[class*="cc-element"]:has(.strip-wrap-us) {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    background: transparent !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: visible !important;
+}
+
 /* Strip Wrap Us (Trabaja con nosotros / Gestión de talento / Salud y Bienestar - Full Bleed 100vw) */
 .strip-wrap-us {
     width: 100vw !important;
@@ -114,6 +132,8 @@
     background-color: #c6272b !important;
     padding: 3.5rem 0 !important;
     margin-top: 3.5rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
 }
