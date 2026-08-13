@@ -131,7 +131,8 @@ div[class*="cc-element"]:has(.strip-wrap-us) {
     transform: translateX(-50%) !important;
     background-color: #c6272b !important;
     padding: 3.5rem 0 !important;
-    margin-top: 3.5rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     box-sizing: border-box !important;
