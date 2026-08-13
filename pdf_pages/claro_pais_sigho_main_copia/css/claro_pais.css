@@ -83,22 +83,10 @@
     border-color: #c6272b !important;
 }
 
-/* Results Bar (Impulsa tu carrera desde el inicio con linea roja inferior) */
+/* Results Bar (Impulsa tu carrera desde el inicio) */
 .results-bar {
     text-align: center !important;
     margin-bottom: 2.5rem !important;
-    padding-bottom: 6px !important;
-}
-
-.results-bar::after {
-    content: "" !important;
-    position: relative !important;
-    display: block !important;
-    height: 10px !important;
-    width: 25% !important;
-    max-width: 160px !important;
-    border-bottom: 4px solid #c6272b !important;
-    margin: 12px auto 25px auto !important;
 }
 
 .results-bar h1, .results-bar h2 {
@@ -106,17 +94,16 @@
     font-size: 2.25rem !important;
     font-weight: 800 !important;
     color: #1b1b1d !important;
-    margin: 0 !important;
+    margin: 0 0 0.75rem 0 !important;
 }
 
-
-/* Info Pair & Trio Cards (Zero border 1:1 match with prototype screenshot) */
+/* Info Pair & Trio Cards (Sin recuadro, transparente igual a Nuestra Cultura Local) */
 .info-pair {
     display: flex !important;
     flex-flow: row wrap !important;
     justify-content: space-between !important;
-    align-items: stretch !important;
-    gap: 2rem !important;
+    align-items: flex-start !important;
+    gap: 2.5rem !important;
     width: 100% !important;
     border: 0 !important;
     border-style: none !important;
@@ -126,15 +113,16 @@
 .trio-card {
     flex: 1 1 45% !important;
     min-width: 280px !important;
-    background: #ffffff !important;
-    border-radius: 1.25rem !important;
-    padding: 2rem !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
     border: 0 !important;
     border-style: none !important;
     outline: none !important;
     box-shadow: none !important;
     box-sizing: border-box !important;
 }
+
 
 
 
