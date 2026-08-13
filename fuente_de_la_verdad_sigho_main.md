@@ -15,7 +15,7 @@ Este proyecto consolida el rediseño del portal de empleo de **Claro Talento (SI
 | Página | Estado | Ubicación Copia Aislada | Componentes Divididos |
 | :--- | :---: | :--- | :--- |
 | **Home (Index)** | 100% Completada | `pdf_pages/pagina1_sigho_main_copia/` | `seccion1b_hero.html`, `seccion2_strip_highlights.html`, `seccion3_benefits.html`, `seccion4_video.html`, `seccion5_process.html`, `seccion6_cta.html`, `seccion7_footer.html` |
-| **Nuestra Esencia** | 100% Completada | `pdf_pages/nuestra_esencia_sigho_main_copia/` | `seccion1_hero.html`, `seccion2_quad_grid.html`, `seccion3_strip_highlights.html`, `seccion4_footer.html` |
+| **Nuestra Esencia** | 100% Completada | `pdf_pages/nuestra_esencia_sigho_main_copia/` | `seccion1_hero.html`, `seccion_unificada_esencia.html` (Quad grid + Strip sin espacios), `seccion4_footer.html` |
 | **Claro en tu País** | 100% Completada | `pdf_pages/claro_pais_sigho_main_copia/` | `seccion1_hero.html`, `seccion2_pasantia_pais.html`, `seccion3_cultura_video.html`, `seccion4_testimonios.html`, `seccion5_historia_timeline.html`, `seccion6_cta.html`, `seccion7_footer.html` |
 | **Apoyo al Candidato** | Pendiente | `sigho-main/apoyo-candidato.html` | Por dividir en su carpeta copia correspondiente |
 | **Vacantes** | Pendiente | `sigho-main/vacantes.html` | Por dividir en su carpeta copia correspondiente |
