@@ -1,6 +1,16 @@
-/* ==========================================================================
-   CLARO PAIS PAGE STYLES - CLARO TALENTO (EXACT SIGHO-MAIN STYLES.CSS)
-   ========================================================================== */
+/* Base RESET & Overrides for Oracle HCM */
+.cc-column:has(.hero-bg-claro-pais),
+.cc-column:has(.unificado-claro-pais-wrapper),
+.cc-column__content:has(.hero-bg-claro-pais),
+.cc-column__content:has(.unificado-claro-pais-wrapper),
+.cc-element:has(.hero-bg-claro-pais),
+.cc-element:has(.unificado-claro-pais-wrapper) {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
 
 /* Hero Section */
 .hero-bg-claro-pais {
@@ -14,7 +24,7 @@
     background-size: cover !important;
     background-position: center !important;
     overflow: hidden !important;
-    min-height: 480px !important;
+    min-height: 440px !important;
     display: flex !important;
     align-items: center !important;
     padding-top: 4rem !important;
@@ -28,7 +38,12 @@
 }
 
 .hero-title-claro {
-    font-family: 'AMX Bold', 'Montserrat', sans-serif !important;
+    font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #111827 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
 }
 
 .text-red-claro {
@@ -36,7 +51,11 @@
 }
 
 .hero-desc-claro {
-    font-family: 'Lato', sans-serif !important;
+    font-family: 'Lato', Arial, sans-serif !important;
+    font-size: 1.1rem !important;
+    color: #4b5563 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 2rem !important;
 }
 
 .field-country-wrapper {
@@ -47,8 +66,6 @@
 .country-select {
     appearance: none !important;
     -webkit-appearance: none !important;
-    background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234b5563'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E") no-repeat right 1rem center !important;
-    background-size: 1.25rem !important;
     border: 1px solid #d1d5db !important;
     border-radius: 9999px !important;
     padding: 0.75rem 2.5rem 0.75rem 1.5rem !important;
@@ -68,19 +85,11 @@
 
 /* Results Bar (Impulsa tu carrera desde el inicio) */
 .results-bar {
-    width: 100vw !important;
-    min-width: 100vw !important;
-    position: relative !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-    background-color: #ffffff !important;
-    padding: 2.5rem 0 1.5rem 0 !important;
     text-align: center !important;
-    box-sizing: border-box !important;
+    margin-bottom: 2.5rem !important;
 }
 
-.results-bar h1 {
+.results-bar h1, .results-bar h2 {
     font-family: 'AMX Bold', 'Montserrat', Arial, sans-serif !important;
     font-size: 2.25rem !important;
     font-weight: 800 !important;
@@ -88,12 +97,12 @@
     margin: 0 !important;
 }
 
-/* Info Pair & Trio Cards */
+/* Info Pair & Trio Cards (Fondo suave sin bordes ni sombras separadas) */
 .info-pair {
     display: flex !important;
     flex-flow: row wrap !important;
     justify-content: space-between !important;
-    align-items: center !important;
+    align-items: stretch !important;
     gap: 2rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -102,11 +111,11 @@
 .trio-card {
     flex: 1 1 45% !important;
     min-width: 280px !important;
-    background: #ffffff !important;
+    background: #f3f4f6 !important;
     border-radius: 1.25rem !important;
     padding: 2rem !important;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
-    border: 1px solid #f3f4f6 !important;
+    border: none !important;
+    box-shadow: none !important;
     box-sizing: border-box !important;
 }
 
@@ -233,7 +242,7 @@
     color: #6b7280 !important;
 }
 
-/* Timeline (Nuestra historia) */
+/* Timeline (Nuestra historia - 100% Verbatim sin tarjetas blancas) */
 .timeline {
     display: flex !important;
     flex-flow: row wrap !important;
@@ -306,4 +315,19 @@
     line-height: 1.5 !important;
     margin: 0 !important;
     text-align: center !important;
+}
+
+/* CTA Banner con bg2.jpg visible y transparente */
+.cta-banner {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background-image: linear-gradient(to right, rgba(198, 39, 43, 0.35), rgba(142, 26, 29, 0.45)), url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@main/sigho-main/assets/images/bg2.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    padding: 4rem 0 !important;
+    box-sizing: border-box !important;
 }
