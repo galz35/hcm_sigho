@@ -126,7 +126,7 @@
 .trio-card {
     flex: 1 1 45% !important;
     min-width: 280px !important;
-    background: #f1f3f5 !important;
+    background: #ffffff !important;
     border-radius: 1.25rem !important;
     padding: 2rem !important;
     border: 0 !important;
@@ -135,6 +135,7 @@
     box-shadow: none !important;
     box-sizing: border-box !important;
 }
+
 
 
 .trio-card h3 {
