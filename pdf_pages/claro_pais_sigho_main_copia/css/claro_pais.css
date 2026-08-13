@@ -83,10 +83,11 @@
     border-color: #c6272b !important;
 }
 
-/* Results Bar (Impulsa tu carrera desde el inicio) */
+/* Results Bar (Impulsa tu carrera desde el inicio con subrayado rojo via CSS) */
 .results-bar {
     text-align: center !important;
     margin-bottom: 2.5rem !important;
+    position: relative !important;
 }
 
 .results-bar h1, .results-bar h2 {
@@ -96,6 +97,17 @@
     color: #1b1b1d !important;
     margin: 0 0 0.75rem 0 !important;
 }
+
+.results-bar::after {
+    content: "" !important;
+    display: block !important;
+    width: 220px !important;
+    height: 4px !important;
+    background-color: #c6272b !important;
+    margin: 12px auto 0 auto !important;
+    border-radius: 2px !important;
+}
+
 
 /* Info Pair & Trio Cards (Sin recuadro, transparente igual a Nuestra Cultura Local) */
 .info-pair {
