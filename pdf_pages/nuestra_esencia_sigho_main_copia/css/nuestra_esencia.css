@@ -2,21 +2,6 @@
    NUESTRA ESENCIA PAGE STYLES - CLARO TALENTO (EXACT SIGHO-MAIN STYLES.CSS)
    ========================================================================== */
 
-/* ANULACIÓN DE CONTENEDORES Y RELLENOS NATIVOS DE ORACLE HCM (.cc-column, .cc-column__content) */
-.cc-column:has(.strip-wrap-us),
-.cc-column:has(.quad-section-wrapper),
-.cc-column__content:has(.strip-wrap-us),
-.cc-column__content:has(.quad-section-wrapper),
-.cc-element--custom-html:has(.strip-wrap-us),
-.cc-element--custom-html:has(.quad-section-wrapper) {
-    background: transparent !important;
-    background-color: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-}
-
 /* Full Bleed White Wrapper Section */
 .quad-section-wrapper {
     background-color: #ffffff !important;

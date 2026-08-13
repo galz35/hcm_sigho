@@ -1,0 +1,162 @@
+/* ==========================================================================
+   ESTILOS NATIVOS LOGIN / GESTIONAR PERFIL DE ORACLE CLOUD HCM (CLARO TALENTO)
+   Targeting: data-route="candidate-self-service.sign-in" & .cs-sign-in__subpage
+   ========================================================================== */
+
+/* Fondo general de la vista de autenticación */
+:root [data-route="candidate-self-service.sign-in"] .app__content-wrapper,
+.cs-sign-in__subpage {
+    background-color: #F4F6F9 !important;
+    padding: 3rem 1.5rem !important;
+    min-height: calc(100vh - 200px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Tarjeta contenedora principal de Login (Basada en .auth-card) */
+.cs-sign-in__container {
+    background: #FFFFFF !important;
+    max-width: 480px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 2.5rem 2rem !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+    box-sizing: border-box !important;
+}
+
+/* Título de la tarjeta (Gestionar su Perfil) */
+.cs-sign-in__container .apply-flow-dialog__header {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    color: #1C1C1C !important;
+    text-align: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.3 !important;
+}
+
+/* Subtítulo / Texto explicativo */
+.cs-sign-in__container .apply-flow-dialog__text {
+    font-family: 'Open Sans', Arial, sans-serif !important;
+    font-size: 14px !important;
+    color: #6B7280 !important;
+    text-align: center !important;
+    line-height: 1.5 !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Formulario */
+.cs-sign-in__container form {
+    width: 100% !important;
+}
+
+/* Grupos de campos */
+.cs-sign-in__container .input-row {
+    margin-bottom: 1.25rem !important;
+    position: relative !important;
+}
+
+/* Etiquetas del input */
+.cs-sign-in__container .input-row__label {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    color: #1C1C1C !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+    text-align: left !important;
+}
+
+/* Campo de entrada (Input Correo) */
+.cs-sign-in__container input.input-row__control {
+    width: 100% !important;
+    height: 48px !important;
+    padding: 0 16px !important;
+    font-family: 'Open Sans', Arial, sans-serif !important;
+    font-size: 15px !important;
+    color: #1C1C1C !important;
+    background-color: #F9FAFB !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.cs-sign-in__container input.input-row__control:focus {
+    background-color: #FFFFFF !important;
+    border-color: #DA291C !important;
+    box-shadow: 0 0 0 4px rgba(218, 41, 28, 0.12) !important;
+    outline: none !important;
+}
+
+/* Nota aclaratoria del input */
+.cs-sign-in__container .input-row__note {
+    font-family: 'Open Sans', Arial, sans-serif !important;
+    font-size: 12.5px !important;
+    color: #9CA3AF !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+    text-align: left !important;
+}
+
+/* Footer con Botones */
+.cs-sign-in__container footer.apply-flow-pagination__buttons {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+    margin-top: 2rem !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid #F3F4F6 !important;
+}
+
+/* Botón Principal (Siguiente - Rojo Claro) */
+.cs-sign-in__container button.apply-flow-pagination__button.theme-color-1,
+.cs-sign-in__container button[type="submit"] {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14.5px !important;
+    background-color: #DA291C !important;
+    color: #FFFFFF !important;
+    padding: 12px 28px !important;
+    border-radius: 50px !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 14px rgba(218, 41, 28, 0.25) !important;
+    transition: all 0.2s ease-in-out !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+}
+
+.cs-sign-in__container button.apply-flow-pagination__button.theme-color-1:hover,
+.cs-sign-in__container button[type="submit"]:hover {
+    background-color: #B81E13 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(218, 41, 28, 0.35) !important;
+}
+
+/* Botón Secundario (Cancelar) */
+.cs-sign-in__container button.apply-flow-pagination__button.text-color-secondary {
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    background: transparent !important;
+    color: #6B7280 !important;
+    padding: 10px 20px !important;
+    border-radius: 50px !important;
+    border: 1.5px solid #E5E7EB !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.cs-sign-in__container button.apply-flow-pagination__button.text-color-secondary:hover {
+    color: #1C1C1C !important;
+    border-color: #9CA3AF !important;
+    background-color: #F9FAFB !important;
+}
