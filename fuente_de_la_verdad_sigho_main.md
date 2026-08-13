@@ -28,7 +28,7 @@ Para evitar bloqueos WAF (403), sobrecargar el editor de Oracle HCM o pegar múl
 
 ### Única línea requerida en Oracle HCM (Theme Custom CSS):
 ```css
-@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@b99916c/pdf_pages/pagina1_sigho_main_copia/css/master_bundle.css');
+@import url('https://cdn.jsdelivr.net/gh/galz35/hcm_sigho@9a00b7d/pdf_pages/pagina1_sigho_main_copia/css/master_bundle.css');
 ```
 
 > **Nota**: `master_bundle.css` empaqueta e importa internamente los módulos de `base`, `header`, `hero`, `buscador`, `highlights`, `benefits`, `video`, `process`, `cta`, `footer`, `font-claro`, `nuestra_esencia.css`, `claro_pais.css` y los estilos nativos para el **Login/Gestionar Perfil de Oracle HCM** (`cs-sign-in`).
