@@ -83,10 +83,22 @@
     border-color: #c6272b !important;
 }
 
-/* Results Bar (Impulsa tu carrera desde el inicio) */
+/* Results Bar (Impulsa tu carrera desde el inicio con linea roja inferior) */
 .results-bar {
     text-align: center !important;
     margin-bottom: 2.5rem !important;
+    padding-bottom: 6px !important;
+}
+
+.results-bar::after {
+    content: "" !important;
+    position: relative !important;
+    display: block !important;
+    height: 10px !important;
+    width: 25% !important;
+    max-width: 160px !important;
+    border-bottom: 4px solid #c6272b !important;
+    margin: 12px auto 25px auto !important;
 }
 
 .results-bar h1, .results-bar h2 {
@@ -96,6 +108,7 @@
     color: #1b1b1d !important;
     margin: 0 !important;
 }
+
 
 /* Info Pair & Trio Cards (Fondo suave sin bordes ni sombras separadas) */
 .info-pair {
